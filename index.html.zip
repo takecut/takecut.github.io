@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" type="image/png" href="images/logo1.png">
+  <meta charset="UTF-8">
+  <title>Take Cut | Produtora Audiovisual</title>
+<!-- 🛡️ PROTEÇÃO E SEGURANÇA -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- 🚀 PERFORMANCE E SEO -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="stars-bg" id="starsBg"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+  <a href="#home" class="logo">
+  <img src="images/logo.png" alt="Take Cut Logo">
+</a>
+
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <nav class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#services">Serviços</a>
+    <a href="#contact">Contato</a>
+  </nav>
+</header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="videos/bg.mp4" type="video/mp4">
+  </video>
+
+  <div>
+    <h1>Seu vídeo pode estar fazendo você perder dinheiro</h1>
+
+    <p>
+      A Take Cut cria vídeos que prendem atenção, aumentam conversão 
+      e fazem sua marca parecer impossível de ignorar.
+    </p>
+
+    <button class="btn-main" onclick="window.open('https://wa.me/5511994769848', '_blank')">Quero um vídeo assim</button>
+
+    <p class="hero-sub">Sem compromisso. Resposta rápida.</p>
+  </div>
+
+</section>
+
+<section class="showreel">
+
+  <h2>Nosso trabalho</h2>
+
+  <div class="result-item">
+    <div class="video-box horizontal destaque" onclick="playVideo(this)">
+      <img src="images/thumbshow.png" class="thumb">
+      <span class="play-btn">
+  <span class="play-icon"></span>
+</span>
+
+      <video class="video" controls>
+        <source src="videos/videop.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+</section>
+
+<section id="portfolio" class="portfolio">
+  <h2>Portfólio</h2>
+
+<div class="carousel-container" id="portfolioCarousel">	
+  <!-- 👇 SETAS EXCLUSIVAS DO CARROSSEL 👇 -->
+  <button class="carousel-prev" onclick="scrollPortfolio(-1)">‹</button>
+  <button class="carousel-next" onclick="scrollPortfolio(1)">›</button>
+  
+  <div class="carousel" id="carousel">
+
+      <!-- CARROSSEL HORIZONTAL -->
+      <div class="carousel-item">
+        <video autoplay muted loop playsinline>
+          <source src="videos/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="carousel-item">
+        <video autoplay muted loop playsinline>
+          <source src="videos/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+        <div class="carousel-item">
+        <video autoplay muted loop playsinline>
+          <source src="videos/video3.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="carousel-item">
+        <video autoplay muted loop playsinline>
+          <source src="videos/video4.mp4" type="video/mp4">
+        </video>
+      </div>
+
+ <div class="carousel-item">
+        <video autoplay muted loop playsinline>
+          <source src="videos/video5.mp4" type="video/mp4">
+        </video>
+      </div>
+
+  </div>
+
+</section>
+
+<section class="ia">
+
+  <h2>Vídeos com IA</h2>
+
+ <!-- VÍDEO PRINCIPAL -->
+  <div class="ia-main">
+
+    <div class="video-box horizontal destaque" onclick="playVideo(this)">
+      <img src="images/thumb3.png" class="thumb">
+      <span class="play-btn">
+  <span class="play-icon"></span>
+</span>
+
+      <video class="video" controls>
+        <source src="videos/videoia3.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="result-info">
+      <h3>Sem limites</h3>
+      <p>Com apenas duas imagens, podemos fazer qualquer coisa.</p>
+    </div>
+
+  </div>
+
+  <!-- VÍDEOS MENORES -->
+  <div class="ia-secondary">
+
+    <!-- QUADRADO -->
+    <div class="ia-card">
+      <div class="video-box square" onclick="playVideo(this)">
+        <img src="images/thumb4.png" class="thumb">
+        <span class="play-btn">
+  <span class="play-icon"></span>
+</span>
+
+        <video class="video" controls>
+          <source src="videos/videoia1.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="result-info">
+        <h3>Efeitos sonoros</h3>
+        <p>O realismo e os detalhes são valorizados.</p>
+      </div>
+    </div>
+
+    <!-- VERTICAL -->
+    <div class="ia-card">
+      <div class="video-box reels" onclick="playVideo(this)">
+        <img src="images/thumb5.png" class="thumb">
+        <span class="play-btn">
+  <span class="play-icon"></span>
+</span>
+
+        <video class="video" controls>
+          <source src="videos/videoia2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="result-info">
+        <h3>Modelo, cenário e produto</h3>
+        <p>Podemos vender o seu produto, da maneira que você desejar.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="results">
+
+  <h2>Resultados Reais</h2>
+
+  <div class="results-grid">
+
+    <!-- VÍDEO 1 -->
+    <div class="result-item item1">
+      
+      <div class="video-box" onclick="playVideo(this)">
+        <img src="images/thumb1.png" class="thumb">
+        <span class="play-btn">
+  <span class="play-icon"></span>
+</span>
+
+        <video class="video" controls>
+          <source src="videos/videor.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="result-info">
+        <h3>+240 mil visualizações</h3>
+        <p>Vídeo focado em tráfego pago, cortes rápidos, pouca duração,
+somente informação necessária.</p>
+      </div>
+
+    </div>
+
+    <!-- VÍDEO 2 -->
+    <div class="result-item item2">
+      
+      <div class="video-box" onclick="playVideo(this)">
+        <img src="images/thumb2.png" class="thumb">
+        <span class="play-btn">
+  <span class="play-icon"></span>
+</span>
+
+        <video class="video" controls>
+          <source src="videos/videor2.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="result-info">
+        <h3>+380 mil de visualizações</h3>
+        <p>Edição feita para anúncios de alta conversão.</p> 
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- SERVIÇOS -->
+ <section id="services" class="services">
+  <h2>O que a Take Cut faz pela sua marca</h2>
+
+  <p class="services-subtitle">
+    Não é só vídeo. É estratégia para atrair, prender e converter clientes.
+  </p>
+
+  <div class="services-grid">
+
+    <!-- SERVIÇO 1 -->
+    <div class="service-card fade-in">
+      <h3>🎬 Produção Completa</h3>
+      <p>
+        Do roteiro à gravação. Você não precisa se preocupar com nada, 
+        só com o resultado.
+      </p>
+    </div>
+
+    <!-- SERVIÇO 2 -->
+    <div class="service-card fade-in">
+      <h3>✂️ Edição de Alta Conversão</h3>
+      <p>
+        Cortes dinâmicos, ritmo acelerado e retenção máxima. 
+        Vídeos feitos para não serem ignorados.
+      </p>
+    </div>
+
+    <!-- SERVIÇO 3 -->
+    <div class="service-card fade-in">
+      <h3>📱 Conteúdo para Redes</h3>
+      <p>
+        Reels, TikTok, anúncios e conteúdo que realmente gera resultado.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="testimonials">
+
+  <h2>Quem já confiou na Take Cut</h2>
+
+  <div class="testimonials-grid">
+
+    <!-- DEPOIMENTO 1 -->
+    <div class="testimonial-card fade-in">
+      <p>
+        "O vídeo que vocês editaram ficou simplesmente incrível. Eu gostei
+demais do resultado, ficou profissional, envolvente e trouxe retorno real pra mim."
+      </p>
+      <h4>— Henrique Morais</h4>
+    </div>
+
+    <!-- DEPOIMENTO 2 -->
+    <div class="testimonial-card fade-in">
+      <p>
+        "A edição ficou fo**, você não prometeu nada e entregou tudo! 
+Você tá de parabéns, edição assim com uma perfeição surreal, muito bom mesmo."
+      </p>
+      <h4>— Tcherick O Desbravador</h4>
+    </div>
+
+    <!-- DEPOIMENTO 3 -->
+    <div class="testimonial-card fade-in">
+      <p>
+        "Eu amei Luan, muito obrigada pelo seu trabalho. Já chorei 50x e assisti 3x kkkkk"
+      </p>
+      <h4>— Vídeo de aniversário</h4>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="clients">
+
+  <h2>Empresas que confiam na Take Cut</h2>
+
+  <div class="clients-grid">
+
+    <img src="images/cliente1.png" alt="Cliente 1">
+    <img src="images/cliente2.png" alt="Cliente 2">
+    <img src="images/cliente3.png" alt="Cliente 3">
+    <img src="images/cliente4.png" alt="Cliente 4">
+    <img src="images/cliente5.png" alt="Cliente 5">
+
+  </div>
+
+</section>
+
+<section class="about">
+
+  <h2>Missão, Visão e Valores</h2>
+
+  <div class="about-grid">
+
+    <div class="about-card fade-in">
+      <h3>🚀 Missão</h3>
+      <p>Ajudar o próximo a conquistar o sucesso.</p>
+    </div>
+
+    <div class="about-card fade-in">
+      <h3>🎯 Visão</h3>
+      <p>Ser a melhor produtora audiovisual do país.</p>
+    </div>
+
+    <div class="about-card fade-in">
+      <h3>💎 Valores</h3>
+      <p>Autodidatismo, empatia, respeito, humildade.</p>
+  </div>
+
+</section>
+
+  <!-- CTA -->
+ <section id="contact" class="contact">
+
+  <h2>Vamos tirar sua ideia do papel?</h2>
+  <p class="contact-subtitle">
+    Fale com a Take Cut e receba uma resposta rápida.
+  </p>
+
+  <div class="contact-grid">
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/5511994769848" target="_blank" class="contact-card">
+      <h3>📱 WhatsApp</h3>
+      <p>Fale direto com a gente</p>
+    </a>
+
+    <!-- EMAIL -->
+    <a href="mailto:takecutedit@gmail.com" class="contact-card">
+      <h3>📧 Email</h3>
+      <p>Envie sua ideia</p>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a href="https://www.instagram.com/takecutedit/" target="_blank" class="contact-card">
+      <h3>📸 Instagram</h3>
+      <p>Acompanhe nossos trabalhos</p>
+    </a>
+
+  </div>
+
+</section>
+
+  <!-- BOTÃO WHATSAPP -->
+  <a href="https://wa.me/5511994769848" class="whatsapp" target="_blank">
+  <img src="images/whatsapp-icon.png" alt="WhatsApp">
+</a>
+
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeVideo()">×</span>
+    <video id="modalVideo" controls></video>
+  </div>
+</div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
