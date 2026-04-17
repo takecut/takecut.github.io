@@ -1148,7 +1148,7 @@ h2 {
 
 @keyframes cometFly {
   0% {
-    transform: translateX(-150vw) translateY(20vh) rotate(45deg);
+    transform: translateX(-150vw) translateY(-20vh) rotate(45deg);
     opacity: 0;
   }
   10% {
@@ -1158,7 +1158,7 @@ h2 {
     opacity: 1;
   }
   100% {
-    transform: translateX(150vw) translateY(80vh) rotate(45deg);
+    transform: translateX(150vw) translateY(60vh) rotate(45deg);
     opacity: 0;
   }
 }
