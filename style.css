@@ -1354,37 +1354,8 @@ img, video {
   .showreel {
     padding-top: 10px !important;
   }
-  
-  /* 🎠 CARROSSEL LOOP + MAIOR + SEM SETAS */
-  .carousel-container {
-    padding: 20px 10px !important;
+
+  .logo img { 
+    height: 28px !important; 
   }
-  
-  .carousel-prev,
-  .carousel-next {
-    display: none !important; /* ❌ SEM SETAS */
-  }
-  
-  .carousel {
-    gap: 15px !important;
-    padding: 0 25px 40px !important;
-    width: 200% !important; /* ← LOOP */
-    animation: scrollLoopMobile 35s linear infinite !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  
-  .carousel-item {
-    min-width: 290px !important;  /* ← MAIOR */
-    height: 170px !important;    /* ← MAIOR */
-    flex-shrink: 0;
-  }
-  
-  /* LOOP CELULAR */
-  @keyframes scrollLoopMobile {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  
-  .carousel::-webkit-scrollbar { display: none; }
 }
