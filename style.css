@@ -1254,46 +1254,28 @@ h2 {
   box-shadow: 0 0 20px rgba(0, 255, 178, 0.1);
 }
 
-/* 📱 CELULAR - TODOS AJUSTES */
 @media (max-width: 768px) {
+  .logo img { height: 28px !important; }
   
-  /* 🔽 LOGO MENOR */
-  .logo img {
-    height: 28px !important;
+  /* CARROSSEL CORRIGIDO */
+  .carousel-container { padding: 20px 5px !important; }
+  .carousel { gap: 8px !important; padding: 0 30px !important; }
+  .carousel-item { 
+    width: 260px !important; 
+    height: 150px !important; 
+    min-width: auto !important;
+  }
+  .carousel-item video { 
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: cover !important; 
   }
   
-@media (max-width: 768px) {
-  /* 🎠 CARROSSEL CELULAR - SEM ZOOM */
-  .carousel-container {
-    padding: 20px 5px !important;
-  }
-  
-  .carousel {
-    gap: 8px !important;
-    padding: 0 30px !important;
-  }
-  
-  .carousel-item {
-    width: 260px !important;      /* ← LARGURA FIXA */
-    height: 150px !important;     /* ← ALTURA FIXA */
-    min-width: auto !important;   /* ← SEM MIN-WIDTH */
-    flex-shrink: 0;
-    margin: 0 !important;
-  }
-  
-  .carousel-item video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* ← SEM ZOOM */
-  }
-  
-  /* SETAS MENOR */
-  .carousel-prev,
-  .carousel-next {
-    width: 35px !important;
-    height: 35px !important;
-    font-size: 18px !important;
-  }
+  /* RESTO DOS AJUSTES */
+  .results-grid { flex-direction: column !important; align-items: center !important; gap: 30px !important; }
+  .results .item1, .results .item2 { transform: none !important; max-width: 320px; }
+  .results .video-box { max-width: 300px !important; }
+  .whatsapp img { width: 50px !important; height: 50px !important; }
 }
   
   /* 📊 RESULTADOS REAIS CENTRALIZADOS */
