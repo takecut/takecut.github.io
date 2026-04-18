@@ -136,3 +136,9 @@ document.addEventListener('keydown', function(e) {
     }
   });
 })();
+
+// 📱 DUPLICA CARROSSEL PARA LOOP (SÓ CELULAR)
+if (window.innerWidth <= 768) {
+  const carousel = document.getElementById('carousel');
+  carousel.innerHTML += carousel.innerHTML; // DUPLICA vídeos
+}
