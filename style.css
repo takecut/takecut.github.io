@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 /* BASE */
 body {
 font-family: 'Inter', sans-serif; 
@@ -19,20 +24,23 @@ padding-top: 80px;
   top: 0;
   left: 0;
   width: 100%;
-  background: #0B0B0C;
+  background: rgba(11, 11, 12, 0.7);      /* ← SEMPRE TRANSPARENTE */
+  backdrop-filter: blur(10px);            /* ← SEMPRE BLUR */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3); /* ← SEMPRE SOMBRA */
   z-index: 9999;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 20px 40px;
-transition: all 0.3s ease;
+  padding: 5px 40px;  /* ← PADDING FIXO MENOR */
+  height: 60px;       /* ← ALTURA FIXA */
+  transition: all 0.3s ease;
 }
 
 .nav-links a {
   color: #00FFB2;
   position: relative;
+  text-decoration: none; 
 }
 
 .nav-links a::after {
@@ -50,13 +58,14 @@ transition: all 0.3s ease;
   width: 100%;
 }
 
-.navbar.scrolled {
-  background: rgba(11, 11, 12, 0.7);
-  backdrop-filter: blur(10px);
+.nav-links a {
+  margin-right: 15px;
+  font-size: 17px;
+  font-weight: 500;
+}
 
-  padding: 5px 40px;
-
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+.nav-links a:last-child {
+  margin-right: 0;
 }
 
 /* MENU MOBILE */
@@ -84,7 +93,7 @@ transition: all 0.3s ease;
 
 /* HERO */
 .hero {
-  height: 92vh;
+  height: 110vh;
   display: flex;
   align-items: center;
   padding: 40px;
@@ -538,6 +547,10 @@ section {
   font-size: 35px;
 }
 
+.showreel {
+  padding-top: 10px;  /* ← SÓ ESTA SEÇÃO */
+}
+
 /* CONTACT */
 .contact {
   text-align: center;
@@ -623,33 +636,36 @@ p {
 
 /* HERO COM VÍDEO */
 .hero {
+  height: 120vh;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  padding: 0px 40px 40px;
+  margin-top: -20px;
 }
 
 /* VÍDEO NO FUNDO */
 .bg-video {
   position: absolute;
-  top: 50%;
+  top: -10%;
   left: 50%;
-
   width: 100%;
-  height: 100%;
-
-  transform: translate(-50%, -50%);
+  height: 88%;
+  transform: translate(-50%, 0);
   object-fit: cover;
-
+  object-position: center 10%;
   z-index: -1;
 }
 
 /* ESCURECER PRA LER O TEXTO */
 .hero::after {
   content: "";
-  position: absolute;
+  position: fixed;  /* ← FIXED tb */
   inset: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 0;
-}
+  background: rgba(0,0,0,0.4);  /* ← MAIS ESCURO */
+  z-index: -1;
+}	
 
 /* GARANTE QUE O CONTEÚDO FICA NORMAL */
 .hero > div {
@@ -1098,7 +1114,7 @@ h2 {
   height: 2px;
   background: #00FFB2;
   border-radius: 50%;
-  animation: twinkle 3s infinite ease-in-out;
+  animation: twinkle 5s infinite ease-in-out;
 }
 
 .stars:nth-child(odd) {
@@ -1223,5 +1239,74 @@ h2 {
   
   .hero p {
     font-size: 18px !important;
+  }
+}
+
+/* ✨ GLOW SUAVE - SÓ 3 SEÇÕES ESPECÍFICAS */
+.services .service-card,
+.testimonials .testimonial-card,
+.about .about-card {
+  /* ❌ TIRA A ANIMAÇÃO DE FLUTUAR */
+  transform: none !important;
+  transition: box-shadow 0.3s ease !important;
+  
+  /* ✅ GLOW SUAVE PERMANENTE */
+  box-shadow: 0 0 20px rgba(0, 255, 178, 0.1);
+}
+
+/* 📱 CELULAR - TODOS AJUSTES */
+@media (max-width: 768px) {
+  
+  /* 🔽 LOGO MENOR */
+  .logo img {
+    height: 28px !important;
+  }
+  
+  /* 🎠 CARROSSEL CELULAR COMPACTO */
+  .carousel-container {
+    padding: 20px 10px !important;
+  }
+  
+  .carousel-item {
+    min-width: 240px !important;
+    height: 140px !important;
+    margin-right: 10px !important;
+  }
+  
+  .carousel {
+    gap: 10px !important;
+    padding: 0 20px !important;
+  }
+  
+  /* 📊 RESULTADOS REAIS CENTRALIZADOS */
+  .results-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+  
+  .results .item1,
+  .results .item2 {
+    transform: none !important;  /* ← TIRA TRANSFORM */
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .results .video-box {
+    max-width: 300px !important;
+  }
+  
+  /* 🔒 ZOOM FIXO - SEM ZOOM OUT */
+  body {
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* BOTÃO WHATSAPP */
+  .whatsapp img {
+    width: 50px !important;
+    height: 50px !important;
   }
 }
