@@ -1255,27 +1255,65 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  /* LOGO E OUTROS */
   .logo img { height: 28px !important; }
-  
-  /* CARROSSEL CORRIGIDO */
-  .carousel-container { padding: 20px 5px !important; }
-  .carousel { gap: 8px !important; padding: 0 30px !important; }
-  .carousel-item { 
-    width: 260px !important; 
-    height: 150px !important; 
-    min-width: auto !important;
-  }
-  .carousel-item video { 
-    width: 100% !important; 
-    height: 100% !important; 
-    object-fit: cover !important; 
-  }
-  
-  /* RESTO DOS AJUSTES */
   .results-grid { flex-direction: column !important; align-items: center !important; gap: 30px !important; }
   .results .item1, .results .item2 { transform: none !important; max-width: 320px; }
   .results .video-box { max-width: 300px !important; }
   .whatsapp img { width: 50px !important; height: 50px !important; }
+  
+  /* 🎠 CARROSSEL CELULAR - ARRASTE */
+  .carousel-container {
+    padding: 30px 10px !important;
+    position: relative;
+  }
+  
+  /* ESconde setas NO CELULAR */
+  .carousel-prev,
+  .carousel-next {
+    display: none !important;
+  }
+  
+  /* MENSAGEM "ARRaste" */
+  .carousel-container::before {
+    content: "👆 Arraste para o lado";
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,255,178,0.9);
+    color: #0B0B0C;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0,255,178,0.3);
+    z-index: 10;
+  }
+  
+  /* VÍDEOS PERFEITOS */
+  .carousel {
+    gap: 12px !important;
+    padding: 0 20px !important;
+    scrollbar-width: none;
+  }
+  
+  .carousel-item {
+    width: 250px !important;
+    height: 145px !important;
+    min-width: auto !important;
+    flex-shrink: 0;
+    margin: 0 !important;
+  }
+  
+  .carousel-item video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .carousel::-webkit-scrollbar { display: none; }
 }
   
   /* 📊 RESULTADOS REAIS CENTRALIZADOS */
