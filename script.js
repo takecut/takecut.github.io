@@ -29,16 +29,6 @@ function closeVideo() {
   video.src = "";
 }
 
-window.addEventListener("scroll", () => {
-  const navbar = document.querySelector(".navbar");
-
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
 function playVideo(element) {
   const thumb = element.querySelector(".thumb");
   const btn = element.querySelector(".play-btn");
@@ -114,7 +104,7 @@ function createUniverse() {
     const comet = document.createElement('div');
     comet.className = 'comet';
     comet.style.left = Math.random() * 100 + '%';
-    comet.style.top = Math.random() * 100 + '%';
+    comet.style.top = Math.random() * 50 + '%';
     comet.style.animationDelay = Math.random() * 8 + 's';
     comet.style.animationDuration = (Math.random() * 4 + 6) + 's';
     starsBg.appendChild(comet);
