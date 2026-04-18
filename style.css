@@ -1262,21 +1262,39 @@ h2 {
     height: 28px !important;
   }
   
-  /* 🎠 CARROSSEL CELULAR COMPACTO */
+@media (max-width: 768px) {
+  /* 🎠 CARROSSEL CELULAR - SEM ZOOM */
   .carousel-container {
-    padding: 20px 10px !important;
-  }
-  
-  .carousel-item {
-    min-width: 240px !important;
-    height: 140px !important;
-    margin-right: 10px !important;
+    padding: 20px 5px !important;
   }
   
   .carousel {
-    gap: 10px !important;
-    padding: 0 20px !important;
+    gap: 8px !important;
+    padding: 0 30px !important;
   }
+  
+  .carousel-item {
+    width: 260px !important;      /* ← LARGURA FIXA */
+    height: 150px !important;     /* ← ALTURA FIXA */
+    min-width: auto !important;   /* ← SEM MIN-WIDTH */
+    flex-shrink: 0;
+    margin: 0 !important;
+  }
+  
+  .carousel-item video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* ← SEM ZOOM */
+  }
+  
+  /* SETAS MENOR */
+  .carousel-prev,
+  .carousel-next {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 18px !important;
+  }
+}
   
   /* 📊 RESULTADOS REAIS CENTRALIZADOS */
   .results-grid {
