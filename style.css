@@ -1253,86 +1253,7 @@ h2 {
   /* ✅ GLOW SUAVE PERMANENTE */
   box-shadow: 0 0 20px rgba(0, 255, 178, 0.1);
 }
-
-@media (max-width: 768px) {
-  /* OUTROS AJUSTES */
-  .logo img { height: 28px !important; }
-  .results-grid { flex-direction: column !important; align-items: center !important; gap: 30px !important; }
-  .results .item1, .results .item2 { transform: none !important; max-width: 320px; }
-  .results .video-box { max-width: 300px !important; }
-  .whatsapp img { width: 50px !important; height: 50px !important; }
-  
-  /* 🎠 CARROSSEL CELULAR PERFEITO */
-  .carousel-container {
-    padding: 20px 10px !important;
-    -webkit-overflow-scrolling: touch; /* ← ARRASTE SUAVE */
-    overscroll-behavior: contain;
-  }
-  
-  /* ❌ SETAS FORA */
-  .carousel-prev,
-  .carousel-next { display: none !important; }
-  
-  /* 📝 "ARRaste" EMBAIXO DOS VÍDEOS */
-  .carousel-container::after {
-    content: "👆 Arraste para o lado →";
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,255,178,0.15);
-    color: #00FFB2;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: 500;
-    border: 1px solid rgba(0,255,178,0.3);
-    white-space: nowrap;
-    z-index: 10;
-  }
-  
-  /* VÍDEOS MAIORES */
-  .carousel {
-    gap: 10px !important;
-    padding: 0 25px 40px 25px !important; /* ← ESPAÇO EMBAIXO */
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .carousel-item {
-    width: 280px !important;  /* ← MAIOR */
-    height: 165px !important; /* ← MAIOR */
-    min-width: auto !important;
-    flex-shrink: 0;
-  }
-  
-  .carousel-item video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  
-  .carousel::-webkit-scrollbar { display: none; }
-}
-  
-  /* 📊 RESULTADOS REAIS CENTRALIZADOS */
-  .results-grid {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 30px !important;
-  }
-  
-  .results .item1,
-  .results .item2 {
-    transform: none !important;  /* ← TIRA TRANSFORM */
-    width: 100%;
-    max-width: 320px;
-  }
-  
-  .results .video-box {
-    max-width: 300px !important;
-  }
-  
+    
   /* 🔒 ZOOM FIXO - SEM ZOOM OUT */
   body {
     touch-action: manipulation;
@@ -1346,4 +1267,77 @@ h2 {
     width: 50px !important;
     height: 50px !important;
   }
+}
+
+/* 💻 RESULTADOS REAIS - PC PERFEITO */
+@media (min-width: 769px) {
+  .results-grid {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 80px !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+  }
+  
+  .results .item1 {
+    transform: translateX(-120px) !important; /* ← ESQUERDA */
+    max-width: 380px !important;
+  }
+  
+  .results .item2 {
+    transform: translateX(120px) !important;  /* ← DIREITA */
+    max-width: 420px !important;
+  }
+  
+  .results .item1 .video-box,
+  .results .item2 .video-box {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* 📱 CELULAR - VOLTAR AO NORMAL */
+@media (max-width: 768px) {
+  .results-grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 40px !important;
+  }
+  
+  .results .item1,
+  .results .item2 {
+    transform: none !important;
+    max-width: 340px !important;
+  }
+}
+
+/* 🛡️ PROTEÇÕES CSS */
+* {
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+img, video {
+  pointer-events: auto !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* 🚫 ANTI SELEÇÃO */
+::selection {
+  background: rgba(0,255,178,0.3);
+  color: #F5F5F5;
+}
+
+::-moz-selection {
+  background: rgba(0,255,178,0.3);
+  color: #F5F5F5;
 }
