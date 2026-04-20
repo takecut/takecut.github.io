@@ -1398,15 +1398,15 @@ img, video {
   .carousel {
     gap: 10px !important;
     width: max-content !important;
-    animation: carouselLoopMobile 12s linear infinite !important;
+    animation: carouselLoopMobile 20s linear infinite !important;
     padding: 0 25px 25px !important;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   
   .carousel-item {
-    width: 180px !important;  /* ← LARGURA */
-    height: 140px !important; /* ← ALTURA */
+    width: 160px !important;  /* ← LARGURA */
+    height: 120px !important; /* ← ALTURA */
     flex-shrink: 0 !important;
     border-radius: 12px;
     overflow: hidden;
