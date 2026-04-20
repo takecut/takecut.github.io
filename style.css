@@ -1353,78 +1353,40 @@ img, video {
   .showreel {
     padding-top: 10px !important;
   }
-  
-  /* ❌ CARROSSEL ESCONDIDO NO CELULAR */
+
+  /* 📱 MOBILE - VÍDEOS VERTICAIS */
+.mobile-videos {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* ❌ some carrossel */
   #portfolioCarousel {
     display: none !important;
   }
-  
-  .logo img { 
-    height: 28px !important; 
+
+  /* ✅ ativa lista */
+  .mobile-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  /* 🎥 cada vídeo */
+  .mobile-video {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .mobile-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
   }
 }
 
-/* 📱 CARROSSEL LOOP - SEM SETAS + BORDA INFINITA */
-@media (max-width: 768px) {
-  /* SEÇÕES */
-  section { padding: 50px 20px !important; scroll-margin-top: 70px !important; }
-  .showreel { padding-top: 10px !important; }
-  .logo img { height: 28px !important; }
-  .carousel-prev,
-.carousel-next {
-  display: none !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-} 
-  
-  /* CARROSSEL FULL WIDTH */
-  #portfolioCarousel {
-  display: block !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100vw !important;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  overflow: hidden;
-}
-  
-  /* ❌ SETAS DEFINITIVAMENTE FORA */
-  .carousel-prev,
-  .carousel-next {
-    display: none !important;
-  }
-  
-  .carousel {
-    gap: 10px !important;
-    width: max-content !important;
-    animation: carouselLoopMobile 20s linear infinite !important;
-    padding: 0 25px 25px !important;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  
-  .carousel-item {
-    width: 160px !important;  /* ← LARGURA */
-    height: 120px !important; /* ← ALTURA */
-    flex-shrink: 0 !important;
-    border-radius: 12px;
-    overflow: hidden;
-    flex-shrink: 0;
-    height: 180px !important;
-    }
-}
-  
-  .carousel-item video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-  
-  @keyframes carouselLoopMobile {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  
-  .carousel::-webkit-scrollbar { display: none; }
-}
