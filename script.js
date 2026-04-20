@@ -77,26 +77,20 @@ function scrollCarousel(direction) {
 // 🌌 CRIA O UNIVERSO
 function createUniverse() {
   const starsBg = document.getElementById('starsBg');
-  
-  // 150 estrelas piscando
-  for(let i = 0; i < 100; i++) {
+
+  for(let i = 0; i < 50; i++) {
     const star = document.createElement('div');
     star.className = 'stars';
     star.style.left = Math.random() * 100 + '%';
     star.style.top = Math.random() * 100 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
     starsBg.appendChild(star);
   }
-  
-  // 8 cometas voando
+
   for(let i = 0; i < 3; i++) {
     const comet = document.createElement('div');
     comet.className = 'comet';
     comet.style.left = Math.random() * 100 + '%';
     comet.style.top = Math.random() * 50 + '%';
-    comet.style.animationDelay = Math.random() * 3 + 's';
-    comet.style.animationDuration = (Math.random() * 4 + 6) + 's';
     starsBg.appendChild(comet);
   }
 }
