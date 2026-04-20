@@ -1405,7 +1405,7 @@ img, video {
   }
   
   .carousel-item {
-    width: 200px !important;  /* ← LARGURA */
+    width: 160px !important;  /* ← LARGURA */
     height: 160px !important; /* ← ALTURA */
     flex-shrink: 0 !important;
     border-radius: 12px;
