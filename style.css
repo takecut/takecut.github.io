@@ -1390,3 +1390,32 @@ img, video {
   }
 }
 
+  /* 🚫 KILL CARROSSEL MOBILE - FORÇA MÁXIMA */
+@media (max-width: 768px) {
+
+  #portfolioCarousel,
+  .carousel-container,
+  .carousel,
+  .carousel-item,
+  .carousel-prev,
+  .carousel-next {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+}
+
+  /* ✅ ATIVAR VÍDEOS MOBILE */
+@media (max-width: 768px) {
+
+  .mobile-videos {
+    display: flex !important;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+}
