@@ -2,6 +2,16 @@ function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("active");
 }
 
+// Fecha o menu ao clicar em qualquer link
+// Usando DOMContentLoaded para garantir que os links existem no iOS
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".nav-links a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      document.querySelector(".nav-links").classList.remove("active");
+    });
+  });
+});
+
 function openVideo(src) {
   const modal = document.getElementById("videoModal");
   const video = document.getElementById("modalVideo");
