@@ -223,18 +223,14 @@ p {
 
 /* GLOW + NEGRITO NOS TÍTULOS DAS SEÇÕES */
 h2 {
-  font-weight: 700;
-  text-shadow:
-    0 0 8px rgba(245, 245, 245, 0.5),
-    0 0 20px rgba(245, 245, 245, 0.2);
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(245, 245, 245, 0.15);
 }
 
 /* GLOW + NEGRITO NOS TÍTULOS DOS RESULTADOS */
 .result-info h3 {
-  font-weight: 800 !important;
-  text-shadow:
-    0 0 8px rgba(0, 255, 178, 0.6),
-    0 0 20px rgba(0, 255, 178, 0.3);
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 178, 0.25);
 }
 
 /* CAIXA DO VÍDEO */
@@ -865,7 +861,7 @@ img, video {
   /* LOGO MENOR NO MOBILE */
   /* 👇 Para mudar o tamanho da logo: altere os "px" abaixo */
   .logo img {
-    height: 25px !important;    /* ← TAMANHO DA LOGO NO CELULAR */
+    height: 28px !important;    /* ← TAMANHO DA LOGO NO CELULAR */
   }
 
   /* DISTÂNCIA ENTRE SEÇÕES */
