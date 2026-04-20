@@ -136,3 +136,9 @@ document.addEventListener('keydown', function(e) {
     }
   });
 })();
+
+// 📱 DUPLICA VÍDEOS PARA LOOP INFINITO
+if (window.innerWidth <= 768) {
+  const carousel = document.getElementById('carousel');
+  carousel.innerHTML += carousel.innerHTML; // DUPLICA os 5 vídeos
+}
