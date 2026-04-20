@@ -1363,3 +1363,54 @@ img, video {
     height: 28px !important; 
   }
 }
+
+/* 📱 CARROSSEL LOOP INFINITO - CELULAR DO ZERO */
+@media (max-width: 768px) {
+  /* SEÇÕES */
+  section { padding: 50px 20px !important; scroll-margin-top: 70px !important; }
+  .showreel { padding-top: 10px !important; }
+  .logo img { height: 28px !important; }
+  
+  /* CARROSSEL NOVO */
+  #portfolioCarousel {
+    display: block !important;
+    padding: 25px 15px !important;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel {
+    display: flex !important;
+    gap: 12px !important;
+    width: 200%; /* ← LOOP INFINITO */
+    animation: carouselLoopMobile 30s linear infinite !important;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-item {
+    width: 280px !important;  /* ← LARGURA (MUDA AQUI) */
+    height: 165px !important; /* ← ALTURA (MUDA AQUI) */
+    flex-shrink: 0 !important;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .carousel-item video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* LOOP ANIMAÇÃO */
+  @keyframes carouselLoopMobile {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  /* VELOCIDADE (muda o 30s) */
+  .carousel { animation-duration: 30s !important; } /* ← 25s=mais rápido | 40s=mais lento */
+  
+  .carousel::-webkit-scrollbar { display: none; }
+}
