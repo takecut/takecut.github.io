@@ -1396,7 +1396,7 @@ img, video {
   }
   
   .carousel {
-    gap: 14px !important;
+    gap: 10px !important;
     width: max-content !important;
     animation: carouselLoopMobile 12s linear infinite !important;
     padding: 0 25px 25px !important;
@@ -1406,18 +1406,14 @@ img, video {
   
   .carousel-item {
     width: 200px !important;  /* ← LARGURA */
-    height: 200px !important; /* ← ALTURA */
+    height: 160px !important; /* ← ALTURA */
     flex-shrink: 0 !important;
     border-radius: 12px;
     overflow: hidden;
     flex-shrink: 0;
-  }
-  
-  .carousel-item video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
+    height: 180px !important;
+    }
+}
   
   .carousel-item video {
     width: 100% !important;
