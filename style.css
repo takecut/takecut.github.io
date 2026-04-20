@@ -115,14 +115,12 @@ body {
 
 /* VÍDEO DE FUNDO DO HERO */
 /* 👇 PARA AJUSTAR O TAMANHO: mude "width" e "height" abaixo */
-/* width: 100% = ocupa toda a largura. Ex: 80% = mais estreito */
-/* height: 88% = ocupa 88% da altura. Ex: 70% = mais baixo */
 .bg-video {
   position: absolute;
   top: -10%;
   left: 50%;
-  width: 100%;      /* ← LARGURA DO VÍDEO DE FUNDO */
-  height: 88%;      /* ← ALTURA DO VÍDEO DE FUNDO */
+  width: 100%;
+  height: 88%;
   transform: translate(-50%, 0);
   object-fit: cover;
   object-position: center 10%;
@@ -138,11 +136,10 @@ body {
 }
 
 /* 👇 MUDE "margin-top" PARA SUBIR OU DESCER O TEXTO DO HERO NO DESKTOP */
-/* Ex: 50vh = meio da tela | 20vh = mais para cima | 70vh = mais para baixo */
 .hero > div {
   position: relative;
   z-index: 1;
-  margin-top: 40vh;   /* ← POSIÇÃO VERTICAL DO TEXTO */
+  margin-top: 40vh;
 }
 
 /* BOTÕES */
@@ -203,6 +200,7 @@ h2 {
   margin-bottom: 30px;
   color: #F5F5F5;
   font-weight: 600;
+  text-shadow: 0 0 12px rgba(245, 245, 245, 0.15);
 }
 
 p {
@@ -210,9 +208,8 @@ p {
 }
 
 /* SHOWREEL */
-/* 👇 Para aproximar do hero: diminua "padding-top". Ex: 0px = colado */
 .showreel {
-  padding-top: 0px;     /* ← DISTÂNCIA DO HERO ATÉ "NOSSO TRABALHO" */
+  padding-top: 0px;
 }
 
 .showreel h2 {
@@ -221,13 +218,7 @@ p {
   font-size: 35px;
 }
 
-/* GLOW + NEGRITO NOS TÍTULOS DAS SEÇÕES */
-h2 {
-  font-weight: 600;
-  text-shadow: 0 0 12px rgba(245, 245, 245, 0.15);
-}
-
-/* GLOW + NEGRITO NOS TÍTULOS DOS RESULTADOS */
+/* GLOW NOS TÍTULOS DOS RESULTADOS */
 .result-info h3 {
   font-weight: 600 !important;
   text-shadow: 0 0 10px rgba(0, 255, 178, 0.25);
@@ -554,9 +545,15 @@ h2 {
   transition: 0.3s;
 }
 
+/* 👇 ESPAÇO ENTRE TÍTULO E TEXTO NOS CARDS (Missão, Visão, Valores) */
+/* Aumente o número para mais espaço | Diminua para menos */
+.about-card h3 {
+  margin-bottom: 16px;   /* ← ESPAÇO ENTRE TÍTULO E TEXTO DO CARD */
+}
+
 .about-card p {
   opacity: 0.8;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 /* CONTACT */
@@ -639,27 +636,25 @@ h2 {
   width: 45px;
   height: 45px;
   transition: all 0.3s ease;
-  filter: drop-shadow(0 0 6px #00FFB2) drop-shadow(0 0 14px #00FFB2);
+  filter: none;
   animation: shakeAttention 4s infinite ease-in-out;
 }
 
-/* Fica parado, depois treme rápido, depois para de novo */
 @keyframes shakeAttention {
-  0%                        { transform: rotate(0deg); }
-  85%                       { transform: rotate(0deg); }
-  87%                       { transform: rotate(-12deg) scale(1.05); }
-  89%                       { transform: rotate(12deg) scale(1.05); }
-  91%                       { transform: rotate(-10deg); }
-  93%                       { transform: rotate(10deg); }
-  95%                       { transform: rotate(-6deg); }
-  97%                       { transform: rotate(6deg); }
-  99%                       { transform: rotate(0deg); }
-  100%                      { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg); }
+  85%  { transform: rotate(0deg); }
+  87%  { transform: rotate(-12deg) scale(1.05); }
+  89%  { transform: rotate(12deg) scale(1.05); }
+  91%  { transform: rotate(-10deg); }
+  93%  { transform: rotate(10deg); }
+  95%  { transform: rotate(-6deg); }
+  97%  { transform: rotate(6deg); }
+  99%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
 .whatsapp:hover img {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 25px #00FFB2) drop-shadow(0 0 50px #00FFB2);
+  transform: scale(1.15);
 }
 
 .whatsapp img:active {
@@ -791,10 +786,15 @@ img, video {
 
 /* =====================================================
    📱 MOBILE — tudo abaixo afeta SOMENTE celular
-   Para ajustar distância entre seções: mude "padding"
-   Ex: padding: 40px 20px = 40px em cima/baixo, 20px nas laterais
    ===================================================== */
 @media (max-width: 768px) {
+
+  /* ===== NAVBAR: CANTOS AJUSTÁVEIS ===== */
+  /* 👇 "padding" controla a distância da logo e do menu até as bordas */
+  /* Ex: "0 12px" = mais grudado nas bordas | "0 30px" = mais afastado */
+  .navbar {
+    padding: 0 16px !important;   /* ← DISTÂNCIA DOS CANTOS DA NAVBAR */
+  }
 
   /* ===== MENU MOBILE ===== */
   .menu-toggle {
@@ -859,7 +859,7 @@ img, video {
 
   .nav-links a:last-child {
     border-bottom: none !important;
-    color: #00FFB2 !important;  /* último link destaque verde */
+    color: #00FFB2 !important;
   }
 
   .nav-links a:active {
@@ -869,79 +869,52 @@ img, video {
   /* LOGO MENOR NO MOBILE */
   /* 👇 Para mudar o tamanho da logo: altere os "px" abaixo */
   .logo img {
-    height: 30px !important;    /* ← TAMANHO DA LOGO NO CELULAR */
+    height: 30px !important;   /* ← TAMANHO DA LOGO NO CELULAR */
   }
 
   /* DISTÂNCIA ENTRE SEÇÕES */
-  /* 👇 Os dois números são: cima/baixo e laterais */
-  /* Ex: "60px 20px" = 60px de espaço em cima e embaixo de cada seção */
   section {
     padding: 65px 20px !important;
     scroll-margin-top: 70px !important;
   }
 
   /* 👇 DISTÂNCIA DO "NOSSO TRABALHO" ATÉ O HERO */
-  /* Diminua o 1º número para ficar mais perto do hero */
-  /* Ex: "10px 20px" = quase colado | "50px 20px" = mais afastado */
   .showreel {
-    padding: 120px 20px 50px !important;   /* ← 1º número: espaço acima | 3º número: espaço abaixo */
+    padding: 120px 20px 50px !important;
   }
 
-  /* FONTES MENORES NO MOBILE */
-  /* 👇 Para mudar o tamanho dos títulos: altere os "px" abaixo */
-  h1 {
-    font-size: 32px !important;   /* ← TÍTULO GRANDE (hero) */
-  }
+  /* FONTES NO MOBILE */
+  h1 { font-size: 32px !important; }
+  h2 { font-size: 28px !important; }
+  h3 { font-size: 20px !important; }
+  p  { font-size: 16px !important; }
 
-  h2 {
-    font-size: 28px !important;   /* ← TÍTULOS DAS SEÇÕES */
-  }
-
-  h3 {
-    font-size: 20px !important;   /* ← TÍTULOS DOS CARDS */
-  }
-
-  p {
-    font-size: 16px !important;   /* ← TEXTO NORMAL */
-  }
-
-  .result-info h3 {
-    font-size: 20px !important;   /* ← TÍTULOS DOS RESULTADOS */
-  }
-
-  .result-info p {
-    font-size: 15px !important;
-  }
+  .result-info h3 { font-size: 20px !important; }
+  .result-info p  { font-size: 15px !important; }
 
   /* HERO NO CELULAR */
-  /* 👇 ALTURA DO HERO: mude para controlar quanto espaço o hero ocupa */
-  /* Ex: 80vh = tela quase inteira | 60vh = menor */
   .hero {
-    height: 80vh !important;      /* ← ALTURA DO HERO NO CELULAR */
+    height: 80vh !important;
     padding: 20px !important;
   }
 
-  /* VÍDEO DE FUNDO: cobre o hero inteiro, sem área preta */
   .bg-video {
     width: 100% !important;
-    height: 115% !important;      /* ← 100% = cobre todo o hero sem buracos */
+    height: 115% !important;
     top: 0 !important;
     left: 0 !important;
     transform: none !important;
   }
 
-  /* 👇 POSIÇÃO DO TEXTO DENTRO DO HERO */
-  /* Aumente para descer o texto | Diminua para subir */
-  /* Use px: 200px = mais abaixo | 80px = mais acima */
   .hero > div {
-    margin-top: 150px !important;  /* ← POSIÇÃO VERTICAL DO TEXTO NO CELULAR */
+    margin-top: 150px !important;
   }
 
-  /* WHATSAPP MENOR NO MOBILE */
+  /* WHATSAPP NO MOBILE: sem glow */
   .whatsapp img {
     width: 38px !important;
     height: 38px !important;
-    filter: drop-shadow(0 0 1px #00FFB2) drop-shadow(0 0 3px #00FFB2) !important;
+    filter: none !important;
     animation: shakeAttention 4s infinite ease-in-out !important;
   }
 
@@ -954,7 +927,7 @@ img, video {
 
   .results .item1,
   .results .item2 {
-    transform: none !important;   /* ← REMOVE O DESLOCAMENTO DO DESKTOP */
+    transform: none !important;
     max-width: 250px !important;
     width: 100% !important;
   }
@@ -972,17 +945,15 @@ img, video {
     align-items: center !important;
   }
 
-  .ia-card {
-    max-width: 300px !important;
-  }
+  .ia-card    { max-width: 300px !important; }
+  .ia-main    { margin-bottom: 40px !important; }
 
-  .ia-main {
-    margin-bottom: 40px !important;
-  }
+  .video-box.destaque { max-width: 100% !important; }
 
-  /* VÍDEO DESTAQUE MENOR */
-  .video-box.destaque {
-    max-width: 100% !important;
+  /* ESPAÇO ENTRE TÍTULO E TEXTO NOS CARDS NO MOBILE */
+  /* 👇 Aumente o número para mais espaço */
+  .about-card h3 {
+    margin-bottom: 14px !important;  /* ← ESPAÇO NO CELULAR */
   }
 
   /* PROTEÇÃO ZOOM */
