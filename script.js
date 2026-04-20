@@ -43,7 +43,7 @@ function playVideo(element) {
 
 function scrollCarousel(direction) {
   const carousel = document.getElementById("carousel");
-  const itemWidth = 500;  // ← Ajuste conforme seus vídeos
+  const itemWidth = 420;  // ← Ajuste conforme seus vídeos
   
   const maxScroll = carousel.scrollWidth - carousel.clientWidth;
 
@@ -62,6 +62,16 @@ function scrollCarousel(direction) {
     behavior: "smooth"
   });
 }
+
+function scrollPortfolio(direction) {
+  const carousel = document.getElementById("carousel");
+  const itemWidth = 600;
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  
+  if (direction === -1 && carousel.scrollLeft <= 0) {
+    carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
+    return;
+  }
   
   if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
     carousel.scrollTo({ left: 0, behavior: "smooth" });
@@ -79,7 +89,7 @@ function createUniverse() {
   const starsBg = document.getElementById('starsBg');
   
   // 150 estrelas piscando
-  for(let i = 0; i < 100; i++) {
+  for(let i = 0; i < 150; i++) {
     const star = document.createElement('div');
     star.className = 'stars';
     star.style.left = Math.random() * 100 + '%';
@@ -90,12 +100,12 @@ function createUniverse() {
   }
   
   // 8 cometas voando
-  for(let i = 0; i < 3; i++) {
+  for(let i = 0; i < 8; i++) {
     const comet = document.createElement('div');
     comet.className = 'comet';
     comet.style.left = Math.random() * 100 + '%';
     comet.style.top = Math.random() * 50 + '%';
-    comet.style.animationDelay = Math.random() * 3 + 's';
+    comet.style.animationDelay = Math.random() * 8 + 's';
     comet.style.animationDuration = (Math.random() * 4 + 6) + 's';
     starsBg.appendChild(comet);
   }
@@ -103,3 +113,32 @@ function createUniverse() {
 
 // Executa quando carrega
 window.addEventListener('load', createUniverse);
+
+// 🛡️ PROTEÇÕES JS
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+
+// ANTI F12 INSPECIONAR
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
+    e.preventDefault();
+    return false;
+  }
+});
+
+// ANTI DEVTOOLS
+(function() {
+  document.addEventListener('keydown', function(e) {
+    if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
+      e.preventDefault();
+      return false;
+    }
+  });
+})();
+
+// 📱 DUPLICA VÍDEOS PARA LOOP INFINITO
+if (window.innerWidth <= 768) {
+  const carousel = document.getElementById('carousel');
+  carousel.innerHTML += carousel.innerHTML; // DUPLICA os 5 vídeos
+}
