@@ -1,164 +1,145 @@
 function toggleMenu() {
-document.querySelector(".nav-links").classList.toggle("active");
+  document.querySelector(".nav-links").classList.toggle("active");
 }
-
 
 function openVideo(src) {
-const modal = document.getElementById("videoModal");
-const video = document.getElementById("modalVideo");
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
 
+  modal.style.display = "flex";
 
-modal.style.display = "flex";
+  video.src = src;
 
+  video.onloadedmetadata = () => {
+    video.style.width = "auto";
+    video.style.height = "auto";
+    video.style.maxWidth = "90vw";
+    video.style.maxHeight = "90vh";
+  };
 
-video.src = src;
-
-
-video.onloadedmetadata = () => {
-video.style.width = "auto";
-video.style.height = "auto";
-video.style.maxWidth = "90vw";
-video.style.maxHeight = "90vh";
-};
-
-
-video.play();
+  video.play();
 }
-
 
 function closeVideo() {
-const modal = document.getElementById("videoModal");
-const video = document.getElementById("modalVideo");
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
 
-
-modal.style.display = "none";
-video.pause();
-video.src = "";
+  modal.style.display = "none";
+  video.pause();
+  video.src = "";
 }
-
 
 function playVideo(element) {
-const thumb = element.querySelector(".thumb");
-const btn = element.querySelector(".play-btn");
-const video = element.querySelector(".video");
+  const thumb = element.querySelector(".thumb");
+  const btn = element.querySelector(".play-btn");
+  const video = element.querySelector(".video");
 
+  thumb.style.display = "none";
+  btn.style.display = "none";
+  video.style.display = "block";
 
-thumb.style.display = "none";
-btn.style.display = "none";
-video.style.display = "block";
-
-
-video.play();
+  video.play();
 }
-
 
 function scrollCarousel(direction) {
-const carousel = document.getElementById("carousel");
-const itemWidth = 420;  // ← Ajuste conforme seus vídeos
+  const carousel = document.getElementById("carousel");
+  const itemWidth = 420;  // ← Ajuste conforme seus vídeos
+  
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
 
+  if (direction === -1 && carousel.scrollLeft <= 0) {
+    carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
+    return;
+  }
 
-const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
+    carousel.scrollTo({ left: 0, behavior: "smooth" });
+    return;
+  }
 
-
-if (direction === -1 && carousel.scrollLeft <= 0) {
-carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
-return;
+  carousel.scrollBy({
+    left: direction * itemWidth,
+    behavior: "smooth"
+  });
 }
-
-
-if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
-carousel.scrollTo({ left: 0, behavior: "smooth" });
-return;
-}
-
-
-carousel.scrollBy({
-left: direction * itemWidth,
-behavior: "smooth"
-});
-}
-
 
 function scrollPortfolio(direction) {
-const carousel = document.getElementById("carousel");
-const itemWidth = 600;
-const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  const carousel = document.getElementById("carousel");
+  const itemWidth = 500;
 
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
 
-if (direction === -1 && carousel.scrollLeft <= 0) {
-carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
-return;
+  if (direction === -1 && carousel.scrollLeft <= 0) {
+    carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
+    return;
+  }
+
+  if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
+    carousel.scrollTo({ left: 0, behavior: "smooth" });
+    return;
+  }
+
+  carousel.scrollBy({
+    left: direction * itemWidth,
+    behavior: "smooth"
+  });
 }
-
-
-if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
-carousel.scrollTo({ left: 0, behavior: "smooth" });
-return;
-}
-
-
-carousel.scrollBy({
-left: direction * itemWidth,
-behavior: "smooth"
-});
-}
-
 
 // 🌌 CRIA O UNIVERSO
 function createUniverse() {
-const starsBg = document.getElementById('starsBg');
-
-
-// 150 estrelas piscando
-for(let i = 0; i < 150; i++) {
-const star = document.createElement('div');
-star.className = 'stars';
-star.style.left = Math.random() * 100 + '%';
-star.style.top = Math.random() * 100 + '%';
-star.style.animationDelay = Math.random() * 3 + 's';
-star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-starsBg.appendChild(star);
+  const starsBg = document.getElementById('starsBg');
+  
+  // 150 estrelas piscando
+  for(let i = 0; i < 150; i++) {
+    const star = document.createElement('div');
+    star.className = 'stars';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    starsBg.appendChild(star);
+  }
+  
+  // 8 cometas voando
+  for(let i = 0; i < 8; i++) {
+    const comet = document.createElement('div');
+    comet.className = 'comet';
+    comet.style.left = Math.random() * 100 + '%';
+    comet.style.top = Math.random() * 50 + '%';
+    comet.style.animationDelay = Math.random() * 8 + 's';
+    comet.style.animationDuration = (Math.random() * 4 + 6) + 's';
+    starsBg.appendChild(comet);
+  }
 }
-
-
-// 8 cometas voando
-for(let i = 0; i < 8; i++) {
-const comet = document.createElement('div');
-comet.className = 'comet';
-comet.style.left = Math.random() * 100 + '%';
-comet.style.top = Math.random() * 50 + '%';
-comet.style.animationDelay = Math.random() * 8 + 's';
-comet.style.animationDuration = (Math.random() * 4 + 6) + 's';
-starsBg.appendChild(comet);
-}
-}
-
 
 // Executa quando carrega
 window.addEventListener('load', createUniverse);
-
 
 // 🛡️ PROTEÇÕES JS
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('selectstart', e => e.preventDefault());
 document.addEventListener('dragstart', e => e.preventDefault());
 
-
 // ANTI F12 INSPECIONAR
 document.addEventListener('keydown', function(e) {
-if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
-e.preventDefault();
-return false;
-}
+  if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
+    e.preventDefault();
+    return false;
+  }
 });
-
 
 // ANTI DEVTOOLS
 (function() {
-document.addEventListener('keydown', function(e) {
-if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
-e.preventDefault();
-return false;
-}
-});
+  document.addEventListener('keydown', function(e) {
+    if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
+      e.preventDefault();
+      return false;
+    }
+  });
 })();
+
+// 📱 DUPLICA CARROSSEL PARA LOOP (SÓ CELULAR)
+if (window.innerWidth <= 768) {
+  const carousel = document.getElementById('carousel');
+  carousel.innerHTML += carousel.innerHTML; // DUPLICA vídeos
+}
