@@ -890,27 +890,27 @@ img, video {
   /* FONTES MENORES NO MOBILE */
   /* 👇 Para mudar o tamanho dos títulos: altere os "px" abaixo */
   h1 {
-    font-size: 33px !important;   /* ← TÍTULO GRANDE (hero) */
+    font-size: 32px !important;   /* ← TÍTULO GRANDE (hero) */
   }
 
   h2 {
-    font-size: 30px !important;   /* ← TÍTULOS DAS SEÇÕES */
+    font-size: 28px !important;   /* ← TÍTULOS DAS SEÇÕES */
   }
 
   h3 {
-    font-size: 22px !important;   /* ← TÍTULOS DOS CARDS */
+    font-size: 20px !important;   /* ← TÍTULOS DOS CARDS */
   }
 
   p {
-    font-size: 18px !important;   /* ← TEXTO NORMAL */
+    font-size: 16px !important;   /* ← TEXTO NORMAL */
   }
 
   .result-info h3 {
-    font-size: 22px !important;   /* ← TÍTULOS DOS RESULTADOS */
+    font-size: 20px !important;   /* ← TÍTULOS DOS RESULTADOS */
   }
 
   .result-info p {
-    font-size: 17px !important;
+    font-size: 15px !important;
   }
 
   /* HERO NO CELULAR */
