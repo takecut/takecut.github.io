@@ -114,19 +114,6 @@ function createUniverse() {
 // Executa quando carrega
 window.addEventListener('load', createUniverse);
 
-// 🛡️ PROTEÇÕES JS
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('selectstart', e => e.preventDefault());
-document.addEventListener('dragstart', e => e.preventDefault());
-
-// ANTI F12 INSPECIONAR
-document.addEventListener('keydown', function(e) {
-  if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
-    e.preventDefault();
-    return false;
-  }
-});
-
 // ANTI DEVTOOLS
 (function() {
   document.addEventListener('keydown', function(e) {
@@ -136,9 +123,3 @@ document.addEventListener('keydown', function(e) {
     }
   });
 })();
-
-// 📱 DUPLICA VÍDEOS PARA LOOP INFINITO
-if (window.innerWidth <= 768) {
-  const carousel = document.getElementById('carousel');
-  carousel.innerHTML += carousel.innerHTML; // DUPLICA os 5 vídeos
-}
