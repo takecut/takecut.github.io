@@ -1428,3 +1428,39 @@ img, video {
   
   .carousel::-webkit-scrollbar { display: none; }
 }
+
+/* =========================================
+   📱 MOBILE: SEM CARROSSEL + VÍDEOS EMPILHADOS
+   ========================================= */
+@media (max-width: 768px) {
+
+  /* 1. ESCONDE O CARROSSEL COMPLETAMENTE */
+  #portfolioCarousel {
+    display: none !important;
+  }
+
+  /* 2. MOSTRA OS VÍDEOS EMPILHADOS */
+  .mobile-videos {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+  }
+
+  .mobile-video {
+    width: 100% !important;
+    max-width: 360px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    aspect-ratio: 9/16 !important;
+  }
+
+  .mobile-video video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+}
