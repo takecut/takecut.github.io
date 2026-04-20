@@ -97,8 +97,8 @@ body {
   position: relative;
   overflow: visible;
   display: flex;
-  align-items: center;
-  padding: 0px 40px 40px;
+  align-items: flex-start;
+  padding: 40px;
   margin-top: -20px;
 }
 
@@ -137,9 +137,12 @@ body {
   z-index: -1;
 }
 
+/* 👇 MUDE "margin-top" PARA SUBIR OU DESCER O TEXTO DO HERO NO DESKTOP */
+/* Ex: 50vh = meio da tela | 20vh = mais para cima | 70vh = mais para baixo */
 .hero > div {
   position: relative;
   z-index: 1;
+  margin-top: 40vh;   /* ← POSIÇÃO VERTICAL DO TEXTO */
 }
 
 /* BOTÕES */
@@ -207,14 +210,31 @@ p {
 }
 
 /* SHOWREEL */
+/* 👇 Para aproximar do hero: diminua "padding-top". Ex: 0px = colado */
 .showreel {
-  padding-top: 10px;
+  padding-top: 0px;     /* ← DISTÂNCIA DO HERO ATÉ "NOSSO TRABALHO" */
 }
 
 .showreel h2 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 35px;
+}
+
+/* GLOW + NEGRITO NOS TÍTULOS DAS SEÇÕES */
+h2 {
+  font-weight: 700;
+  text-shadow:
+    0 0 8px rgba(245, 245, 245, 0.5),
+    0 0 20px rgba(245, 245, 245, 0.2);
+}
+
+/* GLOW + NEGRITO NOS TÍTULOS DOS RESULTADOS */
+.result-info h3 {
+  font-weight: 800 !important;
+  text-shadow:
+    0 0 8px rgba(0, 255, 178, 0.6),
+    0 0 20px rgba(0, 255, 178, 0.3);
 }
 
 /* CAIXA DO VÍDEO */
@@ -772,50 +792,95 @@ img, video {
    ===================================================== */
 @media (max-width: 768px) {
 
-  /* MENU */
+  /* ===== MENU MOBILE ===== */
   .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: #0B0B0C;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: flex;
     align-items: center;
-    padding-top: 40px;
-    transition: 0.3s;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #00FFB2;
+    border: 1px solid rgba(0, 255, 178, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
   }
 
+  .menu-toggle:active {
+    background: rgba(0, 255, 178, 0.1);
+  }
+
+  /* MENU FECHADO: some completamente */
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0 !important;
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 60px) !important;
+    background: rgba(11, 11, 12, 0.97) !important;
+    backdrop-filter: blur(16px) !important;
+  }
+
+  /* MENU ABERTO */
   .nav-links.active {
-    left: 0;
+    display: flex !important;
   }
 
+  /* Links individuais */
   .nav-links a {
-    margin: 20px 0;
-    font-size: 24px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 80% !important;
+    padding: 18px 0 !important;
+    margin: 0 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #F5F5F5 !important;
+    text-decoration: none !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .nav-links a:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none !important;
+    color: #00FFB2 !important;  /* último link destaque verde */
+  }
+
+  .nav-links a:active {
+    color: #00FFB2 !important;
   }
 
   /* LOGO MENOR NO MOBILE */
   /* 👇 Para mudar o tamanho da logo: altere os "px" abaixo */
   .logo img {
-    height: 23px !important;    /* ← TAMANHO DA LOGO NO CELULAR */
+    height: 25px !important;    /* ← TAMANHO DA LOGO NO CELULAR */
   }
 
   /* DISTÂNCIA ENTRE SEÇÕES */
   /* 👇 Os dois números são: cima/baixo e laterais */
   /* Ex: "60px 20px" = 60px de espaço em cima e embaixo de cada seção */
   section {
-    padding: 50px 20px !important;
+    padding: 65px 20px !important;
     scroll-margin-top: 70px !important;
   }
 
+  /* 👇 DISTÂNCIA DO "NOSSO TRABALHO" ATÉ O HERO */
+  /* Diminua o 1º número para ficar mais perto do hero */
+  /* Ex: "10px 20px" = quase colado | "50px 20px" = mais afastado */
   .showreel {
-    padding-top: 10px !important;
+    padding: 120px 20px 50px !important;   /* ← 1º número: espaço acima | 3º número: espaço abaixo */
   }
 
   /* FONTES MENORES NO MOBILE */
@@ -844,26 +909,43 @@ img, video {
     font-size: 15px !important;
   }
 
-  /* VÍDEO DE FUNDO DO HERO NO MOBILE */
-  /* 👇 Para ajustar o vídeo de fundo no celular: mude width e height */
+  /* HERO NO CELULAR */
+  /* 👇 ALTURA DO HERO: mude para controlar quanto espaço o hero ocupa */
+  /* Ex: 80vh = tela quase inteira | 60vh = menor */
+  .hero {
+    height: 80vh !important;      /* ← ALTURA DO HERO NO CELULAR */
+    padding: 20px !important;
+  }
+
+  /* VÍDEO DE FUNDO: cobre o hero inteiro, sem área preta */
   .bg-video {
-    width: 100% !important;       /* ← LARGURA NO CELULAR */
-    height: 76% !important;       /* ← ALTURA NO CELULAR */
+    width: 100% !important;
+    height: 115% !important;      /* ← 100% = cobre todo o hero sem buracos */
     top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  /* 👇 POSIÇÃO DO TEXTO DENTRO DO HERO */
+  /* Aumente para descer o texto | Diminua para subir */
+  /* Use px: 200px = mais abaixo | 80px = mais acima */
+  .hero > div {
+    margin-top: 150px !important;  /* ← POSIÇÃO VERTICAL DO TEXTO NO CELULAR */
   }
 
   /* WHATSAPP MENOR NO MOBILE */
-  /* 👇 Para mudar o tamanho do botão: altere os "px" abaixo */
   .whatsapp img {
-    width: 38px !important;       /* ← LARGURA DO BOTÃO WHATSAPP */
-    height: 38px !important;      /* ← ALTURA DO BOTÃO WHATSAPP */
+    width: 38px !important;
+    height: 38px !important;
+    /* Glow só na borda do ícone: drop-shadow com blur pequeno e spread próximo */
+    filter: drop-shadow(0 0 1px #00FFB2) drop-shadow(0 0 3px #00FFB2) !important;
+    animation: pulseGlowMobile 2.5s infinite ease-in-out !important;
   }
 
-  /* GLOW DO WHATSAPP MENOR */
-  @keyframes pulseGlow {
-    0%   { transform: scale(0.90);    filter: drop-shadow(0 0 0px #00FFB2) drop-shadow(0 0 0px #00FFB2); }
-    50%  { transform: scale(1.20); filter: drop-shadow(0 0 2px #00FFB2) drop-shadow(0 0 4px #00FFB2); }
-    100% { transform: scale(0.90);    filter: drop-shadow(0 0 0px #00FFB2) drop-shadow(0 0 0px #00FFB2); }
+  @keyframes pulseGlowMobile {
+    0%   { filter: drop-shadow(0 0 1px #00FFB2) drop-shadow(0 0 3px #00FFB2); }
+    50%  { filter: drop-shadow(0 0 2px #00FFB2) drop-shadow(0 0 5px #00FFB2); }
+    100% { filter: drop-shadow(0 0 1px #00FFB2) drop-shadow(0 0 3px #00FFB2); }
   }
 
   /* RESULTADOS: UM EMBAIXO DO OUTRO */
