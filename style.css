@@ -1342,9 +1342,8 @@ img, video {
   color: #F5F5F5;
 }
 
-/* 📱 SÓ CELULAR - SEÇÕES + CARROSSEL */
+/* 📱 SÓ SEÇÕES PRÓXIMAS - SEM CARROSSEL */
 @media (max-width: 768px) {
-  
   /* SEÇÕES MAIS PRÓXIMAS */
   section {
     padding: 50px 20px !important;
@@ -1354,7 +1353,12 @@ img, video {
   .showreel {
     padding-top: 10px !important;
   }
-
+  
+  /* ❌ CARROSSEL ESCONDIDO NO CELULAR */
+  #portfolioCarousel {
+    display: none !important;
+  }
+  
   .logo img { 
     height: 28px !important; 
   }
