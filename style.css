@@ -8,15 +8,11 @@
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: #0B0B0C;
+  color: #F5F5F5;
+  padding-top: 80px;
 }
-
-/* BASE */
-body {
-font-family: 'Inter', sans-serif; 
-  background-color: #0B0B0C; 
-  color: #F5F5F5; 
-padding-top: 80px; 
-} 
 
 /* NAVBAR */
 .navbar {
@@ -607,7 +603,7 @@ section {
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: 0.5s;
 }
 
 .fade-in.show {
@@ -984,29 +980,12 @@ h2 {
   border-left-color: #F5F5F5; /* setinha fica branca no hover */
 }
 
-/* 🔥 FAZ OS CARDS APARECEREM */
-.fade-in {
-  opacity: 0 !important;
-  transform: translateY(40px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.fade-in.show {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
 /* 🔥 CARDS SEMPRE VISÍVEIS */
 .service-card,
 .testimonial-card, 
 .about-card {
   opacity: 1 !important;
   transform: none !important;
-}
-
-.fade-in {
-  opacity: 1 !important;  /* ← FORÇA VISÍVEL */
-  transform: translateY(0) !important;
 }
 
 /* 🎥 SETAS NETFLIX */
@@ -1316,7 +1295,6 @@ h2 {
 /* 🛡️ PROTEÇÕES CSS */
 * {
   pointer-events: auto;
-  user-select: none;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
