@@ -1364,33 +1364,40 @@ img, video {
   }
 }
 
-/* 📱 CARROSSEL LOOP CELULAR - VISÍVEL */
+/* 📱 CARROSSEL LOOP - SEM SETAS + BORDA INFINITA */
 @media (max-width: 768px) {
   /* SEÇÕES */
   section { padding: 50px 20px !important; scroll-margin-top: 70px !important; }
-  .showreel {
+  .showreel { padding-top: 10px !important; }
+  .logo img { height: 28px !important; }
   
-  /* CARROSSEL NOVO */
+  /* CARROSSEL FULL WIDTH */
   #portfolioCarousel {
     display: block !important;
-    padding: 25px 15px !important;
-    position: relative;
+    padding: 25px 0 !important; /* ← SEM PADDING LATERAL */
+    margin: 0 -20px !important; /* ← SAI DAS BORDAS */
+    width: calc(100% + 40px) !important; /* ← BORDA INFINITA */
     overflow: hidden;
   }
   
+  /* ❌ SETAS DEFINITIVAMENTE FORA */
+  .carousel-prev,
+  .carousel-next {
+    display: none !important;
+  }
+  
   .carousel {
-    display: flex !important;
-    gap: 12px !important;
-    width: 200%; /* ← LOOP INFINITO */
-    animation: carouselLoopMobile 30s linear infinite !important;
-    padding-bottom: 20px;
-    scrollbar-width: none;
+    gap: 14px !important;
+    width: 200% !important;
+    animation: carouselLoopMobile 32s linear infinite !important;
+    padding: 0 25px 25px !important;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
   
   .carousel-item {
-    width: 280px !important;  /* ← LARGURA (MUDA AQUI) */
-    height: 165px !important; /* ← ALTURA (MUDA AQUI) */
+    width: 265px !important;  /* ← LARGURA */
+    height: 155px !important; /* ← ALTURA */
     flex-shrink: 0 !important;
     border-radius: 12px;
     overflow: hidden;
@@ -1402,14 +1409,16 @@ img, video {
     object-fit: cover !important;
   }
   
-  /* LOOP ANIMAÇÃO */
+  .carousel-item video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
   @keyframes carouselLoopMobile {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-  
-  /* VELOCIDADE (muda o 30s) */
-  .carousel { animation-duration: 30s !important; } /* ← 25s=mais rápido | 40s=mais lento */
   
   .carousel::-webkit-scrollbar { display: none; }
 }
