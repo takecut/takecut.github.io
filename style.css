@@ -1364,12 +1364,11 @@ img, video {
   }
 }
 
-/* 📱 CARROSSEL LOOP INFINITO - CELULAR DO ZERO */
+/* 📱 CARROSSEL LOOP CELULAR - VISÍVEL */
 @media (max-width: 768px) {
   /* SEÇÕES */
   section { padding: 50px 20px !important; scroll-margin-top: 70px !important; }
-  .showreel { padding-top: 10px !important; }
-  .logo img { height: 28px !important; }
+  .showreel {
   
   /* CARROSSEL NOVO */
   #portfolioCarousel {
