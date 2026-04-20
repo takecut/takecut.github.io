@@ -1331,17 +1331,6 @@ img, video {
   user-select: none;
 }
 
-/* 🚫 ANTI SELEÇÃO */
-::selection {
-  background: rgba(0,255,178,0.3);
-  color: #F5F5F5;
-}
-
-::-moz-selection {
-  background: rgba(0,255,178,0.3);
-  color: #F5F5F5;
-}
-
 /* 📱 SÓ SEÇÕES PRÓXIMAS - SEM CARROSSEL */
 @media (max-width: 768px) {
   /* SEÇÕES MAIS PRÓXIMAS */
