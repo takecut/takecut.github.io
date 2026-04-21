@@ -784,6 +784,94 @@ img, video {
 ::-moz-selection { background: rgba(0,255,178,0.3); color: #F5F5F5; }
 
 
+
+/* =====================================================
+   PORTFÓLIO — DESKTOP (CARROSSEL)
+   ===================================================== */
+
+.portfolio {
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Container com posição relativa para as setas ficarem dentro */
+.carousel-container {
+  position: relative;
+  padding: 0 60px;   /* espaço para as setas nas laterais */
+  margin-top: 20px;
+}
+
+/* Faixa de vídeos */
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;       /* esconde o que está fora da tela */
+  scroll-behavior: smooth;
+}
+
+/* Cada item */
+.carousel-item {
+  min-width: 320px;       /* ← LARGURA DE CADA VÍDEO NO CARROSSEL */
+  height: 180px;          /* ← ALTURA DE CADA VÍDEO NO CARROSSEL */
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* SETAS ESTILO NETFLIX */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid rgba(0, 255, 178, 0.4);
+  border-radius: 50%;
+  color: #00FFB2;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+  line-height: 1;
+  padding-bottom: 2px;
+}
+
+.carousel-prev { left: 4px; }
+.carousel-next { right: 4px; }
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: #00FFB2;
+  border-color: #00FFB2;
+  color: #0B0B0C;
+  box-shadow: 0 0 20px rgba(0, 255, 178, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* MOBILE: esconde carrossel, mostra empilhado */
+.portfolio-mobile {
+  display: none;
+}
+
 /* =====================================================
    📱 MOBILE — tudo abaixo afeta SOMENTE celular
    ===================================================== */
@@ -912,8 +1000,8 @@ img, video {
 
   /* WHATSAPP NO MOBILE: sem glow */
   .whatsapp img {
-    width: 48px !important;
-    height: 48px !important;
+    width: 38px !important;
+    height: 38px !important;
     filter: none !important;
     animation: shakeAttention 4s infinite ease-in-out !important;
   }
@@ -954,6 +1042,38 @@ img, video {
   /* 👇 Aumente o número para mais espaço */
   .about-card h3 {
     margin-bottom: 14px !important;  /* ← ESPAÇO NO CELULAR */
+  }
+
+
+  /* PORTFÓLIO MOBILE: esconde carrossel, mostra empilhado */
+  #portfolioCarousel {
+    display: none !important;
+  }
+
+  .portfolio-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 0 !important;
+    margin-top: 20px !important;
+  }
+
+  /* 👇 TAMANHO DOS VÍDEOS EMPILHADOS NO MOBILE */
+  /* max-width = largura máxima | aspect-ratio = proporção */
+  .portfolio-mobile-item {
+    width: 100% !important;
+    max-width: 340px !important;   /* ← LARGURA DOS VÍDEOS NO MOBILE */
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    aspect-ratio: 9/16 !important; /* ← PROPORÇÃO: 9/16 = vertical | 16/9 = horizontal */
+  }
+
+  .portfolio-mobile-item video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
   }
 
   /* PROTEÇÃO ZOOM */
