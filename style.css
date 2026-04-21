@@ -811,8 +811,8 @@ img, video {
 
 /* Cada item */
 .carousel-item {
-  min-width: 320px;       /* ← LARGURA DE CADA VÍDEO NO CARROSSEL */
-  height: 180px;          /* ← ALTURA DE CADA VÍDEO NO CARROSSEL */
+  min-width: 345px;       /* ← LARGURA DE CADA VÍDEO NO CARROSSEL */
+  height: 305px;          /* ← ALTURA DE CADA VÍDEO NO CARROSSEL */
   flex-shrink: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -1063,10 +1063,10 @@ img, video {
   /* max-width = largura máxima | aspect-ratio = proporção */
   .portfolio-mobile-item {
     width: 100% !important;
-    max-width: 340px !important;   /* ← LARGURA DOS VÍDEOS NO MOBILE */
+    max-width: 320px !important;   /* ← LARGURA DOS VÍDEOS NO MOBILE */
     border-radius: 12px !important;
     overflow: hidden !important;
-    aspect-ratio: 9/16 !important; /* ← PROPORÇÃO: 9/16 = vertical | 16/9 = horizontal */
+    aspect-ratio: 16/9 !important; /* ← PROPORÇÃO: 9/16 = vertical | 16/9 = horizontal */
   }
 
   .portfolio-mobile-item video {
