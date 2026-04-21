@@ -912,8 +912,8 @@ img, video {
 
   /* WHATSAPP NO MOBILE: sem glow */
   .whatsapp img {
-    width: 38px !important;
-    height: 38px !important;
+    width: 45px !important;
+    height: 45px !important;
     filter: none !important;
     animation: shakeAttention 4s infinite ease-in-out !important;
   }
