@@ -1,28 +1,44 @@
+// MENU
 function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("active");
 }
 
-// Fecha o menu ao clicar em qualquer link
-// Usando DOMContentLoaded para garantir que os links existem no iOS
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".nav-links a").forEach(function(link) {
-    link.addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  // Fecha menu ao clicar em link
+  document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
       document.querySelector(".nav-links").classList.remove("active");
     });
   });
+
+  // LAZY LOAD DE VÍDEOS: só carrega quando entra na tela
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const video = entry.target;
+          // Só inicia se ainda não carregou
+          if (video.readyState === 0) {
+            video.load();
+          }
+          videoObserver.unobserve(video);
+        }
+      });
+    }, { rootMargin: "200px" });
+
+    // Observa todos os vídeos com preload="none" exceto o bg do hero
+    document.querySelectorAll("video[preload='none']:not(.bg-video)").forEach(function (v) {
+      videoObserver.observe(v);
+    });
+  }
 });
 
+// MODAL
 function openVideo(src) {
   const modal = document.getElementById("videoModal");
   const video = document.getElementById("modalVideo");
   modal.style.display = "flex";
   video.src = src;
-  video.onloadedmetadata = () => {
-    video.style.width = "auto";
-    video.style.height = "auto";
-    video.style.maxWidth = "90vw";
-    video.style.maxHeight = "90vh";
-  };
   video.play();
 }
 
@@ -34,69 +50,71 @@ function closeVideo() {
   video.src = "";
 }
 
+// PLAY INLINE
 function playVideo(element) {
-  const thumb = element.querySelector(".thumb");
-  const btn = element.querySelector(".play-btn");
+  element.querySelector(".thumb").style.display = "none";
+  element.querySelector(".play-btn").style.display = "none";
   const video = element.querySelector(".video");
-  thumb.style.display = "none";
-  btn.style.display = "none";
   video.style.display = "block";
   video.play();
 }
 
-
+// CARROSSEL
 function scrollPortfolio(direction) {
   const carousel = document.getElementById("carousel");
-  // Pega a largura de um item + gap para rolar exatamente 1 card
   const item = carousel.querySelector(".carousel-item");
   const itemWidth = item ? item.offsetWidth + 16 : 336;
   const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-
   if (direction === -1 && carousel.scrollLeft <= 0) {
-    // Estava no início, vai para o final
     carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
     return;
   }
   if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
-    // Estava no final, volta ao início
     carousel.scrollTo({ left: 0, behavior: "smooth" });
     return;
   }
-
   carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
 }
 
-// 🌌 CRIA O UNIVERSO
+// UNIVERSO DE FUNDO
+// No mobile reduz estrelas pela metade para poupar CPU
 function createUniverse() {
-  const starsBg = document.getElementById('starsBg');
-  
-  for(let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.className = 'stars';
-    star.style.left = Math.random() * 100 + '%';
-    star.style.top = Math.random() * 100 + '%';
-    star.style.animationDelay = Math.random() * 3 + 's';
-    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-    starsBg.appendChild(star);
+  const starsBg = document.getElementById("starsBg");
+  const isMobile = window.innerWidth <= 768;
+  const starCount = isMobile ? 40 : 100;
+  const cometCount = isMobile ? 1 : 3;
+
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement("div");
+    star.className = "stars";
+    star.style.cssText =
+      "left:" + (Math.random() * 100) + "%;top:" + (Math.random() * 100) +
+      "%;animation-delay:" + (Math.random() * 3) + "s;animation-duration:" +
+      (Math.random() * 3 + 2) + "s";
+    fragment.appendChild(star);
   }
-  
-  for(let i = 0; i < 3; i++) {
-    const comet = document.createElement('div');
-    comet.className = 'comet';
-    comet.style.left = Math.random() * 100 + '%';
-    comet.style.top = Math.random() * 50 + '%';
-    comet.style.animationDelay = Math.random() * 3 + 's';
-    comet.style.animationDuration = (Math.random() * 4 + 6) + 's';
-    starsBg.appendChild(comet);
+
+  for (let i = 0; i < cometCount; i++) {
+    const comet = document.createElement("div");
+    comet.className = "comet";
+    comet.style.cssText =
+      "left:" + (Math.random() * 100) + "%;top:" + (Math.random() * 50) +
+      "%;animation-delay:" + (Math.random() * 3) + "s;animation-duration:" +
+      (Math.random() * 4 + 6) + "s";
+    fragment.appendChild(comet);
   }
+
+  starsBg.appendChild(fragment);
 }
 
-window.addEventListener('load', createUniverse);
+window.addEventListener("load", createUniverse);
 
 // ANTI DEVTOOLS
-(function() {
-  document.addEventListener('keydown', function(e) {
-    if(e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
+(function () {
+  document.addEventListener("keydown", function (e) {
+    if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
       e.preventDefault();
       return false;
     }
