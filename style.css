@@ -1000,8 +1000,8 @@ img, video {
 
   /* WHATSAPP NO MOBILE: sem glow */
   .whatsapp img {
-    width: 38px !important;
-    height: 38px !important;
+    width: 55px !important;
+    height: 55px !important;
     filter: none !important;
     animation: shakeAttention 4s infinite ease-in-out !important;
   }
