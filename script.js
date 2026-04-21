@@ -44,6 +44,28 @@ function playVideo(element) {
   video.play();
 }
 
+
+function scrollPortfolio(direction) {
+  const carousel = document.getElementById("carousel");
+  // Pega a largura de um item + gap para rolar exatamente 1 card
+  const item = carousel.querySelector(".carousel-item");
+  const itemWidth = item ? item.offsetWidth + 16 : 336;
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+  if (direction === -1 && carousel.scrollLeft <= 0) {
+    // Estava no início, vai para o final
+    carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
+    return;
+  }
+  if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
+    // Estava no final, volta ao início
+    carousel.scrollTo({ left: 0, behavior: "smooth" });
+    return;
+  }
+
+  carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
+}
+
 // 🌌 CRIA O UNIVERSO
 function createUniverse() {
   const starsBg = document.getElementById('starsBg');
