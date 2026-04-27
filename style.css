@@ -12,11 +12,11 @@ body {
 
 /* BASE */
 body {
-  font-family: 'Inter', sans-serif; 
-  background-color: #0B0B0C; 
-  color: #F5F5F5; 
-  padding-top: 80px; 
-} 
+  font-family: 'Inter', sans-serif;
+  background-color: #0B0B0C;
+  color: #F5F5F5;
+  padding-top: 80px;
+}
 
 /* NAVBAR */
 .navbar {
@@ -39,15 +39,13 @@ body {
 .nav-links a {
   color: #00FFB2;
   position: relative;
-  text-decoration: none; 
+  text-decoration: none;
   margin-right: 15px;
   font-size: 17px;
   font-weight: 500;
 }
 
-.nav-links a:last-child {
-  margin-right: 0;
-}
+.nav-links a:last-child { margin-right: 0; }
 
 .nav-links a::after {
   content: "";
@@ -60,9 +58,7 @@ body {
   transition: 0.3s;
 }
 
-.nav-links a:hover::after {
-  width: 100%;
-}
+.nav-links a:hover::after { width: 100%; }
 
 /* MENU MOBILE */
 .menu-toggle {
@@ -114,13 +110,13 @@ body {
 }
 
 /* VÍDEO DE FUNDO DO HERO */
-/* 👇 PARA AJUSTAR O TAMANHO: mude "width" e "height" abaixo */
+/* 👇 PARA AJUSTAR: mude "width" e "height" */
 .bg-video {
   position: absolute;
   top: -10%;
   left: 50%;
-  width: 100%;
-  height: 88%;
+  width: 100%;      /* ← LARGURA */
+  height: 88%;      /* ← ALTURA */
   transform: translate(-50%, 0);
   object-fit: cover;
   object-position: center 10%;
@@ -135,11 +131,11 @@ body {
   z-index: -1;
 }
 
-/* 👇 MUDE "margin-top" PARA SUBIR OU DESCER O TEXTO DO HERO NO DESKTOP */
+/* 👇 MUDE "margin-top" PARA SUBIR OU DESCER O TEXTO DO HERO */
 .hero > div {
   position: relative;
   z-index: 1;
-  margin-top: 40vh;
+  margin-top: 40vh;   /* ← POSIÇÃO VERTICAL DO TEXTO (desktop) */
 }
 
 /* BOTÕES */
@@ -163,9 +159,7 @@ button {
   box-shadow: 0 10px 25px rgba(0,255,178,0.3);
 }
 
-.btn-main:active {
-  transform: scale(0.97);
-}
+.btn-main:active { transform: scale(0.97); }
 
 .btn-main::after {
   content: "";
@@ -178,14 +172,9 @@ button {
   transition: 0.5s;
 }
 
-.btn-main:hover::after {
-  left: 100%;
-}
+.btn-main:hover::after { left: 100%; }
 
-/* SCROLL SUAVE */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 /* SEÇÕES */
 section {
@@ -193,24 +182,21 @@ section {
   scroll-margin-top: 100px;
 }
 
-/* TÍTULOS */
+/* TÍTULOS — TAREFA 5: negrito + glow desktop */
+/* 👇 font-weight: 600=médio 700=negrito 800=extra | rgba último número = força do glow */
 h2 {
   font-size: 35px;
   text-align: center;
   margin-bottom: 30px;
   color: #F5F5F5;
-  font-weight: 600;
-  text-shadow: 0 0 12px rgba(245, 245, 245, 0.15);
+  font-weight: 800;                                     /* ← NEGRITO */
+  text-shadow: 0 0 15px rgba(245, 245, 245, 0.25);     /* ← GLOW (desktop) */
 }
 
-p {
-  margin-bottom: 10px;
-}
+p { margin-bottom: 10px; }
 
 /* SHOWREEL */
-.showreel {
-  padding-top: 0px;
-}
+.showreel { padding-top: 0px; }
 
 .showreel h2 {
   text-align: center;
@@ -218,10 +204,19 @@ p {
   font-size: 35px;
 }
 
-/* GLOW NOS TÍTULOS DOS RESULTADOS */
+/* TAREFA 1: secure-text abaixo do showreel */
+.secure-text {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.6;
+  padding: 16px 0 0;
+}
+
+/* GLOW NOS TÍTULOS DOS RESULTADOS — TAREFA 5 */
+/* 👇 Ajuste o rgba para a força do glow verde */
 .result-info h3 {
-  font-weight: 600 !important;
-  text-shadow: 0 0 10px rgba(0, 255, 178, 0.25);
+  font-weight: 800 !important;
+  text-shadow: 0 0 15px rgba(0, 255, 178, 0.25) !important;  /* ← GLOW VERDE */
 }
 
 /* CAIXA DO VÍDEO */
@@ -244,32 +239,12 @@ p {
 }
 
 /* FORMATOS */
-.video-box.horizontal {
-  aspect-ratio: 16/9;
-  max-width: 500px;
-}
+.video-box.horizontal { aspect-ratio: 16/9; max-width: 500px; }
+.video-box.square     { aspect-ratio: 1/1;  max-width: 400px; }
+.video-box.reels      { aspect-ratio: 9/16; max-width: 228px; }
+.video-box.destaque   { max-width: 1100px; width: 100%; margin-top: 15px; }
 
-.video-box.square {
-  aspect-ratio: 1/1;
-  max-width: 400px;
-}
-
-.video-box.reels {
-  aspect-ratio: 9/16;
-  max-width: 228px;
-}
-
-.video-box.destaque {
-  max-width: 1100px;
-  width: 100%;
-  margin-top: 15px;
-}
-
-/* THUMB */
-.thumb {
-  width: 100%;
-  display: block;
-}
+.thumb { width: 100%; display: block; }
 
 /* BOTÃO PLAY */
 .play-btn {
@@ -295,7 +270,6 @@ p {
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
   margin-left: 3px;
-  margin-top: 0px;
 }
 
 .play-btn:hover {
@@ -303,21 +277,12 @@ p {
   box-shadow: 0 0 25px rgba(0,255,178,0.8);
 }
 
-.play-btn:hover .play-icon {
-  border-left-color: #F5F5F5;
-}
+.play-btn:hover .play-icon { border-left-color: #F5F5F5; }
 
-/* VÍDEO ESCONDIDO */
-.video {
-  display: none;
-  width: 100%;
-}
+.video { display: none; width: 100%; }
 
 /* RESULTADO INFO */
-.result-info {
-  text-align: center;
-  margin-top: 10px;
-}
+.result-info { text-align: center; margin-top: 10px; }
 
 .result-info h3 {
   color: #00FFB2;
@@ -332,57 +297,22 @@ p {
   opacity: 0.95 !important;
 }
 
-.result-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.result-item { display: flex; flex-direction: column; align-items: center; }
 
 /* IA */
-.ia {
-  text-align: center;
-}
+.ia { text-align: center; }
 
-.ia-main {
-  margin-top: 50px;
-  margin-bottom: 120px;
-}
+.ia-main { margin-top: 50px; margin-bottom: 120px; }
+.ia-main .video-box { max-width: 1000px; margin: 0 auto; }
+.ia-main .result-info { margin-top: 15px; }
 
-.ia-main .video-box {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.ia-main .result-info {
-  margin-top: 15px;
-}
-
-.ia-secondary {
-  display: flex;
-  justify-content: center;
-  gap: 400px;
-  flex-wrap: wrap;
-}
-
-.ia-card {
-  max-width: 800px;
-}
-
-.ia .result-info h3 {
-  color: #00FFB2;
-  margin-top: 15px;
-}
+.ia-secondary { display: flex; justify-content: center; gap: 400px; flex-wrap: wrap; }
+.ia-card { max-width: 800px; }
+.ia .result-info h3 { color: #00FFB2; margin-top: 15px; }
 
 /* RESULTADOS */
-.results {
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.results h2 {
-  font-size: 32px;
-  margin-bottom: 50px;
-}
+.results { padding: 100px 40px; text-align: center; }
+.results h2 { font-size: 32px; margin-bottom: 50px; }
 
 .results .results-grid {
   display: flex;
@@ -393,36 +323,15 @@ p {
   margin: 0 auto;
 }
 
-.results .item1 {
-  transform: translate(-250px, 6px);
-}
-
-.results .item2 {
-  transform: translate(115px, 5px);
-}
-
-.results .item1 .video-box {
-  max-width: 359px;
-}
-
-.results .item2 .video-box {
-  max-width: 450px;
-}
+.results .item1 { transform: translate(-250px, 6px); }
+.results .item2 { transform: translate(115px, 5px); }
+.results .item1 .video-box { max-width: 359px; }
+.results .item2 .video-box { max-width: 450px; }
 
 /* SERVIÇOS */
-.services {
-  text-align: center;
-}
-
-.services h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.services-subtitle {
-  opacity: 0.7;
-  margin-bottom: 50px;
-}
+.services { text-align: center; }
+.services h2 { font-size: 32px; margin-bottom: 10px; }
+.services-subtitle { opacity: 0.7; margin-bottom: 50px; }
 
 .services-grid {
   display: grid;
@@ -438,24 +347,12 @@ p {
   transition: 0.3s;
 }
 
-.service-card h3 {
-  margin-bottom: 15px;
-}
-
-.service-card p {
-  opacity: 0.8;
-  line-height: 1.5;
-}
+.service-card h3 { margin-bottom: 15px; }
+.service-card p { opacity: 0.8; line-height: 1.5; }
 
 /* DEPOIMENTOS */
-.testimonials {
-  text-align: center;
-}
-
-.testimonials h2 {
-  font-size: 32px;
-  margin-bottom: 50px;
-}
+.testimonials { text-align: center; }
+.testimonials h2 { font-size: 32px; margin-bottom: 50px; }
 
 .testimonials-grid {
   display: grid;
@@ -476,28 +373,12 @@ p {
   height: 100%;
 }
 
-.testimonial-card p {
-  font-style: italic;
-  margin-bottom: 15px;
-  opacity: 0.9;
-  min-height: 70px;
-}
-
-.testimonial-card h4 {
-  font-size: 14px;
-  opacity: 0.6;
-}
+.testimonial-card p { font-style: italic; margin-bottom: 15px; opacity: 0.9; min-height: 70px; }
+.testimonial-card h4 { font-size: 14px; opacity: 0.6; }
 
 /* CLIENTES */
-.clients {
-  text-align: center;
-}
-
-.clients h2 {
-  font-size: 35px;
-  margin-bottom: 60px;
-  color: #F5F5F5;
-}
+.clients { text-align: center; }
+.clients h2 { font-size: 35px; margin-bottom: 60px; color: #F5F5F5; }
 
 .clients-grid {
   display: grid;
@@ -506,29 +387,54 @@ p {
   align-items: center;
 }
 
+/* 👇 TAMANHO DAS LOGOS DE CLIENTES (desktop) */
 .clients-grid img {
   width: 100%;
-  max-width: 120px;
+  max-width: 180px;       /* ← LARGURA DESKTOP */
+  height: 100px;          /* ← ALTURA DESKTOP */
+  object-fit: contain;
   margin: 0 auto;
   filter: grayscale(100%);
   opacity: 0.6;
   transition: 0.3s;
 }
 
-.clients-grid img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.05);
-}
+.clients-grid img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
-/* ABOUT */
-.about {
+/* TAREFA 4: ABOUT — QUEM SOMOS */
+.about { text-align: center; }
+.about h2 { font-size: 32px; margin-bottom: 30px; }
+
+.quemsomos-texto {
+  max-width: 750px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
-.about h2 {
-  font-size: 32px;
-  margin-bottom: 50px;
+/* Frase em destaque */
+.quemsomos-texto p:first-child {
+  font-size: 20px;
+  font-style: italic;
+  color: #00FFB2;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  text-shadow: 0 0 12px rgba(0,255,178,0.3);
+}
+
+.quemsomos-texto p:last-child {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+/* Subtítulo "Missão, Visão e Valores" */
+.about-subtitle {
+  font-size: 22px;         /* ← TAMANHO DO SUBTÍTULO */
+  font-weight: 600;
+  color: #F5F5F5;
+  text-align: center;
+  margin-bottom: 30px;
+  opacity: 0.6;
 }
 
 .about-grid {
@@ -537,39 +443,43 @@ p {
   gap: 25px;
 }
 
+/* 👇 TAMANHO DOS CARDS: mude "padding" */
 .about-card {
   background: #1A1A1D;
-  padding: 40px;
+  padding: 28px;           /* ← TAMANHO INTERNO DOS CARDS */
   border-radius: 16px;
   text-align: left;
   transition: 0.3s;
 }
 
-/* 👇 ESPAÇO ENTRE TÍTULO E TEXTO NOS CARDS (Missão, Visão, Valores) */
-/* Aumente o número para mais espaço | Diminua para menos */
 .about-card h3 {
-  margin-bottom: 16px;   /* ← ESPAÇO ENTRE TÍTULO E TEXTO DO CARD */
+  margin-bottom: 16px;     /* ← ESPAÇO ENTRE TÍTULO E TEXTO */
 }
 
-.about-card p {
-  opacity: 0.8;
-  line-height: 1.7;
+.about-card p { opacity: 0.8; line-height: 1.7; }
+
+/* FAQ */
+.faq { text-align: center; }
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
 }
+
+.faq-item {
+  background: #1A1A1D;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.faq-item h3 { margin-bottom: 10px; color: #00FFB2; }
 
 /* CONTACT */
-.contact {
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.contact-subtitle {
-  opacity: 0.7;
-  margin-bottom: 50px;
-}
+.contact { text-align: center; }
+.contact h2 { font-size: 32px; margin-bottom: 10px; }
+.contact-subtitle { opacity: 0.7; margin-bottom: 50px; }
 
 .contact-grid {
   display: grid;
@@ -586,14 +496,8 @@ p {
   transition: 0.3s;
 }
 
-.contact-card p {
-  opacity: 0.7;
-  margin-top: 10px;
-}
-
-.contact-card:first-child {
-  border: 1px solid #00FFB2;
-}
+.contact-card p { opacity: 0.7; margin-top: 10px; }
+.contact-card:first-child { border: 1px solid #00FFB2; }
 
 /* HOVER GERAL */
 .service-card:hover,
@@ -608,13 +512,31 @@ p {
 .services .service-card,
 .testimonials .testimonial-card,
 .about .about-card {
-  box-shadow: 0 0 20px rgba(0, 255, 178, 0.1);
+  box-shadow: 0 0 20px rgba(0,255,178,0.1);
 }
 
-/* FADE IN */
-.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+.fade-in { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* TAREFA 7: BOTÃO VER MAIS */
+.btn-ver-mais {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 32px;
+  background: transparent;
+  border: 2px solid #00FFB2;
+  color: #00FFB2;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-mais:hover {
+  background: #00FFB2;
+  color: #0B0B0C;
+  box-shadow: 0 0 20px rgba(0,255,178,0.4);
+  transform: translateY(-2px);
 }
 
 /* BOTÃO WHATSAPP */
@@ -654,22 +576,15 @@ p {
   100% { transform: rotate(0deg); }
 }
 
-.whatsapp:hover img {
-  transform: scale(1.15);
-}
-
-.whatsapp img:active {
-  transform: scale(0.95);
-}
+.whatsapp:hover img { transform: scale(1.15); }
+.whatsapp img:active { transform: scale(0.95); }
 
 /* MODAL */
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0,0,0,0.95);
   justify-content: center;
   align-items: center;
@@ -678,43 +593,30 @@ p {
 }
 
 .modal-content {
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal video {
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
+  max-width: 90vw; max-height: 90vh;
+  width: auto; height: auto;
   object-fit: contain;
 }
 
-.close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  font-size: 30px;
-  cursor: pointer;
-  color: white;
-}
+.close { position: absolute; top: -40px; right: 0; font-size: 30px; cursor: pointer; color: white; }
 
-/* FULLSCREEN */
 video:fullscreen          { width: auto !important; height: auto !important; max-width: 100vw; max-height: 100vh; object-fit: contain !important; }
 video:-webkit-full-screen { width: auto !important; height: auto !important; object-fit: contain !important; }
 video:-moz-full-screen    { width: auto !important; height: auto !important; object-fit: contain !important; }
 
-/* UNIVERSO DE FUNDO */
+/* UNIVERSO */
 .stars-bg {
   position: fixed;
   contain: strict;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   pointer-events: none;
   z-index: -2;
   overflow: hidden;
@@ -722,8 +624,7 @@ video:-moz-full-screen    { width: auto !important; height: auto !important; obj
 
 .stars {
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: 2px; height: 2px;
   background: #00FFB2;
   border-radius: 50%;
   animation: twinkle 5s infinite ease-in-out;
@@ -739,8 +640,7 @@ video:-moz-full-screen    { width: auto !important; height: auto !important; obj
 
 .comet {
   position: absolute;
-  width: 2px;
-  height: 2px;
+  width: 2px; height: 2px;
   background: #00FFB2;
   border-radius: 50%;
   box-shadow: 0 0 10px #00FFB2, 0 0 20px #00FFB2, 0 0 30px #00FFB2;
@@ -751,10 +651,8 @@ video:-moz-full-screen    { width: auto !important; height: auto !important; obj
 .comet::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 2px;
+  top: 50%; left: 50%;
+  width: 100px; height: 2px;
   background: linear-gradient(90deg, transparent, #00FFB2, transparent);
   transform: translate(-50%, -50%);
   border-radius: 50%;
@@ -768,12 +666,7 @@ video:-moz-full-screen    { width: auto !important; height: auto !important; obj
 }
 
 /* PROTEÇÕES */
-* {
-  pointer-events: auto;
-  -webkit-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-}
+* { pointer-events: auto; -webkit-user-drag: none; -moz-user-drag: none; -o-user-drag: none; }
 
 img, video {
   pointer-events: auto !important;
@@ -786,65 +679,42 @@ img, video {
 ::selection      { background: rgba(0,255,178,0.3); color: #F5F5F5; }
 ::-moz-selection { background: rgba(0,255,178,0.3); color: #F5F5F5; }
 
-
-
-
-/* RENDERIZAÇÃO LAZY DAS SEÇÕES FORA DA TELA */
+/* RENDERIZAÇÃO LAZY */
 .ia, .results, .testimonials, .clients, .about {
   content-visibility: auto;
   contain-intrinsic-size: 0 500px;
 }
 
-/* =====================================================
-   PORTFÓLIO — DESKTOP (CARROSSEL)
-   ===================================================== */
+/* PORTFÓLIO — DESKTOP */
+.portfolio { text-align: center; overflow: hidden; }
 
-.portfolio {
-  text-align: center;
-  overflow: hidden;
-}
-
-/* Container com posição relativa para as setas ficarem dentro */
 .carousel-container {
   position: relative;
-  padding: 0 60px;   /* espaço para as setas nas laterais */
+  padding: 0 60px;
   margin-top: 20px;
 }
 
-/* Faixa de vídeos */
-.carousel {
-  display: flex;
-  gap: 16px;
-  overflow: hidden;       /* esconde o que está fora da tela */
-  scroll-behavior: smooth;
-}
+.carousel { display: flex; gap: 16px; overflow: hidden; scroll-behavior: smooth; }
 
-/* Cada item */
 .carousel-item {
-  min-width: 343px;       /* ← LARGURA DE CADA VÍDEO NO CARROSSEL */
-  height: 303px;          /* ← ALTURA DE CADA VÍDEO NO CARROSSEL */
+  min-width: 343px;    /* ← LARGURA DOS VÍDEOS NO CARROSSEL */
+  height: 303px;       /* ← ALTURA DOS VÍDEOS NO CARROSSEL */
   flex-shrink: 0;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.carousel-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.carousel-item video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* SETAS ESTILO NETFLIX */
+/* SETAS NETFLIX */
 .carousel-prev,
 .carousel-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  background: rgba(0, 0, 0, 0.75);
-  border: 2px solid rgba(0, 255, 178, 0.4);
+  width: 48px; height: 48px;
+  background: rgba(0,0,0,0.75);
+  border: 2px solid rgba(0,255,178,0.4);
   border-radius: 50%;
   color: #00FFB2;
   font-size: 28px;
@@ -857,7 +727,6 @@ img, video {
   transition: all 0.25s ease;
   backdrop-filter: blur(6px);
   line-height: 1;
-
 }
 
 .carousel-prev { left: -15px; }
@@ -868,52 +737,51 @@ img, video {
   background: #00FFB2;
   border-color: #00FFB2;
   color: #0B0B0C;
-  box-shadow: 0 0 20px rgba(0, 255, 178, 0.5);
+  box-shadow: 0 0 20px rgba(0,255,178,0.5);
   transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-prev:active,
-.carousel-next:active {
-  transform: translateY(-50%) scale(0.95);
+.carousel-next:active { transform: translateY(-50%) scale(0.95); }
+
+.portfolio-mobile { display: none; }
+
+/* RODAPÉ */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  background: #0B0B0C;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* MOBILE: esconde carrossel, mostra empilhado */
-.portfolio-mobile {
-  display: none;
-}
+.footer a { color: #00FFB2; text-decoration: none; }
+.footer p { margin-bottom: 6px; font-size: 14px; opacity: 0.7; }
+
 
 /* =====================================================
    📱 MOBILE — tudo abaixo afeta SOMENTE celular
    ===================================================== */
 @media (max-width: 768px) {
 
-  /* ===== NAVBAR: CANTOS AJUSTÁVEIS ===== */
-  /* 👇 "padding" controla a distância da logo e do menu até as bordas */
-  /* Ex: "0 12px" = mais grudado nas bordas | "0 30px" = mais afastado */
-  .navbar {
-    padding: 0 16px !important;   /* ← DISTÂNCIA DOS CANTOS DA NAVBAR */
-  }
+  /* NAVBAR */
+  .navbar { padding: 0 16px !important; }
 
-  /* ===== MENU MOBILE ===== */
   .menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     font-size: 22px;
     color: #00FFB2;
-    border: 1px solid rgba(0, 255, 178, 0.3);
-    border-radius: 8px;
+    border: none !important;
+    background: transparent !important;
     cursor: pointer;
     transition: all 0.2s ease;
   }
 
-  .menu-toggle:active {
-    background: rgba(0, 255, 178, 0.1);
-  }
+  .menu-toggle:active { background: rgba(0,255,178,0.1) !important; }
 
-  /* MENU FECHADO: some completamente */
+  /* MENU FECHADO */
   .nav-links {
     display: none !important;
     flex-direction: column !important;
@@ -921,20 +789,15 @@ img, video {
     align-items: center !important;
     gap: 0 !important;
     position: fixed !important;
-    top: 60px !important;
-    left: 0 !important;
+    top: 60px !important; left: 0 !important;
     width: 100% !important;
     height: calc(100vh - 60px) !important;
-    background: rgba(11, 11, 12, 0.97) !important;
+    background: rgba(11,11,12,0.97) !important;
     backdrop-filter: blur(16px) !important;
   }
 
-  /* MENU ABERTO */
-  .nav-links.active {
-    display: flex !important;
-  }
+  .nav-links.active { display: flex !important; }
 
-  /* Links individuais */
   .nav-links a {
     display: flex !important;
     align-items: center !important;
@@ -947,32 +810,16 @@ img, video {
     color: #F5F5F5 !important;
     text-decoration: none !important;
     letter-spacing: 0.05em !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
     transition: color 0.2s ease !important;
   }
 
-  .nav-links a:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.07) !important;
-  }
+  .nav-links a:first-child { border-top: 1px solid rgba(255,255,255,0.07) !important; }
+  .nav-links a:last-child  { border-bottom: none !important; color: #00FFB2 !important; }
+  .nav-links a:active      { color: #00FFB2 !important; }
 
-  .nav-links a:last-child {
-    border-bottom: none !important;
-    color: #00FFB2 !important;
-  }
-
-  .nav-links a:active {
-    color: #00FFB2 !important;
-  }
-
-  /* LOGO MENOR NO MOBILE */
-  /* 👇 Para mudar o tamanho da logo: altere os "px" abaixo */
-  .logo img {
-    height: 30px !important;   /* ← TAMANHO DA LOGO NO CELULAR */
-  }
-
-  .clients-grid img {
-  max-width: 90px !important;  /* ← tamanho no celular */
-  }
+  /* LOGO */
+  .logo img { height: 35px !important; }
 
   /* DISTÂNCIA ENTRE SEÇÕES */
   section {
@@ -980,89 +827,67 @@ img, video {
     scroll-margin-top: 70px !important;
   }
 
-  /* 👇 DISTÂNCIA DO "NOSSO TRABALHO" ATÉ O HERO */
-  .showreel {
-    padding: 120px 20px 50px !important;
+  .showreel { padding: 120px 20px 50px !important; }
+
+  /* FONTES */
+  h1 { font-size: 32px !important; }
+
+  /* TAREFA 6: glow dos títulos no mobile — ajuste o rgba */
+  h2 {
+    font-size: 28px !important;
+    text-shadow: 0 0 10px rgba(245, 245, 245, 0.15) !important;  /* ← GLOW MOBILE */
   }
 
-  /* FONTES NO MOBILE */
-  h1 { font-size: 32px !important; }
-  h2 { font-size: 28px !important; }
   h3 { font-size: 20px !important; }
   p  { font-size: 16px !important; }
 
-  .result-info h3 { font-size: 20px !important; }
-  .result-info p  { font-size: 15px !important; }
-
-  /* HERO NO CELULAR */
-  .hero {
-    height: 80vh !important;
-    padding: 20px !important;
+  .result-info h3 {
+    font-size: 20px !important;
+    text-shadow: 0 0 10px rgba(0,255,178,0.2) !important;
   }
+  .result-info p { font-size: 15px !important; }
+
+  /* HERO */
+  .hero { height: 80vh !important; padding: 20px !important; }
 
   .bg-video {
     width: 100% !important;
-    height: 115% !important;
-    top: 0 !important;
-    left: 0 !important;
+    height: 115% !important;   /* ← ALTURA DO VÍDEO NO CELULAR */
+    top: 0 !important; left: 0 !important;
     transform: none !important;
   }
 
-  .hero > div {
-    margin-top: 150px !important;
-  }
+  /* 👇 POSIÇÃO DO TEXTO NO HERO (celular) */
+  .hero > div { margin-top: 150px !important; }
 
-  /* WHATSAPP NO MOBILE: sem glow */
+  /* WHATSAPP */
+  .whatsapp { right: auto !important; left: 20px !important; }
   .whatsapp img {
-    width: 55px !important;
-    height: 55px !important;
+    width: 55px !important; height: 55px !important;
     filter: none !important;
     animation: shakeAttention 4s infinite ease-in-out !important;
   }
 
-  /* RESULTADOS: UM EMBAIXO DO OUTRO */
-  .results-grid {
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 40px !important;
-  }
+  /* RESULTADOS */
+  .results-grid { flex-direction: column !important; align-items: center !important; gap: 40px !important; }
+  .results .item1, .results .item2 { transform: none !important; max-width: 250px !important; width: 100% !important; }
+  .results .item1 .video-box, .results .item2 .video-box { max-width: 100% !important; width: 100% !important; }
 
-  .results .item1,
-  .results .item2 {
-    transform: none !important;
-    max-width: 250px !important;
-    width: 100% !important;
-  }
-
-  .results .item1 .video-box,
-  .results .item2 .video-box {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  /* IA: AJUSTE MOBILE */
-  .ia-secondary {
-    flex-direction: column !important;
-    gap: 40px !important;
-    align-items: center !important;
-  }
-
-  .ia-card    { max-width: 300px !important; }
-  .ia-main    { margin-bottom: 40px !important; }
-
+  /* IA */
+  .ia-secondary { flex-direction: column !important; gap: 40px !important; align-items: center !important; }
+  .ia-card      { max-width: 300px !important; }
+  .ia-main      { margin-bottom: 40px !important; }
   .video-box.destaque { max-width: 100% !important; }
 
-  /* ESPAÇO ENTRE TÍTULO E TEXTO NOS CARDS NO MOBILE */
-  /* 👇 Aumente o número para mais espaço */
-  .about-card h3 {
-    margin-bottom: 12px !important;  /* ← ESPAÇO NO CELULAR */
-  }
+  /* ABOUT CARDS */
+  .about-card h3 { margin-bottom: 12px !important; }
 
+  /* LOGOS CLIENTES MOBILE */
+  /* 👇 Mude para ajustar tamanho no celular */
+  .clients-grid img { max-width: 90px !important; height: auto !important; }
 
-  /* PORTFÓLIO MOBILE: esconde carrossel, mostra empilhado */
-  #portfolioCarousel {
-    display: none !important;
-  }
+  /* PORTFÓLIO MOBILE */
+  #portfolioCarousel { display: none !important; }
 
   .portfolio-mobile {
     display: flex !important;
@@ -1073,22 +898,27 @@ img, video {
     margin-top: 20px !important;
   }
 
-  /* 👇 TAMANHO DOS VÍDEOS EMPILHADOS NO MOBILE */
-  /* max-width = largura máxima | aspect-ratio = proporção */
+  /* 👇 TAMANHO DOS VÍDEOS EMPILHADOS */
   .portfolio-mobile-item {
     width: 100% !important;
-    max-width: 320px !important;   /* ← LARGURA DOS VÍDEOS NO MOBILE */
+    max-width: 320px !important;   /* ← LARGURA */
     border-radius: 12px !important;
     overflow: hidden !important;
-    aspect-ratio: 16/9 !important; /* ← PROPORÇÃO: 9/16 = vertical | 16/9 = horizontal */
+    aspect-ratio: 16/9 !important; /* ← 16/9=horizontal | 9/16=vertical */
   }
 
-  .portfolio-mobile-item video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
+  .portfolio-mobile-item video { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+
+  /* BOTÃO VER MAIS MOBILE */
+  .btn-ver-mais { font-size: 15px !important; padding: 10px 24px !important; }
+
+  /* SECURE TEXT MOBILE */
+  .secure-text { font-size: 13px !important; }
+
+  /* QUEM SOMOS MOBILE */
+  .quemsomos-texto p:first-child { font-size: 16px !important; }
+  .quemsomos-texto p:last-child  { font-size: 14px !important; }
+  .about-subtitle { font-size: 18px !important; }
 
   /* PROTEÇÃO ZOOM */
   body {
@@ -1098,4 +928,146 @@ img, video {
     user-select: none;
   }
 
+  /* =====================================================
+     TAREFA 2: LOADING SCREEN (mobile)
+     ===================================================== */
+  #loadingScreen {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: #0B0B0C;
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease;
+  }
+
+  #loadingScreen.done { opacity: 0; pointer-events: none; }
+
+  .loading-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 75%;
+  }
+
+  .loading-logo {
+    height: 50px; width: auto;
+    filter: drop-shadow(0 0 10px rgba(0,255,178,0.5));
+  }
+
+  .loading-text {
+    font-size: 15px !important;
+    color: #F5F5F5;
+    opacity: 0.7;
+    letter-spacing: 0.1em;
+    margin: 0 !important;
+  }
+
+  .loading-bar-bg {
+    width: 100%; height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .loading-bar {
+    height: 100%; width: 0%;
+    background: #00FFB2;
+    border-radius: 99px;
+    box-shadow: 0 0 8px rgba(0,255,178,0.6);
+    transition: width 0.1s linear;
+  }
+
+  /* =====================================================
+     TAREFA 8: PICKER CIRCULAR — DEPOIMENTOS E FAQ
+     ===================================================== */
+
+  /* Janela fixa do picker */
+  .testimonials,
+  .faq {
+    height: 420px;             /* ← ALTURA DA JANELA DO PICKER */
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonials h2,
+  .faq h2 {
+    flex-shrink: 0;
+    margin-bottom: 16px !important;
+  }
+
+  /* Trilho vertical */
+  .testimonials-grid,
+  .faq-list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: 100%;
+    perspective: 800px;
+    perspective-origin: center center;
+    overflow: visible !important;
+    grid-template-columns: unset !important;
+  }
+
+  /* Cada card */
+  .testimonial-card,
+  .faq-item {
+    width: 85% !important;
+    flex-shrink: 0 !important;
+    height: 110px !important;  /* ← ALTURA DE CADA CARD */
+    padding: 14px 16px !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+                opacity 0.3s ease,
+                box-shadow 0.3s ease;
+    transform-origin: center center;
+    cursor: grab;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    min-height: unset !important;
+  }
+
+  .testimonial-card:active,
+  .faq-item:active { cursor: grabbing; }
+
+  /* Linhas que marcam o card ativo */
+  .testimonials::before, .faq::before,
+  .testimonials::after,  .faq::after {
+    content: "";
+    position: absolute;
+    left: 7.5%; width: 85%;
+    height: 1px;
+    background: rgba(0,255,178,0.2);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .testimonials::before, .faq::before { top: calc(50% - 58px); }
+  .testimonials::after,  .faq::after  { top: calc(50% + 58px); }
+
+  /* Fades nas bordas */
+  .picker-fade {
+    position: absolute;
+    left: 0; width: 100%;
+    height: 100px;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .picker-fade.top    { top: 0;    background: linear-gradient(to bottom, #0B0B0C 0%, transparent 100%); }
+  .picker-fade.bottom { bottom: 0; background: linear-gradient(to top,    #0B0B0C 0%, transparent 100%); }
+
 }
+
+/* Loading: oculto no desktop */
+#loadingScreen { display: none; }
