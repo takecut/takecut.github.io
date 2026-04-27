@@ -3,8 +3,8 @@
 <head>
 <meta name="description" content="Produtora audiovisual especializada em vídeos que aumentam conversão. Edição profissional, vídeos com IA e conteúdo para redes sociais.">
 <link rel="icon" type="image/png" href="logo1.png">
-  <meta charset="UTF-8">
-  <title>Produtora de Vídeo em São Paulo | Edição Profissional e Vídeos com IA</title>
+<meta charset="UTF-8">
+<title>Produtora de Vídeo em São Paulo | Edição Profissional e Vídeos com IA</title>
 <meta http-equiv="Content-Security-Policy" content="
 default-src 'self';
 script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
@@ -33,6 +33,18 @@ font-src https://fonts.gstatic.com;
 </script>
 </head>
 <body>
+
+<!-- TAREFA 2: Loading screen — aparece só no mobile -->
+<div id="loadingScreen">
+  <div class="loading-inner">
+    <img src="logo.png" alt="Take Cut" class="loading-logo">
+    <p class="loading-text">Renderizando</p>
+    <div class="loading-bar-bg">
+      <div class="loading-bar" id="loadingBar"></div>
+    </div>
+  </div>
+</div>
+
 <div class="stars-bg" id="starsBg"></div>
 
 <header class="navbar">
@@ -69,11 +81,14 @@ font-src https://fonts.gstatic.com;
       </video>
     </div>
   </div>
+  <!-- TAREFA 1: Navegue tranquilo abaixo do showreel -->
+  <p class="secure-text">🔒 Navegue tranquilo, nosso site é seguro</p>
 </section>
 
 <section id="portfolio" class="portfolio">
   <h2>Portfólio</h2>
 
+  <!-- DESKTOP: carrossel -->
   <div class="carousel-container" id="portfolioCarousel">
     <button class="carousel-prev" onclick="scrollPortfolio(-1)">&#8249;</button>
     <button class="carousel-next" onclick="scrollPortfolio(1)">&#8250;</button>
@@ -86,6 +101,7 @@ font-src https://fonts.gstatic.com;
     </div>
   </div>
 
+  <!-- MOBILE: empilhados -->
   <div class="portfolio-mobile">
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
@@ -93,6 +109,9 @@ font-src https://fonts.gstatic.com;
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
   </div>
+
+  <!-- TAREFA 7: Botão Ver mais -->
+  <a href="portfolio.html" class="btn-ver-mais">Ver mais</a>
 </section>
 
 <section class="ia">
@@ -181,6 +200,7 @@ font-src https://fonts.gstatic.com;
   </div>
 </section>
 
+<!-- TAREFA 8: picker circular no mobile -->
 <section class="testimonials">
   <h2>Quem já confiou na Take Cut</h2>
   <div class="testimonials-grid">
@@ -210,8 +230,14 @@ font-src https://fonts.gstatic.com;
   </div>
 </section>
 
+<!-- TAREFA 4: Quem somos -->
 <section class="about">
-  <h2>Missão, Visão e Valores</h2>
+  <h2>Quem somos</h2>
+  <div class="quemsomos-texto">
+    <p>"Todo vídeo tem uma boa história, ele só precisa ser apresentado do jeito certo."</p>
+    <p>A Take Cut surgiu para elevar o nível da comunicação de quem precisa ser visto, ouvido e lembrado. Aqui, cada take recebe atenção, cada frame tem intenção e cada corte é pensado para entregar aquilo que faz o público parar e assistir até o fim.</p>
+  </div>
+  <h3 class="about-subtitle">Missão, Visão e Valores</h3>
   <div class="about-grid">
     <div class="about-card fade-in">
       <h3>🚀 Missão</h3>
@@ -224,6 +250,33 @@ font-src https://fonts.gstatic.com;
     <div class="about-card fade-in">
       <h3>💎 Valores</h3>
       <p>Autodidatismo, empatia, respeito, humildade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TAREFA 8: picker circular no mobile -->
+<section class="faq">
+  <h2>Perguntas Frequentes</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3>Quanto tempo leva para produzir um vídeo?</h3>
+      <p>Depende da complexidade, mas geralmente entre 2 a 7 dias úteis.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Vocês fazem vídeos com IA?</h3>
+      <p>Sim, criamos vídeos completos utilizando inteligência artificial.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Preciso fornecer roteiro?</h3>
+      <p>Não precisa, cuidamos de todo o processo criativo para você. Mas se tiver um roteiro pronto, trabalhamos também.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Atendem fora de São Paulo?</h3>
+      <p>Sim, atendemos clientes de todo o Brasil. A maioria dos projetos é feita 100% online.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Qual o investimento para um vídeo?</h3>
+      <p>O valor varia conforme o tipo e complexidade do projeto. Entre em contato para receber um orçamento personalizado.</p>
     </div>
   </div>
 </section>
@@ -257,6 +310,12 @@ font-src https://fonts.gstatic.com;
     <video id="modalVideo" controls preload="none"></video>
   </div>
 </div>
+
+<!-- TAREFA 3: rodapé com links corretos -->
+<footer class="footer">
+  <p>© 2026 Take Cut. Todos os direitos reservados.</p>
+  <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
+</footer>
 
 <script src="script.js" defer></script>
 </body>
