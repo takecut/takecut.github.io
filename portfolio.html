@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio | Take Cut</title>
+<link rel="icon" type="image/png" href="logo1.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  .portfolio-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .portfolio-page h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #F5F5F5;
+    margin-bottom: 12px;
+    text-shadow: 0 0 15px rgba(0,255,178,0.25);
+  }
+  .portfolio-page .subtitle {
+    opacity: 0.6;
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .portfolio-grid-item {
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #1A1A1D;
+  }
+  .portfolio-grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #00FFB2;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    transition: opacity 0.2s;
+  }
+  .back-btn:hover { opacity: 0.7; }
+
+  @media (max-width: 768px) {
+    .portfolio-page { padding: 40px 16px; }
+    .portfolio-page h1 { font-size: 28px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="stars-bg" id="starsBg"></div>
+
+<header class="navbar">
+  <a href="index.html#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
+  <nav class="nav-links">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#portfolio">Portfólio</a>
+    <a href="index.html#services">Serviços</a>
+    <a href="index.html#contact">Contato</a>
+  </nav>
+</header>
+
+<div class="portfolio-page">
+  <a href="index.html" class="back-btn">← Voltar ao site</a>
+  <h1>Nosso Portfólio</h1>
+  <p class="subtitle">Todos os nossos trabalhos em um só lugar.</p>
+
+  <div class="portfolio-grid">
+    <!-- Adicione quantos vídeos quiser aqui -->
+    <!-- Copie e cole um bloco abaixo para cada novo vídeo -->
+    <div class="portfolio-grid-item">
+      <video autoplay muted loop playsinline preload="none">
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="portfolio-grid-item">
+      <video autoplay muted loop playsinline preload="none">
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="portfolio-grid-item">
+      <video autoplay muted loop playsinline preload="none">
+        <source src="video3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="portfolio-grid-item">
+      <video autoplay muted loop playsinline preload="none">
+        <source src="video4.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="portfolio-grid-item">
+      <video autoplay muted loop playsinline preload="none">
+        <source src="video5.mp4" type="video/mp4">
+      </video>
+    </div>
+    <!-- FIM DOS VÍDEOS -->
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2026 Take Cut. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Lazy load dos vídeos
+if ("IntersectionObserver" in window) {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const v = entry.target;
+        if (v.readyState === 0) v.load();
+        obs.unobserve(v);
+      }
+    });
+  }, { rootMargin: "200px" });
+  document.querySelectorAll("video[preload='none']").forEach(function(v) { obs.observe(v); });
+}
+
+function createUniverse() {
+  const starsBg = document.getElementById("starsBg");
+  const isMobile = window.innerWidth <= 768;
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < (isMobile ? 40 : 80); i++) {
+    const star = document.createElement("div");
+    star.className = "stars";
+    star.style.cssText = "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) + "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" + (Math.random()*3+2) + "s";
+    fragment.appendChild(star);
+  }
+  starsBg.appendChild(fragment);
+}
+window.addEventListener("load", createUniverse);
+</script>
+</body>
+</html>
