@@ -413,7 +413,7 @@ p { margin-bottom: 10px; }
 
 /* Frase em destaque */
 .quemsomos-texto p:first-child {
-  font-size: 22px; !important;
+  font-size: 20px;
   font-style: italic;
   color: #00FFB2;
   margin-bottom: 20px;
@@ -422,14 +422,14 @@ p { margin-bottom: 10px; }
 }
 
 .quemsomos-texto p:last-child {
-  font-size: 20px; !important;
+  font-size: 16px;
   line-height: 1.8;
   opacity: 0.85;
 }
 
 /* Subtítulo "Missão, Visão e Valores" */
 .about-subtitle {
-  font-size: 24px; !important;         /* ← TAMANHO DO SUBTÍTULO */
+  font-size: 22px;         /* ← TAMANHO DO SUBTÍTULO */
   font-weight: 600;
   color: #F5F5F5;
   text-align: center;
@@ -446,7 +446,7 @@ p { margin-bottom: 10px; }
 /* 👇 TAMANHO DOS CARDS: mude "padding" */
 .about-card {
   background: #1A1A1D;
-  padding: 25px;           /* ← TAMANHO INTERNO DOS CARDS */
+  padding: 28px;           /* ← TAMANHO INTERNO DOS CARDS */
   border-radius: 16px;
   text-align: left;
   transition: 0.3s;
@@ -758,6 +758,9 @@ img, video {
 .footer p { margin-bottom: 6px; font-size: 14px; opacity: 0.7; }
 
 
+/* Loading: escondido por padrão — JS mostra no mobile */
+#loadingScreen { display: none !important; }
+
 /* =====================================================
    📱 MOBILE — tudo abaixo afeta SOMENTE celular
    ===================================================== */
@@ -913,12 +916,12 @@ img, video {
   .btn-ver-mais { font-size: 15px !important; padding: 10px 24px !important; }
 
   /* SECURE TEXT MOBILE */
-  .secure-text { font-size: 16px !important; }
+  .secure-text { font-size: 13px !important; }
 
   /* QUEM SOMOS MOBILE */
-  .quemsomos-texto p:first-child { font-size: 18px !important; }
-  .quemsomos-texto p:last-child  { font-size: 16px !important; }
-  .about-subtitle { font-size: 20px !important; }
+  .quemsomos-texto p:first-child { font-size: 16px !important; }
+  .quemsomos-texto p:last-child  { font-size: 14px !important; }
+  .about-subtitle { font-size: 18px !important; }
 
   /* PROTEÇÃO ZOOM */
   body {
@@ -931,8 +934,8 @@ img, video {
   /* =====================================================
      TAREFA 2: LOADING SCREEN (mobile)
      ===================================================== */
-  #loadingScreen {
-    display: flex;
+  #loadingScreen.active {
+    display: flex !important;
     position: fixed;
     inset: 0;
     background: #0B0B0C;
@@ -980,3 +983,91 @@ img, video {
     box-shadow: 0 0 8px rgba(0,255,178,0.6);
     transition: width 0.1s linear;
   }
+
+  /* =====================================================
+     TAREFA 8: PICKER CIRCULAR — DEPOIMENTOS E FAQ
+     ===================================================== */
+
+  /* Janela fixa do picker */
+  .testimonials,
+  .faq {
+    height: 420px;             /* ← ALTURA DA JANELA DO PICKER */
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonials h2,
+  .faq h2 {
+    flex-shrink: 0;
+    margin-bottom: 16px !important;
+  }
+
+  /* Trilho vertical */
+  .testimonials-grid,
+  .faq-list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0 !important;
+    width: 100%;
+    perspective: 800px;
+    perspective-origin: center center;
+    overflow: visible !important;
+    grid-template-columns: unset !important;
+  }
+
+  /* Cada card */
+  .testimonial-card,
+  .faq-item {
+    width: 85% !important;
+    flex-shrink: 0 !important;
+    height: 110px !important;  /* ← ALTURA DE CADA CARD */
+    padding: 14px 16px !important;
+    margin: 0 !important;
+    border-radius: 12px !important;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),
+                opacity 0.3s ease,
+                box-shadow 0.3s ease;
+    transform-origin: center center;
+    cursor: grab;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    min-height: unset !important;
+  }
+
+  .testimonial-card:active,
+  .faq-item:active { cursor: grabbing; }
+
+  /* Linhas que marcam o card ativo */
+  .testimonials::before, .faq::before,
+  .testimonials::after,  .faq::after {
+    content: "";
+    position: absolute;
+    left: 7.5%; width: 85%;
+    height: 1px;
+    background: rgba(0,255,178,0.2);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .testimonials::before, .faq::before { top: calc(50% - 58px); }
+  .testimonials::after,  .faq::after  { top: calc(50% + 58px); }
+
+  /* Fades nas bordas */
+  .picker-fade {
+    position: absolute;
+    left: 0; width: 100%;
+    height: 100px;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .picker-fade.top    { top: 0;    background: linear-gradient(to bottom, #0B0B0C 0%, transparent 100%); }
+  .picker-fade.bottom { bottom: 0; background: linear-gradient(to top,    #0B0B0C 0%, transparent 100%); }
+
+}
