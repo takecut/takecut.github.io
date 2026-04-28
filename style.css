@@ -916,9 +916,9 @@ img, video {
   .secure-text { font-size: 13px !important; }
 
   /* QUEM SOMOS MOBILE */
-  .quemsomos-texto p:first-child { font-size: 16px !important; }
-  .quemsomos-texto p:last-child  { font-size: 14px !important; }
-  .about-subtitle { font-size: 18px !important; }
+  .quemsomos-texto p:first-child { font-size: 18px !important; }
+  .quemsomos-texto p:last-child  { font-size: 16px !important; }
+  .about-subtitle { font-size: 20px !important; }
 
   /* PROTEÇÃO ZOOM */
   body {
