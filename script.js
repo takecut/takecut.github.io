@@ -1,4 +1,5 @@
 // LOADING SCREEN
+// Detecta mobile por largura OU por userAgent (funciona no Inspecionar e no iPhone real)
 var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
 
 if (isMobileDevice) {
@@ -6,45 +7,41 @@ if (isMobileDevice) {
   var loadBar = document.getElementById("loadingBar");
 
   if (loadScreen && loadBar) {
+    // Adiciona classe .active para mostrar (CSS usa display:none por padrão)
     loadScreen.classList.add("active");
 
-    let progress = 0;
-
-    function animateLoading() {
-      // curva mais natural (ease-out)
-      let speed = (100 - progress) * 0.04;
-
-      // pequenas variações (efeito “vivo”)
-      let randomness = Math.random() * 1.5;
-
-      progress += speed + randomness;
-
-      if (progress >= 97) progress = 97;
-
+    var progress = 0;
+    var interval = setInterval(function() {
+      var remaining = 100 - progress;
+      var step = Math.max(0.8, remaining * 0.05);
+      progress = Math.min(progress + step, 95);
       loadBar.style.width = progress + "%";
+    }, 60);
 
-      requestAnimationFrame(animateLoading);
+    function waitForImages() {
+      var images = document.querySelectorAll("img");
+      var promises = [];
+      images.forEach(function(img) {
+        if (img.complete) return;
+        promises.push(new Promise(function(resolve) {
+          img.onload = resolve;
+          img.onerror = resolve;
+        }));
+      });
+      return Promise.all(promises);
     }
 
-    animateLoading();
-
-    function finishLoading() {
-      loadBar.style.width = "100%";
-
-      setTimeout(() => {
-        loadScreen.classList.add("done");
-        setTimeout(() => loadScreen.remove(), 500);
-      }, 400);
-    }
-
-    window.addEventListener("load", () => {
-      setTimeout(finishLoading, 500);
+    window.addEventListener("load", function() {
+      waitForImages().then(function() {
+        clearInterval(interval);
+        loadBar.style.width = "100%";
+        setTimeout(function() {
+          loadScreen.style.opacity = "0";
+          loadScreen.style.transition = "opacity 0.5s ease";
+          setTimeout(function() { loadScreen.remove(); }, 500);
+        }, 300);
+      });
     });
-
-    // fallback segurança
-    setTimeout(finishLoading, 6000);
-  }
-}
 
     // Segurança: fecha em 6s de qualquer forma
     setTimeout(function() {
@@ -57,7 +54,7 @@ if (isMobileDevice) {
           setTimeout(function() { loadScreen.remove(); }, 500);
         }, 300);
       }
-    }, 7000);
+    }, 6000);
   }
 }
 
@@ -67,35 +64,32 @@ function toggleMenu() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Fecha menu ao clicar em link
   document.querySelectorAll(".nav-links a").forEach(function (link) {
     link.addEventListener("click", function () {
       document.querySelector(".nav-links").classList.remove("active");
     });
   });
 
-  // LAZY LOAD DE VÍDEOS
+  // LAZY LOAD DE VÍDEOS: só carrega quando entra na tela
   if ("IntersectionObserver" in window) {
     const videoObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           const video = entry.target;
-          if (video.readyState === 0) video.load();
+          // Só inicia se ainda não carregou
+          if (video.readyState === 0) {
+            video.load();
+          }
           videoObserver.unobserve(video);
         }
       });
     }, { rootMargin: "200px" });
 
+    // Observa todos os vídeos com preload="none" exceto o bg do hero
     document.querySelectorAll("video[preload='none']:not(.bg-video)").forEach(function (v) {
       videoObserver.observe(v);
     });
-  }
-
-  // PICKER CIRCULAR — DEPOIMENTOS E FAQ (mobile)
-  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 768) {
-    var testimonials = document.querySelector(".testimonials");
-    var faq = document.querySelector(".faq");
-    if (testimonials) initPicker(testimonials);
-    if (faq) initPicker(faq);
   }
 });
 
@@ -143,11 +137,13 @@ function scrollPortfolio(direction) {
 }
 
 // UNIVERSO DE FUNDO
+// No mobile reduz estrelas pela metade para poupar CPU
 function createUniverse() {
   const starsBg = document.getElementById("starsBg");
   const isMobile = window.innerWidth <= 768;
   const starCount = isMobile ? 40 : 100;
   const cometCount = isMobile ? 1 : 3;
+
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < starCount; i++) {
@@ -184,86 +180,3 @@ window.addEventListener("load", createUniverse);
     }
   });
 })();
-
-  const ITEM_HEIGHT = 118;
-  let offset = Math.floor(count / 2) * ITEM_HEIGHT;
-  let startY = 0;
-  let startOffset = 0;
-  let locked = false;
-  let atStart = false;
-  let atEnd = false;
-  let passedEdge = false;
-
-  function render() {
-    const maxOffset = Math.floor(count / 2) * ITEM_HEIGHT;
-    const minOffset = -Math.floor(count / 2) * ITEM_HEIGHT;
-    atStart = offset >= maxOffset - 5;
-    atEnd   = offset <= minOffset + 5;
-
-    items.forEach(function(item, i) {
-      const dist = (offset / ITEM_HEIGHT) - (i - Math.floor(count / 2));
-      const rotX = Math.max(-60, Math.min(60, dist * 22));
-      const scale = Math.max(0.6, 1 - Math.abs(dist) * 0.13);
-      const opacity = Math.max(0.2, 1 - Math.abs(dist) * 0.28);
-      const translateY = dist * ITEM_HEIGHT;
-
-      item.style.transform = "translateY(" + translateY + "px) rotateX(" + rotX + "deg) scale(" + scale + ")";
-      item.style.opacity = opacity;
-
-      if (Math.abs(dist) < 0.5) {
-        item.style.boxShadow = "0 0 20px rgba(0,255,178,0.2)";
-      } else {
-        item.style.boxShadow = "none";
-      }
-    });
-  }
-
-  function snapToNearest() {
-    const maxOffset = Math.floor(count / 2) * ITEM_HEIGHT;
-    const minOffset = -Math.floor(count / 2) * ITEM_HEIGHT;
-    const snapped = Math.round(offset / ITEM_HEIGHT) * ITEM_HEIGHT;
-    offset = Math.max(minOffset, Math.min(maxOffset, snapped));
-    render();
-  }
-
-  section.addEventListener("touchstart", function(e) {
-    startY = e.touches[0].clientY;
-    startOffset = offset;
-    passedEdge = false;
-    locked = false;
-  }, { passive: true });
-
-  section.addEventListener("touchmove", function(e) {
-    const dy = e.touches[0].clientY - startY;
-    const maxOffset = Math.floor(count / 2) * ITEM_HEIGHT;
-    const minOffset = -Math.floor(count / 2) * ITEM_HEIGHT;
-
-    if ((atStart && dy > 0) || (atEnd && dy < 0)) {
-      if (!passedEdge && Math.abs(dy) > 40) {
-        passedEdge = true;
-        locked = true;
-      }
-    }
-
-    if (locked) return;
-
-    e.preventDefault();
-
-    offset = startOffset + dy;
-    if (offset > maxOffset) {
-      offset = maxOffset + (offset - maxOffset) * 0.25;
-    } else if (offset < minOffset) {
-      offset = minOffset - (minOffset - offset) * 0.25;
-    }
-
-    render();
-  }, { passive: false });
-
-  section.addEventListener("touchend", function() {
-    if (!locked) snapToNearest();
-    locked = false;
-    passedEdge = false;
-  }, { passive: true });
-
-  render();
-}
