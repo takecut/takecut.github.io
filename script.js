@@ -281,12 +281,3 @@ function initPicker(section) {
 
   render();
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  if (window.innerWidth <= 768) {
-    var testimonials = document.querySelector(".testimonials");
-    var faq = document.querySelector(".faq");
-    if (testimonials) initPicker(testimonials);
-    if (faq) initPicker(faq);
-  }
-});
