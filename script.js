@@ -195,6 +195,17 @@ window.addEventListener("load", createUniverse);
       const opacity = Math.max(0.2, 1 - Math.abs(dist) * 0.28);
       const translateY = dist * ITEM_HEIGHT;
 
+      item.style.transform = "translateY(" + translateY + "px) rotateX(" + rotX + "deg) scale(" + scale + ")";
+      item.style.opacity = opacity;
+
+      if (Math.abs(dist) < 0.5) {
+        item.style.boxShadow = "0 0 20px rgba(0,255,178,0.2)";
+      } else {
+        item.style.boxShadow = "none";
+      }
+    });
+  }
+
   function snapToNearest() {
     const maxOffset = Math.floor(count / 2) * ITEM_HEIGHT;
     const minOffset = -Math.floor(count / 2) * ITEM_HEIGHT;
