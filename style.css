@@ -983,3 +983,22 @@ img, video {
     box-shadow: 0 0 8px rgba(0,255,178,0.6);
     transition: width 0.1s linear;
   }
+
+.testimonials,
+.faq {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.testimonials-grid,
+.faq-list {
+  display: grid !important;
+  gap: 20px !important;
+}
+
+.testimonial-card,
+.faq-item {
+  height: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
