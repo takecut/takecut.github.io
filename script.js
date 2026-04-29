@@ -1,5 +1,4 @@
 // LOADING SCREEN
-// Detecta mobile por userAgent — mais confiável que innerWidth
 var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
 
 if (isMobileDevice) {
@@ -7,41 +6,45 @@ if (isMobileDevice) {
   var loadBar = document.getElementById("loadingBar");
 
   if (loadScreen && loadBar) {
-    // Adiciona classe .active para mostrar (CSS usa display:none por padrão)
     loadScreen.classList.add("active");
 
-    var progress = 0;
-    var interval = setInterval(function() {
-      var remaining = 100 - progress;
-      var step = Math.max(0.8, remaining * 0.05);
-      progress = Math.min(progress + step, 95);
-      loadBar.style.width = progress + "%";
-    }, 60);
+    let progress = 0;
 
-    function waitForImages() {
-      var images = document.querySelectorAll("img");
-      var promises = [];
-      images.forEach(function(img) {
-        if (img.complete) return;
-        promises.push(new Promise(function(resolve) {
-          img.onload = resolve;
-          img.onerror = resolve;
-        }));
-      });
-      return Promise.all(promises);
+    function animateLoading() {
+      // curva mais natural (ease-out)
+      let speed = (100 - progress) * 0.04;
+
+      // pequenas variações (efeito “vivo”)
+      let randomness = Math.random() * 1.5;
+
+      progress += speed + randomness;
+
+      if (progress >= 97) progress = 97;
+
+      loadBar.style.width = progress + "%";
+
+      requestAnimationFrame(animateLoading);
     }
 
-    window.addEventListener("load", function() {
-      waitForImages().then(function() {
-        clearInterval(interval);
-        loadBar.style.width = "100%";
-        setTimeout(function() {
-          loadScreen.style.opacity = "0";
-          loadScreen.style.transition = "opacity 0.5s ease";
-          setTimeout(function() { loadScreen.remove(); }, 500);
-        }, 300);
-      });
+    animateLoading();
+
+    function finishLoading() {
+      loadBar.style.width = "100%";
+
+      setTimeout(() => {
+        loadScreen.classList.add("done");
+        setTimeout(() => loadScreen.remove(), 500);
+      }, 400);
+    }
+
+    window.addEventListener("load", () => {
+      setTimeout(finishLoading, 500);
     });
+
+    // fallback segurança
+    setTimeout(finishLoading, 6000);
+  }
+}
 
     // Segurança: fecha em 6s de qualquer forma
     setTimeout(function() {
@@ -54,7 +57,7 @@ if (isMobileDevice) {
           setTimeout(function() { loadScreen.remove(); }, 500);
         }, 300);
       }
-    }, 6000);
+    }, 7000);
   }
 }
 
@@ -86,6 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
       videoObserver.observe(v);
     });
   }
+
+  // PICKER CIRCULAR — DEPOIMENTOS E FAQ (mobile)
+  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 768) {
+    var testimonials = document.querySelector(".testimonials");
+    var faq = document.querySelector(".faq");
+    if (testimonials) initPicker(testimonials);
+    if (faq) initPicker(faq);
+  }
+});
 
 // MODAL
 function openVideo(src) {
