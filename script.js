@@ -87,15 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // PICKER CIRCULAR — DEPOIMENTOS E FAQ (mobile)
-  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 768) {
-    var testimonials = document.querySelector(".testimonials");
-    var faq = document.querySelector(".faq");
-    if (testimonials) initPicker(testimonials);
-    if (faq) initPicker(faq);
-  }
-});
-
 // MODAL
 function openVideo(src) {
   const modal = document.getElementById("videoModal");
@@ -182,23 +173,6 @@ window.addEventListener("load", createUniverse);
   });
 })();
 
-// PICKER CIRCULAR
-function initPicker(section) {
-  if (!/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) && window.innerWidth > 768) return;
-
-  const grid = section.querySelector(".testimonials-grid, .faq-list");
-  if (!grid) return;
-
-  const items = Array.from(grid.children);
-  const count = items.length;
-  if (count === 0) return;
-
-  ["top", "bottom"].forEach(function(pos) {
-    const fade = document.createElement("div");
-    fade.className = "picker-fade " + pos;
-    section.appendChild(fade);
-  });
-
   const ITEM_HEIGHT = 118;
   let offset = Math.floor(count / 2) * ITEM_HEIGHT;
   let startY = 0;
@@ -220,17 +194,6 @@ function initPicker(section) {
       const scale = Math.max(0.6, 1 - Math.abs(dist) * 0.13);
       const opacity = Math.max(0.2, 1 - Math.abs(dist) * 0.28);
       const translateY = dist * ITEM_HEIGHT;
-
-      item.style.transform = "translateY(" + translateY + "px) rotateX(" + rotX + "deg) scale(" + scale + ")";
-      item.style.opacity = opacity;
-
-      if (Math.abs(dist) < 0.5) {
-        item.style.boxShadow = "0 0 20px rgba(0,255,178,0.2)";
-      } else {
-        item.style.boxShadow = "none";
-      }
-    });
-  }
 
   function snapToNearest() {
     const maxOffset = Math.floor(count / 2) * ITEM_HEIGHT;
