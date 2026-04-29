@@ -87,6 +87,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // PICKER CIRCULAR — DEPOIMENTOS E FAQ (mobile)
+  if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 768) {
+    var testimonials = document.querySelector(".testimonials");
+    var faq = document.querySelector(".faq");
+    if (testimonials) initPicker(testimonials);
+    if (faq) initPicker(faq);
+  }
+});
+
 // MODAL
 function openVideo(src) {
   const modal = document.getElementById("videoModal");
@@ -173,6 +182,23 @@ window.addEventListener("load", createUniverse);
   });
 })();
 
+// PICKER CIRCULAR
+function initPicker(section) {
+  if (!/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) && window.innerWidth > 768) return;
+
+  const grid = section.querySelector(".testimonials-grid, .faq-list");
+  if (!grid) return;
+
+  const items = Array.from(grid.children);
+  const count = items.length;
+  if (count === 0) return;
+
+  ["top", "bottom"].forEach(function(pos) {
+    const fade = document.createElement("div");
+    fade.className = "picker-fade " + pos;
+    section.appendChild(fade);
+  });
+
   const ITEM_HEIGHT = 118;
   let offset = Math.floor(count / 2) * ITEM_HEIGHT;
   let startY = 0;
@@ -255,3 +281,12 @@ window.addEventListener("load", createUniverse);
 
   render();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.innerWidth <= 768) {
+    var testimonials = document.querySelector(".testimonials");
+    var faq = document.querySelector(".faq");
+    if (testimonials) initPicker(testimonials);
+    if (faq) initPicker(faq);
+  }
+});
