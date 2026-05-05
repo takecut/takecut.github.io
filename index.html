@@ -1,322 +1,255 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta name="description" content="Produtora audiovisual especializada em vídeos que aumentam conversão. Edição profissional, vídeos com IA e conteúdo para redes sociais.">
-<link rel="icon" type="image/png" href="logo1.png">
 <meta charset="UTF-8">
-<title>Produtora de Vídeo em São Paulo | Edição Profissional e Vídeos com IA</title>
-<meta http-equiv="Content-Security-Policy" content="
-default-src 'self';
-script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
-connect-src 'self' https://www.google-analytics.com;
-img-src 'self' data: https://www.google-analytics.com;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-font-src https://fonts.gstatic.com;
-">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
-<meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio | Take Cut</title>
+<link rel="icon" type="image/png" href="logo1.png">
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3GLPF6DBB4"></script>
-<script>
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js',new Date());
-  gtag('config','G-3GLPF6DBB4');
-</script>
+<style>
+
+  /* PÁGINA DO PORTFÓLIO */
+  .portfolio-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 40px 80px;
+    text-align: center;
+  }
+
+  .portfolio-page h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #F5F5F5;
+    margin-bottom: 12px;
+    text-shadow: 0 0 15px rgba(0,255,178,0.25);
+  }
+
+  .portfolio-page .subtitle {
+    opacity: 0.6;
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+
+  /* BOTÃO VOLTAR — profissional */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0B0B0C;
+    background: #00FFB2;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Brilho deslizante no hover */
+  .back-btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: 0.4s;
+  }
+
+  .back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,255,178,0.4);
+  }
+
+  .back-btn:hover::after { left: 100%; }
+  .back-btn:active { transform: scale(0.97); }
+
+  /* Seta animada */
+  .back-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .back-btn:hover .arrow { transform: translateX(-4px); }
+
+  /* GRID DE VÍDEOS */
+  .portfolio-grid {
+    display: grid;
+    /* 👇 Mude "300px" para aumentar/diminuir o tamanho mínimo de cada card */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  /* Cada card de vídeo */
+  .portfolio-grid-item {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #1A1A1D;
+    box-shadow: 0 0 20px rgba(0,255,178,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 👇 Mude "aspect-ratio" para mudar a proporção dos vídeos:
+         16/9 = horizontal (paisagem)
+         9/16 = vertical (retrato/reels)
+         1/1  = quadrado  */
+    aspect-ratio: 16/9;   /* ← PROPORÇÃO DOS VÍDEOS */
+  }
+
+  .portfolio-grid-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(0,255,178,0.15);
+  }
+
+  /* O vídeo dentro do card — igual à seção "Vídeos com IA" */
+  .portfolio-grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-page { padding: 30px 16px 60px; }
+    .portfolio-page h1 { font-size: 26px; }
+    /* No mobile vira uma coluna só */
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-grid-item { aspect-ratio: 16/9; }
+  }
+
+</style>
 </head>
 <body>
-
-<!-- TAREFA 2: Loading screen — aparece só no mobile -->
-<div id="loadingScreen">
-  <div class="loading-inner">
-    <img src="logo.png" alt="Take Cut" class="loading-logo">
-    <p class="loading-text">Renderizando</p>
-    <div class="loading-bar-bg">
-      <div class="loading-bar" id="loadingBar"></div>
-    </div>
-  </div>
-</div>
-
 <div class="stars-bg" id="starsBg"></div>
 
 <header class="navbar">
-  <a href="#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <a href="index.html#home" class="logo">
+    <img src="logo.png" alt="Take Cut Logo" width="120" height="40">
+  </a>
   <nav class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#portfolio">Portfólio</a>
-    <a href="#services">Serviços</a>
-    <a href="#contact">Contato</a>
+    <a href="index.html#home">Home</a>
+    <a href="index.html#portfolio">Portfólio</a>
+    <a href="index.html#services">Serviços</a>
+    <a href="index.html#contact">Contato</a>
   </nav>
 </header>
 
-<section id="home" class="hero">
-  <video autoplay muted loop playsinline class="bg-video" preload="none">
-    <source src="bg.mp4" type="video/mp4">
-  </video>
-  <div>
-    <h1>Produtora de vídeo em São Paulo que aumenta suas vendas</h1>
-    <p>Edição de vídeo profissional, criação de vídeos com IA e conteúdo para anúncios que realmente convertem.</p>
-    <button class="btn-main" onclick="window.open('https://forms.gle/TBiUyHQRnzV3hy9t5','_blank')">Quero um vídeo assim</button>
-    <p class="hero-sub">Sem compromisso. Resposta rápida.</p>
-  </div>
-</section>
+<div class="portfolio-page">
 
-<section class="showreel">
-  <h2>Nosso trabalho</h2>
-  <div class="result-item">
-    <div class="video-box horizontal destaque" onclick="playVideo(this)">
-      <img src="thumbshow.png" class="thumb" loading="lazy" alt="Showreel Take Cut">
-      <span class="play-btn"><span class="play-icon"></span></span>
-      <video class="video" controls preload="none">
-        <source src="videop.mp4" type="video/mp4">
+  <!-- BOTÃO VOLTAR -->
+  <a href="index.html" class="back-btn">
+    <span class="arrow">←</span> Voltar ao site
+  </a>
+
+  <h1>Nosso Portfólio</h1>
+  <p class="subtitle">Todos os nossos trabalhos em um só lugar.</p>
+
+  <div class="portfolio-grid">
+
+    <!--
+    ============================================================
+    COMO ADICIONAR OU TROCAR VÍDEOS:
+
+    Para TROCAR um vídeo existente:
+      Substitua o nome do arquivo dentro de <source src="ARQUIVO.mp4">
+      Exemplo: <source src="meu-novo-video.mp4" type="video/mp4">
+
+    Para ADICIONAR um novo vídeo:
+      Copie um bloco inteiro de <div class="portfolio-grid-item">
+      até </div> e cole abaixo dos outros.
+
+    Para mudar a PROPORÇÃO de um vídeo específico:
+      Adicione style="aspect-ratio: 9/16" no div do item.
+      Exemplo: <div class="portfolio-grid-item" style="aspect-ratio: 9/16">
+
+    Os vídeos têm áudio — o usuário controla clicando no player.
+    ============================================================
+    -->
+
+    <!-- VÍDEO 1 — troque "video1.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video1.mp4" type="video/mp4">
       </video>
     </div>
-  </div>
-  <!-- TAREFA 1: Navegue tranquilo abaixo do showreel -->
-  <p class="secure-text">🔒 Navegue tranquilo, nosso site é seguro</p>
-</section>
 
-<section id="portfolio" class="portfolio">
-  <h2>Portfólio</h2>
+    <!-- VÍDEO 2 — troque "video2.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+    </div>
 
-  <!-- DESKTOP: carrossel -->
-  <div class="carousel-container" id="portfolioCarousel">
-    <button class="carousel-prev" onclick="scrollPortfolio(-1)">&#8249;</button>
-    <button class="carousel-next" onclick="scrollPortfolio(1)">&#8250;</button>
-    <div class="carousel" id="carousel">
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
+    <!-- VÍDEO 3 — troque "video3.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video3.mp4" type="video/mp4">
+      </video>
     </div>
-  </div>
 
-  <!-- MOBILE: empilhados -->
-  <div class="portfolio-mobile">
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
-  </div>
+    <!-- VÍDEO 4 — troque "video4.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video4.mp4" type="video/mp4">
+      </video>
+    </div>
 
-  <!-- TAREFA 7: Botão Ver mais -->
-  <a href="portfolio.html" class="btn-ver-mais">Ver mais</a>
-</section>
+    <!-- VÍDEO 5 — troque "video5.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video5.mp4" type="video/mp4">
+      </video>
+    </div>
 
-<section class="ia">
-  <h2>Vídeos com IA</h2>
-  <div class="ia-main">
-    <div class="video-box horizontal destaque" onclick="playVideo(this)">
-      <img src="thumb3.png" class="thumb" loading="lazy" alt="Vídeo IA Take Cut">
-      <span class="play-btn"><span class="play-icon"></span></span>
-      <video class="video" controls preload="none"><source src="videoia3.mp4" type="video/mp4"></video>
-    </div>
-    <div class="result-info">
-      <h3>Sem limites</h3>
-      <p>Com apenas duas imagens, podemos fazer qualquer coisa.</p>
-    </div>
-  </div>
-  <div class="ia-secondary">
-    <div class="ia-card">
-      <div class="video-box square" onclick="playVideo(this)">
-        <img src="thumb4.png" class="thumb" loading="lazy" alt="Vídeo IA efeitos sonoros">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video" controls preload="none"><source src="videoia1.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info">
-        <h3>Efeitos sonoros</h3>
-        <p>O realismo e os detalhes são valorizados.</p>
-      </div>
-    </div>
-    <div class="ia-card">
-      <div class="video-box reels" onclick="playVideo(this)">
-        <img src="thumb5.png" class="thumb" loading="lazy" alt="Vídeo IA modelo produto">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video" controls preload="none"><source src="videoia2.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info">
-        <h3>Modelo, cenário e produto</h3>
-        <p>Podemos vender o seu produto, da maneira que você desejar.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ADICIONE MAIS VÍDEOS AQUI copiando o bloco acima -->
 
-<section class="results">
-  <h2>Resultados Reais</h2>
-  <div class="results-grid">
-    <div class="result-item item1">
-      <div class="video-box" onclick="playVideo(this)">
-        <img src="thumb1.png" class="thumb" loading="lazy" alt="+240 mil visualizações">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video" controls preload="none"><source src="videor.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info">
-        <h3>+240 mil visualizações</h3>
-        <p>Vídeo focado em tráfego pago, cortes rápidos, pouca duração, somente informação necessária.</p>
-      </div>
-    </div>
-    <div class="result-item item2">
-      <div class="video-box" onclick="playVideo(this)">
-        <img src="thumb2.png" class="thumb" loading="lazy" alt="+380 mil visualizações">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video" controls preload="none"><source src="videor2.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info">
-        <h3>+380 mil de visualizações</h3>
-        <p>Edição feita para anúncios de alta conversão.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <h2>O que a Take Cut faz pela sua marca</h2>
-  <p class="services-subtitle">Não é só vídeo. É estratégia para atrair, prender e converter clientes.</p>
-  <div class="services-grid">
-    <div class="service-card fade-in">
-      <h3>🎬 Produção Completa</h3>
-      <p>Do roteiro à gravação. Você não precisa se preocupar com nada, só com o resultado.</p>
-    </div>
-    <div class="service-card fade-in">
-      <h3>✂️ Edição de Alta Conversão</h3>
-      <p>Cortes dinâmicos, ritmo acelerado e retenção máxima. Vídeos feitos para não serem ignorados.</p>
-    </div>
-    <div class="service-card fade-in">
-      <h3>📱 Conteúdo para Redes</h3>
-      <p>Reels, TikTok, anúncios e conteúdo que realmente gera resultado.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TAREFA 8: picker circular no mobile -->
-<section class="testimonials">
-  <h2>Quem já confiou na Take Cut</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card fade-in">
-      <p>"O vídeo que vocês editaram ficou simplesmente incrível. Ficou profissional, envolvente e trouxe retorno real pra mim."</p>
-      <h4>— Henrique Morais</h4>
-    </div>
-    <div class="testimonial-card fade-in">
-      <p>"A edição ficou insana, você não prometeu nada e entregou tudo! Edição assim com uma perfeição surreal, muito bom mesmo."</p>
-      <h4>— Tcherick O Desbravador</h4>
-    </div>
-    <div class="testimonial-card fade-in">
-      <p>"Eu amei Luan, muito obrigada pelo seu trabalho. Já chorei 50x e assisti 3x kkkkk"</p>
-      <h4>— Vídeo de aniversário</h4>
-    </div>
-  </div>
-</section>
-
-<section class="clients">
-  <h2>Empresas que confiam na Take Cut</h2>
-  <div class="clients-grid">
-    <img src="cliente1.png" alt="Cliente 1" loading="lazy" width="120" height="60">
-    <img src="cliente2.png" alt="Cliente 2" loading="lazy" width="120" height="60">
-    <img src="cliente3.png" alt="Cliente 3" loading="lazy" width="120" height="60">
-    <img src="cliente4.png" alt="Cliente 4" loading="lazy" width="120" height="60">
-    <img src="cliente5.png" alt="Cliente 5" loading="lazy" width="120" height="60">
-  </div>
-</section>
-
-<!-- TAREFA 4: Quem somos -->
-<section class="about">
-  <h2>Quem somos</h2>
-  <div class="quemsomos-texto">
-    <p>"Todo vídeo tem uma boa história, ele só precisa ser apresentado do jeito certo."</p>
-    <p>A Take Cut surgiu para elevar o nível da comunicação de quem precisa ser visto, ouvido e lembrado. Aqui, cada take recebe atenção, cada frame tem intenção e cada corte é pensado para entregar aquilo que faz o público parar e assistir até o fim.</p>
-  </div>
-  <h3 class="about-subtitle">Missão, Visão e Valores</h3>
-  <div class="about-grid">
-    <div class="about-card fade-in">
-      <h3>🚀 Missão</h3>
-      <p>Ajudar o próximo a conquistar o sucesso.</p>
-    </div>
-    <div class="about-card fade-in">
-      <h3>🎯 Visão</h3>
-      <p>Ser a melhor produtora audiovisual do país.</p>
-    </div>
-    <div class="about-card fade-in">
-      <h3>💎 Valores</h3>
-      <p>Autodidatismo, empatia, respeito, humildade.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TAREFA 8: picker circular no mobile -->
-<section class="faq">
-  <h2>Perguntas Frequentes</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <h3>Quanto tempo leva para produzir um vídeo?</h3>
-      <p>Depende da complexidade, mas geralmente entre 2 a 7 dias úteis.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Vocês fazem vídeos com IA?</h3>
-      <p>Sim, criamos vídeos completos utilizando inteligência artificial.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Preciso fornecer roteiro?</h3>
-      <p>Não precisa, cuidamos de todo o processo criativo para você. Mas se tiver um roteiro pronto, trabalhamos também.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Atendem fora de São Paulo?</h3>
-      <p>Sim, atendemos clientes de todo o Brasil para pós-produção. A maioria dos projetos são feitos 100% online. Agora a captação fazemos somente em São Paulo.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Qual o investimento para um vídeo?</h3>
-      <p>O valor varia conforme o tipo e complexidade do projeto. Entre em contato para receber um orçamento personalizado.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Vamos tirar sua ideia do papel?</h2>
-  <p class="contact-subtitle">Fale com a Take Cut e receba uma resposta rápida.</p>
-  <div class="contact-grid">
-    <a href="https://wa.me/5511994769848" target="_blank" rel="noopener" class="contact-card">
-      <h3>📱 WhatsApp</h3>
-      <p>Fale direto com a gente</p>
-    </a>
-    <a href="mailto:takecutedit@gmail.com" class="contact-card">
-      <h3>📧 Email</h3>
-      <p>Envie sua ideia</p>
-    </a>
-    <a href="https://www.instagram.com/takecutedit/" target="_blank" rel="noopener" class="contact-card">
-      <h3>📸 Instagram</h3>
-      <p>Acompanhe nossos trabalhos</p>
-    </a>
-  </div>
-</section>
-
-<a href="https://wa.me/5511994769848" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <img src="whatsapp-icon.png" alt="WhatsApp" width="55" height="55">
-</a>
-
-<div id="videoModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeVideo()">×</span>
-    <video id="modalVideo" controls preload="none"></video>
   </div>
 </div>
 
-<!-- TAREFA 3: rodapé com links corretos -->
 <footer class="footer">
   <p>© 2026 Take Cut. Todos os direitos reservados.</p>
-  <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
 
-<script src="script.js" defer></script>
+<script>
+// Lazy load: vídeos só carregam quando o usuário chegar perto
+if ("IntersectionObserver" in window) {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const v = entry.target;
+        if (v.readyState === 0) v.load();
+        obs.unobserve(v);
+      }
+    });
+  }, { rootMargin: "200px" });
+
+  document.querySelectorAll("video[preload='none']").forEach(function(v) {
+    obs.observe(v);
+  });
+}
+
+// Universo de fundo
+function createUniverse() {
+  const starsBg = document.getElementById("starsBg");
+  const isMobile = window.innerWidth <= 768;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < (isMobile ? 40 : 80); i++) {
+    const star = document.createElement("div");
+    star.className = "stars";
+    star.style.cssText =
+      "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) +
+      "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" +
+      (Math.random()*3+2) + "s";
+    fragment.appendChild(star);
+  }
+  starsBg.appendChild(fragment);
+}
+window.addEventListener("load", createUniverse);
+</script>
 </body>
 </html>
