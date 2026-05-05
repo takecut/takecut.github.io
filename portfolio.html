@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio | Take Cut</title>
+<link rel="icon" type="image/png" href="logo1.png">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* PÁGINA DO PORTFÓLIO */
+  .portfolio-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 40px 80px;
+    text-align: center;
+  }
+
+  .portfolio-page h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #F5F5F5;
+    margin-bottom: 12px;
+    text-shadow: 0 0 15px rgba(0,255,178,0.25);
+  }
+
+  .portfolio-page .subtitle {
+    opacity: 0.6;
+    font-size: 16px;
+    margin-bottom: 50px;
+  }
+
+  /* BOTÃO VOLTAR — profissional */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0B0B0C;
+    background: #00FFB2;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Brilho deslizante no hover */
+  .back-btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: 0.4s;
+  }
+
+  .back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,255,178,0.4);
+  }
+
+  .back-btn:hover::after { left: 100%; }
+  .back-btn:active { transform: scale(0.97); }
+
+  /* Seta animada */
+  .back-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .back-btn:hover .arrow { transform: translateX(-4px); }
+
+  /* GRID DE VÍDEOS */
+  .portfolio-grid {
+    display: grid;
+    /* 👇 Mude "300px" para aumentar/diminuir o tamanho mínimo de cada card */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  /* Cada card de vídeo */
+  .portfolio-grid-item {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #1A1A1D;
+    box-shadow: 0 0 20px rgba(0,255,178,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 👇 Mude "aspect-ratio" para mudar a proporção dos vídeos:
+         16/9 = horizontal (paisagem)
+         9/16 = vertical (retrato/reels)
+         1/1  = quadrado  */
+    aspect-ratio: 16/9;   /* ← PROPORÇÃO DOS VÍDEOS */
+  }
+
+  .portfolio-grid-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(0,255,178,0.15);
+  }
+
+  /* O vídeo dentro do card — igual à seção "Vídeos com IA" */
+  .portfolio-grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-page { padding: 30px 16px 60px; }
+    .portfolio-page h1 { font-size: 26px; }
+    /* No mobile vira uma coluna só */
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-grid-item { aspect-ratio: 16/9; }
+  }
+
+</style>
+</head>
+<body>
+<div class="stars-bg" id="starsBg"></div>
+
+<header class="navbar">
+  <a href="index.html#home" class="logo">
+    <img src="logo.png" alt="Take Cut Logo" width="120" height="40">
+  </a>
+  <nav class="nav-links">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#portfolio">Portfólio</a>
+    <a href="index.html#services">Serviços</a>
+    <a href="index.html#contact">Contato</a>
+  </nav>
+</header>
+
+<div class="portfolio-page">
+
+  <!-- BOTÃO VOLTAR -->
+  <a href="index.html" class="back-btn">
+    <span class="arrow">←</span> Voltar ao site
+  </a>
+
+  <h1>Nosso Portfólio</h1>
+  <p class="subtitle">Todos os nossos trabalhos em um só lugar.</p>
+
+  <div class="portfolio-grid">
+
+    <!--
+    ============================================================
+    COMO ADICIONAR OU TROCAR VÍDEOS:
+
+    Para TROCAR um vídeo existente:
+      Substitua o nome do arquivo dentro de <source src="ARQUIVO.mp4">
+      Exemplo: <source src="meu-novo-video.mp4" type="video/mp4">
+
+    Para ADICIONAR um novo vídeo:
+      Copie um bloco inteiro de <div class="portfolio-grid-item">
+      até </div> e cole abaixo dos outros.
+
+    Para mudar a PROPORÇÃO de um vídeo específico:
+      Adicione style="aspect-ratio: 9/16" no div do item.
+      Exemplo: <div class="portfolio-grid-item" style="aspect-ratio: 9/16">
+
+    Os vídeos têm áudio — o usuário controla clicando no player.
+    ============================================================
+    -->
+
+    <!-- VÍDEO 1 — troque "video1.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VÍDEO 2 — troque "video2.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VÍDEO 3 — troque "video3.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video3.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VÍDEO 4 — troque "video4.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video4.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- VÍDEO 5 — troque "video5.mp4" pelo seu arquivo -->
+    <div class="portfolio-grid-item">
+      <video controls preload="none">
+        <source src="video5.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- ADICIONE MAIS VÍDEOS AQUI copiando o bloco acima -->
+
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2026 Take Cut. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Lazy load: vídeos só carregam quando o usuário chegar perto
+if ("IntersectionObserver" in window) {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const v = entry.target;
+        if (v.readyState === 0) v.load();
+        obs.unobserve(v);
+      }
+    });
+  }, { rootMargin: "200px" });
+
+  document.querySelectorAll("video[preload='none']").forEach(function(v) {
+    obs.observe(v);
+  });
+}
+
+// Universo de fundo
+function createUniverse() {
+  const starsBg = document.getElementById("starsBg");
+  const isMobile = window.innerWidth <= 768;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < (isMobile ? 40 : 80); i++) {
+    const star = document.createElement("div");
+    star.className = "stars";
+    star.style.cssText =
+      "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) +
+      "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" +
+      (Math.random()*3+2) + "s";
+    fragment.appendChild(star);
+  }
+  starsBg.appendChild(fragment);
+}
+window.addEventListener("load", createUniverse);
+</script>
+</body>
+</html>
