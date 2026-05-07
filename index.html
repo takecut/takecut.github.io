@@ -34,7 +34,6 @@ font-src https://fonts.gstatic.com;
 </head>
 <body>
 
-<!-- TAREFA 2: Loading screen — aparece só no mobile -->
 <div id="loadingScreen">
   <div class="loading-inner">
     <img src="logo.png" alt="Take Cut" class="loading-logo">
@@ -48,15 +47,16 @@ font-src https://fonts.gstatic.com;
 <div class="stars-bg" id="starsBg"></div>
 
 <header class="navbar">
-  <a href="/" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
+  <!-- TAREFA 6: href="#home" para não recarregar a página -->
+  <a href="#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <nav class="nav-links">
-  <a href="#home">Home</a>
-  <a href="#portfolio">Portfólio</a>
-  <a href="/produtos">Equipamentos</a>
-  <a href="#services">Serviços</a>
-  <a href="#contact">Contato</a>
-</nav>
+    <a href="#home">Home</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="/produtos">Equipamentos</a>
+    <a href="#services">Serviços</a>
+    <a href="#contact">Contato</a>
+  </nav>
 </header>
 
 <section id="home" class="hero">
@@ -82,14 +82,12 @@ font-src https://fonts.gstatic.com;
       </video>
     </div>
   </div>
-  <!-- TAREFA 1: Navegue tranquilo abaixo do showreel -->
   <p class="secure-text">🔒 Navegue tranquilo, nosso site é seguro</p>
 </section>
 
 <section id="portfolio" class="portfolio">
   <h2>Portfólio</h2>
 
-  <!-- DESKTOP: carrossel -->
   <div class="carousel-container" id="portfolioCarousel">
     <button class="carousel-prev" onclick="scrollPortfolio(-1)">&#8249;</button>
     <button class="carousel-next" onclick="scrollPortfolio(1)">&#8250;</button>
@@ -102,7 +100,6 @@ font-src https://fonts.gstatic.com;
     </div>
   </div>
 
-  <!-- MOBILE: empilhados -->
   <div class="portfolio-mobile">
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
@@ -111,8 +108,8 @@ font-src https://fonts.gstatic.com;
     <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
   </div>
 
-  <!-- TAREFA 7: Botão Ver mais -->
-  <a href="portfolio.html" class="btn-ver-mais">Ver mais</a>
+  <!-- TAREFA 7: href="/portfolio" sem .html -->
+  <a href="/portfolio" class="btn-ver-mais">Ver mais</a>
 </section>
 
 <section class="ia">
@@ -201,7 +198,6 @@ font-src https://fonts.gstatic.com;
   </div>
 </section>
 
-<!-- TAREFA 8: picker circular no mobile -->
 <section class="testimonials">
   <h2>Quem já confiou na Take Cut</h2>
   <div class="testimonials-grid">
@@ -231,7 +227,6 @@ font-src https://fonts.gstatic.com;
   </div>
 </section>
 
-<!-- TAREFA 4: Quem somos -->
 <section class="about">
   <h2>Quem somos</h2>
   <div class="quemsomos-texto">
@@ -255,7 +250,6 @@ font-src https://fonts.gstatic.com;
   </div>
 </section>
 
-<!-- TAREFA 8: picker circular no mobile -->
 <section class="faq">
   <h2>Perguntas Frequentes</h2>
   <div class="faq-list">
@@ -312,7 +306,6 @@ font-src https://fonts.gstatic.com;
   </div>
 </div>
 
-<!-- TAREFA 3: rodapé com links corretos -->
 <footer class="footer">
   <p>© 2026 Take Cut. Todos os direitos reservados.</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
