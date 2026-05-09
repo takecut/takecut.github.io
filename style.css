@@ -984,7 +984,9 @@ img, video {
     transition: width 0.1s linear;
   }
 
-  } /* FECHA O @media MOBILE */
+  /* =====================================================
+   CTA EQUIPAMENTOS
+===================================================== */
 
 .equipamentos-cta {
   padding: 90px 20px;
@@ -1089,16 +1091,4 @@ img, video {
 
 }
 
-  .loading-bar {
-  height: 100%; width: 0%;
-  background: #00FFB2;
-  border-radius: 99px;
-  box-shadow: 0 0 8px rgba(0,255,178,0.6);
-  transition: width 0.1s linear;
-}
-
 } /* ← FECHA O MOBILE AQUI */
-
-/* =====================================================
-   CTA EQUIPAMENTOS
-===================================================== */
