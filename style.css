@@ -904,7 +904,7 @@ img, video {
   /* 👇 TAMANHO DOS VÍDEOS EMPILHADOS */
   .portfolio-mobile-item {
     width: 100% !important;
-    max-width: 330px !important;   /* ← LARGURA */
+    max-width: 345px !important;   /* ← LARGURA */
     border-radius: 12px !important;
     overflow: hidden !important;
     aspect-ratio: 16/9 !important; /* ← 16/9=horizontal | 9/16=vertical */
