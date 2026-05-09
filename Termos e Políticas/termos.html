@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Termos e Política de Cookies | Take Cut</title>
-<link rel="icon" type="image/png" href="logo1.png">
-<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="/logo1.png">
+<link rel="stylesheet" href="/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   .legal-page {
@@ -49,35 +49,60 @@
     border-top: 1px solid rgba(255,255,255,0.1);
     margin: 50px 0;
   }
+  /* TAREFA 2 e 5: botão voltar com link correto */
   .back-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    color: #00FFB2;
+    gap: 10px;
+    color: #0B0B0C;
+    background: #00FFB2;
     text-decoration: none;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
     margin-bottom: 40px;
-    transition: opacity 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  .back-btn:hover { opacity: 0.7; }
+  .back-btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: 0.4s;
+  }
+  .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,255,178,0.4); }
+  .back-btn:hover::after { left: 100%; }
+  .back-btn:active { transform: scale(0.97); }
+  .back-btn .arrow { display: inline-block; transition: transform 0.3s ease; font-size: 18px; }
+  .back-btn:hover .arrow { transform: translateX(-4px); }
 </style>
 </head>
 <body>
 <div class="stars-bg" id="starsBg"></div>
 
+<!-- TAREFA 5: navbar com links limpos -->
 <header class="navbar">
-  <a href="index.html#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
+  <a href="https://www.takecut.com.br/#home" class="logo"><img src="/logo.png" alt="Take Cut Logo" width="120" height="40"></a>
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
   <nav class="nav-links">
-    <a href="index.html#home">Home</a>
-    <a href="index.html#portfolio">Portfólio</a>
-    <a href="index.html#services">Serviços</a>
-    <a href="index.html#contact">Contato</a>
+    <a href="https://www.takecut.com.br/#home">Home</a>
+    <a href="https://www.takecut.com.br/#portfolio">Portfólio</a>
+    <a href="/produtos">Equipamentos</a>
+    <a href="https://www.takecut.com.br/#services">Serviços</a>
+    <a href="https://www.takecut.com.br/#contact">Contato</a>
   </nav>
 </header>
 
 <div class="legal-page">
-  <a href="index.html" class="back-btn">← Voltar ao site</a>
+
+  <!-- TAREFA 2 e 5: link correto sem html -->
+  <a href="https://www.takecut.com.br/#home" class="back-btn">
+    <span class="arrow">&#8592;</span> Voltar ao site
+  </a>
 
   <h1>Termos de Uso</h1>
 
@@ -110,12 +135,10 @@
 
   <hr class="legal-divider">
 
-  <h1>Política de Cookies</h1>
+  <h1 id="cookies">Política de Cookies</h1>
 
   <h2>O que são Cookies?</h2>
   <p>Cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita um site. Eles permitem que o site reconheça seu dispositivo e lembre de informações sobre sua visita.</p>
-
-  <h2>Quais cookies utilizamos?</h2>
 
   <h2>Cookies de Análise (Google Analytics)</h2>
   <p>Utilizamos o Google Analytics para compreender como os visitantes interagem com nosso site. Esses cookies coletam informações de forma anônima, como:</p>
@@ -131,13 +154,12 @@
   <p>São necessários para o funcionamento básico do site. Sem eles, certas funcionalidades podem não operar corretamente. Não coletam informações pessoais identificáveis.</p>
 
   <h2>Como controlar os cookies?</h2>
-  <p>Você pode a qualquer momento ajustar as configurações do seu navegador para recusar cookies. Veja como fazer isso nos principais navegadores:</p>
+  <p>Você pode a qualquer momento ajustar as configurações do seu navegador para recusar cookies:</p>
   <ul>
     <li><strong>Google Chrome:</strong> Configurações → Privacidade e segurança → Cookies;</li>
     <li><strong>Safari (iOS):</strong> Ajustes → Safari → Privacidade;</li>
     <li><strong>Firefox:</strong> Configurações → Privacidade e segurança.</li>
   </ul>
-  <p>Atenção: desabilitar cookies pode afetar a experiência de navegação em alguns sites.</p>
 
   <h2>Base Legal (LGPD)</h2>
   <p>O uso de cookies analíticos está em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD). Os dados coletados são tratados com base no legítimo interesse e no consentimento do usuário, conforme aplicável.</p>
@@ -153,6 +175,16 @@
 </footer>
 
 <script>
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("active");
+}
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".nav-links a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      document.querySelector(".nav-links").classList.remove("active");
+    });
+  });
+});
 function createUniverse() {
   const starsBg = document.getElementById("starsBg");
   const fragment = document.createDocumentFragment();
@@ -161,6 +193,12 @@ function createUniverse() {
     star.className = "stars";
     star.style.cssText = "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) + "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" + (Math.random()*3+2) + "s";
     fragment.appendChild(star);
+  }
+  for (let i = 0; i < 2; i++) {
+    const comet = document.createElement("div");
+    comet.className = "comet";
+    comet.style.cssText = "left:" + (Math.random()*100) + "%;top:" + (Math.random()*50) + "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" + (Math.random()*4+6) + "s";
+    fragment.appendChild(comet);
   }
   starsBg.appendChild(fragment);
 }
