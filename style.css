@@ -995,13 +995,13 @@ img, video {
 }
 
 .equipamentos-container {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .equipamentos-title {
   text-align: center;
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 800;
   margin-bottom: 18px;
   text-shadow: 0 0 15px rgba(255,255,255,0.15);
