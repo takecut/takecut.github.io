@@ -984,9 +984,7 @@ img, video {
     transition: width 0.1s linear;
   }
 
-/* =====================================================
-   CTA EQUIPAMENTOS
-===================================================== */
+  } /* FECHA O @media MOBILE */
 
 .equipamentos-cta {
   padding: 90px 20px;
