@@ -983,7 +983,9 @@ img, video {
     box-shadow: 0 0 8px rgba(0,255,178,0.6);
     transition: width 0.1s linear;
   }
-
+  
+} /* FECHA O PRIMEIRO MOBILE */
+  
   /* =====================================================
    CTA EQUIPAMENTOS
 ===================================================== */
@@ -1091,4 +1093,4 @@ img, video {
 
 }
 
-} /* ← FECHA O MOBILE AQUI */
+} /* FECHA MOBILE CTA */
