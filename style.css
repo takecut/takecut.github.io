@@ -325,8 +325,8 @@ p { margin-bottom: 10px; }
 
 .results .item1 { transform: translate(-250px, 6px); }
 .results .item2 { transform: translate(115px, 5px); }
-.results .item1 .video-box { max-width: 359px; }
-.results .item2 .video-box { max-width: 450px; }
+.results .item1 .video-box { max-width: 369px; }
+.results .item2 .video-box { max-width: 478px; }
 
 /* SERVIÇOS */
 .services { text-align: center; }
