@@ -991,7 +991,7 @@ img, video {
 ===================================================== */
 
 .equipamentos-cta {
-  padding: 20px 10px;
+  padding: 90px 20px;
 }
 
 .equipamentos-container {
@@ -1012,7 +1012,7 @@ img, video {
   border: 1px solid rgba(0,255,178,0.12);
   border-radius: 24px;
 
-  padding: 50px;
+  padding: 38px;
 
   display: flex;
   flex-direction: column;
