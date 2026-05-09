@@ -984,57 +984,105 @@ img, video {
     transition: width 0.1s linear;
   }
 
-  /* =====================================================
+/* =====================================================
    CTA EQUIPAMENTOS
 ===================================================== */
 
 .equipamentos-cta {
-  padding: 100px 20px;
-  display: flex;
-  justify-content: center;
+  padding: 90px 20px;
+}
+
+.equipamentos-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.equipamentos-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  text-shadow: 0 0 15px rgba(255,255,255,0.15);
 }
 
 .equipamentos-box {
-  max-width: 900px;
-  width: 100%;
   background: #1A1A1D;
-  border: 1px solid rgba(0,255,178,0.15);
+  border: 1px solid rgba(0,255,178,0.12);
   border-radius: 24px;
-  padding: 60px 40px;
+
+  padding: 50px;
+
   text-align: center;
-  box-shadow: 0 0 30px rgba(0,255,178,0.08);
+
+  box-shadow: 0 0 30px rgba(0,255,178,0.06);
+
   transition: all 0.3s ease;
 }
 
 .equipamentos-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 40px rgba(0,255,178,0.15);
-}
-
-.equipamentos-box h2 {
-  margin-bottom: 20px;
+  box-shadow: 0 0 40px rgba(0,255,178,0.12);
 }
 
 .equipamentos-box p {
   max-width: 700px;
   margin: 0 auto 30px;
-  opacity: 0.8;
+
+  font-size: 18px;
   line-height: 1.7;
-  font-size: 17px;
+  opacity: 0.82;
 }
 
 .btn-equipamentos {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 14px 34px;
+
   background: #00FFB2;
   color: #0B0B0C;
+
   text-decoration: none;
-  border-radius: 10px;
+  font-size: 16px;
   font-weight: 700;
+
+  border-radius: 10px;
+
   transition: all 0.3s ease;
 }
 
 .btn-equipamentos:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(0,255,178,0.4);
+  box-shadow: 0 0 25px rgba(0,255,178,0.35);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .equipamentos-cta {
+    padding: 70px 20px;
+  }
+
+  .equipamentos-title {
+    font-size: 30px !important;
+    margin-bottom: 20px;
+  }
+
+  .equipamentos-box {
+    padding: 30px 22px;
+  }
+
+  .equipamentos-box p {
+    font-size: 15px !important;
+    line-height: 1.6;
+  }
+
+  .btn-equipamentos {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+
 }
