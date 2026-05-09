@@ -19,21 +19,26 @@
 
   /* TAREFA 11: botão voltar */
   .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: #0B0B0C;
-    background: #00FFB2;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px 22px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: fit-content;
+  margin: 0 auto 30px;
+
+  color: #0B0B0C;
+  background: #00FFB2;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 8px;
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
   .back-btn::after {
     content: "";
     position: absolute;
