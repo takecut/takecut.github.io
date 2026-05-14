@@ -51,11 +51,11 @@ font-src https://fonts.gstatic.com;
   <a href="#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <nav class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#portfolio">Portfólio</a>
-    <a href="/produtos">Equipamentos</a>
+    <a href="#home">Início</a>
+    <a href="#cases">Cases</a>
     <a href="#services">Serviços</a>
-    <a href="#contact">Contato</a>
+    <a href="#videos-ia">Vídeos com IA</a>
+    <a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." target="_blank" rel="noopener">Orçamento</a>
   </nav>
 </header>
 
@@ -64,10 +64,10 @@ font-src https://fonts.gstatic.com;
     <source src="bg.mp4" type="video/mp4">
   </video>
   <div>
-    <h1>Produtora de vídeo em São Paulo que aumenta suas vendas</h1>
-    <p>Edição de vídeo profissional, criação de vídeos com IA e conteúdo para anúncios que realmente convertem.</p>
-    <button class="btn-main" onclick="window.open('https://forms.gle/TBiUyHQRnzV3hy9t5','_blank')">Quero um vídeo assim</button>
-    <p class="hero-sub">Sem compromisso. Resposta rápida.</p>
+    <h1>Vídeos que vendem sua marca.</h1>
+    <p>Produção, edição e IA para anúncios, Reels e campanhas.</p>
+    <button class="btn-main" onclick="window.open('https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca.','_blank')">Solicitar orçamento</button>
+    <p class="hero-sub">Sem compromisso. Resposta rápida pelo WhatsApp.</p>
   </div>
 </section>
 
@@ -87,32 +87,47 @@ font-src https://fonts.gstatic.com;
 
 <section id="portfolio" class="portfolio">
   <h2>Portfólio</h2>
+  <p class="section-subtitle">Trabalhos separados por objetivo para você encontrar o estilo ideal para sua marca.</p>
 
   <div class="carousel-container" id="portfolioCarousel">
     <button class="carousel-prev" onclick="scrollPortfolio(-1)">&#8249;</button>
     <button class="carousel-next" onclick="scrollPortfolio(1)">&#8250;</button>
     <div class="carousel" id="carousel">
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
-      <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
+      <div class="portfolio-card">
+        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
+        <div class="portfolio-caption"><h3>Anúncio para produto</h3><p>Vídeo curto com edição dinâmica para destacar a oferta e prender atenção nos primeiros segundos.</p><span>Ideal para: lojas, marcas e lançamentos.</span></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
+        <div class="portfolio-caption"><h3>Conteúdo para redes sociais</h3><p>Edição rápida, visual forte e mensagem clara para aumentar retenção em Reels e TikTok.</p><span>Ideal para: negócios locais e criadores.</span></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div>
+        <div class="portfolio-caption"><h3>Vídeo institucional</h3><p>Conteúdo profissional para apresentar a empresa, gerar confiança e fortalecer a marca.</p><span>Ideal para: clínicas, escritórios e empresas.</span></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
+        <div class="portfolio-caption"><h3>Campanha visual</h3><p>Cenas com ritmo, estética e narrativa para deixar a comunicação mais memorável.</p><span>Ideal para: campanhas, lançamentos e eventos.</span></div>
+      </div>
+      <div class="portfolio-card">
+        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
+        <div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Edição com trilha, cortes e narrativa para transformar momentos em uma lembrança marcante.</p><span>Ideal para: aniversários, homenagens e datas especiais.</span></div>
+      </div>
     </div>
   </div>
 
   <div class="portfolio-mobile">
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
-    <div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
+    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Anúncio para produto</h3><p>Vídeo curto para destacar a oferta e prender atenção.</p><span>Ideal para: lojas e marcas.</span></div></div>
+    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Conteúdo para redes sociais</h3><p>Edição rápida para Reels, TikTok e campanhas.</p><span>Ideal para: negócios locais.</span></div></div>
+    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo institucional</h3><p>Apresenta a empresa com mais confiança e profissionalismo.</p><span>Ideal para: empresas e clínicas.</span></div></div>
+    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Campanha visual</h3><p>Estética, ritmo e impacto para campanhas criativas.</p><span>Ideal para: lançamentos.</span></div></div>
+    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Uma edição feita para eternizar momentos especiais.</p><span>Ideal para: pessoa física.</span></div></div>
   </div>
 
-  <!-- TAREFA 7: href="/portfolio" sem .html -->
   <a href="/portfolio" class="btn-ver-mais">Ver mais</a>
 </section>
 
-<section class="ia">
+<section id="videos-ia" class="ia">
   <h2>Vídeos com IA</h2>
   <div class="ia-main">
     <div class="video-box horizontal destaque" onclick="playVideo(this)">
@@ -121,8 +136,8 @@ font-src https://fonts.gstatic.com;
       <video class="video" controls preload="none"><source src="videoia3.mp4" type="video/mp4"></video>
     </div>
     <div class="result-info">
-      <h3>Sem limites</h3>
-      <p>Com apenas duas imagens, podemos fazer qualquer coisa.</p>
+      <h3>Vídeos com IA para destacar sua marca</h3>
+      <p>Criamos cenas, modelos, produtos e variações visuais com inteligência artificial para anúncios, redes sociais e campanhas.</p>
     </div>
   </div>
   <div class="ia-secondary">
@@ -133,8 +148,8 @@ font-src https://fonts.gstatic.com;
         <video class="video" controls preload="none"><source src="videoia1.mp4" type="video/mp4"></video>
       </div>
       <div class="result-info">
-        <h3>Efeitos sonoros</h3>
-        <p>O realismo e os detalhes são valorizados.</p>
+        <h3>Realismo e impacto</h3>
+        <p>Detalhes visuais e sonoros deixam o conteúdo mais envolvente, profissional e memorável.</p>
       </div>
     </div>
     <div class="ia-card">
@@ -145,14 +160,14 @@ font-src https://fonts.gstatic.com;
       </div>
       <div class="result-info">
         <h3>Modelo, cenário e produto</h3>
-        <p>Podemos vender o seu produto, da maneira que você desejar.</p>
+        <p>Apresentamos sua oferta em cenas criativas para aumentar desejo, atenção e percepção de valor.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="results">
-  <h2>Resultados Reais</h2>
+<section id="cases" class="results">
+  <h2>Cases e Resultados</h2>
   <div class="results-grid">
     <div class="result-item item1">
       <div class="video-box" onclick="playVideo(this)">
@@ -162,7 +177,7 @@ font-src https://fonts.gstatic.com;
       </div>
       <div class="result-info">
         <h3>+240 mil visualizações</h3>
-        <p>Vídeo focado em tráfego pago, cortes rápidos, pouca duração, somente informação necessária.</p>
+        <p>Vídeo curto criado para tráfego pago, com cortes rápidos, mensagem direta e foco em retenção nos primeiros segundos.</p>
       </div>
     </div>
     <div class="result-item item2">
@@ -173,56 +188,76 @@ font-src https://fonts.gstatic.com;
       </div>
       <div class="result-info">
         <h3>+380 mil de visualizações</h3>
-        <p>Edição feita para anúncios de alta conversão.</p>
+        <p>Edição pensada para anúncios, impacto visual e comunicação clara da oferta.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section id="services" class="services">
-  <h2>O que a Take Cut faz pela sua marca</h2>
+  <h2>Serviços</h2>
   <p class="services-subtitle">Não é só vídeo. É estratégia para atrair, prender e converter clientes.</p>
   <div class="services-grid">
     <div class="service-card fade-in">
-      <h3>🎬 Produção Completa</h3>
-      <p>Do roteiro à gravação. Você não precisa se preocupar com nada, só com o resultado.</p>
+      <h3>🎬 Produção audiovisual</h3>
+      <p>Roteiro, captação, iluminação, áudio e edição final para marcas que querem se apresentar com mais profissionalismo.</p>
     </div>
     <div class="service-card fade-in">
-      <h3>✂️ Edição de Alta Conversão</h3>
-      <p>Cortes dinâmicos, ritmo acelerado e retenção máxima. Vídeos feitos para não serem ignorados.</p>
+      <h3>📈 Vídeos para anúncios</h3>
+      <p>Criativos para Meta Ads, Instagram, TikTok e campanhas de venda, com foco em atenção, clareza e ação.</p>
     </div>
     <div class="service-card fade-in">
-      <h3>📱 Conteúdo para Redes</h3>
-      <p>Reels, TikTok, anúncios e conteúdo que realmente gera resultado.</p>
+      <h3>✂️ Edição de alta retenção</h3>
+      <p>Cortes rápidos, legendas, ritmo, trilha, efeitos e narrativa visual para o público continuar assistindo.</p>
+    </div>
+    <div class="service-card fade-in">
+      <h3>🤖 Vídeos com IA</h3>
+      <p>Criação de cenas, modelos, produtos e variações visuais com inteligência artificial para campanhas e redes sociais.</p>
+    </div>
+    <div class="service-card fade-in">
+      <h3>📱 Conteúdo para redes sociais</h3>
+      <p>Reels, vídeos curtos, chamadas, bastidores e materiais para fortalecer posicionamento digital.</p>
+    </div>
+    <div class="service-card fade-in">
+      <h3>💼 Pacotes mensais</h3>
+      <p>Rotina de vídeos para empresas que precisam manter presença, frequência e campanhas sempre ativas.</p>
+    </div>
+  </div>
+</section>
+<section id="publicos" class="audiences">
+  <h2>Escolha o formato ideal</h2>
+  <p class="section-subtitle">Empresa compra resultado. Pessoa física compra emoção. Por isso, separamos os tipos de projeto.</p>
+  <div class="audience-grid">
+    <div class="audience-card audience-business">
+      <h3>Para empresas</h3>
+      <p>Conteúdos profissionais para anúncios, redes sociais, produtos, eventos corporativos e posicionamento digital.</p>
+      <ul>
+        <li>Anúncios para Instagram/Facebook</li>
+        <li>Reels comerciais</li>
+        <li>Vídeos institucionais</li>
+        <li>Vídeos de produto</li>
+        <li>Conteúdo com IA</li>
+        <li>Eventos corporativos</li>
+      </ul>
+      <a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." target="_blank" rel="noopener" class="btn-ver-mais">Solicitar orçamento para empresa</a>
+    </div>
+    <div class="audience-card audience-personal">
+      <h3>Para pessoa física</h3>
+      <p>Edições emocionantes e profissionais para aniversários, homenagens, viagens, eventos e lembranças pessoais.</p>
+      <ul>
+        <li>Aniversários</li>
+        <li>Homenagens</li>
+        <li>Casamentos</li>
+        <li>Viagens</li>
+        <li>Retrospectivas</li>
+        <li>Eventos pessoais</li>
+      </ul>
+      <a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20um%20v%C3%ADdeo%20pessoal." target="_blank" rel="noopener" class="btn-ver-mais">Solicitar orçamento pessoal</a>
     </div>
   </div>
 </section>
 
-<section class="equipamentos-cta">
 
-  <div class="equipamentos-container">
-
-    <!-- TÍTULO FORA DO CARD -->
-    <h2 class="equipamentos-title">
-      Equipamentos Profissionais
-    </h2>
-
-    <div class="equipamentos-box">
-
-      <p>
-        Conheça os equipamentos que usamos nas nossas produções.
-        Câmeras, iluminação, áudio e acessórios profissionais.
-      </p>
-
-      <a href="/produtos" class="btn-equipamentos">
-        Ver Equipamentos
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
 
 <section class="testimonials">
   <h2>Quem já confiou na Take Cut</h2>
@@ -280,35 +315,47 @@ font-src https://fonts.gstatic.com;
   <h2>Perguntas Frequentes</h2>
   <div class="faq-list">
     <div class="faq-item">
-      <h3>Quanto tempo leva para produzir um vídeo?</h3>
-      <p>Depende da complexidade, mas geralmente entre 2 a 7 dias úteis.</p>
+      <h3>Vocês fazem vídeos para anúncios pagos?</h3>
+      <p>Sim. Criamos vídeos pensados para prender atenção nos primeiros segundos, comunicar a oferta com clareza e levar o público para uma ação.</p>
     </div>
     <div class="faq-item">
-      <h3>Vocês fazem vídeos com IA?</h3>
-      <p>Sim, criamos vídeos completos utilizando inteligência artificial.</p>
+      <h3>Eu não sei o que falar no vídeo. Vocês ajudam com a ideia?</h3>
+      <p>Sim. Podemos ajudar com a ideia, roteiro, estrutura, direção e edição para transformar sua necessidade em um vídeo profissional.</p>
     </div>
     <div class="faq-item">
-      <h3>Preciso fornecer roteiro?</h3>
-      <p>Não precisa, cuidamos de todo o processo criativo para você. Mas se tiver um roteiro pronto, trabalhamos também.</p>
+      <h3>Consigo contratar apenas a edição?</h3>
+      <p>Sim. Você pode enviar seus vídeos brutos e nós transformamos em conteúdos editados para redes sociais, anúncios, apresentações ou eventos.</p>
     </div>
     <div class="faq-item">
-      <h3>Atendem fora de São Paulo?</h3>
-      <p>Sim, atendemos clientes de todo o Brasil para pós-produção. A maioria dos projetos são feitos 100% online. Agora a captação fazemos somente em São Paulo.</p>
+      <h3>Vocês fazem vídeos com inteligência artificial?</h3>
+      <p>Sim. Criamos cenas, modelos, produtos e variações visuais com IA para campanhas, redes sociais e conteúdos criativos.</p>
     </div>
     <div class="faq-item">
-      <h3>Qual o investimento para um vídeo?</h3>
-      <p>O valor varia conforme o tipo e complexidade do projeto. Entre em contato para receber um orçamento personalizado.</p>
+      <h3>Vocês atendem fora de São Paulo?</h3>
+      <p>Sim. Atendemos projetos online para todo o Brasil. Para gravações presenciais, avaliamos a localização e a necessidade da produção.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Vocês fazem vídeos para pessoa física?</h3>
+      <p>Sim. Também criamos vídeos para aniversários, homenagens, eventos, retrospectivas e momentos especiais.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Vocês trabalham com pacotes mensais?</h3>
+      <p>Sim. Podemos montar pacotes para empresas que precisam de vídeos recorrentes para redes sociais, anúncios e campanhas.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Quanto custa um vídeo?</h3>
+      <p>O valor depende do tipo de vídeo, duração, complexidade, prazo e se haverá gravação, edição ou uso de IA. Para receber uma proposta, basta solicitar um orçamento pelo WhatsApp.</p>
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
-  <h2>Vamos tirar sua ideia do papel?</h2>
-  <p class="contact-subtitle">Fale com a Take Cut e receba uma resposta rápida.</p>
+  <h2>Solicite seu orçamento</h2>
+  <p class="contact-subtitle">Fale pelo WhatsApp e conte qual tipo de vídeo você precisa.</p>
   <div class="contact-grid">
-    <a href="https://wa.me/5511994769848" target="_blank" rel="noopener" class="contact-card">
+    <a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." target="_blank" rel="noopener" class="contact-card">
       <h3>📱 WhatsApp</h3>
-      <p>Fale direto com a gente</p>
+      <p>Solicitar orçamento agora</p>
     </a>
     <a href="mailto:takecutedit@gmail.com" class="contact-card">
       <h3>📧 Email</h3>
@@ -321,7 +368,7 @@ font-src https://fonts.gstatic.com;
   </div>
 </section>
 
-<a href="https://wa.me/5511994769848" class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+<a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
   <img src="whatsapp-icon.png" alt="WhatsApp" width="55" height="55">
 </a>
 
@@ -333,6 +380,14 @@ font-src https://fonts.gstatic.com;
 </div>
 
 <footer class="footer">
+  <div class="footer-links">
+    <a href="#home">Início</a>
+    <a href="#services">Serviços</a>
+    <a href="#cases">Cases</a>
+    <a href="/portfolio">Portfólio</a>
+    <a href="/produtos">Equipamentos</a>
+    <a href="#contact">Contato</a>
+  </div>
   <p>© 2026 Take Cut. Todos os direitos reservados.</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
