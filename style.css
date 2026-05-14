@@ -99,8 +99,10 @@ body {
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 1px;
+  font-size: 44px;
+  margin-bottom: 8px;
+  max-width: 620px;
+  line-height: 1.05;
 }
 
 .hero-sub {
@@ -194,6 +196,14 @@ h2 {
 }
 
 p { margin-bottom: 10px; }
+
+.section-subtitle {
+  text-align: center;
+  max-width: 720px;
+  margin: -10px auto 45px;
+  opacity: 0.75;
+  line-height: 1.6;
+}
 
 /* SHOWREEL */
 .showreel { padding-top: 0px; }
@@ -413,7 +423,7 @@ p { margin-bottom: 10px; }
 
 /* Frase em destaque */
 .quemsomos-texto p:first-child {
-  font-size: 22px; !important;
+  font-size: 22px !important;
   font-style: italic;
   color: #00FFB2;
   margin-bottom: 20px;
@@ -422,14 +432,14 @@ p { margin-bottom: 10px; }
 }
 
 .quemsomos-texto p:last-child {
-  font-size: 20px; !important;
+  font-size: 20px !important;
   line-height: 1.8;
   opacity: 0.85;
 }
 
 /* Subtítulo "Missão, Visão e Valores" */
 .about-subtitle {
-  font-size: 24px; !important;         /* ← TAMANHO DO SUBTÍTULO */
+  font-size: 24px !important;         /* ← TAMANHO DO SUBTÍTULO */
   font-weight: 600;
   color: #F5F5F5;
   text-align: center;
@@ -680,7 +690,7 @@ img, video {
 ::-moz-selection { background: rgba(0,255,178,0.3); color: #F5F5F5; }
 
 /* RENDERIZAÇÃO LAZY */
-.ia, .results, .testimonials, .clients, .about {
+.ia, .results, .testimonials, .clients, .about, .audiences {
   content-visibility: auto;
   contain-intrinsic-size: 0 500px;
 }
@@ -745,6 +755,100 @@ img, video {
 .carousel-next:active { transform: translateY(-50%) scale(0.95); }
 
 .portfolio-mobile { display: none; }
+
+
+.portfolio-card {
+  min-width: 343px;
+  max-width: 343px;
+  flex-shrink: 0;
+}
+
+.portfolio-caption {
+  text-align: left;
+  background: rgba(26,26,29,0.82);
+  border: 1px solid rgba(0,255,178,0.10);
+  border-radius: 14px;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.portfolio-caption h3 {
+  color: #00FFB2;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.portfolio-caption p {
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.86;
+}
+
+.portfolio-caption span {
+  display: block;
+  color: #F5F5F5;
+  font-size: 13px;
+  opacity: 0.65;
+  margin-top: 8px;
+}
+
+.audiences { text-align: center; }
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.audience-card {
+  background: #1A1A1D;
+  border: 1px solid rgba(0,255,178,0.12);
+  border-radius: 18px;
+  padding: 30px;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0,255,178,0.08);
+}
+
+.audience-card h3 {
+  color: #00FFB2;
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.audience-card p {
+  opacity: 0.85;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.audience-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.audience-card li {
+  opacity: 0.85;
+  line-height: 1.45;
+}
+
+.audience-card li::before {
+  content: "✓";
+  color: #00FFB2;
+  margin-right: 8px;
+  font-weight: 800;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-bottom: 16px;
+}
 
 /* RODAPÉ */
 .footer {
@@ -923,6 +1027,16 @@ img, video {
   .quemsomos-texto p:last-child  { font-size: 16px !important; }
   .about-subtitle { font-size: 20px !important; }
 
+
+  .section-subtitle { font-size: 15px !important; margin-bottom: 32px !important; }
+  .portfolio-mobile-card { width: 100% !important; max-width: 345px !important; }
+  .portfolio-caption { padding: 14px !important; }
+  .portfolio-caption h3 { font-size: 18px !important; }
+  .portfolio-caption p, .portfolio-caption span { font-size: 14px !important; }
+  .audience-card { padding: 24px 20px !important; }
+  .audience-card li { font-size: 15px !important; }
+  .footer-links { flex-direction: column; gap: 10px; }
+
   /* PROTEÇÃO ZOOM */
   body {
     touch-action: manipulation;
@@ -1088,4 +1202,4 @@ img, video {
 
 }
 
-} /* FECHA MOBILE CTA */
+/* FECHA MOBILE CTA */
