@@ -43,6 +43,35 @@
     object-fit: cover;
     display: block;
   }
+  .portfolio-page-card {
+    background: #1A1A1D;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,255,178,0.10);
+  }
+  .portfolio-page-card .portfolio-grid-item {
+    border-radius: 0;
+  }
+  .portfolio-page-caption {
+    padding: 16px;
+    text-align: left;
+  }
+  .portfolio-page-caption h3 {
+    color: #00FFB2;
+    font-size: 17px;
+    margin-bottom: 8px;
+  }
+  .portfolio-page-caption p {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+  .portfolio-page-caption span {
+    display: block;
+    opacity: 0.55;
+    font-size: 13px;
+    margin-top: 8px;
+  }
   /* TAREFA 3: botão voltar profissional */
   .back-btn {
     display: inline-flex;
@@ -114,11 +143,11 @@
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <!-- TAREFA 9: links sem index.html + TAREFA 3: Equipamentos no menu -->
   <nav class="nav-links">
-    <a href="/">Home</a>
-    <a href="/#portfolio">Portfólio</a>
-    <a href="/produtos">Equipamentos</a>
+    <a href="/">Início</a>
+    <a href="/#cases">Cases</a>
     <a href="/#services">Serviços</a>
-    <a href="/#contact">Contato</a>
+    <a href="/#videos-ia">Vídeos com IA</a>
+    <a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." target="_blank" rel="noopener">Orçamento</a>
   </nav>
 </header>
 
@@ -127,53 +156,61 @@
     <span class="arrow">←</span> Voltar ao site
   </a>
   <h1>Nosso Portfólio</h1>
-  <p class="subtitle">Todos os nossos trabalhos em um só lugar.</p>
+  <p class="subtitle">Projetos organizados por estilo, objetivo e tipo de cliente.</p>
 
 <div class="portfolio-grid">
 
-  <div class="portfolio-grid-item video-card">
-    <img src="/thumbp1.png" class="video-thumb">
-
-    <video controls preload="none">
-      <source src="/video1.mp4" type="video/mp4">
-    </video>
+  <div class="portfolio-page-card">
+    <div class="portfolio-grid-item video-card">
+      <img src="/thumbp1.png" class="video-thumb" alt="Anúncio para produto">
+      <video controls preload="none"><source src="/video1.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption"><h3>Anúncio para produto</h3><p>Vídeo curto com edição dinâmica para destacar a oferta e prender atenção nos primeiros segundos.</p><span>Ideal para: lojas, marcas e lançamentos.</span></div>
   </div>
 
-  <div class="portfolio-grid-item video-card">
-    <img src="/thumbp2.png" class="video-thumb">
-
-    <video controls preload="none">
-      <source src="/video2.mp4" type="video/mp4">
-    </video>
+  <div class="portfolio-page-card">
+    <div class="portfolio-grid-item video-card">
+      <img src="/thumbp2.png" class="video-thumb" alt="Conteúdo para redes sociais">
+      <video controls preload="none"><source src="/video2.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption"><h3>Conteúdo para redes sociais</h3><p>Edição rápida, visual forte e mensagem clara para aumentar retenção em Reels e TikTok.</p><span>Ideal para: negócios locais e criadores.</span></div>
   </div>
 
-  <div class="portfolio-grid-item video-card">
-    <img src="/thumbp3.png" class="video-thumb">
-
-    <video controls preload="none">
-      <source src="/video3.mp4" type="video/mp4">
-    </video>
+  <div class="portfolio-page-card">
+    <div class="portfolio-grid-item video-card">
+      <img src="/thumbp3.png" class="video-thumb" alt="Vídeo institucional">
+      <video controls preload="none"><source src="/video3.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption"><h3>Vídeo institucional</h3><p>Conteúdo profissional para apresentar a empresa, gerar confiança e fortalecer a marca.</p><span>Ideal para: clínicas, escritórios e empresas.</span></div>
   </div>
 
-  <div class="portfolio-grid-item video-card">
-    <img src="/thumbp4.png" class="video-thumb">
-
-    <video controls preload="none">
-      <source src="/video4.mp4" type="video/mp4">
-    </video>
+  <div class="portfolio-page-card">
+    <div class="portfolio-grid-item video-card">
+      <img src="/thumbp4.png" class="video-thumb" alt="Campanha visual">
+      <video controls preload="none"><source src="/video4.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption"><h3>Campanha visual</h3><p>Cenas com ritmo, estética e narrativa para deixar a comunicação mais memorável.</p><span>Ideal para: campanhas, lançamentos e eventos.</span></div>
   </div>
 
-  <div class="portfolio-grid-item video-card">
-    <img src="/thumbp5.png" class="video-thumb">
-
-    <video controls preload="none">
-      <source src="/video5.mp4" type="video/mp4">
-    </video>
+  <div class="portfolio-page-card">
+    <div class="portfolio-grid-item video-card">
+      <img src="/thumbp5.png" class="video-thumb" alt="Vídeo emocional">
+      <video controls preload="none"><source src="/video5.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption"><h3>Vídeo emocional</h3><p>Edição com trilha, cortes e narrativa para transformar momentos em uma lembrança marcante.</p><span>Ideal para: aniversários, homenagens e datas especiais.</span></div>
   </div>
 
 </div>
+</div>
 
 <footer class="footer">
+  <div class="footer-links">
+    <a href="/">Início</a>
+    <a href="/#services">Serviços</a>
+    <a href="/#cases">Cases</a>
+    <a href="/produtos">Equipamentos</a>
+    <a href="/#contact">Contato</a>
+  </div>
   <p>© 2026 Take Cut. Todos os direitos reservados.</p>
 </footer>
 
