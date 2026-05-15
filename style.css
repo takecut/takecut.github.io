@@ -154,6 +154,10 @@ button {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+
+  padding: 18px 42px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .btn-main:hover {
@@ -396,6 +400,24 @@ p { margin-bottom: 10px; }
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 40px;
   align-items: center;
+}
+
+.clients-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.clients-grid img {
+  width: 100%;
+  max-width: 180px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: 0.3s;
 }
 
 /* 👇 TAMANHO DAS LOGOS DE CLIENTES (desktop) */
@@ -985,6 +1007,12 @@ img, video {
     filter: none !important;
     animation: shakeAttention 4s infinite ease-in-out !important;
   }
+
+.btn-main {
+  padding: 16px 34px !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+}
 
   /* RESULTADOS */
   .results-grid { flex-direction: column !important; align-items: center !important; gap: 40px !important; }
