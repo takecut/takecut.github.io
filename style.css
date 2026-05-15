@@ -319,6 +319,7 @@ p { margin-bottom: 10px; }
 .ia-secondary { display: flex; justify-content: center; gap: 400px; flex-wrap: wrap; }
 .ia-card { max-width: 800px; }
 .ia .result-info h3 { color: #00FFB2; margin-top: 15px; }
+.ia-card .result-info p { max-width: 760px; margin-left: auto; margin-right: auto; }
 
 /* RESULTADOS */
 .results { padding: 100px 40px; text-align: center; }
@@ -336,7 +337,7 @@ p { margin-bottom: 10px; }
 .results .item1 { transform: translate(-250px, 6px); }
 .results .item2 { transform: translate(115px, 5px); }
 .results .item1 .video-box { max-width: 359px; }
-.results .item2 .video-box { max-width: 450px; }
+.results .item2 .video-box { max-width: 359px; }
 
 /* SERVIÇOS */
 .services { text-align: center; }
@@ -809,6 +810,16 @@ img, video {
   padding: 30px;
   text-align: left;
   box-shadow: 0 0 20px rgba(0,255,178,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.audience-card .btn-ver-mais {
+  align-self: center;
+  margin-top: auto;
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
 }
 
 .audience-card h3 {
@@ -977,7 +988,7 @@ img, video {
 
   /* RESULTADOS */
   .results-grid { flex-direction: column !important; align-items: center !important; gap: 40px !important; }
-  .results .item1, .results .item2 { transform: none !important; max-width: 250px !important; width: 100% !important; }
+  .results .item1, .results .item2 { transform: none !important; max-width: 228px !important; width: 100% !important; }
   .results .item1 .video-box, .results .item2 .video-box { max-width: 100% !important; width: 100% !important; }
 
   /* IA */
@@ -1034,6 +1045,7 @@ img, video {
   .portfolio-caption h3 { font-size: 18px !important; }
   .portfolio-caption p, .portfolio-caption span { font-size: 14px !important; }
   .audience-card { padding: 24px 20px !important; }
+  .audience-card .btn-ver-mais { align-self: center !important; width: 100% !important; max-width: 330px !important; }
   .audience-card li { font-size: 15px !important; }
   .footer-links { flex-direction: column; gap: 10px; }
 
@@ -1203,94 +1215,3 @@ img, video {
 }
 
 /* FECHA MOBILE CTA */
-
-
-/* =====================================================
-   AJUSTES SOLICITADOS — 14/05
-===================================================== */
-
-/* 2 e 9 — hero mais limpo no desktop */
-@media (min-width: 769px) {
-  .hero h1 {
-    white-space: nowrap;
-    max-width: none;
-  }
-
-  /* 6 — aproxima os vídeos da seção Vídeos com IA no desktop */
-  .ia-main {
-    margin-bottom: 70px !important;
-  }
-
-  .ia-secondary {
-    gap: 140px !important;
-  }
-
-  /* 7 — aumenta distância entre título e subtítulo nos textos dos vídeos com IA */
-  .ia .result-info h3 {
-    margin-bottom: 14px !important;
-  }
-
-  /* 8 — aumenta distância entre título e subtítulo da seção Serviços */
-  .services h2 {
-    margin-bottom: 24px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  /* 3 — remove menu do rodapé no mobile */
-  .footer-links {
-    display: none !important;
-  }
-
-  /* 4 — mais palavras por linha em Cases e Resultados */
-  .results .item1,
-  .results .item2 {
-    max-width: 345px !important;
-  }
-
-  .results .result-info {
-    max-width: 345px !important;
-    width: 100% !important;
-  }
-
-  .results .result-info p {
-    max-width: 345px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* 5 — distancia melhor os vídeos no Portfólio mobile */
-  .portfolio-mobile {
-    gap: 34px !important;
-  }
-
-  .portfolio-mobile-card {
-    margin-bottom: 10px !important;
-  }
-
-  /* 10 — centraliza textos e botão do hero no mobile */
-  .hero {
-    justify-content: center !important;
-    align-items: center !important;
-    text-align: center !important;
-  }
-
-  .hero > div {
-    margin: 0 auto !important;
-    width: 100% !important;
-    max-width: 360px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .hero h1,
-  .hero p {
-    text-align: center !important;
-  }
-
-  .hero .btn-main {
-    align-self: center !important;
-  }
-}
