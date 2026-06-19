@@ -96,6 +96,42 @@
     color: var(--tc-green);
   }
 
+  .portfolio-section {
+    margin-top: 34px;
+  }
+
+  .portfolio-section + .portfolio-section {
+    margin-top: 54px;
+  }
+
+  .portfolio-section.is-hidden {
+    display: none;
+  }
+
+  .portfolio-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+    text-align: left;
+  }
+
+  .portfolio-section-heading h2 {
+    color: var(--tc-white);
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .portfolio-section-heading p {
+    max-width: 520px;
+    color: rgba(245,245,245,0.62);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -352,6 +388,10 @@
 
   @media (max-width: 768px) {
     .portfolio-page { padding: 40px 16px; }
+    .portfolio-section-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
     .portfolio-grid { grid-template-columns: 1fr; }
     .portfolio-page-card.is-vertical { max-width: 100%; }
     .card-actions {
@@ -402,7 +442,14 @@
     <button class="filter-btn" type="button" data-filter="youtube">YouTube</button>
     <button class="filter-btn" type="button" data-filter="emocional">Emocional</button>
     <button class="filter-btn" type="button" data-filter="vertical">Verticais</button>
+    <button class="filter-btn" type="button" data-filter="ia">IA</button>
   </div>
+
+  <section class="portfolio-section">
+    <div class="portfolio-section-heading">
+      <h2>Vídeos verticais</h2>
+      <p>Conteúdos pensados para Reels, TikTok, Shorts e anúncios mobile, com leitura rápida e ritmo de rede social.</p>
+    </div>
 
 <div class="portfolio-grid">
 
@@ -414,7 +461,7 @@
     <div class="portfolio-page-caption">
       <div class="eyebrow">Conteúdo corporativo</div>
       <h3>Vídeo de entrevista para marca</h3>
-      <p>Edição com legenda, identidade visual e ritmo de redes sociais para transformar uma entrevista em conteúdo claro, profissional e fácil de assistir.</p>
+      <p>Edição vertical com legenda, identidade visual e ritmo de redes sociais para transformar uma entrevista em conteúdo claro, profissional e fácil de assistir.</p>
       <div class="portfolio-tags">
         <span>RH e empresas</span>
         <span>Reels corporativo</span>
@@ -468,6 +515,38 @@
       </div>
     </div>
   </article>
+
+  <article class="portfolio-page-card is-vertical" data-category="ads social vertical">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Vertical / Hospedagem</span>
+      <video controls preload="none" poster="/thumbp8.jpg"><source src="/video8.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Tour comercial</div>
+      <h3>Reels para hospedagem temática</h3>
+      <p>Edição vertical com cortes guiados, legenda objetiva e ritmo de descoberta para apresentar o ambiente, valorizar a experiência e despertar vontade de reservar.</p>
+      <div class="portfolio-tags">
+        <span>Pousadas e hotéis</span>
+        <span>Tour vertical</span>
+        <span>Conteúdo para anúncio</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: transformar o espaço em desejo de visita.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20Reels%20de%20hospedagem%20tem%C3%A1tica%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+  </section>
+
+  <section class="portfolio-section">
+    <div class="portfolio-section-heading">
+      <h2>Vídeos horizontais e IA</h2>
+      <p>Projetos em formato amplo para YouTube, campanhas, vídeos institucionais e cenas geradas com inteligência artificial.</p>
+    </div>
+
+<div class="portfolio-grid">
 
   <article class="portfolio-page-card" data-category="ads">
     <div class="portfolio-grid-item video-card">
@@ -532,7 +611,29 @@
     </div>
   </article>
 
+  <article class="portfolio-page-card" data-category="ia ads">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / 100% IA</span>
+      <video controls preload="none" poster="/thumbp7.jpg"><source src="/video7.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Vídeo gerado com IA</div>
+      <h3>Cena cinematográfica 100% IA</h3>
+      <p>Vídeo criado com inteligência artificial para gerar impacto visual, construir atmosfera e apresentar uma ideia impossível ou cara de produzir com captação tradicional.</p>
+      <div class="portfolio-tags">
+        <span>100% IA</span>
+        <span>Cena conceitual</span>
+        <span>Campanha visual</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: criar imagens marcantes sem depender de filmagem real.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20100%25%20IA%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
 </div>
+  </section>
 </div>
 
 <footer class="footer">
@@ -613,6 +714,11 @@ document.querySelectorAll(".filter-btn").forEach(function(button) {
         const video = card.querySelector("video");
         if (video) video.pause();
       }
+    });
+
+    document.querySelectorAll(".portfolio-section").forEach(function(section) {
+      const visibleCards = section.querySelectorAll(".portfolio-page-card:not(.is-hidden)").length;
+      section.classList.toggle("is-hidden", visibleCards === 0);
     });
   });
 });
