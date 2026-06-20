@@ -1,62 +1,85 @@
 // LOADING SCREEN
-// Detecta mobile por largura OU por userAgent (funciona no Inspecionar e no iPhone real)
-var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-
-if (isMobileDevice) {
+// Aparece somente uma vez no mobile. Depois disso, o usuário pode voltar ao site sem ver a tela de renderização de novo.
+(function () {
+  var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
+  var storageKey = "takecutLoadingScreenSeen";
   var loadScreen = document.getElementById("loadingScreen");
   var loadBar = document.getElementById("loadingBar");
 
-  if (loadScreen && loadBar) {
-    // Adiciona classe .active para mostrar (CSS usa display:none por padrão)
-    loadScreen.classList.add("active");
+  function storageGet(key) {
+    try { return window.localStorage.getItem(key); }
+    catch (e) { return null; }
+  }
 
-    var progress = 0;
-    var interval = setInterval(function() {
-      var remaining = 100 - progress;
-      var step = Math.max(0.8, remaining * 0.05);
-      progress = Math.min(progress + step, 95);
-      loadBar.style.width = progress + "%";
-    }, 60);
+  function storageSet(key, value) {
+    try { window.localStorage.setItem(key, value); }
+    catch (e) { /* Se o navegador bloquear storage, o site continua funcionando. */ }
+  }
 
-    function waitForImages() {
-      var images = document.querySelectorAll("img");
-      var promises = [];
-      images.forEach(function(img) {
-        if (img.complete) return;
-        promises.push(new Promise(function(resolve) {
-          img.onload = resolve;
-          img.onerror = resolve;
-        }));
-      });
-      return Promise.all(promises);
-    }
+  function removeLoadingScreen() {
+    if (loadScreen) loadScreen.remove();
+  }
 
-    window.addEventListener("load", function() {
-      waitForImages().then(function() {
-        clearInterval(interval);
-        loadBar.style.width = "100%";
-        setTimeout(function() {
-          loadScreen.style.opacity = "0";
-          loadScreen.style.transition = "opacity 0.5s ease";
-          setTimeout(function() { loadScreen.remove(); }, 500);
-        }, 300);
+  // Desktop não usa loading screen. Mobile só usa na primeira visita.
+  if (!loadScreen || !loadBar || !isMobileDevice || storageGet(storageKey) === "true") {
+    removeLoadingScreen();
+    return;
+  }
+
+  storageSet(storageKey, "true");
+  loadScreen.classList.add("active");
+
+  var progress = 0;
+  var finished = false;
+  var interval = setInterval(function () {
+    var remaining = 100 - progress;
+    var step = Math.max(1, remaining * 0.06);
+    progress = Math.min(progress + step, 94);
+    loadBar.style.width = progress + "%";
+  }, 60);
+
+  // Não espera TODAS as imagens do site, porque isso fazia logos e imagens distantes segurarem o loader.
+  function waitForCriticalImages() {
+    var selectors = ["#loadingScreen img", ".navbar .logo img", ".showreel .thumb"];
+    var images = [];
+
+    selectors.forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (img) {
+        if (images.indexOf(img) === -1) images.push(img);
       });
     });
 
-    // Segurança: fecha em 6s de qualquer forma
-    setTimeout(function() {
-      if (document.getElementById("loadingScreen")) {
-        clearInterval(interval);
-        loadBar.style.width = "100%";
-        setTimeout(function() {
-          loadScreen.style.opacity = "0";
-          loadScreen.style.transition = "opacity 0.5s ease";
-          setTimeout(function() { loadScreen.remove(); }, 500);
-        }, 300);
-      }
-    }, 6000);
+    var promises = images.map(function (img) {
+      if (img.complete) return Promise.resolve();
+      return new Promise(function (resolve) {
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+    });
+
+    return Promise.all(promises);
   }
-}
+
+  function finishLoading() {
+    if (finished) return;
+    finished = true;
+    clearInterval(interval);
+    loadBar.style.width = "100%";
+
+    setTimeout(function () {
+      loadScreen.style.opacity = "0";
+      loadScreen.style.transition = "opacity 0.5s ease";
+      setTimeout(removeLoadingScreen, 500);
+    }, 260);
+  }
+
+  window.addEventListener("load", function () {
+    waitForCriticalImages().then(finishLoading);
+  }, { once: true });
+
+  // Segurança: se algo travar, fecha mesmo assim.
+  setTimeout(finishLoading, 3500);
+})();
 
 // MENU
 function toggleMenu() {
