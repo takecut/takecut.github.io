@@ -163,8 +163,11 @@ function scrollPortfolio(direction) {
 // No mobile reduz estrelas pela metade para poupar CPU
 function createUniverse() {
   const starsBg = document.getElementById("starsBg");
+  if (!starsBg || starsBg.dataset.ready === "true") return;
+  starsBg.dataset.ready = "true";
+
   const isMobile = window.innerWidth <= 768;
-  const starCount = isMobile ? 40 : 100;
+  const starCount = isMobile ? 24 : 80;
   const ufoCount = isMobile ? 1 : 3;
 
   const fragment = document.createDocumentFragment();
@@ -226,7 +229,16 @@ function createUniverse() {
   starsBg.appendChild(fragment);
 }
 
-window.addEventListener("load", createUniverse);
+function startUniverse() {
+  // Antes era no window.load. Isso atrasava estrelas/nave no mobile.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", createUniverse, { once: true });
+  } else {
+    createUniverse();
+  }
+}
+
+startUniverse();
 
 // ANTI DEVTOOLS
 (function () {
