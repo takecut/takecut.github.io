@@ -27,13 +27,22 @@ font-src https://fonts.gstatic.com;
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17039172373"></script>
+<!-- Google tag (gtag.js) com Consent Mode -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
+  // Por padrão, cookies de análise/anúncios ficam bloqueados até o usuário aceitar.
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17039172373"></script>
+<script>
+  gtag('js', new Date());
   gtag('config', 'AW-17039172373');
 </script>
 </head>
@@ -425,5 +434,6 @@ font-src https://fonts.gstatic.com;
 </footer>
 
 <script src="script.js" defer></script>
+<script src="/cookie-consent.js" defer></script>
 </body>
 </html>
