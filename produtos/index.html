@@ -3,42 +3,355 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Equipamentos Profissionais | Take Cut</title>
+<title>Portfólio | Take Cut</title>
+<meta name="description" content="Veja trabalhos da Take Cut em anúncios, Reels, vídeos institucionais, YouTube e vídeos emocionais. Edição profissional para marcas, empresas e pessoas.">
+<meta property="og:title" content="Portfólio | Take Cut">
+<meta property="og:description" content="Projetos de vídeo organizados por objetivo, formato e tipo de cliente.">
+<meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/logo1.png">
 <link rel="stylesheet" href="/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-
-  /* ── PÁGINA DE EQUIPAMENTOS ── */
-
-  .produtos-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
+  :root {
+    --tc-green: #00FFB2;
+    --tc-black: #0B0B0C;
+    --tc-white: #F5F5F5;
+    --tc-card: #141416;
+    --tc-card-2: #1A1A1D;
+    --tc-line: rgba(0,255,178,0.14);
   }
 
-  /* TAREFA 11: botão voltar */
+  .portfolio-page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+    text-align: center;
+  }
+
+  .portfolio-hero {
+    max-width: 820px;
+    margin: 0 auto 38px;
+  }
+
+  .portfolio-page h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--tc-white);
+    margin-bottom: 12px;
+    text-shadow: 0 0 15px rgba(0,255,178,0.25);
+  }
+
+  .portfolio-page .subtitle {
+    color: rgba(245,245,245,0.72);
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0 auto 22px;
+    max-width: 720px;
+  }
+
+
+  .portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 34px auto 34px;
+  }
+
+  .filter-btn {
+    border: 1px solid rgba(0,255,178,0.18);
+    background: rgba(255,255,255,0.04);
+    color: rgba(245,245,245,0.82);
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease, color .25s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    transform: translateY(-2px);
+    border-color: rgba(0,255,178,0.65);
+    background: rgba(0,255,178,0.12);
+    color: var(--tc-green);
+  }
+
+  .portfolio-section {
+    margin-top: 34px;
+  }
+
+  .portfolio-section + .portfolio-section {
+    margin-top: 54px;
+  }
+
+  .portfolio-section.is-hidden {
+    display: none;
+  }
+
+  .portfolio-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+    text-align: left;
+  }
+
+  .portfolio-section-heading h2 {
+    color: var(--tc-white);
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .portfolio-section-heading p {
+    max-width: 520px;
+    color: rgba(245,245,245,0.62);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .portfolio-grid-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background:
+      radial-gradient(circle at top, rgba(0,255,178,0.12), transparent 34%),
+      #080809;
+  }
+
+  .portfolio-grid-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .portfolio-page-card {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+      var(--tc-card);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--tc-line);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+  }
+
+  .portfolio-page-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(0,255,178,0.16), transparent 35%, transparent 70%, rgba(255,255,255,0.06));
+    opacity: 0;
+    transition: opacity .28s ease;
+  }
+
+  .portfolio-page-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0,255,178,0.42);
+    box-shadow: 0 26px 80px rgba(0,255,178,0.10), 0 18px 45px rgba(0,0,0,0.35);
+  }
+
+  .portfolio-page-card:hover::before {
+    opacity: 1;
+  }
+
+  .portfolio-page-card .portfolio-grid-item {
+    border-radius: 0;
+  }
+
+  .portfolio-page-card.is-vertical {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .portfolio-page-card.is-vertical .portfolio-grid-item {
+    aspect-ratio: 9 / 16;
+    background:
+      linear-gradient(90deg, rgba(0,255,178,0.16), transparent, rgba(0,255,178,0.08)),
+      #080809;
+  }
+
+  .portfolio-page-card.is-hidden {
+    display: none;
+  }
+
+  .portfolio-empty-card .portfolio-grid-item {
+    display: grid;
+    place-items: center;
+    border: 1px dashed rgba(0,255,178,0.34);
+  }
+
+  .empty-video-slot {
+    display: grid;
+    place-items: center;
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    border-radius: 18px;
+    color: rgba(245,245,245,0.52);
+    background:
+      radial-gradient(circle at center, rgba(0,255,178,0.14), transparent 48%),
+      rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .video-card {
+    position: relative;
+  }
+
+  .video-card video {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  .video-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: rgba(11,11,12,0.78);
+    border: 1px solid rgba(0,255,178,0.28);
+    color: var(--tc-green);
+    font-size: 12px;
+    font-weight: 800;
+    backdrop-filter: blur(10px);
+  }
+
+  .video-badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--tc-green);
+    box-shadow: 0 0 12px rgba(0,255,178,0.8);
+  }
+
+  .portfolio-page-caption {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    text-align: left;
+  }
+
+  .portfolio-page-caption .eyebrow {
+    color: rgba(245,245,245,0.54);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-page-caption h3 {
+    color: var(--tc-green);
+    font-size: 20px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-page-caption p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(245,245,245,0.82);
+    margin-bottom: 14px;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 18px;
+  }
+
+  .portfolio-tags span {
+    display: inline-flex;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(245,245,245,0.68);
+    font-size: 13px;
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 16px;
+  }
+
+  .card-actions small {
+    color: rgba(245,245,245,0.52);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--tc-black);
+    background: var(--tc-green);
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: transform .24s ease, box-shadow .24s ease;
+  }
+
+  .card-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,255,178,0.25);
+  }
+
+  /* TAREFA 3: botão voltar profissional */
   .back-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  width: fit-content;
-  margin: 0 auto 30px;
-
-  color: #0B0B0C;
-  background: #00FFB2;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 8px;
-
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--tc-black);
+    background: var(--tc-green);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
   .back-btn::after {
     content: "";
     position: absolute;
@@ -50,265 +363,37 @@
   .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,255,178,0.4); }
   .back-btn:hover::after { left: 100%; }
   .back-btn:active { transform: scale(0.97); }
-  .back-btn .arrow { display: inline-block; transition: transform 0.3s ease; font-size: 18px; }
+  .back-btn .arrow { display: inline-block; transition: transform 0.3s ease; font-size: 18px; line-height: 1; }
   .back-btn:hover .arrow { transform: translateX(-4px); }
 
-  /* TÍTULO DA PÁGINA */
-  .produtos-page h1 {
-    font-size: 36px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 8px;
-    color: #F5F5F5;
-    text-shadow: 0 0 15px rgba(0,255,178,0.25);
+  @media (max-width: 980px) {
+    .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
-  .produtos-subtitulo {
-    text-align: center;
-    opacity: 0.5;
-    font-size: 15px;
-    margin-bottom: 30px;
-  }
-
-  /* TAREFA 10: barra de busca com lupa */
-  .search-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-
-  .search-box {
-    display: flex;
-    align-items: center;
-    background: #1A1A1D;
-    border: 1px solid rgba(0,255,178,0.2);
-    border-radius: 10px;
-    width: 100%;
-    max-width: 480px;
-    overflow: hidden;
-    transition: border-color 0.3s;
-  }
-
-  .search-box:focus-within {
-    border-color: #00FFB2;
-    box-shadow: 0 0 12px rgba(0,255,178,0.15);
-  }
-
-  .search-box input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 12px 16px;
-    color: #F5F5F5;
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-  }
-
-  .search-box input::placeholder { color: rgba(245,245,245,0.35); }
-
-  .search-btn {
-    background: transparent;
-    border: none;
-    padding: 0 16px;
-    cursor: pointer;
-    color: #00FFB2;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    transition: transform 0.2s;
-  }
-
-  .search-btn:hover { transform: scale(1.15); }
-
-  /* LAYOUT: filtros + produtos */
-  .produtos-layout {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 24px;
-  }
-
-  /* TAREFA 1: FILTROS FUNCIONAIS */
-  .filtros {
-    background: #1A1A1D;
-    padding: 24px;
-    border-radius: 16px;
-    height: fit-content;
-    position: sticky;
-    top: 80px;
-  }
-
-  .filtros h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 18px;
-    color: #00FFB2;
-  }
-
-  .filtro-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    cursor: pointer;
-    font-size: 15px;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-    user-select: none;
-  }
-
-  .filtro-label:hover { opacity: 1; }
-
-  .filtro-label input[type="checkbox"] {
-    accent-color: #00FFB2;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-  }
-
-  /* TAREFA 1: item escondido pelo filtro */
-  .card[hidden] { display: none !important; }
-
-  /* GRID DE PRODUTOS */
-  .produtos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-  }
-
-  /* CARD DO PRODUTO */
-  .card {
-    background: #1A1A1D;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(0,255,178,0.2);
-  }
-
-  /* TAREFA 2: imagem grande no topo do card */
-  .card-img-grande {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* conteúdo do card */
-  .card-body {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  /* imagem pequena + título lado a lado */
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  .card-img-pequena {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-
-  .card-titulo {
-    font-size: 16px;
-    font-weight: 700;
-    color: #F5F5F5;
-    line-height: 1.3;
-  }
-
-  .card-rating { color: #FFD700; font-size: 13px; margin-bottom: 6px; }
-
-  .card-desc { font-size: 14px; opacity: 0.65; line-height: 1.5; margin-bottom: 12px; flex: 1; }
-
-  .card-preco { color: #00FFB2; font-weight: 700; font-size: 16px; margin-bottom: 14px; }
-
-  /* botões comprar / alugar */
-  .card-buttons { display: flex; flex-direction: column; gap: 8px; }
-
-  .btn-comprar, .btn-alugar {
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.25s ease;
-    display: block;
-  }
-
-  .btn-comprar {
-    background: #00FFB2;
-    color: #0B0B0C;
-  }
-
-  .btn-comprar:hover {
-    background: #00e6a0;
-    box-shadow: 0 4px 14px rgba(0,255,178,0.35);
-  }
-
-  .btn-alugar {
-    border: 1.5px solid #00FFB2;
-    color: #00FFB2;
-    background: transparent;
-  }
-
-  .btn-alugar:hover {
-    background: rgba(0,255,178,0.08);
-  }
-
-  /* mensagem quando nenhum resultado */
-  .sem-resultado {
-    display: none;
-    grid-column: 1/-1;
-    text-align: center;
-    padding: 40px;
-    opacity: 0.5;
-    font-size: 16px;
-  }
-
-  /* ── RESPONSIVO ── */
   @media (max-width: 768px) {
-    .produtos-layout {
-      grid-template-columns: 1fr;
+    .portfolio-page { padding: 40px 16px; }
+    .portfolio-section-heading {
+      align-items: flex-start;
+      flex-direction: column;
     }
-
-    .filtros {
-      position: static;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0 16px;
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-page-card.is-vertical { max-width: 100%; }
+    .card-actions {
+      align-items: flex-start;
+      flex-direction: column;
     }
-
-    .filtros h3 { grid-column: 1/-1; }
-
-    .produtos-page h1 { font-size: 26px !important; }
+    .card-cta { width: 100%; }
   }
-
 </style>
 </head>
 <body>
-
-<!-- TAREFA 5: estrelas e cometas no fundo -->
 <div class="stars-bg" id="starsBg"></div>
 
-<!-- TAREFA 4: navbar igual da página principal -->
 <header class="navbar">
-  <a href="/" class="logo"><img src="/logo.png" alt="Take Cut Logo" width="120" height="40"></a>
+  <!-- TAREFA 8: logo leva para / sem index.html -->
+  <a href="/" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- TAREFA 9: links sem index.html + TAREFA 3: Equipamentos no menu -->
   <nav class="nav-links">
     <a href="/">Início</a>
     <a href="/#cases">Cases</a>
@@ -318,266 +403,274 @@
   </nav>
 </header>
 
-<div class="produtos-page">
-
-  <!-- TAREFA 11: botão voltar -->
+<div class="portfolio-page">
   <a href="/" class="back-btn">
     <span class="arrow">←</span> Voltar ao site
   </a>
 
-  <h1>Equipamentos Profissionais</h1>
-  <p class="produtos-subtitulo">Compre ou alugue os equipamentos que recomendamos para produções.</p>
+  <section class="portfolio-hero" aria-labelledby="portfolio-title">
+    <h1 id="portfolio-title">Portfólio Take Cut</h1>
+    <p class="subtitle">Aqui você vê exemplos reais de edição, ritmo, estética e narrativa visual. Cada projeto foi pensado para prender atenção, valorizar a marca e transformar vídeo em ferramenta de venda.</p>
+  </section>
 
-  <!-- TAREFA 10: busca com lupa funcional -->
-  <div class="search-wrap">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar equipamentos..." oninput="filtrarTudo()">
-      <button class="search-btn" onclick="filtrarTudo()" title="Buscar">🔍</button>
-    </div>
+  <div class="portfolio-filters" aria-label="Filtrar vídeos do portfólio">
+    <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+    <button class="filter-btn" type="button" data-filter="ads">Anúncios</button>
+    <button class="filter-btn" type="button" data-filter="social">Redes sociais</button>
+    <button class="filter-btn" type="button" data-filter="institucional">Institucional</button>
+    <button class="filter-btn" type="button" data-filter="youtube">YouTube</button>
+    <button class="filter-btn" type="button" data-filter="camera3d">Câmera 3D</button>
+    <button class="filter-btn" type="button" data-filter="emocional">Emocional</button>
+    <button class="filter-btn" type="button" data-filter="vertical">Verticais</button>
+    <button class="filter-btn" type="button" data-filter="ia">IA</button>
   </div>
 
-  <div class="produtos-layout">
-
-    <!-- TAREFA 1: filtros com checkboxes funcionais -->
-    <div class="filtros">
-      <h3>Filtros</h3>
-      <label class="filtro-label">
-        <input type="checkbox" value="cameras" onchange="filtrarTudo()"> Câmeras
-      </label>
-      <label class="filtro-label">
-        <input type="checkbox" value="iluminacao" onchange="filtrarTudo()"> Iluminação
-      </label>
-      <label class="filtro-label">
-        <input type="checkbox" value="audio" onchange="filtrarTudo()"> Áudio
-      </label>
-      <label class="filtro-label">
-        <input type="checkbox" value="acessorios" onchange="filtrarTudo()"> Acessórios
-      </label>
+  <section class="portfolio-section">
+    <div class="portfolio-section-heading">
+      <h2>Vídeos verticais</h2>
+      <p>Conteúdos pensados para Reels, TikTok, Shorts e anúncios mobile, com leitura rápida e ritmo de rede social.</p>
     </div>
 
-    <!-- PRODUTOS -->
-    <!--
-    ════════════════════════════════════════════════════════
-    COMO ADICIONAR OU EDITAR UM PRODUTO:
+<div class="portfolio-grid">
 
-    Cada produto é um <div class="card" data-categoria="CATEGORIA">
-    As categorias disponíveis são: cameras | iluminacao | audio | acessorios
-    (use exatamente assim, sem acento, para o filtro funcionar)
-
-    Troque:
-      card-img-grande  → imagem grande no topo (paisagem, ex: 16:9)
-      card-img-pequena → ícone pequeno ao lado do nome
-      card-titulo      → nome do produto
-      card-rating      → estrelas (use ★ para cheio e ☆ para vazio)
-      card-desc        → descrição curta
-      card-preco       → preço de compra e/ou locação
-      btn-comprar href → link de afiliado do produto
-      btn-alugar href  → link do WhatsApp com texto pré-preenchido
-    ════════════════════════════════════════════════════════
-    -->
-
-    <div class="produtos-grid" id="produtosGrid">
-
-      <!-- PRODUTO 1: câmera -->
-      <div class="card" data-categoria="cameras" data-nome="camera canon eos rebel">
-        <!-- IMAGEM GRANDE — troque "camera.jpg" pelo seu arquivo -->
-        <img src="/camera1.jpg" alt="Câmera Canon EOS Rebel" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <!-- IMAGEM PEQUENA — pode usar a mesma ou uma diferente -->
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Câmera Canon EOS Rebel</span>
-          </div>
-          <div class="card-rating">★★★★★</div>
-          <p class="card-desc">Câmera profissional. Full-frame, 24MP, full HD.</p>
-          <div class="card-preco">R$ 3.599 ou R$ .../dia</div>
-          <div class="card-buttons">
-            <!-- troque "#" pelo link de afiliado quando tiver -->
-            <a href="https://amzn.to/4tUl3Wr" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20a%20Canon%20EOS%20Rebel" target="_blank" class="btn-alugar">Alugar</a>
-          </div>
-        </div>
+  <article class="portfolio-page-card is-vertical" data-category="institucional social vertical">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Vertical / Corporativo</span>
+      <video controls preload="none" poster="/thumbp6.jpg"><source src="/video6.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Conteúdo corporativo</div>
+      <h3>Vídeo de entrevista para marca</h3>
+      <p>Edição vertical com legenda, identidade visual e ritmo de redes sociais para transformar uma entrevista em conteúdo claro, profissional e fácil de assistir.</p>
+      <div class="portfolio-tags">
+        <span>RH e empresas</span>
+        <span>Reels corporativo</span>
+        <span>Legenda dinâmica</span>
       </div>
-
-      <div class="card" data-categoria="cameras" data-nome="iphone 16e de 128 gb">
-        <!-- IMAGEM GRANDE — troque "camera.jpg" pelo seu arquivo -->
-        <img src="/camera2.jpg" alt="iPhone 16e de 128 GB" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <!-- IMAGEM PEQUENA — pode usar a mesma ou uma diferente -->
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">iPhone 16e de 128 GB</span>
-          </div>
-          <div class="card-rating">★★★★★</div>
-          <p class="card-desc">Câmera profissional 48MP, superbateria, câmera lenta até 240FPS</p>
-          <div class="card-preco">R$ 3.499</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4ezGRlA" class="btn-comprar">Comprar</a>
-          </div>
-        </div>
+      <div class="card-actions">
+        <small>Objetivo: humanizar a marca e comunicar valor com mais autoridade.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20corporativo%20vertical%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
       </div>
-      
-      
-      <!-- PRODUTO 2: iluminação -->
-      <div class="card" data-categoria="iluminacao" data-nome="kit softbox 50x70">
-        <img src="/light1.jpg" alt="Kit Softbox 50x70" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Kit Softbox 50x70</span>
-          </div>
-          <div class="card-rating">★★★★☆</div>
-          <p class="card-desc">Luz profissional para estúdio. Altura regulável, temperatura de cor ajustável.</p>
-          <div class="card-preco">R$ 109,90 ou R$ .../dia</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4uGfew1" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20o%20kit%20softbox" target="_blank" class="btn-alugar">Alugar</a>
-          </div>
-        </div>
+    </div>
+  </article>
+
+  <article class="portfolio-page-card is-vertical" data-category="social vertical">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Vertical / Social</span>
+      <video controls preload="none" poster="/thumb1.png"><source src="/videor.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Conteúdo de retenção</div>
+      <h3>Conteúdo para redes sociais</h3>
+      <p>Edição rápida, visual forte e mensagem fácil de entender para aumentar retenção em Reels, TikTok e campanhas de alcance.</p>
+      <div class="portfolio-tags">
+        <span>Reels e TikTok</span>
+        <span>Negócios locais</span>
+        <span>Criadores</span>
       </div>
-
-
-            <div class="card" data-categoria="iluminacao" data-nome="kit duplo softbox 50x70">
-        <img src="/light2.jpg" alt="Kit Duplo Softbox 50x70" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Kit Duplo Softbox 50x70</span>
-          </div>
-          <div class="card-rating">★★★★★</div>
-          <p class="card-desc">Luz profissional para estúdio. Altura regulável, temperatura de cor ajustável.</p>
-          <div class="card-preco">R$ 189,99 ou R$ .../dia</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4tGu1G9" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20o%20kit%20duplo%20softbox" target="_blank" class="btn-alugar">Alugar</a>
-          </div>
-        </div>
+      <div class="card-actions">
+        <small>Objetivo: fazer a pessoa parar de rolar e assistir.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20de%20conte%C3%BAdo%20para%20redes%20sociais%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
       </div>
+    </div>
+  </article>
 
-      <!-- PRODUTO 3: áudio -->
-      <div class="card" data-categoria="audio" data-nome="Microfone de Lapela Duplo Sem Fio α’GOLD Premium">
-        <img src="/mic1.jpg" alt="Microfone de Lapela Duplo Sem Fio α’GOLD Premium" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Microfone de Lapela Duplo Sem Fio α’GOLD Premium</span>
-          </div>
-          <div class="card-rating">★★★★☆</div>
-          <p class="card-desc">Áudio limpo e profissional. Redução de ruído, Fixação inteligente, Portátil e leve.</p>
-          <div class="card-preco">R$ 104,99</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4dhu8lj" class="btn-comprar">Comprar</a>
-          </div>
-        </div>
+  <article class="portfolio-page-card is-vertical" data-category="institucional vertical">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Vertical / Institucional</span>
+      <video controls preload="none" poster="/thumb2.png"><source src="/videor2.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Autoridade de marca</div>
+      <h3>Vídeo institucional</h3>
+      <p>Conteúdo profissional para apresentar a empresa com clareza, gerar confiança e deixar a marca com uma percepção mais forte.</p>
+      <div class="portfolio-tags">
+        <span>Empresas</span>
+        <span>Clínicas</span>
+        <span>Escritórios</span>
       </div>
-
-
-            <div class="card" data-categoria="audio" data-nome="kit 2 microfones de lapela profissional, transmissão sem fio">
-        <img src="/mic2.jpg" alt="Kit 2 Microfones de Lapela Profissional, Transmissão Sem Fio" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Kit 2 Microfones de Lapela Profissional, Transmissão Sem Fio</span>
-          </div>
-          <div class="card-rating">★★★★★</div>
-          <p class="card-desc">Áudio limpo e profissional. Redução de ruído, Fixação inteligente, Portátil e leve.</p>
-          <div class="card-preco">R$ 59,89</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/3Pc482C" class="btn-comprar">Comprar</a>
-          </div>
-        </div>
+      <div class="card-actions">
+        <small>Objetivo: explicar quem você é e passar credibilidade.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20institucional%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
       </div>
+    </div>
+  </article>
 
-
-            <div class="card" data-categoria="audio" data-nome="microfone shotgun boom">
-        <img src="/mic3.jpg" alt="Microfone shotgun boom" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Microfone shotgun boom</span>
-          </div>
-          <div class="card-rating">★★★★★</div>
-          <p class="card-desc">Áudio limpo e profissional. Recomendado o uso em varas de Boom em conjunto com um gravador externo (Não incluso)</p>
-          <div class="card-preco">R$ 242,00 ou R$ .../dia</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4eAvDNB" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20o%20microfone%20shotgun" target="_blank" class="btn-alugar">Alugar</a>
-          </div>
-        </div>
+  <article class="portfolio-page-card is-vertical" data-category="ads social vertical">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Vertical / Hospedagem</span>
+      <video controls preload="none" poster="/thumbp8.jpg"><source src="/video8.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Tour comercial</div>
+      <h3>Reels para hospedagem temática</h3>
+      <p>Edição vertical com cortes guiados, legenda objetiva e ritmo de descoberta para apresentar o ambiente, valorizar a experiência e despertar vontade de reservar.</p>
+      <div class="portfolio-tags">
+        <span>Pousadas e hotéis</span>
+        <span>Tour vertical</span>
+        <span>Conteúdo para anúncio</span>
       </div>
-
-        <!-- PRODUTO 1: acessórios -->
-            <div class="card" data-categoria="acessorios" data-nome="estabilizador gimbal">
-        <img src="/ace1.jpg" alt="Estabilizador Gimbal" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Estabilizador Gimbal</span>
-          </div>
-          <div class="card-rating">★★★★★</div>
-          <p class="card-desc">Estabilização profissional. Rotação vertical e horizontal, suporta até 250g, rastreamento automático.</p>
-          <div class="card-preco">R$ 284,90</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4cYa2gY" class="btn-comprar">Comprar</a>
-          </div>
-        </div>
+      <div class="card-actions">
+        <small>Objetivo: transformar o espaço em desejo de visita.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20Reels%20de%20hospedagem%20tem%C3%A1tica%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
       </div>
+    </div>
+  </article>
 
+</div>
+  </section>
 
-            <div class="card" data-categoria="acessorios" data-nome="kit de limpeza 3 em 1 para câmeras e lentes">
-        <img src="/ace2.jpg" alt="Kit de Limpeza 3 em 1 para Câmeras e Lentes" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Kit de Limpeza 3 em 1 para Câmeras e Lentes</span>
-          </div>
-          <div class="card-rating">★★★★☆</div>
-          <p class="card-desc">Conjunto para limpeza externa de Lcd's de câmeras e Lente Fotográficas, ele é composto de itens essenciais para a manutenção adequada e cuidados de seus equipamentos.</p>
-          <div class="card-preco">R$ 27,85</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/49zfX9Q" class="btn-comprar">Comprar</a>
-          </div>
-        </div>
+  <section class="portfolio-section">
+    <div class="portfolio-section-heading">
+      <h2>Vídeos horizontais, IA e câmera 3D</h2>
+      <p>Projetos em formato amplo para YouTube, campanhas, vídeos institucionais, cenas com IA e movimentos de câmera 3D.</p>
+    </div>
+
+<div class="portfolio-grid">
+
+  <article class="portfolio-page-card" data-category="ads ia">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / Ads</span>
+      <video controls preload="none" poster="/thumbp1.png"><source src="/video1.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Criativo comercial</div>
+      <h3>Anúncio para produto</h3>
+      <p>Vídeo curto com cortes objetivos, destaque visual para a oferta e ritmo pensado para segurar a atenção logo nos primeiros segundos.</p>
+      <div class="portfolio-tags">
+        <span>Ideal para lojas</span>
+        <span>Produto em destaque</span>
+        <span>Meta Ads</span>
       </div>
-
-
-            <div class="card" data-categoria="acessorios" data-nome="Mochila Fotográfica Impermeável">
-        <img src="/ace3.jpg" alt="Mochila Fotográfica Impermeável" class="card-img-grande">
-        <div class="card-body">
-          <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
-            <span class="card-titulo">Mochila Fotográfica Impermeável</span>
-          </div>
-          <div class="card-rating">★★★★☆</div>
-          <p class="card-desc">Fabricada em nylon de alta durabilidade e resistência à água, ideal para quem procura uma mochila prática, de pequeno porte, mas que transporte tudo o que se precisa em um set compacto.</p>
-          <div class="card-preco">R$ 109,90</div>
-          <div class="card-buttons">
-            <a href="https://amzn.to/4f6DMtg" class="btn-comprar">Comprar</a>
-          </div>
-        </div>
+      <div class="card-actions">
+        <small>Objetivo: gerar desejo e facilitar a decisão de compra.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20de%20an%C3%BAncio%20para%20produto%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
       </div>
+    </div>
+  </article>
 
-      
-      <!-- mensagem quando busca não acha nada -->
-      <p class="sem-resultado" id="semResultado">Nenhum equipamento encontrado.</p>
+  <article class="portfolio-page-card" data-category="youtube ia camera3d">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / Câmera 3D</span>
+      <video controls preload="none" poster="/thumbp4.png"><source src="/video4.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Narrativa e ritmo</div>
+      <h3>Vídeo para YouTube</h3>
+      <p>Cenas organizadas com ritmo, estética e narrativa para deixar a comunicação mais memorável e manter o público acompanhando até o fim.</p>
+      <div class="portfolio-tags">
+        <span>YouTube</span>
+        <span>Marcas</span>
+        <span>Criadores</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: transformar conteúdo longo em experiência envolvente.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20para%20YouTube%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
 
-    </div><!-- fim produtos-grid -->
-  </div><!-- fim produtos-layout -->
-</div><!-- fim produtos-page -->
+  <article class="portfolio-page-card" data-category="youtube camera3d">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / Câmera 3D</span>
+      <video controls preload="none" poster="/thumbp9.jpg"><source src="/video9.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Animação com profundidade</div>
+      <h3>Animação 3D de conversa</h3>
+      <p>Vídeo horizontal com câmera 3D, movimento de profundidade e composição de mensagens para transformar uma conversa simples em uma cena visualmente mais interessante e narrativa.</p>
+      <div class="portfolio-tags">
+        <span>Câmera 3D</span>
+        <span>Animação de texto</span>
+        <span>YouTube e campanhas</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: dar movimento, contexto e impacto para informações que seriam estáticas.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20a%20anima%C3%A7%C3%A3o%203D%20de%20conversa%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="portfolio-page-card" data-category="emocional ia">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal</span>
+      <video controls preload="none" poster="/thumbp5.png"><source src="/video5.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Memória afetiva</div>
+      <h3>Vídeo emocional</h3>
+      <p>Edição com trilha, cortes e narrativa para transformar momentos importantes em uma lembrança bonita, marcante e fácil de reassistir.</p>
+      <div class="portfolio-tags">
+        <span>Aniversários</span>
+        <span>Homenagens</span>
+        <span>Datas especiais</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: emocionar e guardar uma história com qualidade.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20emocional%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="portfolio-page-card" data-category="ia ads">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / 100% IA</span>
+      <video controls preload="none" poster="/thumbp7.jpg"><source src="/video7.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Vídeo gerado com IA</div>
+      <h3>Cena cinematográfica 100% IA</h3>
+      <p>Vídeo criado com inteligência artificial para gerar impacto visual, construir atmosfera e apresentar uma ideia impossível ou cara de produzir com captação tradicional.</p>
+      <div class="portfolio-tags">
+        <span>100% IA</span>
+        <span>Cena conceitual</span>
+        <span>Campanha visual</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: criar imagens marcantes sem depender de filmagem real.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20100%25%20IA%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
+</div>
+  </section>
+</div>
 
 <footer class="footer">
   <div class="footer-links">
     <a href="/">Início</a>
     <a href="/#services">Serviços</a>
     <a href="/#cases">Cases</a>
-    <a href="/portfolio">Portfólio</a>
+    <a href="/produtos">Equipamentos</a>
     <a href="/#contact">Contato</a>
   </div>
   <p>© 2026 Take Cut. Todos os direitos reservados.</p>
 </footer>
 
 <script>
-// ── MENU MOBILE ──
+// TAREFA 3: cometas e estrelas no fundo
+function createUniverse() {
+  const starsBg = document.getElementById("starsBg");
+  const isMobile = window.innerWidth <= 768;
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < (isMobile ? 40 : 80); i++) {
+    const star = document.createElement("div");
+    star.className = "stars";
+    star.style.cssText = "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) + "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" + (Math.random()*3+2) + "s";
+    fragment.appendChild(star);
+  }
+  for (let i = 0; i < (isMobile ? 1 : 3); i++) {
+    const comet = document.createElement("div");
+    comet.className = "comet";
+    comet.style.cssText = "left:" + (Math.random()*100) + "%;top:" + (Math.random()*50) + "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" + (Math.random()*4+6) + "s";
+    fragment.appendChild(comet);
+  }
+  starsBg.appendChild(fragment);
+}
+window.addEventListener("load", createUniverse);
+
+// Menu mobile
 function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("active");
 }
@@ -589,72 +682,57 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// ── TAREFA 1 + 10: FILTROS + BUSCA ──
-function filtrarTudo() {
-  const busca = document.getElementById("searchInput").value.toLowerCase().trim();
-
-  // quais categorias estão marcadas
-  const checkboxes = document.querySelectorAll(".filtros input[type='checkbox']");
-  const categoriasMarcadas = [];
-  checkboxes.forEach(function(cb) {
-    if (cb.checked) categoriasMarcadas.push(cb.value);
-  });
-
-  const cards = document.querySelectorAll(".card[data-categoria]");
-  let visiveis = 0;
-
-  cards.forEach(function(card) {
-    const categoria = card.getAttribute("data-categoria");
-    const nome = card.getAttribute("data-nome") || "";
-
-    // passa no filtro de categoria?
-    const passaCategoria = categoriasMarcadas.length === 0 || categoriasMarcadas.includes(categoria);
-
-    // passa na busca?
-    const passaBusca = busca === "" || nome.includes(busca);
-
-    if (passaCategoria && passaBusca) {
-      card.removeAttribute("hidden");
-      visiveis++;
-    } else {
-      card.setAttribute("hidden", "");
-    }
-  });
-
-  // mostra mensagem se não achou nada
-  const msg = document.getElementById("semResultado");
-  msg.style.display = visiveis === 0 ? "block" : "none";
+// Lazy load vídeos
+if ("IntersectionObserver" in window) {
+  const obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const v = entry.target;
+        if (v.readyState === 0) v.load();
+        obs.unobserve(v);
+      }
+    });
+  }, { rootMargin: "200px" });
+  document.querySelectorAll("video[preload='none']").forEach(function(v) { obs.observe(v); });
 }
 
-// ── TAREFA 5: ESTRELAS E COMETAS ──
-function createUniverse() {
-  const starsBg = document.getElementById("starsBg");
-  const isMobile = window.innerWidth <= 768;
-  const fragment = document.createDocumentFragment();
+// Filtros do portfólio
+document.querySelectorAll(".filter-btn").forEach(function(button) {
+  button.addEventListener("click", function() {
+    const filter = button.dataset.filter;
 
-  for (let i = 0; i < (isMobile ? 40 : 100); i++) {
-    const star = document.createElement("div");
-    star.className = "stars";
-    star.style.cssText =
-      "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) +
-      "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" +
-      (Math.random()*3+2) + "s";
-    fragment.appendChild(star);
-  }
+    document.querySelectorAll(".filter-btn").forEach(function(btn) {
+      btn.classList.remove("active");
+    });
+    button.classList.add("active");
 
-  for (let i = 0; i < (isMobile ? 1 : 3); i++) {
-    const comet = document.createElement("div");
-    comet.className = "comet";
-    comet.style.cssText =
-      "left:" + (Math.random()*100) + "%;top:" + (Math.random()*50) +
-      "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" +
-      (Math.random()*4+6) + "s";
-    fragment.appendChild(comet);
-  }
+    document.querySelectorAll(".portfolio-page-card").forEach(function(card) {
+      const categories = (card.dataset.category || "").split(/\s+/).filter(Boolean);
+      const shouldShow = filter === "all" || categories.includes(filter);
+      card.classList.toggle("is-hidden", !shouldShow);
 
-  starsBg.appendChild(fragment);
-}
-window.addEventListener("load", createUniverse);
+      if (!shouldShow) {
+        const video = card.querySelector("video");
+        if (video) video.pause();
+      }
+    });
+
+    document.querySelectorAll(".portfolio-section").forEach(function(section) {
+      const visibleCards = section.querySelectorAll(".portfolio-page-card:not(.is-hidden)").length;
+      section.classList.toggle("is-hidden", visibleCards === 0);
+    });
+  });
+});
+
+// Quando um vídeo toca, pausa os outros. Evita bagunça de áudio na página.
+document.querySelectorAll(".portfolio-page-card video").forEach(function(video) {
+  video.addEventListener("play", function() {
+    document.querySelectorAll(".portfolio-page-card video").forEach(function(otherVideo) {
+      if (otherVideo !== video) otherVideo.pause();
+    });
+  });
+});
 </script>
+<script src="/cookie-consent.js" defer></script>
 </body>
 </html>
