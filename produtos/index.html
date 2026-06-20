@@ -302,7 +302,7 @@
 </head>
 <body>
 
-<!-- TAREFA 5: estrelas e cometas no fundo -->
+<!-- TAREFA 5: estrelas e discos voadores minimalistas no fundo -->
 <div class="stars-bg" id="starsBg"></div>
 
 <!-- TAREFA 4: navbar igual da página principal -->
@@ -643,13 +643,14 @@ function createUniverse() {
   }
 
   for (let i = 0; i < (isMobile ? 1 : 3); i++) {
-    const comet = document.createElement("div");
-    comet.className = "comet";
-    comet.style.cssText =
-      "left:" + (Math.random()*100) + "%;top:" + (Math.random()*50) +
-      "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" +
-      (Math.random()*4+6) + "s";
-    fragment.appendChild(comet);
+    const ufo = document.createElement("div");
+    const scale = (Math.random()*0.45 + 0.8).toFixed(2);
+    ufo.className = "ufo";
+    ufo.style.cssText =
+      "left:" + (Math.random()*30 - 10) + "vw;top:" + (Math.random()*45 + 4) +
+      "%;animation-delay:" + (Math.random()*8) + "s;animation-duration:" +
+      (Math.random()*6 + 12) + "s;--ufo-scale:" + scale + ";";
+    fragment.appendChild(ufo);
   }
 
   starsBg.appendChild(fragment);
