@@ -26,6 +26,11 @@ font-src https://fonts.gstatic.com;
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="cliente1.png" fetchpriority="low">
+<link rel="preload" as="image" href="cliente2.png" fetchpriority="low">
+<link rel="preload" as="image" href="cliente3.png" fetchpriority="low">
+<link rel="preload" as="image" href="cliente4.png" fetchpriority="low">
+<link rel="preload" as="image" href="cliente5.png" fetchpriority="low">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- Google tag (gtag.js) com Consent Mode -->
 <script>
@@ -273,21 +278,67 @@ font-src https://fonts.gstatic.com;
 
 
 
-<section class="testimonials">
-  <h2>Quem já confiou na Take Cut</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card fade-in">
+<section class="testimonials" aria-labelledby="testimonials-title">
+  <div class="testimonials-heading">
+    <span class="reviews-kicker">Avaliações de clientes</span>
+    <h2 id="testimonials-title">Quem já confiou na Take Cut</h2>
+    <p class="reviews-subtitle">Feedbacks reais em um visual inspirado em avaliações do Google: direto, confiável e fácil de ler.</p>
+
+    <div class="reviews-summary" aria-label="Resumo das avaliações">
+      <strong>5,0</strong>
+      <span class="review-stars" aria-hidden="true">★★★★★</span>
+      <small>Baseado em feedbacks de clientes</small>
+    </div>
+  </div>
+
+  <div class="testimonials-grid google-reviews-grid">
+    <article class="testimonial-card google-review-card fade-in">
+      <div class="review-header">
+        <div class="review-profile">
+          <span class="review-avatar" aria-hidden="true">H</span>
+          <div>
+            <h3>Henrique Morais</h3>
+            <span>Cliente Take Cut</span>
+          </div>
+        </div>
+        <span class="google-review-mark" aria-label="Avaliação estilo Google">G</span>
+      </div>
+      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
       <p>"O vídeo que vocês editaram ficou simplesmente incrível. Ficou profissional, envolvente e trouxe retorno real pra mim."</p>
-      <h4>— Henrique Morais</h4>
-    </div>
-    <div class="testimonial-card fade-in">
+      <small>Projeto audiovisual</small>
+    </article>
+
+    <article class="testimonial-card google-review-card fade-in">
+      <div class="review-header">
+        <div class="review-profile">
+          <span class="review-avatar" aria-hidden="true">T</span>
+          <div>
+            <h3>Tcherick O Desbravador</h3>
+            <span>Cliente Take Cut</span>
+          </div>
+        </div>
+        <span class="google-review-mark" aria-label="Avaliação estilo Google">G</span>
+      </div>
+      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
       <p>"A edição ficou insana, você não prometeu nada e entregou tudo! Edição assim com uma perfeição surreal, muito bom mesmo."</p>
-      <h4>— Tcherick O Desbravador</h4>
-    </div>
-    <div class="testimonial-card fade-in">
+      <small>Edição de vídeo</small>
+    </article>
+
+    <article class="testimonial-card google-review-card fade-in">
+      <div class="review-header">
+        <div class="review-profile">
+          <span class="review-avatar" aria-hidden="true">V</span>
+          <div>
+            <h3>Vídeo de aniversário</h3>
+            <span>Cliente Take Cut</span>
+          </div>
+        </div>
+        <span class="google-review-mark" aria-label="Avaliação estilo Google">G</span>
+      </div>
+      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
       <p>"Eu amei Luan, muito obrigada pelo seu trabalho. Já chorei 50x e assisti 3x kkkkk"</p>
-      <h4>— Vídeo de aniversário</h4>
-    </div>
+      <small>Projeto pessoal</small>
+    </article>
   </div>
 </section>
 
@@ -296,23 +347,23 @@ font-src https://fonts.gstatic.com;
   <div class="clients-grid">
 
     <a href="https://neopro.ind.br/home/" target="_blank" rel="noopener">
-      <img src="cliente1.png" alt="Cliente 1" loading="lazy" width="120" height="60">
+      <img src="cliente1.png" alt="Cliente 1" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
     </a>
 
     <a href="https://www.instagram.com/autoesteticaalegria_/" target="_blank" rel="noopener">
-      <img src="cliente2.png" alt="Cliente 2" loading="lazy" width="120" height="60">
+      <img src="cliente2.png" alt="Cliente 2" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
     </a>
 
     <a href="https://www.vilamagicapousada.com.br" target="_blank" rel="noopener">
-      <img src="cliente3.png" alt="Cliente 3" loading="lazy" width="120" height="60">
+      <img src="cliente3.png" alt="Cliente 3" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
     </a>
 
     <a href="https://www.instagram.com/fortis.barbearia/" target="_blank" rel="noopener">
-      <img src="cliente4.png" alt="Cliente 4" loading="lazy" width="120" height="60">
+      <img src="cliente4.png" alt="Cliente 4" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
     </a>
 
     <a href="https://www.instagram.com/talentup_consultoria/" target="_blank" rel="noopener">
-      <img src="cliente5.png" alt="Cliente 5" loading="lazy" width="120" height="60">
+      <img src="cliente5.png" alt="Cliente 5" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
     </a>
 
   </div>
