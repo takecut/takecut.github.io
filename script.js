@@ -142,7 +142,7 @@ function createUniverse() {
   const starsBg = document.getElementById("starsBg");
   const isMobile = window.innerWidth <= 768;
   const starCount = isMobile ? 40 : 100;
-  const cometCount = isMobile ? 1 : 3;
+  const ufoCount = isMobile ? 1 : 3;
 
   const fragment = document.createDocumentFragment();
 
@@ -156,14 +156,15 @@ function createUniverse() {
     fragment.appendChild(star);
   }
 
-  for (let i = 0; i < cometCount; i++) {
-    const comet = document.createElement("div");
-    comet.className = "comet";
-    comet.style.cssText =
-      "left:" + (Math.random() * 100) + "%;top:" + (Math.random() * 50) +
-      "%;animation-delay:" + (Math.random() * 3) + "s;animation-duration:" +
-      (Math.random() * 4 + 6) + "s";
-    fragment.appendChild(comet);
+  for (let i = 0; i < ufoCount; i++) {
+    const ufo = document.createElement("div");
+    const scale = (Math.random() * 0.45 + 0.8).toFixed(2);
+    ufo.className = "ufo";
+    ufo.style.cssText =
+      "left:" + (Math.random() * 30 - 10) + "vw;top:" + (Math.random() * 45 + 4) +
+      "%;animation-delay:" + (Math.random() * 8) + "s;animation-duration:" +
+      (Math.random() * 6 + 12) + "s;--ufo-scale:" + scale + ";";
+    fragment.appendChild(ufo);
   }
 
   starsBg.appendChild(fragment);
