@@ -899,13 +899,14 @@ video:-moz-full-screen    { width: auto !important; height: auto !important; obj
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stars,
-  .ufo {
+  .stars {
     animation: none !important;
+    opacity: 0.45;
   }
 
+  /* A nave continua animando para não ficar parada no canto esquerdo da tela. */
   .ufo {
-    opacity: 0.35;
+    animation: ufoFly var(--ufo-duration) linear infinite !important;
   }
 }
 
@@ -1759,3 +1760,158 @@ img, video {
   }
 }
 
+
+
+/* =====================================================
+   HOTFIX — responsivo notebook + cookies + universo
+   ===================================================== */
+
+@media (min-width: 769px) {
+  .carousel-item,
+  .portfolio-card {
+    min-width: clamp(270px, 23vw, 343px) !important;
+    max-width: clamp(270px, 23vw, 343px) !important;
+  }
+
+  .carousel-item {
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .navbar {
+    height: 58px;
+    padding: 5px 28px;
+  }
+
+  section {
+    padding: 72px 32px;
+    scroll-margin-top: 82px;
+  }
+
+  h2 {
+    font-size: clamp(28px, 2.4vw, 32px);
+    margin-bottom: 24px;
+  }
+
+  .section-subtitle,
+  .services-subtitle,
+  .contact-subtitle,
+  .reviews-subtitle {
+    font-size: 15px;
+    margin-bottom: 34px;
+  }
+
+  .hero {
+    height: 96vh;
+    padding: 32px;
+    margin-top: -12px;
+  }
+
+  .hero > div {
+    margin-top: 34vh;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 3.2vw, 42px);
+    max-width: 560px;
+  }
+
+  .video-box.destaque,
+  .ia-main .video-box {
+    max-width: min(860px, 78vw) !important;
+  }
+
+  .ia-main {
+    margin-top: 34px;
+    margin-bottom: 70px;
+  }
+
+  .ia-secondary {
+    gap: clamp(40px, 9vw, 120px) !important;
+  }
+
+  .results {
+    padding: 72px 32px;
+  }
+
+  .results .results-grid {
+    gap: 42px;
+    max-width: 860px;
+  }
+
+  .results .item1 {
+    transform: translate(-90px, 4px);
+  }
+
+  .results .item2 {
+    transform: translate(70px, 4px);
+  }
+
+  .results .item1 .video-box,
+  .results .item2 .video-box {
+    max-width: 300px;
+  }
+
+  .service-card,
+  .about-card,
+  .audience-card,
+  .google-review-card {
+    padding: 22px;
+  }
+
+  .services-grid,
+  .about-grid,
+  .audience-grid {
+    gap: 20px;
+  }
+
+  .reviews-summary {
+    padding: 10px 14px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .testimonials-grid,
+  .google-reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .services-grid,
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .clients-grid {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .stars {
+    width: 1.5px;
+    height: 1.5px;
+  }
+
+  .ufo {
+    width: 28px;
+    height: 10px;
+  }
+
+  .ufo::before {
+    width: 14px;
+    height: 9px;
+    top: -7px;
+  }
+
+  .ufo::after {
+    width: 30px;
+    height: 22px;
+  }
+}
