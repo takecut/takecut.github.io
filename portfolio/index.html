@@ -50,22 +50,6 @@
     max-width: 720px;
   }
 
-  .portfolio-proof {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 22px;
-  }
-
-  .portfolio-proof span {
-    border: 1px solid rgba(245,245,245,0.10);
-    background: rgba(255,255,255,0.04);
-    color: rgba(245,245,245,0.74);
-    border-radius: 999px;
-    padding: 8px 13px;
-    font-size: 13px;
-  }
 
   .portfolio-filters {
     display: flex;
@@ -427,11 +411,6 @@
   <section class="portfolio-hero" aria-labelledby="portfolio-title">
     <h1 id="portfolio-title">Portfólio Take Cut</h1>
     <p class="subtitle">Aqui você vê exemplos reais de edição, ritmo, estética e narrativa visual. Cada projeto foi pensado para prender atenção, valorizar a marca e transformar vídeo em ferramenta de venda.</p>
-    <div class="portfolio-proof" aria-label="Diferenciais da Take Cut">
-      <span>Edição de alta retenção</span>
-      <span>Formato Reels, Ads e YouTube</span>
-      <span>Visual profissional para marcas</span>
-    </div>
   </section>
 
   <div class="portfolio-filters" aria-label="Filtrar vídeos do portfólio">
@@ -440,6 +419,7 @@
     <button class="filter-btn" type="button" data-filter="social">Redes sociais</button>
     <button class="filter-btn" type="button" data-filter="institucional">Institucional</button>
     <button class="filter-btn" type="button" data-filter="youtube">YouTube</button>
+    <button class="filter-btn" type="button" data-filter="camera3d">Câmera 3D</button>
     <button class="filter-btn" type="button" data-filter="emocional">Emocional</button>
     <button class="filter-btn" type="button" data-filter="vertical">Verticais</button>
     <button class="filter-btn" type="button" data-filter="ia">IA</button>
@@ -542,13 +522,13 @@
 
   <section class="portfolio-section">
     <div class="portfolio-section-heading">
-      <h2>Vídeos horizontais e IA</h2>
-      <p>Projetos em formato amplo para YouTube, campanhas, vídeos institucionais e cenas geradas com inteligência artificial.</p>
+      <h2>Vídeos horizontais, IA e câmera 3D</h2>
+      <p>Projetos em formato amplo para YouTube, campanhas, vídeos institucionais, cenas com IA e movimentos de câmera 3D.</p>
     </div>
 
 <div class="portfolio-grid">
 
-  <article class="portfolio-page-card" data-category="ads">
+  <article class="portfolio-page-card" data-category="ads ia">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal / Ads</span>
       <video controls preload="none" poster="/thumbp1.png"><source src="/video1.mp4" type="video/mp4"></video>
@@ -569,9 +549,9 @@
     </div>
   </article>
 
-  <article class="portfolio-page-card" data-category="youtube">
+  <article class="portfolio-page-card" data-category="youtube ia camera3d">
     <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal</span>
+      <span class="video-badge">Horizontal / Câmera 3D</span>
       <video controls preload="none" poster="/thumbp4.png"><source src="/video4.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
@@ -590,7 +570,28 @@
     </div>
   </article>
 
-  <article class="portfolio-page-card" data-category="emocional">
+  <article class="portfolio-page-card" data-category="youtube camera3d">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / Câmera 3D</span>
+      <video controls preload="none" poster="/thumbp9.jpg"><source src="/video9.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Animação com profundidade</div>
+      <h3>Animação 3D de conversa</h3>
+      <p>Vídeo horizontal com câmera 3D, movimento de profundidade e composição de mensagens para transformar uma conversa simples em uma cena visualmente mais interessante e narrativa.</p>
+      <div class="portfolio-tags">
+        <span>Câmera 3D</span>
+        <span>Animação de texto</span>
+        <span>YouTube e campanhas</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: dar movimento, contexto e impacto para informações que seriam estáticas.</small>
+        <a class="card-cta" href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vi%20a%20anima%C3%A7%C3%A3o%203D%20de%20conversa%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="portfolio-page-card" data-category="emocional ia">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal</span>
       <video controls preload="none" poster="/thumbp5.png"><source src="/video5.mp4" type="video/mp4"></video>
@@ -706,7 +707,7 @@ document.querySelectorAll(".filter-btn").forEach(function(button) {
     button.classList.add("active");
 
     document.querySelectorAll(".portfolio-page-card").forEach(function(card) {
-      const categories = card.dataset.category || "";
+      const categories = (card.dataset.category || "").split(/\s+/).filter(Boolean);
       const shouldShow = filter === "all" || categories.includes(filter);
       card.classList.toggle("is-hidden", !shouldShow);
 
