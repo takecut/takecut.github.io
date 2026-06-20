@@ -671,31 +671,77 @@ video:-moz-full-screen    { width: auto !important; height: auto !important; obj
   50%       { opacity: 1;   transform: scale(1.3); }
 }
 
-.comet {
+.ufo {
+  --ufo-scale: 1;
   position: absolute;
-  width: 2px; height: 2px;
-  background: #00FFB2;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #00FFB2, 0 0 20px #00FFB2, 0 0 30px #00FFB2;
-  animation: cometFly 8s linear infinite;
-  will-change: transform;
+  width: 34px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,178,0.35);
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(0,255,178,0.82) 55%, rgba(0,120,90,0.9));
+  box-shadow: 0 0 10px rgba(0,255,178,0.35), 0 0 26px rgba(0,255,178,0.18);
+  animation: ufoFly 14s linear infinite;
+  will-change: transform, opacity;
 }
 
-.comet::before {
+.ufo::before {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
-  width: 100px; height: 2px;
-  background: linear-gradient(90deg, transparent, #00FFB2, transparent);
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+  left: 50%;
+  top: -8px;
+  width: 16px;
+  height: 10px;
+  transform: translateX(-50%);
+  border-radius: 14px 14px 6px 6px;
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.95), rgba(170,255,230,0.95) 28%, rgba(0,255,178,0.45) 65%, rgba(0,255,178,0.08) 100%);
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow: 0 0 12px rgba(0,255,178,0.22);
 }
 
-@keyframes cometFly {
-  0%   { transform: translateX(-150vw) translateY(-20vh) rotate(45deg); opacity: 0; }
-  10%  { opacity: 1; }
-  90%  { opacity: 1; }
-  100% { transform: translateX(150vw) translateY(60vh) rotate(45deg); opacity: 0; }
+.ufo::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 34px;
+  height: 26px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at top, rgba(0,255,178,0.24), rgba(0,255,178,0.08) 38%, rgba(0,255,178,0) 72%);
+  filter: blur(1.5px);
+  opacity: 0.9;
+}
+
+@keyframes ufoFly {
+  0% {
+    transform: translate3d(-18vw, -10vh, 0) scale(var(--ufo-scale, 1)) rotate(-8deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  45% {
+    transform: translate3d(38vw, 2vh, 0) scale(var(--ufo-scale, 1)) rotate(3deg);
+    opacity: 1;
+  }
+  70% {
+    transform: translate3d(72vw, 9vh, 0) scale(var(--ufo-scale, 1)) rotate(-3deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(118vw, 18vh, 0) scale(var(--ufo-scale, 1)) rotate(8deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars,
+  .ufo {
+    animation: none !important;
+  }
+
+  .ufo {
+    opacity: 0.35;
+  }
 }
 
 /* PROTEÇÕES */
