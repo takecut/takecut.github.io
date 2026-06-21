@@ -25,9 +25,7 @@ font-src https://fonts.gstatic.com;
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260621-bg1">
-<link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)" fetchpriority="high">
-<link rel="preload" as="image" href="bg-poster-mobile.jpg" media="(max-width: 768px)" fetchpriority="high">
+<link rel="stylesheet" href="style.css?v=20260621-hero-position-1">
 <link rel="preload" as="image" href="cliente1.png" fetchpriority="low">
 <link rel="preload" as="image" href="cliente2.png" fetchpriority="low">
 <link rel="preload" as="image" href="cliente3.png" fetchpriority="low">
@@ -81,9 +79,11 @@ font-src https://fonts.gstatic.com;
 </header>
 
 <section id="home" class="hero">
-  <video autoplay muted loop playsinline class="bg-video" preload="metadata" poster="bg-poster-desktop.jpg" aria-hidden="true">
-    <source src="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
-    <source src="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
+  <video autoplay muted loop playsinline class="bg-video bg-video-desktop" preload="metadata" poster="bg-poster-desktop.jpg" aria-hidden="true">
+    <source src="bg-desktop.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline class="bg-video bg-video-mobile" preload="metadata" poster="bg-poster-mobile.jpg" aria-hidden="true">
+    <source src="bg-mobile.mp4" type="video/mp4">
   </video>
   <div>
     <h1>Vídeos que vendem sua marca.</h1>
@@ -507,7 +507,7 @@ Take Cut salvou meu trampo! 🩵"</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
 
-<script src="script.js?v=20260621-bg1" defer></script>
-<script src="cookie-consent.js?v=20260621-bg1" defer></script>
+<script src="script.js?v=20260621-hero-position-1" defer></script>
+<script src="cookie-consent.js?v=20260621-hero-position-1" defer></script>
 </body>
 </html>
