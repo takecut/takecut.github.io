@@ -115,22 +115,24 @@ body {
 /* 👇 PARA AJUSTAR: mude "width" e "height" */
 .bg-video {
   position: absolute;
-  top: -10%;
-  left: 50%;
-  width: 100%;      /* ← LARGURA */
-  height: 88%;      /* ← ALTURA */
-  transform: translate(-50%, 0);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center center;
   z-index: -1;
 }
 
 .hero::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: -1;
+  background:
+    radial-gradient(circle at 22% 52%, rgba(0,255,178,0.08), transparent 28%),
+    linear-gradient(90deg, rgba(0,0,0,0.74), rgba(0,0,0,0.42) 52%, rgba(0,0,0,0.62));
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* 👇 MUDE "margin-top" PARA SUBIR OU DESCER O TEXTO DO HERO */
@@ -1204,9 +1206,16 @@ img, video {
 
   .bg-video {
     width: 100% !important;
-    height: 115% !important;   /* ← ALTURA DO VÍDEO NO CELULAR */
-    top: 0 !important; left: 0 !important;
+    height: 100% !important;
+    inset: 0 !important;
     transform: none !important;
+    object-position: center center !important;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.58), rgba(0,0,0,0.46) 45%, rgba(0,0,0,0.72)),
+      radial-gradient(circle at 50% 42%, rgba(0,255,178,0.08), transparent 35%);
   }
 
   /* 👇 POSIÇÃO DO TEXTO NO HERO (celular) */
