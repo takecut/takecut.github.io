@@ -81,24 +81,6 @@
   setTimeout(finishLoading, 3500);
 })();
 
-
-// HERO BACKGROUND RESPONSIVO
-// Garante que o vídeo e o poster corretos sejam usados no desktop e no mobile.
-function setupHeroBackgroundVideo() {
-  const video = document.querySelector(".bg-video");
-  if (!video) return;
-
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  const nextPoster = isMobile ? "bg-poster-mobile.jpg" : "bg-poster-desktop.jpg";
-
-  if (video.getAttribute("poster") !== nextPoster) {
-    video.setAttribute("poster", nextPoster);
-  }
-}
-
-setupHeroBackgroundVideo();
-window.addEventListener("resize", setupHeroBackgroundVideo);
-
 // MENU
 function toggleMenu() {
   document.querySelector(".nav-links").classList.toggle("active");
