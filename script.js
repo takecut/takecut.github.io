@@ -167,7 +167,7 @@ function createUniverse() {
   starsBg.dataset.ready = "true";
 
   const isMobile = window.innerWidth <= 768;
-  const starCount = isMobile ? 24 : 80;
+  const starCount = isMobile ? 38 : 80;
   const ufoCount = isMobile ? 1 : 3;
 
   const fragment = document.createDocumentFragment();
