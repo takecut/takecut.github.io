@@ -167,7 +167,7 @@ function createUniverse() {
   starsBg.dataset.ready = "true";
 
   const isMobile = window.innerWidth <= 768;
-  const starCount = isMobile ? 38 : 80;
+  const starCount = isMobile ? 45 : 80;
   const ufoCount = isMobile ? 1 : 3;
 
   const fragment = document.createDocumentFragment();
@@ -197,7 +197,7 @@ function createUniverse() {
   for (let i = 0; i < ufoCount; i++) {
     const ufo = document.createElement("div");
     const lane = ufoLanes[i % ufoLanes.length];
-    const duration = randomBetween(8, 20);
+    const duration = randomBetween(6, 20);
     const scale = randomBetween(0.78, 1.18).toFixed(2);
     const phaseDelay = isMobile
       ? -randomBetween(0, duration)
