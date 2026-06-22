@@ -43,7 +43,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260622-uihotfix1">
+<link rel="stylesheet" href="style.css?v=20260622-uihotfix2">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -311,7 +311,7 @@ font-src https://fonts.gstatic.com;
         <div class="portfolio-caption"><h3>Vídeo para YouTube</h3><p>Cenas com ritmo, estética e narrativa para deixar a comunicação mais memorável.</p><span>Ideal para: empresas, criadores e marcas.</span></div>
       </div>
       <div class="portfolio-card">
-        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div>
+        <div class="carousel-item"><video autoplay muted loop playsinline preload="metadata" data-portfolio-priority="true"><source src="video5.mp4" type="video/mp4"></video></div>
         <div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Edição com trilha, cortes e narrativa para transformar momentos em uma lembrança marcante.</p><span>Ideal para: aniversários, homenagens e datas especiais.</span></div>
       </div>
     </div>
@@ -322,7 +322,7 @@ font-src https://fonts.gstatic.com;
     <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Conteúdo para redes sociais</h3><p>Edição rápida para Reels, TikTok e campanhas.</p><span>Ideal para: negócios locais.</span></div></div>
     <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo institucional</h3><p>Apresenta a empresa com mais confiança e profissionalismo.</p><span>Ideal para: empresas e clínicas.</span></div></div>
     <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo para YouTube</h3><p>Cenas com ritmo, estética e narrativa para deixar a comunicação mais memorável.</p><span>Ideal para: empresas, criadores e marcas.</span></div></div>
-    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video5.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Uma edição feita para eternizar momentos especiais.</p><span>Ideal para: pessoa física.</span></div></div>
+    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="metadata" data-portfolio-priority="true"><source src="video5.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Uma edição feita para eternizar momentos especiais.</p><span>Ideal para: pessoa física.</span></div></div>
   </div>
 
   <a href="/portfolio" class="btn-ver-mais">Ver mais</a>
@@ -736,25 +736,43 @@ Take Cut salvou meu trampo! 🩵"</p>
   </div>
 </section>
 
-<section id="faq" class="faq">
-  <h2>Perguntas Frequentes</h2>
-  <div class="faq-list">
-    <div class="faq-item">
+<section id="faq" class="faq faq-review-style" aria-labelledby="faq-title">
+  <div class="testimonials-heading faq-heading">
+    <span class="reviews-kicker">Perguntas frequentes</span>
+    <h2 id="faq-title">Dúvidas antes de contratar</h2>
+    <p class="reviews-subtitle">Respostas diretas para você entender como funciona a produção, edição, IA, orçamento e entrega dos vídeos.</p>
+  </div>
+
+  <div class="faq-review-grid" aria-label="Perguntas frequentes Take Cut">
+    <article class="faq-card">
+      <span class="faq-number">01</span>
+      <h3>Vocês fazem vídeos para anúncios pagos?</h3>
+      <p>Sim. Criamos vídeos pensados para prender atenção nos primeiros segundos, comunicar a oferta com clareza e levar o público para uma ação.</p>
+    </article>
+
+    <article class="faq-card">
+      <span class="faq-number">02</span>
       <h3>Eu não sei o que falar no vídeo. Vocês ajudam com a ideia?</h3>
       <p>Sim. Podemos ajudar com a ideia, roteiro, estrutura, direção e edição para transformar sua necessidade em um vídeo profissional.</p>
-    </div>
-    <div class="faq-item">
+    </article>
+
+    <article class="faq-card">
+      <span class="faq-number">03</span>
       <h3>Consigo contratar apenas a edição?</h3>
       <p>Sim. Você pode enviar seus vídeos brutos e nós transformamos em conteúdos editados para redes sociais, anúncios, apresentações ou eventos.</p>
-    </div>
-    <div class="faq-item">
+    </article>
+
+    <article class="faq-card">
+      <span class="faq-number">05</span>
       <h3>Vocês atendem fora de São Paulo?</h3>
       <p>Sim. Atendemos projetos online para todo o Brasil. Para gravações presenciais, avaliamos a localização e a necessidade da produção.</p>
-    </div>
-    <div class="faq-item">
+    </article>
+
+    <article class="faq-card">
+      <span class="faq-number">07</span>
       <h3>Vocês trabalham com pacotes mensais?</h3>
       <p>Sim. Podemos montar pacotes para empresas que precisam de vídeos recorrentes para redes sociais, anúncios e campanhas.</p>
-    </div>
+    </article>
   </div>
 </section>
 
@@ -817,7 +835,7 @@ Take Cut salvou meu trampo! 🩵"</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
 
-<script src="script.js?v=20260622-uihotfix1" defer></script>
-<script src="cookie-consent.js?v=20260622-uihotfix1" defer></script>
+<script src="script.js?v=20260622-uihotfix2" defer></script>
+<script src="cookie-consent.js?v=20260622-uihotfix2" defer></script>
 </body>
 </html>
