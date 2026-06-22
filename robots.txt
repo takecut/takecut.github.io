@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.takecut.com.br/sitemap.xml
