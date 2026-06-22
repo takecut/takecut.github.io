@@ -104,14 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // HERO BACKGROUND — autoplay robusto para desktop/mobile
-function getActiveHeroBackgroundVideo() {
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  return document.querySelector(isMobile ? ".bg-video-mobile" : ".bg-video-desktop") || document.querySelector(".js-hero-bg-video");
+// Hotfix: evita recarregar o vídeo em todo resize do celular.
+// Em mobile, a barra do navegador abre/fecha ao rolar a tela e dispara resize;
+// se a gente chama video.load() nesse momento, o background dá piscada/travada.
+let currentHeroBgMode = null;
+
+function getHeroBgMode() {
+  return window.matchMedia("(max-width: 768px)").matches ? "mobile" : "desktop";
 }
 
-function tryPlayHeroBackgroundVideo(video) {
-  if (!video) return;
+function getActiveHeroBackgroundVideo() {
+  const mode = getHeroBgMode();
+  return document.querySelector(mode === "mobile" ? ".bg-video-mobile" : ".bg-video-desktop") || document.querySelector(".js-hero-bg-video");
+}
 
+function prepareHeroBackgroundVideo(video) {
+  if (!video) return;
   video.muted = true;
   video.defaultMuted = true;
   video.loop = true;
@@ -124,47 +132,64 @@ function tryPlayHeroBackgroundVideo(video) {
   video.setAttribute("webkit-playsinline", "");
   video.setAttribute("aria-hidden", "true");
   video.preload = "auto";
+}
 
-  try { video.load(); } catch (e) {}
+function tryPlayHeroBackgroundVideo(video, shouldLoad) {
+  if (!video) return;
+  prepareHeroBackgroundVideo(video);
+
+  // Só carrega no primeiro preparo/troca desktop↔mobile. Não recarrega durante scroll.
+  if (shouldLoad || video.dataset.heroPrepared !== "true") {
+    video.dataset.heroPrepared = "true";
+    try { video.load(); } catch (e) {}
+  }
 
   const playPromise = video.play();
   if (playPromise && typeof playPromise.catch === "function") {
     playPromise.catch(function () {
-      // Se o navegador bloquear autoplay, fica no poster e tenta novamente quando houver interação.
       video.classList.add("hero-bg-waiting-play");
     });
   }
+}
+
+function syncHeroBackgroundVideo(forceLoad) {
+  const mode = getHeroBgMode();
+  const activeVideo = getActiveHeroBackgroundVideo();
+  const changedMode = currentHeroBgMode !== mode;
+  currentHeroBgMode = mode;
+
+  document.querySelectorAll(".js-hero-bg-video").forEach(function (video) {
+    prepareHeroBackgroundVideo(video);
+    if (video !== activeVideo) {
+      try { video.pause(); } catch (e) {}
+    }
+  });
+
+  tryPlayHeroBackgroundVideo(activeVideo, forceLoad || changedMode);
 }
 
 function setupHeroBackgroundVideo() {
   const videos = document.querySelectorAll(".js-hero-bg-video");
   if (!videos.length) return;
 
-  const activeVideo = getActiveHeroBackgroundVideo();
-
-  videos.forEach(function (video) {
-    video.controls = false;
-    video.removeAttribute("controls");
-    video.muted = true;
-    video.defaultMuted = true;
-    video.playsInline = true;
-
-    if (video !== activeVideo) {
-      try { video.pause(); } catch (e) {}
-    }
-  });
-
-  tryPlayHeroBackgroundVideo(activeVideo);
+  syncHeroBackgroundVideo(true);
 
   function retryActiveHeroVideo() {
-    tryPlayHeroBackgroundVideo(getActiveHeroBackgroundVideo());
+    syncHeroBackgroundVideo(false);
   }
 
   window.addEventListener("pageshow", retryActiveHeroVideo);
   document.addEventListener("visibilitychange", function () {
     if (!document.hidden) retryActiveHeroVideo();
   });
-  window.addEventListener("resize", retryActiveHeroVideo);
+
+  // Troca somente quando cruza desktop/mobile. Evita bug causado pelo resize da barra do navegador no celular.
+  const breakpoint = window.matchMedia("(max-width: 768px)");
+  if (typeof breakpoint.addEventListener === "function") {
+    breakpoint.addEventListener("change", function () { syncHeroBackgroundVideo(true); });
+  } else if (typeof breakpoint.addListener === "function") {
+    breakpoint.addListener(function () { syncHeroBackgroundVideo(true); });
+  }
 
   // Em celulares que bloqueiam autoplay no primeiro load, qualquer toque libera sem mostrar botão nativo.
   document.addEventListener("touchstart", retryActiveHeroVideo, { once: true, passive: true });
