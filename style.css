@@ -3517,3 +3517,219 @@ a.back-btn:hover .arrow {
     padding: 28px 18px;
   }
 }
+
+/* =====================================================
+   HOTFIX TAKE CUT 20260622E — ajustes mobile, serviços e cases
+   ===================================================== */
+
+/* Serviços mais enxuto: 3 cards principais */
+.services-grid-optimized {
+  max-width: 1080px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.services-grid-optimized .service-card {
+  min-height: 100%;
+}
+
+/* Nichos: desktop com 4 exemplos, mobile com 3 exemplos */
+.niche-grid {
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FAQ: número ao lado do título para reduzir altura do card */
+.faq-card {
+  padding: 18px !important;
+}
+
+.faq-question-head {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.faq-question-head .faq-number {
+  margin-bottom: 0 !important;
+}
+
+.faq-question-head h3 {
+  margin: 0 !important;
+}
+
+.faq-card p {
+  padding-left: 54px;
+}
+
+/* Cases: corrige overflow e aumenta o vídeo de forma segura */
+.case-card,
+.case-card * {
+  box-sizing: border-box;
+}
+
+.case-card {
+  overflow: hidden;
+}
+
+@media (min-width: 769px) {
+  .case-grid {
+    gap: clamp(220px, 15vw, 340px) !important;
+    max-width: 1320px !important;
+  }
+
+  .case-card {
+    max-width: 520px !important;
+  }
+
+  .case-card .video-box {
+    max-width: 380px !important;
+  }
+
+  .services-grid-optimized {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Portfólio mobile agora tem só 3 cards via HTML */
+  .portfolio-mobile {
+    gap: 18px !important;
+  }
+
+  .portfolio-mobile-card {
+    max-width: 345px !important;
+  }
+
+  .services-grid-optimized {
+    grid-template-columns: 1fr !important;
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .services-grid-optimized .service-card {
+    text-align: left !important;
+  }
+
+  .niche-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .niche-grid .niche-desktop-only {
+    display: none !important;
+  }
+
+  .niche-actions {
+    margin-top: 22px !important;
+  }
+
+  .niche-actions .btn-secondary {
+    width: 100% !important;
+    max-width: 340px !important;
+  }
+
+  .faq-review-grid {
+    max-width: 390px !important;
+  }
+
+  .faq-card {
+    padding: 16px !important;
+  }
+
+  .faq-question-head {
+    grid-template-columns: 38px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .faq-number {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 13px !important;
+  }
+
+  .faq-card h3 {
+    font-size: 15px !important;
+    line-height: 1.25 !important;
+  }
+
+  .faq-card p {
+    padding-left: 48px !important;
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  .case-studies {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .case-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 34px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .case-card {
+    width: min(100%, 390px) !important;
+    max-width: min(100%, 390px) !important;
+    padding: 16px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 24px !important;
+  }
+
+  .case-card .video-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    aspect-ratio: 9 / 16 !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .case-card .video-box img,
+  .case-card .video-box video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .case-info {
+    padding: 18px 0 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .case-info h3 {
+    max-width: 100% !important;
+    font-size: clamp(32px, 10vw, 42px) !important;
+    line-height: 1.04 !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  .case-points {
+    width: 100% !important;
+  }
+
+  .case-points li {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
+  }
+}
