@@ -2885,7 +2885,7 @@ a.back-btn:hover .arrow {
   /* 👇 DISTÂNCIA ENTRE OS DOIS VÍDEOS DOS CASES NO DESKTOP
      Mais separados: aumente. Ex: clamp(120px, 9vw, 180px)
      Mais próximos: diminua. Ex: clamp(60px, 5vw, 100px) */
-  --cases-desktop-gap: clamp(96px, 8vw, 150px);
+  --cases-desktop-gap: clamp(130px, 9vw, 190px);
 }
 
 @media (min-width: 769px) {
