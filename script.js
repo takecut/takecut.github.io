@@ -242,32 +242,75 @@ function setupSmartVideoLoading() {
 
 
 // PORTFÓLIO — garante que o card "Vídeo emocional" carregue no desktop.
-// Alguns navegadores deixam vídeos autoplay/preload none em espera dentro do carrossel.
+// Corrige o caso em que alguns navegadores deixam o 5º vídeo do carrossel parado no frame preto.
 function setupPortfolioPriorityVideos() {
-  const priorityPortfolioVideos = document.querySelectorAll("video[data-portfolio-priority='true']");
-  if (!priorityPortfolioVideos.length) return;
+  const portfolioVideos = Array.prototype.slice.call(document.querySelectorAll("#carousel video, .portfolio-mobile video[data-portfolio-priority='true']"));
+  if (!portfolioVideos.length) return;
 
-  function prepare(video) {
+  function prepare(video, forceLoad) {
+    if (!video) return;
+
     video.muted = true;
     video.defaultMuted = true;
     video.loop = true;
     video.autoplay = true;
     video.playsInline = true;
     video.preload = "auto";
-    try { video.load(); } catch (e) {}
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    // Garante que o espaço do vídeo nunca fique invisível por estilo ou economia do navegador.
+    video.style.display = "block";
+    video.style.visibility = "visible";
+    video.style.opacity = "1";
+
+    if (forceLoad || video.dataset.portfolioPrepared !== "true") {
+      video.dataset.portfolioPrepared = "true";
+      try { video.load(); } catch (e) {}
+    }
+
+    function nudgeFirstFrame() {
+      // Alguns browsers mantêm o vídeo no primeiro frame preto. Este pequeno avanço força um frame real.
+      if (video.dataset.firstFrameNudged === "true") return;
+      if (video.readyState < 1) return;
+      video.dataset.firstFrameNudged = "true";
+      try {
+        if (video.currentTime === 0 && isFinite(video.duration) && video.duration > 0.2) {
+          video.currentTime = 0.05;
+        }
+      } catch (e) {}
+    }
+
+    video.addEventListener("loadedmetadata", nudgeFirstFrame, { once: true });
+    video.addEventListener("loadeddata", function () {
+      video.classList.add("portfolio-video-ready");
+    }, { once: true });
+
+    nudgeFirstFrame();
+
     const playPromise = video.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(function () {
-        // Se o navegador economizar autoplay, ao menos o vídeo já fica preparado para aparecer.
+        // Se autoplay for bloqueado, o próximo toque/clique tenta novamente.
       });
     }
   }
 
-  priorityPortfolioVideos.forEach(prepare);
+  function prepareAll(forceLoad) {
+    portfolioVideos.forEach(function (video) { prepare(video, forceLoad); });
+  }
+
+  prepareAll(true);
+  setTimeout(function () { prepareAll(false); }, 350);
+  setTimeout(function () { prepareAll(false); }, 1200);
 
   document.addEventListener("visibilitychange", function () {
-    if (!document.hidden) priorityPortfolioVideos.forEach(prepare);
+    if (!document.hidden) prepareAll(false);
   });
+
+  document.addEventListener("touchstart", function () { prepareAll(false); }, { once: true, passive: true });
+  document.addEventListener("click", function () { prepareAll(false); }, { once: true });
 }
 
 // MODAL
