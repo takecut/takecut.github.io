@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Equipamentos Profissionais | Take Cut</title>
 <link rel="icon" type="image/png" href="/logo1.png">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=20260622-conversion1">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
 
@@ -302,7 +302,7 @@
 </head>
 <body>
 
-<!-- TAREFA 5: estrelas e discos voadores minimalistas no fundo -->
+<!-- TAREFA 5: estrelas e cometas no fundo -->
 <div class="stars-bg" id="starsBg"></div>
 
 <!-- TAREFA 4: navbar igual da página principal -->
@@ -314,7 +314,7 @@
     <a href="/#cases">Cases</a>
     <a href="/#services">Serviços</a>
     <a href="/#videos-ia">Vídeos com IA</a>
-    <a href="https://wa.me/5511994769848?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." target="_blank" rel="noopener">Orçamento</a>
+    <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20solicitar%20um%20or%C3%A7amento%20para%20criar%20v%C3%ADdeos%20para%20minha%20marca." target="_blank" rel="noopener">Orçamento</a>
   </nav>
 </header>
 
@@ -394,7 +394,7 @@
           <div class="card-buttons">
             <!-- troque "#" pelo link de afiliado quando tiver -->
             <a href="https://amzn.to/4tUl3Wr" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20a%20Canon%20EOS%20Rebel" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20a%20Canon%20EOS%20Rebel" target="_blank" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
@@ -431,7 +431,7 @@
           <div class="card-preco">R$ 109,90 ou R$ .../dia</div>
           <div class="card-buttons">
             <a href="https://amzn.to/4uGfew1" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20o%20kit%20softbox" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20kit%20softbox" target="_blank" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
@@ -449,7 +449,7 @@
           <div class="card-preco">R$ 189,99 ou R$ .../dia</div>
           <div class="card-buttons">
             <a href="https://amzn.to/4tGu1G9" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20o%20kit%20duplo%20softbox" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20kit%20duplo%20softbox" target="_blank" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
@@ -501,7 +501,7 @@
           <div class="card-preco">R$ 242,00 ou R$ .../dia</div>
           <div class="card-buttons">
             <a href="https://amzn.to/4eAvDNB" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/5511994769848?text=Quero%20alugar%20o%20microfone%20shotgun" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20microfone%20shotgun" target="_blank" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
@@ -642,56 +642,19 @@ function createUniverse() {
     fragment.appendChild(star);
   }
 
-  const ufoCount = isMobile ? 1 : 3;
-
-  function randomBetween(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  const ufoLanes = isMobile
-    ? [{ min: 46, max: 54 }]
-    : [
-        { min: 34, max: 40 },
-        { min: 48, max: 56 },
-        { min: 62, max: 68 }
-      ];
-
-  for (let i = 0; i < ufoCount; i++) {
-    const ufo = document.createElement("div");
-    const lane = ufoLanes[i % ufoLanes.length];
-    const duration = randomBetween(18, 24);
-    const scale = randomBetween(0.78, 1.18).toFixed(2);
-    const phaseDelay = isMobile
-      ? -randomBetween(0, duration)
-      : -((duration / ufoCount) * i + randomBetween(0, 1.8));
-
-    ufo.className = "ufo";
-    ufo.style.cssText = [
-      "left:0",
-      "top:" + randomBetween(lane.min, lane.max).toFixed(1) + "%",
-      "animation-delay:" + phaseDelay.toFixed(1) + "s",
-      "--ufo-duration:" + duration.toFixed(1) + "s",
-      "--ufo-scale:" + scale,
-      "--ufo-start-x:" + randomBetween(-36, -22).toFixed(1) + "vw",
-      "--ufo-mid-x:" + randomBetween(30, 44).toFixed(1) + "vw",
-      "--ufo-mid-y:" + randomBetween(-6, 6).toFixed(1) + "vh",
-      "--ufo-late-x:" + randomBetween(68, 84).toFixed(1) + "vw",
-      "--ufo-late-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
-      "--ufo-end-x:" + randomBetween(114, 130).toFixed(1) + "vw",
-      "--ufo-end-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
-      "--ufo-rotate-start:" + randomBetween(-8, -3).toFixed(1) + "deg",
-      "--ufo-rotate-mid:" + randomBetween(-2, 4).toFixed(1) + "deg",
-      "--ufo-rotate-late:" + randomBetween(-4, 3).toFixed(1) + "deg",
-      "--ufo-rotate-end:" + randomBetween(3, 8).toFixed(1) + "deg"
-    ].join(";");
-
-    fragment.appendChild(ufo);
+  for (let i = 0; i < (isMobile ? 1 : 3); i++) {
+    const comet = document.createElement("div");
+    comet.className = "comet";
+    comet.style.cssText =
+      "left:" + (Math.random()*100) + "%;top:" + (Math.random()*50) +
+      "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" +
+      (Math.random()*4+6) + "s";
+    fragment.appendChild(comet);
   }
 
   starsBg.appendChild(fragment);
 }
 window.addEventListener("load", createUniverse);
 </script>
-<script src="/cookie-consent.js" defer></script>
 </body>
 </html>
