@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // LAZY LOAD DE VÍDEOS: carrega antes de entrar na tela para não atrasar ao tocar.
   setupSmartVideoLoading();
+  setupPortfolioPriorityVideos();
 });
 
 
@@ -237,6 +238,36 @@ function setupSmartVideoLoading() {
   } else {
     setTimeout(warmUpPriorityVideos, 1200);
   }
+}
+
+
+// PORTFÓLIO — garante que o card "Vídeo emocional" carregue no desktop.
+// Alguns navegadores deixam vídeos autoplay/preload none em espera dentro do carrossel.
+function setupPortfolioPriorityVideos() {
+  const priorityPortfolioVideos = document.querySelectorAll("video[data-portfolio-priority='true']");
+  if (!priorityPortfolioVideos.length) return;
+
+  function prepare(video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    try { video.load(); } catch (e) {}
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {
+        // Se o navegador economizar autoplay, ao menos o vídeo já fica preparado para aparecer.
+      });
+    }
+  }
+
+  priorityPortfolioVideos.forEach(prepare);
+
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) priorityPortfolioVideos.forEach(prepare);
+  });
 }
 
 // MODAL
