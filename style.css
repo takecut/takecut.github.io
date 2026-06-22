@@ -2870,3 +2870,191 @@ a.back-btn:hover .arrow {
     margin-bottom: 36px !important;
   }
 }
+
+
+/* =====================================================
+   HOTFIX UI 20260622B — showreel, portfolio, FAQ e mobile center
+   ===================================================== */
+
+:root {
+  /* 👇 DISTÂNCIA DO "NOSSO TRABALHO" NO DESKTOP
+     Mais perto do vídeo de fundo: deixe mais negativo. Ex: -260px
+     Mais longe do vídeo de fundo: deixe menos negativo. Ex: -140px */
+  --showreel-desktop-offset: -220px;
+
+  /* 👇 DISTÂNCIA ENTRE OS DOIS VÍDEOS DOS CASES NO DESKTOP
+     Mais separados: aumente. Ex: clamp(120px, 9vw, 180px)
+     Mais próximos: diminua. Ex: clamp(60px, 5vw, 100px) */
+  --cases-desktop-gap: clamp(96px, 8vw, 150px);
+}
+
+@media (min-width: 769px) {
+  .showreel {
+    margin-top: var(--showreel-desktop-offset) !important;
+    padding-top: 0 !important;
+  }
+
+  .case-grid {
+    gap: var(--cases-desktop-gap) !important;
+  }
+
+  #carousel .portfolio-card .carousel-item {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    display: block !important;
+    background: #080809 !important;
+  }
+
+  #carousel .portfolio-card .carousel-item video {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+/* FAQ com base visual na seção de avaliações */
+.faq-review-style {
+  text-align: center;
+  position: relative;
+}
+
+.faq-heading {
+  max-width: 780px;
+  margin: 0 auto 42px;
+}
+
+.faq-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background: #F5F5F5;
+  color: #202124;
+  padding: 22px;
+  border-radius: 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(0,255,178,0.12), 0 18px 35px rgba(0,0,0,0.25);
+}
+
+.faq-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: #00FFB2;
+  color: #0B0B0C;
+  font-weight: 900;
+  box-shadow: 0 0 18px rgba(0,255,178,0.28);
+}
+
+.faq-card h3 {
+  color: #202124 !important;
+  font-size: 17px !important;
+  line-height: 1.35 !important;
+  margin: 0 0 12px !important;
+}
+
+.faq-card p {
+  color: #3c4043;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+}
+
+/* Mobile: centraliza balões e CTAs das novas seções */
+@media (max-width: 768px) {
+  .conversion-shell,
+  .conversion-copy {
+    text-align: center !important;
+  }
+
+  .conversion-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .conversion-copy p,
+  .conversion-shell > p,
+  .conversion-shell .section-subtitle {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .micro-copy {
+    border-left: 0 !important;
+    border-top: 3px solid #00FFB2 !important;
+    padding-left: 0 !important;
+    padding-top: 12px !important;
+  }
+
+  .section-kicker,
+  .conversion-copy .section-kicker,
+  .conversion-shell > .section-kicker {
+    display: inline-flex !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .conversion-copy .btn-main,
+  .conversion-copy .btn-secondary,
+  .niche-cta .btn-main,
+  .niche-cta .btn-secondary {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .faq-review-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 370px !important;
+    gap: 16px !important;
+  }
+
+  .faq-card {
+    padding: 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .faq-number {
+    width: 38px !important;
+    height: 38px !important;
+    margin-bottom: 12px !important;
+    font-size: 13px !important;
+  }
+
+  .faq-card h3 {
+    font-size: 16px !important;
+  }
+
+  .faq-card p {
+    font-size: 14px !important;
+  }
+}
