@@ -3058,3 +3058,101 @@ a.back-btn:hover .arrow {
     font-size: 14px !important;
   }
 }
+
+
+/* =====================================================
+   HOTFIX PEDIDO 20260622C — ajustes pontuais solicitados
+   Não remove seções nem altera estrutura HTML.
+   ===================================================== */
+
+:root {
+  /* 👇 TAMANHO DO VÍDEO DE BACKGROUND NO MOBILE
+     Aumentar: use 138%, 145%...
+     Diminuir: use 122%, 115%... */
+  --hero-mobile-video-height: 132%;
+
+  /* 👇 LARGURA DO VÍDEO DE BACKGROUND NO MOBILE
+     Aumentar: use 116%, 122%...
+     Diminuir: use 100%, 105%... */
+  --hero-mobile-video-width: 112%;
+}
+
+/* Balões centralizados também no desktop, somente nas seções solicitadas */
+#diagnostico .section-kicker,
+.market-signal .section-kicker,
+#how-it-works .section-kicker,
+#plans .section-kicker,
+#nichos .section-kicker,
+#bastidores .section-kicker {
+  display: flex !important;
+  width: fit-content !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+/* Perguntas Frequentes sem animação/elevação no hover */
+.faq-card {
+  transition: none !important;
+}
+
+.faq-card:hover {
+  transform: none !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.22) !important;
+}
+
+@media (max-width: 768px) {
+  /* Fundo mais preto e nítido no mobile, mantendo estrelas e disco voador */
+  html,
+  body,
+  .stars-bg {
+    background: #000 !important;
+  }
+
+  .stars-bg {
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .ufo::after {
+    filter: none !important;
+    opacity: 0.55 !important;
+  }
+
+  /* Vídeo de background maior no mobile */
+  .bg-video-mobile {
+    width: var(--hero-mobile-video-width) !important;
+    height: var(--hero-mobile-video-height) !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate3d(-50%, -50%, 0) !important;
+    -webkit-transform: translate3d(-50%, -50%, 0) !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  /* Cases e Resultados: cards com largura padronizada como as outras seções no mobile */
+  .case-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .case-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+  }
+
+  .case-card .video-box {
+    border-radius: 16px !important;
+  }
+
+  .case-info {
+    padding: 18px 0 0 !important;
+  }
+}
