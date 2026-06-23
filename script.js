@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setupSmartVideoLoading();
   setupPortfolioPriorityVideos();
   setupAdaptivePortfolioCarousel();
+  setupPlayableVideoControlsGuard();
   setupMobileCardReveal();
 });
 
@@ -313,15 +314,57 @@ function tryPlayInlineVideo(video) {
   var playPromise = video.play();
   if (playPromise && typeof playPromise.catch === "function") {
     playPromise.catch(function () {
-      // Tentativa curta extra para Safari/Chrome mobile após o toque liberar mídia.
-      setTimeout(function () {
-        try { video.play(); } catch (e) {}
-      }, 80);
+      // Se o navegador bloquear mesmo após o toque, mantém os controles visíveis para o usuário iniciar manualmente.
     });
   }
 }
 
-function playVideo(element) {
+function requestVideoFullscreen(video) {
+  if (!video) return;
+
+  var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
+  if (!isMobileDevice) return;
+
+  try {
+    if (typeof video.webkitEnterFullscreen === "function") {
+      video.webkitEnterFullscreen();
+      return;
+    }
+
+    var requestFullscreen =
+      video.requestFullscreen ||
+      video.webkitRequestFullscreen ||
+      video.msRequestFullscreen ||
+      video.mozRequestFullScreen;
+
+    if (typeof requestFullscreen === "function") {
+      var fullscreenPromise = requestFullscreen.call(video);
+      if (fullscreenPromise && typeof fullscreenPromise.catch === "function") {
+        fullscreenPromise.catch(function () {
+          // Nem todo navegador permite fullscreen programático; nesse caso o vídeo fica com controles nativos.
+        });
+      }
+    }
+  } catch (e) {
+    // Fullscreen é melhoria progressiva. Se falhar, o vídeo continua tocando normal.
+  }
+}
+
+function setupPlayableVideoControlsGuard() {
+  document.querySelectorAll(".video-box .video").forEach(function (video) {
+    ["click", "touchstart", "pointerdown"].forEach(function (eventName) {
+      video.addEventListener(eventName, function (event) {
+        // Impede que o toque nos controles do vídeo suba para a div com onclick=playVideo().
+        // Sem isso, ao pausar, o card recebia o clique e mandava o vídeo tocar de novo.
+        event.stopPropagation();
+      }, { passive: true });
+    });
+  });
+}
+
+function playVideo(element, clickEvent) {
+  if (clickEvent && clickEvent.target && clickEvent.target.tagName === "VIDEO") return;
+
   const thumb = element.querySelector(".thumb");
   const playBtn = element.querySelector(".play-btn");
   const video = element.querySelector(".video");
@@ -339,16 +382,8 @@ function playVideo(element) {
     if (otherVideo !== video) otherVideo.pause();
   });
 
-  if (video.readyState < 2) {
-    var playWhenReady = function () {
-      tryPlayInlineVideo(video);
-    };
-
-    video.addEventListener("loadeddata", playWhenReady, { once: true });
-    video.addEventListener("canplay", playWhenReady, { once: true });
-  }
-
   tryPlayInlineVideo(video);
+  requestVideoFullscreen(video);
 }
 
 // CARROSSEL
@@ -613,7 +648,7 @@ function setupMobileCardReveal() {
       button = document.createElement("button");
       button.type = "button";
       button.className = "mobile-reveal-arrow";
-      button.innerHTML = '<span aria-hidden="true">⌄</span>';
+      button.innerHTML = '<span aria-hidden="true"></span>';
       firstCard.appendChild(button);
 
       button.addEventListener("click", function (event) {
