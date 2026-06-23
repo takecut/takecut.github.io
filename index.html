@@ -43,7 +43,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260623-mobilecards1">
+<link rel="stylesheet" href="style.css?v=20260623-mobilecards2">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -245,7 +245,7 @@ font-src https://fonts.gstatic.com;
 <section class="showreel">
   <h2>Nosso trabalho</h2>
   <div class="result-item">
-    <div class="video-box horizontal destaque" onclick="playVideo(this)">
+    <div class="video-box horizontal destaque" onclick="playVideo(this, event)">
       <img src="thumbshow.png" class="thumb" loading="lazy" alt="Showreel Take Cut">
       <span class="play-btn"><span class="play-icon"></span></span>
       <video class="video" controls preload="none">
@@ -329,7 +329,7 @@ font-src https://fonts.gstatic.com;
 <section id="videos-ia" class="ia">
   <h2>Vídeos com IA</h2>
   <div class="ia-main">
-    <div class="video-box horizontal destaque" onclick="playVideo(this)">
+    <div class="video-box horizontal destaque" onclick="playVideo(this, event)">
       <img src="thumbp7.jpg" class="thumb" loading="lazy" alt="Vídeo IA Take Cut">
       <span class="play-btn"><span class="play-icon"></span></span>
       <video class="video" controls preload="none"><source src="video7c.mp4" type="video/mp4"></video>
@@ -341,7 +341,7 @@ font-src https://fonts.gstatic.com;
   </div>
   <div class="ia-secondary">
     <div class="ia-card">
-      <div class="video-box square" onclick="playVideo(this)">
+      <div class="video-box square" onclick="playVideo(this, event)">
         <img src="thumb4.png" class="thumb" loading="lazy" alt="Vídeo IA efeitos sonoros">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video" controls preload="none"><source src="videoia1c.mp4" type="video/mp4"></video>
@@ -352,7 +352,7 @@ font-src https://fonts.gstatic.com;
       </div>
     </div>
     <div class="ia-card">
-      <div class="video-box reels" onclick="playVideo(this)">
+      <div class="video-box reels" onclick="playVideo(this, event)">
         <img src="thumb5.png" class="thumb" loading="lazy" alt="Vídeo IA modelo produto">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video" controls preload="none"><source src="videoia2c.mp4" type="video/mp4"></video>
@@ -369,7 +369,7 @@ font-src https://fonts.gstatic.com;
   <h2>Cases e Resultados</h2>
   <div class="results-grid case-grid">
     <article class="result-item item1 case-card">
-      <div class="video-box" onclick="playVideo(this)">
+      <div class="video-box" onclick="playVideo(this, event)">
         <img src="thumb1.png" class="thumb" loading="eager" decoding="async" fetchpriority="low" alt="Case Take Cut com mais de 255 mil visualizações em vídeo curto para tráfego pago">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video priority-video" controls playsinline webkit-playsinline preload="metadata" data-priority-video="true"><source src="videorc.mp4" type="video/mp4"></video>
@@ -386,7 +386,7 @@ font-src https://fonts.gstatic.com;
       </div>
     </article>
     <article class="result-item item2 case-card">
-      <div class="video-box" onclick="playVideo(this)">
+      <div class="video-box" onclick="playVideo(this, event)">
         <img src="thumb2.png" class="thumb" loading="eager" decoding="async" fetchpriority="low" alt="Case Take Cut com mais de 522 mil visualizações com edição para impacto e clareza da oferta">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video priority-video" controls playsinline webkit-playsinline preload="metadata" data-priority-video="true"><source src="videor2c.mp4" type="video/mp4"></video>
@@ -838,7 +838,7 @@ Take Cut salvou meu trampo! 🩵"</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
 
-<script src="script.js?v=20260623-mobilecards1" defer></script>
+<script src="script.js?v=20260623-mobilecards2" defer></script>
 <script src="cookie-consent.js?v=20260622-mobilecases1" defer></script>
 </body>
 </html>
