@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // LAZY LOAD DE VÍDEOS: carrega antes de entrar na tela para não atrasar ao tocar.
   setupSmartVideoLoading();
   setupPortfolioPriorityVideos();
+  setupAdaptivePortfolioCarousel();
 });
 
 
@@ -242,75 +243,32 @@ function setupSmartVideoLoading() {
 
 
 // PORTFÓLIO — garante que o card "Vídeo emocional" carregue no desktop.
-// Corrige o caso em que alguns navegadores deixam o 5º vídeo do carrossel parado no frame preto.
+// Alguns navegadores deixam vídeos autoplay/preload none em espera dentro do carrossel.
 function setupPortfolioPriorityVideos() {
-  const portfolioVideos = Array.prototype.slice.call(document.querySelectorAll("#carousel video, .portfolio-mobile video[data-portfolio-priority='true']"));
-  if (!portfolioVideos.length) return;
+  const priorityPortfolioVideos = document.querySelectorAll("video[data-portfolio-priority='true']");
+  if (!priorityPortfolioVideos.length) return;
 
-  function prepare(video, forceLoad) {
-    if (!video) return;
-
+  function prepare(video) {
     video.muted = true;
     video.defaultMuted = true;
     video.loop = true;
     video.autoplay = true;
     video.playsInline = true;
     video.preload = "auto";
-    video.setAttribute("muted", "");
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
-
-    // Garante que o espaço do vídeo nunca fique invisível por estilo ou economia do navegador.
-    video.style.display = "block";
-    video.style.visibility = "visible";
-    video.style.opacity = "1";
-
-    if (forceLoad || video.dataset.portfolioPrepared !== "true") {
-      video.dataset.portfolioPrepared = "true";
-      try { video.load(); } catch (e) {}
-    }
-
-    function nudgeFirstFrame() {
-      // Alguns browsers mantêm o vídeo no primeiro frame preto. Este pequeno avanço força um frame real.
-      if (video.dataset.firstFrameNudged === "true") return;
-      if (video.readyState < 1) return;
-      video.dataset.firstFrameNudged = "true";
-      try {
-        if (video.currentTime === 0 && isFinite(video.duration) && video.duration > 0.2) {
-          video.currentTime = 0.05;
-        }
-      } catch (e) {}
-    }
-
-    video.addEventListener("loadedmetadata", nudgeFirstFrame, { once: true });
-    video.addEventListener("loadeddata", function () {
-      video.classList.add("portfolio-video-ready");
-    }, { once: true });
-
-    nudgeFirstFrame();
-
+    try { video.load(); } catch (e) {}
     const playPromise = video.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(function () {
-        // Se autoplay for bloqueado, o próximo toque/clique tenta novamente.
+        // Se o navegador economizar autoplay, ao menos o vídeo já fica preparado para aparecer.
       });
     }
   }
 
-  function prepareAll(forceLoad) {
-    portfolioVideos.forEach(function (video) { prepare(video, forceLoad); });
-  }
-
-  prepareAll(true);
-  setTimeout(function () { prepareAll(false); }, 350);
-  setTimeout(function () { prepareAll(false); }, 1200);
+  priorityPortfolioVideos.forEach(prepare);
 
   document.addEventListener("visibilitychange", function () {
-    if (!document.hidden) prepareAll(false);
+    if (!document.hidden) priorityPortfolioVideos.forEach(prepare);
   });
-
-  document.addEventListener("touchstart", function () { prepareAll(false); }, { once: true, passive: true });
-  document.addEventListener("click", function () { prepareAll(false); }, { once: true });
 }
 
 // MODAL
@@ -362,19 +320,71 @@ function playVideo(element) {
 }
 
 // CARROSSEL
+function getPortfolioCarouselStep(carousel) {
+  if (!carousel) return 336;
+
+  const card = carousel.querySelector(".portfolio-card") || carousel.querySelector(".carousel-item");
+  const styles = window.getComputedStyle(carousel);
+  const gap = parseFloat(styles.columnGap || styles.gap) || 16;
+  const cardWidth = card ? card.getBoundingClientRect().width : 320;
+
+  return cardWidth + gap;
+}
+
+function normalizePortfolioCarouselScroll() {
+  const carousel = document.getElementById("carousel");
+  if (!carousel) return;
+
+  const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+
+  // Se todos os cards couberem na tela, garante que o carrossel fique alinhado no início.
+  if (maxScroll <= 2) {
+    carousel.scrollTo({ left: 0, behavior: "auto" });
+    return;
+  }
+
+  if (carousel.scrollLeft > maxScroll) {
+    carousel.scrollTo({ left: maxScroll, behavior: "auto" });
+  }
+}
+
+function setupAdaptivePortfolioCarousel() {
+  const carousel = document.getElementById("carousel");
+  if (!carousel) return;
+
+  normalizePortfolioCarouselScroll();
+
+  let resizeFrame = null;
+  window.addEventListener("resize", function () {
+    if (resizeFrame) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(normalizePortfolioCarouselScroll);
+  });
+
+  window.addEventListener("load", normalizePortfolioCarouselScroll, { once: true });
+}
+
 function scrollPortfolio(direction) {
   const carousel = document.getElementById("carousel");
-  const item = carousel.querySelector(".carousel-item");
-  const itemWidth = item ? item.offsetWidth + 16 : 336;
-  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+  if (!carousel) return;
+
+  const itemWidth = getPortfolioCarouselStep(carousel);
+  const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+
+  if (maxScroll <= 2) {
+    carousel.scrollTo({ left: 0, behavior: "smooth" });
+    return;
+  }
+
   if (direction === -1 && carousel.scrollLeft <= 0) {
     carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
     return;
   }
+
   if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
     carousel.scrollTo({ left: 0, behavior: "smooth" });
     return;
   }
+
   carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
 }
 
