@@ -4377,3 +4377,277 @@ body > footer {
   }
 }
 
+/* =====================================================
+   TAKE CUT 20260623 — Vídeos com IA: redesign somente desktop
+   ===================================================== */
+@media (min-width: 769px) {
+  #videos-ia {
+    position: relative !important;
+    overflow: hidden !important;
+    padding-top: 118px !important;
+    padding-bottom: 118px !important;
+    text-align: center !important;
+    isolation: isolate;
+  }
+
+  #videos-ia::before {
+    content: "";
+    position: absolute;
+    inset: 34px 40px;
+    z-index: -1;
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(0,255,178,0.16), transparent 30%),
+      radial-gradient(circle at 88% 18%, rgba(0,255,178,0.10), transparent 28%),
+      linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.012));
+    border: 1px solid rgba(0,255,178,0.08);
+    pointer-events: none;
+  }
+
+  #videos-ia h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0 !important;
+    letter-spacing: -0.04em;
+  }
+
+  #videos-ia h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -14px;
+    width: 74px;
+    height: 3px;
+    border-radius: 999px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, #00FFB2, transparent);
+    box-shadow: 0 0 22px rgba(0,255,178,0.46);
+  }
+
+  #videos-ia .ia-main {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.14fr) minmax(340px, 0.86fr) !important;
+    align-items: center !important;
+    gap: clamp(28px, 4.2vw, 58px) !important;
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 62px auto 28px !important;
+    padding: 28px !important;
+    border-radius: 30px !important;
+    background:
+      linear-gradient(135deg, rgba(0,255,178,0.08), rgba(255,255,255,0.025) 34%, rgba(255,255,255,0.04)),
+      rgba(14,14,16,0.92) !important;
+    border: 1px solid rgba(0,255,178,0.18) !important;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.34), 0 0 70px rgba(0,255,178,0.07) !important;
+    text-align: left !important;
+  }
+
+  #videos-ia .ia-main::after {
+    content: "Destaque";
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(0,255,178,0.12);
+    border: 1px solid rgba(0,255,178,0.28);
+    color: #00FFB2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #videos-ia .ia-main .video-box.horizontal.destaque {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-radius: 24px !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.45), 0 0 42px rgba(0,255,178,0.11) !important;
+  }
+
+  #videos-ia .ia-main .result-info,
+  #videos-ia .ia-card .result-info {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+  }
+
+  #videos-ia .ia-main .result-info {
+    max-width: none !important;
+    padding-right: 10px !important;
+  }
+
+  #videos-ia .ia-main .result-info::before {
+    content: "IA generativa para marcas";
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(245,245,245,0.055);
+    border: 1px solid rgba(0,255,178,0.22);
+    color: #00FFB2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #videos-ia .ia-main .result-info h3 {
+    max-width: 430px;
+    margin: 0 0 14px !important;
+    color: #F5F5F5 !important;
+    font-size: clamp(30px, 3.05vw, 42px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.055em;
+    text-shadow: 0 0 24px rgba(245,245,245,0.16) !important;
+  }
+
+  #videos-ia .ia-main .result-info p {
+    max-width: 460px !important;
+    margin: 0 !important;
+    color: rgba(245,245,245,0.78) !important;
+    font-size: 16.5px !important;
+    line-height: 1.7 !important;
+    opacity: 1 !important;
+  }
+
+  #videos-ia .ia-main .result-info::after {
+    content: "Cenas realistas • Produto • Anúncios • Redes sociais";
+    display: inline-flex;
+    margin-top: 22px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(245,245,245,0.72);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  #videos-ia .ia-secondary {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 1180px !important;
+    margin: 0 auto !important;
+    align-items: stretch !important;
+  }
+
+  #videos-ia .ia-card {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(170px, 0.84fr) minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 330px !important;
+    padding: 24px !important;
+    overflow: hidden !important;
+    border-radius: 26px !important;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+      rgba(17,17,19,0.92) !important;
+    border: 1px solid rgba(0,255,178,0.14) !important;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.26), 0 0 44px rgba(0,255,178,0.055) !important;
+    text-align: left !important;
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease !important;
+  }
+
+  #videos-ia .ia-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0,255,178,0.32) !important;
+    box-shadow: 0 34px 90px rgba(0,0,0,0.34), 0 0 64px rgba(0,255,178,0.12) !important;
+  }
+
+  #videos-ia .ia-card::before {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: rgba(0,255,178,0.18);
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.08em;
+    pointer-events: none;
+  }
+
+  #videos-ia .ia-card:nth-child(1)::before { content: "01"; }
+  #videos-ia .ia-card:nth-child(2)::before { content: "02"; }
+
+  #videos-ia .ia-card .video-box {
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    box-shadow: 0 18px 46px rgba(0,0,0,0.40), 0 0 28px rgba(0,255,178,0.08) !important;
+  }
+
+  #videos-ia .ia-card .video-box.square {
+    max-width: 260px !important;
+  }
+
+  #videos-ia .ia-card .video-box.reels {
+    max-width: 190px !important;
+  }
+
+  #videos-ia .ia-card .result-info {
+    width: 100% !important;
+    max-width: none !important;
+    position: relative;
+    z-index: 1;
+  }
+
+  #videos-ia .result-info br {
+    display: none !important;
+  }
+
+  #videos-ia .ia-card .result-info h3 {
+    margin: 0 0 10px !important;
+    color: #00FFB2 !important;
+    font-size: 21px !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.03em;
+    text-shadow: 0 0 16px rgba(0,255,178,0.20) !important;
+  }
+
+  #videos-ia .ia-card .result-info p {
+    max-width: 310px !important;
+    margin: 0 !important;
+    color: rgba(245,245,245,0.74) !important;
+    font-size: 14.5px !important;
+    line-height: 1.62 !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1060px) {
+  #videos-ia .ia-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  #videos-ia .ia-main::after {
+    top: 18px;
+    right: 18px;
+  }
+
+  #videos-ia .ia-secondary {
+    grid-template-columns: 1fr !important;
+    max-width: 760px !important;
+  }
+
+  #videos-ia .ia-card {
+    grid-template-columns: minmax(170px, 250px) minmax(0, 1fr) !important;
+  }
+}
+
