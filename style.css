@@ -3972,3 +3972,101 @@ body > footer {
     line-height: 1.08 !important;
   }
 }
+
+/* =====================================================
+   HOTFIX TAKE CUT 20260623 — ajustes mobile solicitados
+   ===================================================== */
+.video-box.is-video-open .thumb,
+.video-box.is-video-open .play-btn {
+  display: none !important;
+}
+
+.video-box.is-video-open .video {
+  display: block !important;
+}
+
+.mobile-reveal-arrow {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Loading: remove o brilho/contorno quadrado que aparecia ao redor do logo. */
+  #loadingScreen.active {
+    z-index: 999999 !important;
+  }
+
+  .loading-logo {
+    filter: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+  }
+
+  /* Nosso Trabalho mais próximo do vídeo de background no mobile. */
+  .showreel {
+    margin-top: -95px !important;
+    padding-top: 40px !important;
+  }
+
+  .mobile-collapsible-grid > .is-collapsible-hidden {
+    display: none !important;
+  }
+
+  .mobile-collapsible-grid > .is-first-collapsible-card,
+  #nichos .niche-grid > .is-first-collapsible-card,
+  #bastidores .process-steps > .is-first-collapsible-card,
+  .testimonials .google-reviews-grid > .is-first-collapsible-card,
+  #faq .faq-review-grid > .is-first-collapsible-card {
+    position: relative !important;
+    overflow: visible !important;
+  }
+
+  button.mobile-reveal-arrow {
+    all: unset;
+    box-sizing: border-box !important;
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 5 !important;
+    width: 42px !important;
+    height: 42px !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: #00FFB2 !important;
+    color: #0B0B0C !important;
+    border: 1px solid rgba(0,255,178,0.85) !important;
+    box-shadow: 0 0 22px rgba(0,255,178,0.28) !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+    transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+  }
+
+  .mobile-collapsible-grid .is-first-collapsible-card > button.mobile-reveal-arrow {
+    display: flex !important;
+  }
+
+  .mobile-collapsible-grid.is-expanded .is-first-collapsible-card > button.mobile-reveal-arrow {
+    transform: rotate(180deg) !important;
+  }
+
+  button.mobile-reveal-arrow span {
+    display: block !important;
+    font-size: 28px !important;
+    line-height: 1 !important;
+    font-weight: 900 !important;
+    transform: translateY(-2px) !important;
+  }
+
+  button.mobile-reveal-arrow:active {
+    transform: scale(0.94) !important;
+    box-shadow: 0 0 28px rgba(0,255,178,0.42) !important;
+  }
+
+  .mobile-collapsible-grid.is-expanded button.mobile-reveal-arrow:active {
+    transform: rotate(180deg) scale(0.94) !important;
+  }
+}
+
