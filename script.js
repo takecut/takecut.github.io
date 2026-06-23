@@ -1,848 +1,539 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
-<title>Produtora de Vídeo em São Paulo | Take Cut</title>
-<meta name="description" content="Vídeos para anúncios, Reels, campanhas e redes sociais. Produção audiovisual, edição profissional e IA para marcas que precisam parar o scroll e vender com clareza.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.takecut.com.br/">
-<meta name="theme-color" content="#0B0B0C">
-<link rel="icon" type="image/png" sizes="512x512" href="/logo1.png">
-<link rel="shortcut icon" type="image/png" href="/logo1.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/logo1.png">
+// LOADING SCREEN
+// Aparece somente uma vez no mobile. Depois disso, o usuário pode voltar ao site sem ver a tela de renderização de novo.
+(function () {
+  var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
+  var storageKey = "takecutLoadingScreenSeen";
+  var loadScreen = document.getElementById("loadingScreen");
+  var loadBar = document.getElementById("loadingBar");
 
-<meta property="og:title" content="Take Cut | Vídeos que vendem sua marca">
-<meta property="og:description" content="Produção, edição e IA para transformar ofertas em vídeos que chamam atenção, explicam valor e conduzem o cliente à ação.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.takecut.com.br/">
-<meta property="og:site_name" content="Take Cut">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://www.takecut.com.br/logo1.png">
-<meta property="og:image:alt" content="Logo da Take Cut, produtora audiovisual em São Paulo">
-<meta property="og:image:width" content="512">
-<meta property="og:image:height" content="512">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Take Cut | Vídeos que vendem sua marca">
-<meta name="twitter:description" content="Vídeos para anúncios, Reels, edição profissional e conteúdo com IA.">
-<meta name="twitter:image" content="https://www.takecut.com.br/logo1.png">
+  function storageGet(key) {
+    try { return window.localStorage.getItem(key); }
+    catch (e) { return null; }
+  }
 
-<meta http-equiv="Content-Security-Policy" content="
-default-src 'self';
-script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
-connect-src 'self' https://www.google-analytics.com;
-img-src 'self' data: https://www.google-analytics.com;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-font-src https://fonts.gstatic.com;
-">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  function storageSet(key, value) {
+    try { window.localStorage.setItem(key, value); }
+    catch (e) { /* Se o navegador bloquear storage, o site continua funcionando. */ }
+  }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260622-casesmobile2">
-<link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
-<link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
-<link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
-<link rel="preload" as="image" href="bg-poster-mobile.jpg" media="(max-width: 768px)">
-<link rel="preload" as="image" href="thumb1.png" fetchpriority="low">
-<link rel="preload" as="image" href="thumb2.png" fetchpriority="low">
-<link rel="preload" as="image" href="cliente1.png" fetchpriority="low">
-<link rel="preload" as="image" href="cliente2.png" fetchpriority="low">
-<link rel="preload" as="image" href="cliente3.png" fetchpriority="low">
-<link rel="preload" as="image" href="cliente4.png" fetchpriority="low">
-<link rel="preload" as="image" href="cliente5.png" fetchpriority="low">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://www.takecut.com.br/#business",
-      "name": "Take Cut",
-      "alternateName": "TakeCut",
-      "url": "https://www.takecut.com.br",
-      "logo": "https://www.takecut.com.br/logo1.png",
-      "image": "https://www.takecut.com.br/logo1.png",
-      "description": "Produtora audiovisual em São Paulo especializada em vídeos para anúncios, Reels, edição profissional, produção audiovisual e vídeos com inteligência artificial.",
-      "telephone": "+55 11 5304-4748",
-      "email": "takecutedit@gmail.com",
-      "priceRange": "R$90 - R$650+",
-      "areaServed": [
-        {
-          "@type": "Country",
-          "name": "Brasil"
-        },
-        {
-          "@type": "State",
-          "name": "São Paulo"
-        }
-      ],
-      "sameAs": [
-        "https://www.instagram.com/takecutedit/"
-      ],
-      "serviceType": [
-        "Produção audiovisual",
-        "Edição de vídeo profissional",
-        "Vídeos para anúncios",
-        "Reels e conteúdo para redes sociais",
-        "Vídeos com inteligência artificial",
-        "Criativos para tráfego pago"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.takecut.com.br/#website",
-      "url": "https://www.takecut.com.br",
-      "name": "Take Cut",
-      "publisher": {
-        "@id": "https://www.takecut.com.br/#business"
-      },
-      "inLanguage": "pt-BR"
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.takecut.com.br/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Vocês fazem vídeos para anúncios pagos?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Criamos vídeos pensados para prender atenção nos primeiros segundos, comunicar a oferta com clareza e levar o público para uma ação."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Eu não sei o que falar no vídeo. Vocês ajudam com a ideia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Podemos ajudar com a ideia, roteiro, estrutura, direção e edição para transformar sua necessidade em um vídeo profissional."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Consigo contratar apenas a edição?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Você pode enviar seus vídeos brutos e nós transformamos em conteúdos editados para redes sociais, anúncios, apresentações ou eventos."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vocês fazem vídeos com inteligência artificial?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Criamos cenas, modelos, produtos e variações visuais com IA para campanhas, redes sociais e conteúdos criativos."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vocês atendem fora de São Paulo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Atendemos projetos online para todo o Brasil. Para gravações presenciais, avaliamos a localização e a necessidade da produção."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vocês fazem vídeos para pessoa física?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Também criamos vídeos para aniversários, homenagens, eventos, retrospectivas e momentos especiais."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vocês trabalham com pacotes mensais?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Podemos montar pacotes para empresas que precisam de vídeos recorrentes para redes sociais, anúncios e campanhas."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Quanto custa um vídeo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O valor depende do tipo de vídeo, duração, complexidade, prazo e se haverá gravação, edição ou uso de IA. Para receber uma proposta, basta solicitar um orçamento pelo WhatsApp."
-          }
-        }
-      ]
-    }
-  ]
+  function removeLoadingScreen() {
+    if (loadScreen) loadScreen.remove();
+  }
+
+  // Desktop não usa loading screen. Mobile só usa na primeira visita.
+  if (!loadScreen || !loadBar || !isMobileDevice || storageGet(storageKey) === "true") {
+    removeLoadingScreen();
+    return;
+  }
+
+  storageSet(storageKey, "true");
+  loadScreen.classList.add("active");
+
+  var progress = 0;
+  var finished = false;
+  var interval = setInterval(function () {
+    var remaining = 100 - progress;
+    var step = Math.max(1, remaining * 0.06);
+    progress = Math.min(progress + step, 94);
+    loadBar.style.width = progress + "%";
+  }, 60);
+
+  // Não espera TODAS as imagens do site, porque isso fazia logos e imagens distantes segurarem o loader.
+  function waitForCriticalImages() {
+    var selectors = ["#loadingScreen img", ".navbar .logo img", ".showreel .thumb"];
+    var images = [];
+
+    selectors.forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (img) {
+        if (images.indexOf(img) === -1) images.push(img);
+      });
+    });
+
+    var promises = images.map(function (img) {
+      if (img.complete) return Promise.resolve();
+      return new Promise(function (resolve) {
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+    });
+
+    return Promise.all(promises);
+  }
+
+  function finishLoading() {
+    if (finished) return;
+    finished = true;
+    clearInterval(interval);
+    loadBar.style.width = "100%";
+
+    setTimeout(function () {
+      loadScreen.style.opacity = "0";
+      loadScreen.style.transition = "opacity 0.5s ease";
+      setTimeout(removeLoadingScreen, 500);
+    }, 260);
+  }
+
+  window.addEventListener("load", function () {
+    waitForCriticalImages().then(finishLoading);
+  }, { once: true });
+
+  // Segurança: se algo travar, fecha mesmo assim.
+  setTimeout(finishLoading, 3500);
+})();
+
+// MENU
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("active");
 }
-</script>
-<!-- Google tag (gtag.js) com Consent Mode -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
 
-  gtag('consent', 'default', {
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied'
+document.addEventListener("DOMContentLoaded", function () {
+  // Fecha menu ao clicar em link
+  document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      document.querySelector(".nav-links").classList.remove("active");
+    });
   });
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17039172373"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'AW-17039172373');
-</script>
-</head>
-<body>
 
-<div id="loadingScreen">
-  <div class="loading-inner">
-    <img src="logo.png" alt="Take Cut" class="loading-logo">
-    <p class="loading-text">Renderizando</p>
-    <div class="loading-bar-bg">
-      <div class="loading-bar" id="loadingBar"></div>
-    </div>
-  </div>
-</div>
+  // HERO BACKGROUND: força autoplay mudo/inline em celulares mais chatos.
+  setupHeroBackgroundVideo();
 
-<div class="stars-bg" id="starsBg"></div>
-
-<header class="navbar">
-  <!-- TAREFA 6: href="#home" para não recarregar a página -->
-  <a href="#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav class="nav-links">
-    <a href="#home">Início</a>
-    <a href="#cases">Cases</a>
-    <a href="#how-it-works">Como funciona</a>
-    <a href="#plans">Planos</a>
-    <a href="/portfolio">Portfólio</a>
-    <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener">WhatsApp</a>
-  </nav>
-</header>
-
-<section id="home" class="hero">
-  <video autoplay muted loop playsinline webkit-playsinline class="bg-video bg-video-desktop js-hero-bg-video" preload="auto" poster="bg-poster-desktop.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
-    <source src="bg-desktop.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline webkit-playsinline class="bg-video bg-video-mobile js-hero-bg-video" preload="auto" poster="bg-poster-mobile.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback">
-    <source src="bg-mobile.mp4" type="video/mp4">
-  </video>
-  <div>
-    <span class="hero-kicker">Pare o scroll. Mostre o valor. Mova o cliente.</span>
-    <h1>Vídeos que vendem sua marca.</h1>
-    <p>Produção, edição e IA para transformar ofertas em conteúdos que chamam atenção, explicam valor e conduzem o cliente à ação.</p>
-    <div class="hero-actions">
-      <a class="btn-main" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener">Falar no WhatsApp agora</a>
-      <a class="btn-secondary" href="/portfolio">Ver portfólio</a>
-    </div>
-    <p class="hero-sub">Envie seu Instagram ou vídeo atual. Resposta rápida.</p>
-  </div>
-</section>
-
-<section class="showreel">
-  <h2>Nosso trabalho</h2>
-  <div class="result-item">
-    <div class="video-box horizontal destaque" onclick="playVideo(this)">
-      <img src="thumbshow.png" class="thumb" loading="lazy" alt="Showreel Take Cut">
-      <span class="play-btn"><span class="play-icon"></span></span>
-      <video class="video" controls preload="none">
-        <source src="videop.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
-  <p class="secure-text">🔒 Navegue tranquilo, nosso site é seguro</p>
-</section>
-
-<section id="diagnostico" class="entry-offer conversion-section">
-  <div class="conversion-shell split-shell">
-    <div class="conversion-copy">
-      <span class="section-kicker">Oferta de entrada</span>
-      <h2>Análise rápida do seu Instagram ou vídeo atual</h2>
-      <p>Envie seu Instagram ou um vídeo que você já usa hoje e receba uma leitura objetiva do que pode melhorar para prender atenção, explicar melhor a oferta e vender mais.</p>
-      <p class="micro-copy">A pergunta não é só “precisamos de vídeo?”. É: “nosso vídeo está ajudando o cliente a decidir?”</p>
-      <a class="btn-main" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener">Quero minha análise rápida</a>
-    </div>
-    <div class="diagnosis-card" aria-label="O que será analisado">
-      <div><strong>01</strong><span>Gancho inicial</span><small>O vídeo faz a pessoa parar?</small></div>
-      <div><strong>02</strong><span>Clareza da oferta</span><small>O valor aparece sem enrolação?</small></div>
-      <div><strong>03</strong><span>Chamada para ação</span><small>O próximo passo está óbvio?</small></div>
-    </div>
-  </div>
-</section>
-
-<section class="market-signal conversion-section">
-  <div class="conversion-shell">
-    <span class="section-kicker">Sinal de mercado</span>
-    <h2>Vídeo, social e mobile estão no centro da disputa</h2>
-    <p class="section-subtitle">Se a oferta será descoberta no celular e dentro de uma rede social, o criativo precisa nascer vertical, rápido e legível.</p>
-    <div class="signal-grid">
-      <article><strong>42%</strong><span>Vídeo</span><p>Uma parte relevante da verba digital já disputa atenção em vídeo. O criativo precisa prender nos primeiros segundos.</p></article>
-      <article><strong>53%</strong><span>Social</span><p>Grande parte da descoberta acontece dentro das redes sociais. A mensagem precisa ser simples, visual e rápida.</p></article>
-      <article><strong>74%</strong><span>Mobile</span><p>O conteúdo é consumido principalmente no celular. Por isso, o vídeo precisa nascer legível, vertical quando necessário e direto.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio" class="portfolio">
-  <h2>Portfólio</h2>
-  <p class="section-subtitle">Trabalhos separados por objetivo para você encontrar o estilo ideal para sua marca.</p>
-
-  <div class="carousel-container" id="portfolioCarousel">
-    <button class="carousel-prev" onclick="scrollPortfolio(-1)">&#8249;</button>
-    <button class="carousel-next" onclick="scrollPortfolio(1)">&#8250;</button>
-    <div class="carousel" id="carousel">
-      <div class="portfolio-card">
-        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div>
-        <div class="portfolio-caption"><h3>Anúncio para produto</h3><p>Vídeo curto com edição dinâmica para destacar a oferta e prender atenção nos primeiros segundos.</p><span>Ideal para: lojas, marcas e lançamentos.</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video2.mp4" type="video/mp4"></video></div>
-        <div class="portfolio-caption"><h3>Conteúdo para redes sociais</h3><p>Edição rápida, visual forte e mensagem clara para aumentar retenção em Reels e TikTok.</p><span>Ideal para: negócios locais e criadores.</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video3.mp4" type="video/mp4"></video></div>
-        <div class="portfolio-caption"><h3>Vídeo institucional</h3><p>Conteúdo profissional para apresentar a empresa, gerar confiança e fortalecer a marca.</p><span>Ideal para: clínicas, escritórios e empresas.</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="carousel-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div>
-        <div class="portfolio-caption"><h3>Vídeo para YouTube</h3><p>Cenas com ritmo, estética e narrativa para deixar a comunicação mais memorável.</p><span>Ideal para: empresas, criadores e marcas.</span></div>
-      </div>
-      <div class="portfolio-card">
-        <div class="carousel-item"><video autoplay muted loop playsinline preload="metadata" data-portfolio-priority="true"><source src="video5.mp4" type="video/mp4"></video></div>
-        <div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Edição com trilha, cortes e narrativa para transformar momentos em uma lembrança marcante.</p><span>Ideal para: aniversários, homenagens e datas especiais.</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="portfolio-mobile">
-    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video1.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Anúncio para produto</h3><p>Vídeo curto para destacar a oferta e prender atenção.</p><span>Ideal para: lojas e marcas.</span></div></div>
-    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="none"><source src="video4.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo para YouTube</h3><p>Cenas com ritmo, estética e narrativa para deixar a comunicação mais memorável.</p><span>Ideal para: empresas, criadores e marcas.</span></div></div>
-    <div class="portfolio-mobile-card"><div class="portfolio-mobile-item"><video autoplay muted loop playsinline preload="metadata" data-portfolio-priority="true"><source src="video5.mp4" type="video/mp4"></video></div><div class="portfolio-caption"><h3>Vídeo emocional</h3><p>Uma edição feita para eternizar momentos especiais.</p><span>Ideal para: pessoa física.</span></div></div>
-  </div>
-
-  <a href="/portfolio" class="btn-ver-mais">Ver mais</a>
-</section>
-
-<section id="videos-ia" class="ia">
-  <h2>Vídeos com IA</h2>
-  <div class="ia-main">
-    <div class="video-box horizontal destaque" onclick="playVideo(this)">
-      <img src="thumbp7.jpg" class="thumb" loading="lazy" alt="Vídeo IA Take Cut">
-      <span class="play-btn"><span class="play-icon"></span></span>
-      <video class="video" controls preload="none"><source src="video7.mp4" type="video/mp4"></video>
-    </div>
-    <div class="result-info">
-      <h3>Vídeos com IA para destacar sua marca</h3>
-      <p>Criamos cenas, modelos, produtos e variações visuais com inteligência artificial para anúncios, redes sociais e campanhas.</p>
-    </div>
-  </div>
-  <div class="ia-secondary">
-    <div class="ia-card">
-      <div class="video-box square" onclick="playVideo(this)">
-        <img src="thumb4.png" class="thumb" loading="lazy" alt="Vídeo IA efeitos sonoros">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video" controls preload="none"><source src="videoia1.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info">
-        <h3>Realismo e impacto</h3>
-        <p>Detalhes visuais e sonoros deixam o conteúdo mais envolvente,<br>profissional e memorável.</p>
-      </div>
-    </div>
-    <div class="ia-card">
-      <div class="video-box reels" onclick="playVideo(this)">
-        <img src="thumb5.png" class="thumb" loading="lazy" alt="Vídeo IA modelo produto">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video" controls preload="none"><source src="videoia2.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info">
-        <h3>Modelo, cenário e produto</h3>
-        <p>Apresentamos sua oferta em cenas criativas para aumentar desejo,<br>atenção e percepção de valor.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cases" class="results case-studies">
-  <h2>Cases e Resultados</h2>
-  <p class="section-subtitle">Números são mais fortes quando mostram intenção: cada vídeo abaixo foi pensado para segurar o olhar e deixar a oferta mais clara.</p>
-  <div class="results-grid case-grid">
-    <article class="result-item item1 case-card">
-      <div class="video-box" onclick="playVideo(this)">
-        <img src="thumb1.png" class="thumb" loading="eager" decoding="async" fetchpriority="low" alt="Case Take Cut com mais de 255 mil visualizações em vídeo curto para tráfego pago">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video priority-video" controls playsinline preload="metadata" data-priority-video="true"><source src="videor.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info case-info">
-        <span class="case-label">Mini estudo de caso</span>
-        <h3>+255 mil visualizações</h3>
-        <ul class="case-points">
-          <li><strong>Objetivo:</strong> gerar atenção rápida para campanha de tráfego pago.</li>
-          <li><strong>Execução:</strong> gancho inicial, cortes rápidos, legenda e mensagem direta.</li>
-          <li><strong>Resultado:</strong> alto volume de visualizações em vídeo curto.</li>
-          <li><strong>Por que funcionou:</strong> a oferta apareceu cedo e o ritmo reduziu a chance de abandono.</li>
-        </ul>
-      </div>
-    </article>
-    <article class="result-item item2 case-card">
-      <div class="video-box" onclick="playVideo(this)">
-        <img src="thumb2.png" class="thumb" loading="eager" decoding="async" fetchpriority="low" alt="Case Take Cut com mais de 522 mil visualizações com edição para impacto e clareza da oferta">
-        <span class="play-btn"><span class="play-icon"></span></span>
-        <video class="video priority-video" controls playsinline preload="metadata" data-priority-video="true"><source src="videor2.mp4" type="video/mp4"></video>
-      </div>
-      <div class="result-info case-info">
-        <span class="case-label">Mini estudo de caso</span>
-        <h3>+522 mil visualizações</h3>
-        <ul class="case-points">
-          <li><strong>Objetivo:</strong> transformar uma mensagem comercial em conteúdo fácil de entender.</li>
-          <li><strong>Execução:</strong> impacto visual, cortes limpos, ritmo e foco na ação desejada.</li>
-          <li><strong>Resultado:</strong> alcance expressivo com comunicação mais clara.</li>
-          <li><strong>Por que funcionou:</strong> o vídeo não dependeu só de estética; ele guiou a decisão.</li>
-        </ul>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <h2>Serviços</h2>
-  <p class="services-subtitle">Três frentes principais para transformar ideia, oferta ou material bruto em vídeo pronto para vender melhor.</p>
-  <div class="services-grid services-grid-optimized">
-    <div class="service-card fade-in">
-      <h3>🎬 Produção e direção</h3>
-      <p>Planejamento, roteiro, captação e direção para criar vídeos com objetivo claro, seja para marca, produto, evento ou campanha.</p>
-    </div>
-    <div class="service-card fade-in">
-      <h3>✂️ Edição e pós-produção</h3>
-      <p>Cortes, legenda, trilha, som, ritmo, cor e acabamento para transformar gravações em conteúdo profissional e fácil de assistir.</p>
-    </div>
-    <div class="service-card fade-in">
-      <h3>📈 Criativos, IA e variações</h3>
-      <p>Vídeos para redes sociais, anúncios e testes de campanha, com IA quando ela ajuda a gerar impacto, clareza ou novas possibilidades visuais.</p>
-    </div>
-  </div>
-</section>
-
-<section id="how-it-works" class="how-it-works conversion-section">
-  <div class="conversion-shell">
-    <span class="section-kicker">Como funciona</span>
-    <h2>Da ideia ao vídeo pronto para postar/anunciar</h2>
-    <p class="section-subtitle">A empresa aprova as decisões estratégicas. A Take Cut assume a complexidade técnica.</p>
-    <div class="steps-grid">
-      <article><strong>01</strong><h3>Diagnóstico do objetivo</h3><p>Entendemos oferta, público, canal e ação esperada: contato, reserva, compra ou autoridade.</p></article>
-      <article><strong>02</strong><h3>Roteiro ou estrutura</h3><p>Organizamos gancho, mensagem, ordem das informações e chamada para ação.</p></article>
-      <article><strong>03</strong><h3>Captação ou arquivos</h3><p>Gravamos quando necessário ou recebemos seus materiais brutos para transformar em conteúdo.</p></article>
-      <article><strong>04</strong><h3>Edição, IA, som e finalização</h3><p>Cortes, legendas, trilha, sound design, correção visual e IA quando ela realmente agrega.</p></article>
-      <article><strong>05</strong><h3>Revisão e entrega</h3><p>Você revisa, ajustamos conforme o pacote e entregamos pronto para postar ou anunciar.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="plans" class="plans conversion-section">
-  <div class="conversion-shell">
-    <span class="section-kicker">Planos / formatos de contratação</span>
-    <h2>Formas simples de começar</h2>
-    <p class="section-subtitle">Escolha o nível de produção que combina com o momento da marca. Os valores são sugeridos e podem ser ajustados conforme escopo.</p>
-    <div class="plans-grid">
-      <article class="plan-card">
-        <span class="plan-name">Teste de venda</span>
-        <strong class="plan-price">R$ 90</strong>
-        <p>Para validar estilo, gancho e oferta com baixo risco.</p>
-        <ul>
-          <li>1 vídeo de 15 a 45 segundos</li>
-          <li>Material enviado pelo cliente</li>
-          <li>2 opções de gancho</li>
-          <li>Legendas + finalização</li>
-          <li>1 rodada de ajustes</li>
-        </ul>
-        <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener" class="card-cta-plan">Quero testar</a>
-      </article>
-      <article class="plan-card recommended">
-        <span class="recommended-badge">Recomendado</span>
-        <span class="plan-name">Campanha essencial</span>
-        <strong class="plan-price">R$ 250</strong>
-        <p>Para criar variações e testar ângulos diferentes da mesma oferta.</p>
-        <ul>
-          <li>Até 3 vídeos</li>
-          <li>Conceito e roteiro</li>
-          <li>Edição de alta retenção</li>
-          <li>Variações para teste</li>
-          <li>IA quando agregar</li>
-          <li>2 rodadas de ajustes</li>
-        </ul>
-        <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener" class="card-cta-plan">Quero campanha</a>
-      </article>
-      <article class="plan-card">
-        <span class="plan-name">Pós-produção completa</span>
-        <strong class="plan-price">R$ 650 <small>a partir de</small></strong>
-        <p>Para projetos com planejamento, gravação e acabamento mais completo.</p>
-        <ul>
-          <li>Planejamento e roteiro</li>
-          <li>Captação presencial</li>
-          <li>Iluminação e áudio</li>
-          <li>Vídeo principal + cortes</li>
-          <li>2 rodadas de ajustes</li>
-        </ul>
-        <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener" class="card-cta-plan">Quero produção</a>
-      </article>
-    </div>
-    <p class="plans-note">Deslocamento, locação, elenco, mídia paga e demandas fora do escopo são orçados separadamente.</p>
-  </div>
-</section>
-
-<section id="nichos" class="niches conversion-section">
-  <div class="conversion-shell">
-    <span class="section-kicker">Páginas por nicho</span>
-    <h2>Vídeos pensados para o seu tipo de negócio</h2>
-    <p class="section-subtitle">Cada mercado precisa de uma mensagem diferente. Por isso, criamos páginas específicas por objetivo e segmento.</p>
-    <div class="niche-grid">
-      <a href="/edicao-de-reels/" class="niche-desktop-only">Edição de Reels<span>retenção + constância</span></a>
-      <a href="/videos-para-pousadas/">Pousadas e turismo<span>visual + reserva</span></a>
-      <a href="/videos-com-ia/">Vídeos com IA<span>cenas + variações</span></a>
-      <a href="/videos-para-lojas/">Lojas e comércio<span>oferta + frequência</span></a>
-    </div>
-    <div class="niche-actions">
-      <a href="/nichos/" class="btn-secondary">Ver opções por tipo de negócio</a>
-    </div>
-  </div>
-</section>
-
-<section id="bastidores" class="behind-scenes conversion-section">
-  <div class="conversion-shell split-shell">
-    <div class="conversion-copy">
-      <span class="section-kicker">Prova visual de bastidores</span>
-      <h2>Não é só “cortar vídeo”. É direção, ritmo e acabamento.</h2>
-      <p>Por trás de cada entrega existe uma sequência de decisões: gancho, ordem das cenas, legenda, trilha, sound design, cor, IA e versão final para cada canal.</p>
-      <a class="btn-secondary" href="/portfolio">Ver exemplos no portfólio</a>
-    </div>
-    <div class="process-preview">
-      <div class="process-preview-head">
-        <span>Por trás da edição</span>
-        <strong>O que a Take Cut ajusta no vídeo</strong>
-      </div>
-      <div class="process-steps">
-        <div class="process-step">
-          <strong>01</strong>
-          <h3>Mensagem e objetivo</h3>
-          <p>Antes de editar, entendemos o que o vídeo precisa fazer: vender, explicar, gerar confiança ou prender atenção.</p>
-        </div>
-        <div class="process-step">
-          <strong>02</strong>
-          <h3>Gancho e ordem das cenas</h3>
-          <p>Organizamos os primeiros segundos para o público entender rápido por que deve continuar assistindo.</p>
-        </div>
-        <div class="process-step">
-          <strong>03</strong>
-          <h3>Ritmo, legenda e som</h3>
-          <p>Ajustamos cortes, leitura, trilha e sound design para o vídeo ficar mais claro, dinâmico e profissional.</p>
-        </div>
-        <div class="process-step">
-          <strong>04</strong>
-          <h3>Acabamento e entrega</h3>
-          <p>Finalizamos cor, IA quando faz sentido, formatos e versões prontas para postar, anunciar ou apresentar.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="para-quem" class="fit-section conversion-section">
-  <div class="conversion-shell">
-    <span class="section-kicker">Filtro de parceria</span>
-    <h2>Faz sentido eu contratar o serviço da Take Cut?</h2>
-    <div class="fit-grid">
-      <article class="not-fit">
-        <h3>Não faz se você...</h3>
-        <ul>
-          <li>Procura apenas o vídeo mais barato possível;</li>
-          <li>Não quer participar do briefing;</li>
-          <li>Quer edição aleatória, sem objetivo comercial;</li>
-          <li>Não pretende aprovar informações importantes antes da entrega.</li>
-        </ul>
-      </article>
-      <article class="good-fit">
-        <h3>Faz total sentido se você...</h3>
-        <ul>
-          <li>Quer vídeo com intenção de venda, autoridade ou retenção;</li>
-          <li>Precisa transformar oferta em comunicação clara;</li>
-          <li>Valoriza acabamento, ritmo, som, legenda e direção;</li>
-          <li>Quer testar criativos e aprender com os resultados.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-<section id="publicos" class="audiences">
-  <h2>Escolha o formato ideal</h2>
-  <p class="section-subtitle">Empresa compra resultado. Pessoa física compra emoção. Por isso, separamos os tipos de projeto.</p>
-  <div class="audience-grid">
-    <div class="audience-card audience-business">
-      <h3>Para empresas</h3>
-      <p>Conteúdos profissionais para anúncios, redes sociais, produtos, eventos corporativos e posicionamento digital.</p>
-      <ul>
-        <li>Anúncios para Instagram/Facebook</li>
-        <li>Reels comerciais</li>
-        <li>Vídeos institucionais</li>
-        <li>Vídeos de produto</li>
-        <li>Conteúdo com IA</li>
-        <li>Eventos corporativos</li>
-      </ul>
-      <a href="https://forms.gle/TBiUyHQRnzV3hy9t5" target="_blank" rel="noopener" class="btn-ver-mais">Solicitar orçamento para empresa</a>
-    </div>
-    <div class="audience-card audience-personal">
-      <h3>Para pessoa física</h3>
-      <p>Edições emocionantes e profissionais para aniversários, homenagens, viagens, eventos e lembranças pessoais.</p>
-      <ul>
-        <li>Aniversários</li>
-        <li>Homenagens</li>
-        <li>Casamentos</li>
-        <li>Viagens</li>
-        <li>Retrospectivas</li>
-        <li>Eventos pessoais</li>
-      </ul>
-      <a href="https://forms.gle/TBiUyHQRnzV3hy9t5" target="_blank" rel="noopener" class="btn-ver-mais">Solicitar orçamento pessoal</a>
-    </div>
-  </div>
-</section>
+  // LAZY LOAD DE VÍDEOS: carrega antes de entrar na tela para não atrasar ao tocar.
+  setupSmartVideoLoading();
+  setupPortfolioPriorityVideos();
+  setupAdaptivePortfolioCarousel();
+});
 
 
 
-<section class="testimonials" aria-labelledby="testimonials-title">
-  <div class="testimonials-heading">
-    <span class="reviews-kicker">Avaliações de clientes</span>
-    <h2 id="testimonials-title">Quem já confiou na Take Cut</h2>
-    <p class="reviews-subtitle">Feedbacks reais em um visual inspirado em avaliações do Google: Direto, confiável e fácil de ler.</p>
+// HERO BACKGROUND — autoplay robusto para desktop/mobile
+// Hotfix: evita recarregar o vídeo em todo resize do celular.
+// Em mobile, a barra do navegador abre/fecha ao rolar a tela e dispara resize;
+// se a gente chama video.load() nesse momento, o background dá piscada/travada.
+let currentHeroBgMode = null;
 
-    <div class="reviews-summary" aria-label="Resumo das avaliações">
-      <strong>5,0</strong>
-      <span class="review-stars" aria-hidden="true">★★★★★</span>
-      <small>Baseado em feedbacks de clientes</small>
-    </div>
-  </div>
+function getHeroBgMode() {
+  return window.matchMedia("(max-width: 768px)").matches ? "mobile" : "desktop";
+}
 
-  <!--
-    Fotos dos feedbacks:
-    1) Suba suas imagens para a mesma pasta do index.html.
-    2) Troque feedback1.jpg, feedback2.jpg e feedback3.jpg pelo nome real do arquivo.
-    Exemplo: style="--review-photo: url('foto-henrique.jpg');"
-  -->
-  <div class="testimonials-grid google-reviews-grid">
-    <article class="testimonial-card google-review-card fade-in">
-      <div class="review-header">
-        <div class="review-profile">
-          <div class="review-avatar" style="--review-photo: url('feedback1.png');" aria-hidden="true"></div>
-          <div>
-            <h3>Georgia</h3>
-            <span>Cliente Take Cut</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-      <p>"Mudou minha vida! O que ele faz nos vídeos é impressionante e muito rápido, antes dele eu levava 3 semanas pra fazer uma edição que não tinha nem um terço do que ele faz. Compensa muuuito mais pagar pra eles fazerem edições profissionais nos meus vídeos do que perder meu tempo quebrando cabeça, agora invisto meu tempo no que realmente sou boa: a criação! 💕💕
+function getActiveHeroBackgroundVideo() {
+  const mode = getHeroBgMode();
+  return document.querySelector(mode === "mobile" ? ".bg-video-mobile" : ".bg-video-desktop") || document.querySelector(".js-hero-bg-video");
+}
 
-Take Cut salvou meu trampo! 🩵"</p>
-      <small>Pousadas e turismo</small>
-    </article>
+function prepareHeroBackgroundVideo(video) {
+  if (!video) return;
+  video.muted = true;
+  video.defaultMuted = true;
+  video.loop = true;
+  video.autoplay = true;
+  video.playsInline = true;
+  video.controls = false;
+  video.removeAttribute("controls");
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.setAttribute("aria-hidden", "true");
+  video.preload = "auto";
+}
 
-    <article class="testimonial-card google-review-card fade-in">
-      <div class="review-header">
-        <div class="review-profile">
-          <div class="review-avatar" style="--review-photo: url('feedback2.png');" aria-hidden="true"></div>
-          <div>
-            <h3>Gabriel</h3>
-            <span>Cliente Take Cut</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-      <p>"Fiquei muito satisfeito com o trabalho da Take Cut! O vídeo ficou exatamente como eu queria, com muita qualidade e atenção aos detalhes. Além disso, o atendimento foi rápido e profissional. Recomendo demais!"</p>
-      <small>Pacote completo</small>
-    </article>
+function tryPlayHeroBackgroundVideo(video, shouldLoad) {
+  if (!video) return;
+  prepareHeroBackgroundVideo(video);
 
-    <article class="testimonial-card google-review-card fade-in">
-      <div class="review-header">
-        <div class="review-profile">
-          <div class="review-avatar" style="--review-photo: url('feedback3.png');" aria-hidden="true"></div>
-          <div>
-            <h3>Alessandra</h3>
-            <span>Cliente Take Cut</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-      <p>"Adorei o resultado! Atendimento ótimo e uma edição de vídeo profissional que me ajudou muito!!!Recomendo pra quem precisa de vídeo para empresa, o resultado me surpreendeu Super indico."</p>
-      <small>Projeto pessoal</small>
-    </article>
+  // Só carrega no primeiro preparo/troca desktop↔mobile. Não recarrega durante scroll.
+  if (shouldLoad || video.dataset.heroPrepared !== "true") {
+    video.dataset.heroPrepared = "true";
+    try { video.load(); } catch (e) {}
+  }
 
-        <article class="testimonial-card google-review-card fade-in">
-      <div class="review-header">
-        <div class="review-profile">
-          <div class="review-avatar" style="--review-photo: url('feedback4.png');" aria-hidden="true"></div>
-          <div>
-            <h3>Lucas</h3>
-            <span>Cliente Take Cut</span>
-          </div>
-        </div>
-      </div>
-      <div class="review-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-      <p>"Queria deixar aqui meus parabéns pelo trabalho de vocês! Dá pra ver o cuidado e o comprometimento em cada detalhe, desde o atendimento até a entrega final. A qualidade do áudio/visual ficou impecável, e a edição ficou sensacional, tudo muito profissional e bem feito. Hoje em dia é difícil encontrar uma equipe, quem dirá um profissional, que realmente se preocupa com o resultado e com a experiência do cliente, e vocês conseguem fazer isso muito bem."</p>
-      <small>Edição de vídeo</small>
-    </article>
-  </div>
-</section>
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(function () {
+      video.classList.add("hero-bg-waiting-play");
+    });
+  }
+}
 
-<section class="clients">
-  <h2>Empresas que confiam na Take Cut</h2>
-  <div class="clients-grid">
+function syncHeroBackgroundVideo(forceLoad) {
+  const mode = getHeroBgMode();
+  const activeVideo = getActiveHeroBackgroundVideo();
+  const changedMode = currentHeroBgMode !== mode;
+  currentHeroBgMode = mode;
 
-    <a href="https://neopro.ind.br/home/" target="_blank" rel="noopener">
-      <img src="cliente1.png" alt="Logo da Neopro, empresa que confia na Take Cut" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
-    </a>
+  document.querySelectorAll(".js-hero-bg-video").forEach(function (video) {
+    prepareHeroBackgroundVideo(video);
+    if (video !== activeVideo) {
+      try { video.pause(); } catch (e) {}
+    }
+  });
 
-    <a href="https://www.instagram.com/autoesteticaalegria_/" target="_blank" rel="noopener">
-      <img src="cliente2.png" alt="Logo da Auto Estética Alegria, cliente da Take Cut" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
-    </a>
+  tryPlayHeroBackgroundVideo(activeVideo, forceLoad || changedMode);
+}
 
-    <a href="https://www.vilamagicapousada.com.br" target="_blank" rel="noopener">
-      <img src="cliente3.png" alt="Logo da Vila Mágica Pousada, cliente da Take Cut" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
-    </a>
+function setupHeroBackgroundVideo() {
+  const videos = document.querySelectorAll(".js-hero-bg-video");
+  if (!videos.length) return;
 
-    <a href="https://www.instagram.com/fortis.barbearia/" target="_blank" rel="noopener">
-      <img src="cliente4.png" alt="Logo da Fortis Barbearia, cliente da Take Cut" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
-    </a>
+  syncHeroBackgroundVideo(true);
 
-    <a href="https://www.instagram.com/talentup_consultoria/" target="_blank" rel="noopener">
-      <img src="cliente5.png" alt="Logo da TalentUp Consultoria, cliente da Take Cut" loading="eager" decoding="async" fetchpriority="low" width="120" height="60">
-    </a>
+  function retryActiveHeroVideo() {
+    syncHeroBackgroundVideo(false);
+  }
 
-  </div>
-</section>
+  window.addEventListener("pageshow", retryActiveHeroVideo);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) retryActiveHeroVideo();
+  });
 
-<section class="about">
-  <h2>Quem somos</h2>
-  <div class="quemsomos-texto">
-    <p>Por que a Take Cut existe?</p>
-    <p>Bons negócios perdem vendas todos os dias por se comunicarem com vídeos fracos, lentos ou genéricos. A Take Cut transforma ideias, produtos e marcas em vídeos com ritmo, clareza e intenção de venda.</p>
-  </div>
+  // Troca somente quando cruza desktop/mobile. Evita bug causado pelo resize da barra do navegador no celular.
+  const breakpoint = window.matchMedia("(max-width: 768px)");
+  if (typeof breakpoint.addEventListener === "function") {
+    breakpoint.addEventListener("change", function () { syncHeroBackgroundVideo(true); });
+  } else if (typeof breakpoint.addListener === "function") {
+    breakpoint.addListener(function () { syncHeroBackgroundVideo(true); });
+  }
 
-  <div class="about-grid">
-    <div class="about-card fade-in">
-      <h3>🚀 Missão</h3>
-      <p>Ajudar marcas e pessoas a comunicarem valor com mais clareza, estratégia e impacto visual.</p>
-    </div>
-    <div class="about-card fade-in">
-      <h3>🎯 Visão</h3>
-      <p>Ser referência em vídeos comerciais, criativos para redes sociais e produção audiovisual com IA no Brasil.</p>
-    </div>
-    <div class="about-card fade-in">
-      <h3>💎 Valores</h3>
-      <p>Clareza, intenção, empatia, evolução constante, respeito ao cliente e compromisso com a entrega.</p>
-    </div>
-  </div>
-</section>
+  // Em celulares que bloqueiam autoplay no primeiro load, qualquer toque libera sem mostrar botão nativo.
+  document.addEventListener("touchstart", retryActiveHeroVideo, { once: true, passive: true });
+  document.addEventListener("click", retryActiveHeroVideo, { once: true });
+}
 
-<section id="faq" class="faq faq-review-style" aria-labelledby="faq-title">
-  <div class="testimonials-heading faq-heading">
-    <span class="reviews-kicker">Perguntas frequentes</span>
-    <h2 id="faq-title">Dúvidas antes de contratar</h2>
-    <p class="reviews-subtitle">Respostas diretas para você entender como funciona a produção, edição, IA, orçamento e entrega dos vídeos.</p>
-  </div>
+// VÍDEOS IMPORTANTES — prepara Cases e Resultados antes do usuário tocar.
+function loadVideoSafely(video) {
+  if (!video || video.dataset.loaded === "true") return;
+  video.dataset.loaded = "true";
+  video.preload = "auto";
+  try { video.load(); } catch (e) {}
+}
 
-  <div class="faq-review-grid" aria-label="Perguntas frequentes Take Cut">
-    <article class="faq-card">
-      <div class="faq-question-head"><span class="faq-number">01</span><h3>Vocês fazem vídeos para anúncios pagos?</h3></div>
-      <p>Sim. Criamos vídeos pensados para prender atenção nos primeiros segundos, comunicar a oferta com clareza e levar o público para uma ação.</p>
-    </article>
+function setupSmartVideoLoading() {
+  const priorityVideos = Array.prototype.slice.call(document.querySelectorAll("video[data-priority-video='true']"));
+  const lazyVideos = Array.prototype.slice.call(document.querySelectorAll("video[preload='none']:not(.bg-video)"));
+  const allVideos = priorityVideos.concat(lazyVideos).filter(function (video, index, list) {
+    return list.indexOf(video) === index;
+  });
 
-    <article class="faq-card">
-      <div class="faq-question-head"><span class="faq-number">02</span><h3>Eu não sei o que falar no vídeo. Vocês ajudam com a ideia?</h3></div>
-      <p>Sim. Podemos ajudar com a ideia, roteiro, estrutura, direção e edição para transformar sua necessidade em um vídeo profissional.</p>
-    </article>
+  if ("IntersectionObserver" in window) {
+    const videoObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          loadVideoSafely(entry.target);
+          videoObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "1200px 0px" });
 
-    <article class="faq-card">
-      <div class="faq-question-head"><span class="faq-number">03</span><h3>Consigo contratar apenas a edição?</h3></div>
-      <p>Sim. Você pode enviar seus vídeos brutos e nós transformamos em conteúdos editados para redes sociais, anúncios, apresentações ou eventos.</p>
-    </article>
+    allVideos.forEach(function (video) {
+      videoObserver.observe(video);
+    });
+  } else {
+    allVideos.forEach(loadVideoSafely);
+  }
 
-    <article class="faq-card">
-      <div class="faq-question-head"><span class="faq-number">04</span><h3>Vocês atendem fora de São Paulo?</h3></div>
-      <p>Sim. Atendemos projetos online para todo o Brasil. Para gravações presenciais, avaliamos a localização e a necessidade da produção.</p>
-    </article>
+  function warmUpPriorityVideos() {
+    priorityVideos.forEach(loadVideoSafely);
+  }
 
-    <article class="faq-card">
-      <div class="faq-question-head"><span class="faq-number">05</span><h3>Vocês trabalham com pacotes mensais?</h3></div>
-      <p>Sim. Podemos montar pacotes para empresas que precisam de vídeos recorrentes para redes sociais, anúncios e campanhas.</p>
-    </article>
-
-        <article class="faq-card">
-      <div class="faq-question-head"><span class="faq-number">06</span><h3>Vocês fazem vídeos para pessoa física?</h3></div>
-      <p>Sim. Também criamos vídeos para aniversários, homenagens, eventos, retrospectivas e momentos especiais.</p>
-    </article>
-  </div>
-</section>
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(warmUpPriorityVideos, { timeout: 1800 });
+  } else {
+    setTimeout(warmUpPriorityVideos, 1200);
+  }
+}
 
 
+// PORTFÓLIO — garante que o card "Vídeo emocional" carregue no desktop.
+// Alguns navegadores deixam vídeos autoplay/preload none em espera dentro do carrossel.
+function setupPortfolioPriorityVideos() {
+  const priorityPortfolioVideos = document.querySelectorAll("video[data-portfolio-priority='true']");
+  if (!priorityPortfolioVideos.length) return;
 
-<section class="equipamentos-cta">
-  <div class="equipamentos-container">
-    <h2 class="equipamentos-title">Equipamentos Profissionais</h2>
-    <div class="equipamentos-box">
-      <p>Conheça os equipamentos que recomendamos para produções. Câmeras, iluminação, áudio e acessórios profissionais.</p>
-      <a href="/produtos" class="btn-equipamentos">Ver Equipamentos</a>
-    </div>
-  </div>
-</section>
-<section id="contact" class="contact">
-  <h2>Pronto para melhorar seus vídeos?</h2>
-  <p class="contact-subtitle">Envie seu Instagram, um vídeo atual ou conte sua ideia. A resposta vai direto para o WhatsApp.</p>
-  <div class="contact-grid">
-    <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener" class="contact-card">
-      <h3>💬 WhatsApp</h3>
-      <p>+55 11 5304-4748</p>
-    </a>
-    <a href="https://forms.gle/TBiUyHQRnzV3hy9t5" target="_blank" rel="noopener" class="contact-card">
-      <h3>📋 Formulário</h3>
-      <p>Solicitar orçamento completo</p>
-    </a>
-    <a href="mailto:takecutedit@gmail.com" class="contact-card">
-      <h3>📧 Email</h3>
-      <p>takecutedit@gmail.com</p>
-    </a>
-    <a href="https://www.instagram.com/takecutedit/" target="_blank" rel="noopener" class="contact-card">
-      <h3>📸 Instagram</h3>
-      <p>@takecutedit</p>
-    </a>
-  </div>
-</section>
+  function prepare(video) {
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    try { video.load(); } catch (e) {}
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {
+        // Se o navegador economizar autoplay, ao menos o vídeo já fica preparado para aparecer.
+      });
+    }
+  }
 
-<a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." class="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <img src="whatsapp-icon.png" alt="WhatsApp" width="55" height="55">
-</a>
+  priorityPortfolioVideos.forEach(prepare);
 
-<div id="videoModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeVideo()">×</span>
-    <video id="modalVideo" controls preload="none"></video>
-  </div>
-</div>
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) priorityPortfolioVideos.forEach(prepare);
+  });
+}
 
-<footer class="footer">
-  <div class="footer-links">
-    <a href="#home">Início</a>
-    <a href="#cases">Cases</a>
-    <a href="#how-it-works">Como funciona</a>
-    <a href="#plans">Planos</a>
-    <a href="/portfolio">Portfólio</a>
-    <a href="/produtos">Equipamentos</a>
-    <a href="#contact">Contato</a>
-  </div>
-  <p>© 2026 Take Cut. Todos os direitos reservados.</p>
-  <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
-</footer>
+// MODAL
+function openVideo(src) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+  modal.style.display = "flex";
+  video.src = src;
+  video.play();
+}
 
-<script src="script.js?v=20260622-iacarousel1" defer></script>
-<script src="cookie-consent.js?v=20260622-mobilecases1" defer></script>
-</body>
-</html>
+function closeVideo() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+  modal.style.display = "none";
+  video.pause();
+  video.src = "";
+}
+
+// PLAY INLINE
+function playVideo(element) {
+  const thumb = element.querySelector(".thumb");
+  const playBtn = element.querySelector(".play-btn");
+  const video = element.querySelector(".video");
+  if (!video) return;
+
+  if (thumb) thumb.style.display = "none";
+  if (playBtn) playBtn.style.display = "none";
+
+  video.style.display = "block";
+  video.preload = "auto";
+
+  // Garante que o vídeo clicado tenha prioridade e evita vários sons tocando juntos.
+  document.querySelectorAll("video.video").forEach(function (otherVideo) {
+    if (otherVideo !== video) otherVideo.pause();
+  });
+
+  try { video.load(); } catch (e) {}
+
+  var playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(function () {
+      // Alguns celulares só liberam play após o toque terminar. Tenta de novo no próximo frame.
+      requestAnimationFrame(function () {
+        try { video.play(); } catch (e) {}
+      });
+    });
+  }
+}
+
+// CARROSSEL
+function getPortfolioCarouselStep(carousel) {
+  if (!carousel) return 336;
+
+  const card = carousel.querySelector(".portfolio-card") || carousel.querySelector(".carousel-item");
+  const styles = window.getComputedStyle(carousel);
+  const gap = parseFloat(styles.columnGap || styles.gap) || 16;
+  const cardWidth = card ? card.getBoundingClientRect().width : 320;
+
+  return cardWidth + gap;
+}
+
+function normalizePortfolioCarouselScroll() {
+  const carousel = document.getElementById("carousel");
+  if (!carousel) return;
+
+  const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+
+  // Se todos os cards couberem na tela, garante que o carrossel fique alinhado no início.
+  if (maxScroll <= 2) {
+    carousel.scrollTo({ left: 0, behavior: "auto" });
+    return;
+  }
+
+  if (carousel.scrollLeft > maxScroll) {
+    carousel.scrollTo({ left: maxScroll, behavior: "auto" });
+  }
+}
+
+function setupAdaptivePortfolioCarousel() {
+  const carousel = document.getElementById("carousel");
+  if (!carousel) return;
+
+  normalizePortfolioCarouselScroll();
+
+  let resizeFrame = null;
+  window.addEventListener("resize", function () {
+    if (resizeFrame) cancelAnimationFrame(resizeFrame);
+    resizeFrame = requestAnimationFrame(normalizePortfolioCarouselScroll);
+  });
+
+  window.addEventListener("load", normalizePortfolioCarouselScroll, { once: true });
+}
+
+function scrollPortfolio(direction) {
+  const carousel = document.getElementById("carousel");
+  if (!carousel) return;
+
+  const itemWidth = getPortfolioCarouselStep(carousel);
+  const maxScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+
+  if (maxScroll <= 2) {
+    carousel.scrollTo({ left: 0, behavior: "smooth" });
+    return;
+  }
+
+  if (direction === -1 && carousel.scrollLeft <= 0) {
+    carousel.scrollTo({ left: maxScroll, behavior: "smooth" });
+    return;
+  }
+
+  if (direction === 1 && carousel.scrollLeft >= maxScroll - 10) {
+    carousel.scrollTo({ left: 0, behavior: "smooth" });
+    return;
+  }
+
+  carousel.scrollBy({ left: direction * itemWidth, behavior: "smooth" });
+}
+
+// UNIVERSO DE FUNDO
+// No mobile reduz estrelas pela metade para poupar CPU
+function createUniverse() {
+  const starsBg = document.getElementById("starsBg");
+  if (!starsBg) return false;
+  if (starsBg.dataset.ready === "true" && starsBg.children.length > 0) return true;
+
+  starsBg.innerHTML = "";
+  starsBg.dataset.ready = "true";
+
+  const isMobile = window.innerWidth <= 768;
+  const starCount = isMobile ? 45 : 80;
+  const ufoCount = isMobile ? 1 : 3;
+
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement("div");
+    star.className = "stars";
+    star.style.cssText =
+      "left:" + (Math.random() * 100) + "%;top:" + (Math.random() * 100) +
+      "%;animation-delay:" + (Math.random() * 3) + "s;animation-duration:" +
+      (Math.random() * 3 + 2) + "s";
+    fragment.appendChild(star);
+  }
+
+  function randomBetween(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const ufoLanes = isMobile
+    ? [{ min: 46, max: 54 }]
+    : [
+        { min: 34, max: 40 },
+        { min: 48, max: 56 },
+        { min: 62, max: 68 }
+      ];
+
+  for (let i = 0; i < ufoCount; i++) {
+    const ufo = document.createElement("div");
+    const lane = ufoLanes[i % ufoLanes.length];
+    const duration = randomBetween(6, 20);
+    const scale = randomBetween(0.78, 1.18).toFixed(2);
+    const phaseDelay = isMobile
+      ? -randomBetween(0, duration)
+      : -((duration / ufoCount) * i + randomBetween(0, 1.8));
+
+    ufo.className = "ufo";
+    ufo.style.cssText = [
+      "left:0",
+      "top:" + randomBetween(lane.min, lane.max).toFixed(1) + "%",
+      "animation-delay:" + phaseDelay.toFixed(1) + "s",
+      "--ufo-duration:" + duration.toFixed(1) + "s",
+      "--ufo-scale:" + scale,
+      "--ufo-start-x:" + randomBetween(-36, -22).toFixed(1) + "vw",
+      "--ufo-mid-x:" + randomBetween(30, 44).toFixed(1) + "vw",
+      "--ufo-mid-y:" + randomBetween(-6, 6).toFixed(1) + "vh",
+      "--ufo-late-x:" + randomBetween(68, 84).toFixed(1) + "vw",
+      "--ufo-late-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
+      "--ufo-end-x:" + randomBetween(114, 130).toFixed(1) + "vw",
+      "--ufo-end-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
+      "--ufo-rotate-start:" + randomBetween(-8, -3).toFixed(1) + "deg",
+      "--ufo-rotate-mid:" + randomBetween(-2, 4).toFixed(1) + "deg",
+      "--ufo-rotate-late:" + randomBetween(-4, 3).toFixed(1) + "deg",
+      "--ufo-rotate-end:" + randomBetween(3, 8).toFixed(1) + "deg"
+    ].join(";");
+
+    fragment.appendChild(ufo);
+  }
+
+  starsBg.appendChild(fragment);
+  return true;
+}
+
+function ensureUniverse() {
+  if (createUniverse()) return;
+  setTimeout(createUniverse, 250);
+}
+
+function startUniverse() {
+  // Roda em mais de um momento para evitar bug mobile em que a camada fixa só aparece depois de voltar página.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", ensureUniverse, { once: true });
+  } else {
+    ensureUniverse();
+  }
+
+  window.addEventListener("load", ensureUniverse, { once: true });
+  window.addEventListener("pageshow", ensureUniverse);
+  setTimeout(ensureUniverse, 700);
+  setTimeout(ensureUniverse, 1800);
+
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) ensureUniverse();
+  });
+}
+
+startUniverse();
+
+// HOTFIX UNIVERSO — garante que a camada das estrelas/discos esteja visível
+// mesmo quando o navegador/mobile falha na primeira montagem da camada fixa.
+(function universeVisibilityWatchdog() {
+  function revealUniverseLayer() {
+    const starsBg = document.getElementById("starsBg");
+    if (!starsBg) return;
+
+    starsBg.style.display = "block";
+    starsBg.style.visibility = "visible";
+    starsBg.style.opacity = "1";
+    starsBg.style.position = "fixed";
+    starsBg.style.inset = "0";
+    starsBg.style.width = "100vw";
+    starsBg.style.height = "100vh";
+    starsBg.style.pointerEvents = "none";
+    starsBg.style.overflow = "hidden";
+    starsBg.style.zIndex = "1";
+
+    if (!starsBg.children.length) {
+      starsBg.dataset.ready = "";
+      try { createUniverse(); } catch (e) {}
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", revealUniverseLayer, { once: true });
+  } else {
+    revealUniverseLayer();
+  }
+
+  window.addEventListener("load", revealUniverseLayer, { once: true });
+  window.addEventListener("pageshow", revealUniverseLayer);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) revealUniverseLayer();
+  });
+
+  setTimeout(revealUniverseLayer, 300);
+  setTimeout(revealUniverseLayer, 1200);
+})();
+
+
+// ANTI DEVTOOLS
+(function () {
+  document.addEventListener("keydown", function (e) {
+    if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+      e.preventDefault();
+      return false;
+    }
+  });
+})();
