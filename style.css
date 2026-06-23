@@ -4660,3 +4660,12 @@ body > footer {
     display: none !important;
   }
 }
+
+/* Remove somente a linha decorativa do título "Vídeos com IA" */
+@media (min-width: 769px) {
+  #videos-ia h2::after,
+  #videos-ia h2::before {
+    content: none !important;
+    display: none !important;
+  }
+}
