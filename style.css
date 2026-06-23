@@ -4259,10 +4259,10 @@ body > footer {
    ===================================================== */
 @media (max-width: 768px) {
   button.mobile-reveal-arrow {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    min-height: 40px !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
     padding: 0 !important;
     margin: 0 !important;
     display: none !important;
@@ -4325,8 +4325,8 @@ body > footer {
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
-    width: 10px !important;
-    height: 10px !important;
+    width: 9px !important;
+    height: 9px !important;
     margin: 0 !important;
     padding: 0 !important;
     border-right: 3px solid #0B0B0C !important;
