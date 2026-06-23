@@ -3961,3 +3961,14 @@ body > footer {
     margin-right: auto !important;
   }
 }
+
+/* =====================================================
+   HOTFIX TAKE CUT — diminuir h3 dos cards de Cases no mobile
+   Ajuste isolado: somente fonte do h3 dentro dos cards.
+   ===================================================== */
+@media (max-width: 768px) {
+  section.results.case-studies .case-info h3 {
+    font-size: clamp(24px, 6.8vw, 30px) !important;
+    line-height: 1.08 !important;
+  }
+}
