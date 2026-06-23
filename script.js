@@ -654,7 +654,13 @@ function setupMobileCardReveal() {
       button.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
+
+        var willExpand = !grid.classList.contains("is-expanded");
         grid.classList.toggle("is-expanded");
+
+        // Anima somente quando o usuário revela os cards, não em updates automáticos.
+        if (willExpand) grid.dataset.animateReveal = "true";
+
         updateGroup(config);
       });
     }
@@ -684,13 +690,30 @@ function setupMobileCardReveal() {
     ensureRevealButton(firstCard, grid, config);
 
     const expanded = grid.classList.contains("is-expanded");
+    const shouldAnimateReveal = grid.dataset.animateReveal === "true";
+
     eligibleCards.forEach(function (card, index) {
+      card.style.setProperty("--mobile-reveal-order", String(Math.max(index - 1, 0)));
+
       if (breakpoint.matches && !expanded && index > 0) {
         card.classList.add("is-collapsible-hidden");
+        card.classList.remove("is-collapsible-revealed");
       } else {
         card.classList.remove("is-collapsible-hidden");
+
+        if (breakpoint.matches && expanded && shouldAnimateReveal && index > 0) {
+          card.classList.remove("is-collapsible-revealed");
+
+          // Reinicia o keyframe mesmo se o usuário fechar e abrir de novo.
+          void card.offsetWidth;
+          card.classList.add("is-collapsible-revealed");
+        } else if (!expanded || !breakpoint.matches) {
+          card.classList.remove("is-collapsible-revealed");
+        }
       }
     });
+
+    if (shouldAnimateReveal) delete grid.dataset.animateReveal;
   }
 
   function updateAllGroups() {
