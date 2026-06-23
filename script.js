@@ -429,7 +429,7 @@ function createUniverse() {
   for (let i = 0; i < ufoCount; i++) {
     const ufo = document.createElement("div");
     const lane = ufoLanes[i % ufoLanes.length];
-    const duration = randomBetween(6, 20);
+    const duration = randomBetween(4, 20);
     const scale = randomBetween(0.78, 1.18).toFixed(2);
     const phaseDelay = isMobile
       ? -randomBetween(0, duration)
