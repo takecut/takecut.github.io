@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setupSmartVideoLoading();
   setupPortfolioPriorityVideos();
   setupAdaptivePortfolioCarousel();
+  setupMobileCardReveal();
 });
 
 
@@ -289,34 +290,65 @@ function closeVideo() {
 }
 
 // PLAY INLINE
+function prepareInlineVideoForPlay(video) {
+  if (!video) return;
+
+  video.playsInline = true;
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
+  video.controls = true;
+  video.preload = "auto";
+  video.style.display = "block";
+
+  // Não força load() toda vez no clique: em alguns celulares isso resetava o vídeo
+  // e fazia o play ficar preso no primeiro frame/thumbnail.
+  if (video.dataset.loaded !== "true") {
+    loadVideoSafely(video);
+  }
+}
+
+function tryPlayInlineVideo(video) {
+  if (!video) return;
+
+  var playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(function () {
+      // Tentativa curta extra para Safari/Chrome mobile após o toque liberar mídia.
+      setTimeout(function () {
+        try { video.play(); } catch (e) {}
+      }, 80);
+    });
+  }
+}
+
 function playVideo(element) {
   const thumb = element.querySelector(".thumb");
   const playBtn = element.querySelector(".play-btn");
   const video = element.querySelector(".video");
   if (!video) return;
 
+  element.classList.add("is-video-open");
+
   if (thumb) thumb.style.display = "none";
   if (playBtn) playBtn.style.display = "none";
 
-  video.style.display = "block";
-  video.preload = "auto";
+  prepareInlineVideoForPlay(video);
 
   // Garante que o vídeo clicado tenha prioridade e evita vários sons tocando juntos.
   document.querySelectorAll("video.video").forEach(function (otherVideo) {
     if (otherVideo !== video) otherVideo.pause();
   });
 
-  try { video.load(); } catch (e) {}
+  if (video.readyState < 2) {
+    var playWhenReady = function () {
+      tryPlayInlineVideo(video);
+    };
 
-  var playPromise = video.play();
-  if (playPromise && typeof playPromise.catch === "function") {
-    playPromise.catch(function () {
-      // Alguns celulares só liberam play após o toque terminar. Tenta de novo no próximo frame.
-      requestAnimationFrame(function () {
-        try { video.play(); } catch (e) {}
-      });
-    });
+    video.addEventListener("loadeddata", playWhenReady, { once: true });
+    video.addEventListener("canplay", playWhenReady, { once: true });
   }
+
+  tryPlayInlineVideo(video);
 }
 
 // CARROSSEL
@@ -526,6 +558,120 @@ startUniverse();
   setTimeout(revealUniverseLayer, 300);
   setTimeout(revealUniverseLayer, 1200);
 })();
+
+
+// MOBILE: revela o restante dos cards por seta no primeiro card da seção.
+function setupMobileCardReveal() {
+  const breakpoint = window.matchMedia("(max-width: 768px)");
+  const groups = [
+    {
+      gridSelector: "#how-it-works .steps-grid",
+      cardSelector: "article",
+      label: "Como funciona"
+    },
+    {
+      gridSelector: "#nichos .niche-grid",
+      cardSelector: "a",
+      ignoreSelector: ".niche-desktop-only",
+      label: "Páginas por nicho"
+    },
+    {
+      gridSelector: "#bastidores .process-steps",
+      cardSelector: ".process-step",
+      label: "Por trás da edição"
+    },
+    {
+      gridSelector: ".testimonials .google-reviews-grid",
+      cardSelector: ".google-review-card",
+      label: "Quem já confiou na Take Cut"
+    },
+    {
+      gridSelector: "#faq .faq-review-grid",
+      cardSelector: ".faq-card",
+      label: "FAQ"
+    }
+  ];
+
+  function getDirectCards(grid, selector) {
+    return Array.prototype.slice.call(grid.children).filter(function (child) {
+      return child.matches(selector);
+    });
+  }
+
+  function getEligibleCards(grid, config) {
+    return getDirectCards(grid, config.cardSelector).filter(function (card) {
+      return !config.ignoreSelector || !card.matches(config.ignoreSelector);
+    });
+  }
+
+  function ensureRevealButton(firstCard, grid, config) {
+    var button = Array.prototype.slice.call(firstCard.children).find(function (child) {
+      return child.classList && child.classList.contains("mobile-reveal-arrow");
+    });
+
+    if (!button) {
+      button = document.createElement("button");
+      button.type = "button";
+      button.className = "mobile-reveal-arrow";
+      button.innerHTML = '<span aria-hidden="true">⌄</span>';
+      firstCard.appendChild(button);
+
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        grid.classList.toggle("is-expanded");
+        updateGroup(config);
+      });
+    }
+
+    var expanded = grid.classList.contains("is-expanded");
+    button.setAttribute("aria-expanded", expanded ? "true" : "false");
+    button.setAttribute("aria-label", expanded ? "Ocultar cards de " + config.label : "Mostrar mais cards de " + config.label);
+  }
+
+  function updateGroup(config) {
+    const grid = document.querySelector(config.gridSelector);
+    if (!grid) return;
+
+    const allCards = getDirectCards(grid, config.cardSelector);
+    const eligibleCards = getEligibleCards(grid, config);
+    if (eligibleCards.length < 2) return;
+
+    grid.classList.add("mobile-collapsible-grid");
+
+    allCards.forEach(function (card) {
+      card.classList.add("mobile-collapse-card");
+      card.classList.remove("is-first-collapsible-card", "is-collapsible-hidden");
+    });
+
+    const firstCard = eligibleCards[0];
+    firstCard.classList.add("is-first-collapsible-card");
+    ensureRevealButton(firstCard, grid, config);
+
+    const expanded = grid.classList.contains("is-expanded");
+    eligibleCards.forEach(function (card, index) {
+      if (breakpoint.matches && !expanded && index > 0) {
+        card.classList.add("is-collapsible-hidden");
+      } else {
+        card.classList.remove("is-collapsible-hidden");
+      }
+    });
+  }
+
+  function updateAllGroups() {
+    groups.forEach(updateGroup);
+  }
+
+  updateAllGroups();
+
+  if (typeof breakpoint.addEventListener === "function") {
+    breakpoint.addEventListener("change", updateAllGroups);
+  } else if (typeof breakpoint.addListener === "function") {
+    breakpoint.addListener(updateAllGroups);
+  }
+
+  window.addEventListener("pageshow", updateAllGroups);
+}
 
 
 // ANTI DEVTOOLS
