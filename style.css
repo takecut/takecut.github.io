@@ -4003,10 +4003,10 @@ body > footer {
     outline: 0 !important;
   }
 
-  /* Nosso Trabalho mais próximo do vídeo de background no mobile. */
+  /* Nosso Trabalho mais próximo do vídeo de background no mobile, sem invadir o hero. */
   .showreel {
-    margin-top: -95px !important;
-    padding-top: 40px !important;
+    margin-top: -35px !important;
+    padding: 90px 20px 50px !important;
   }
 
   .mobile-collapsible-grid > .is-collapsible-hidden {
@@ -4026,22 +4026,52 @@ body > footer {
     all: unset;
     box-sizing: border-box !important;
     position: absolute !important;
-    top: 12px !important;
-    right: 12px !important;
-    z-index: 5 !important;
-    width: 42px !important;
-    height: 42px !important;
+    top: 14px !important;
+    right: 14px !important;
+    z-index: 8 !important;
+    width: 46px !important;
+    height: 46px !important;
     display: none !important;
     align-items: center !important;
     justify-content: center !important;
-    border-radius: 50% !important;
-    background: #00FFB2 !important;
+    border-radius: 999px !important;
     color: #0B0B0C !important;
-    border: 1px solid rgba(0,255,178,0.85) !important;
-    box-shadow: 0 0 22px rgba(0,255,178,0.28) !important;
+    background: linear-gradient(145deg, #7dffd8 0%, #00FFB2 48%, #00b982 100%) !important;
+    border: 1px solid rgba(245,245,245,0.30) !important;
+    box-shadow:
+      0 0 0 1px rgba(0,255,178,0.18),
+      0 0 24px rgba(0,255,178,0.42),
+      0 12px 28px rgba(0,0,0,0.34) !important;
     cursor: pointer !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
     -webkit-tap-highlight-color: transparent !important;
-    transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+    transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease, filter 0.28s ease !important;
+    animation: takecutRevealPulse 2.4s ease-in-out infinite !important;
+  }
+
+  button.mobile-reveal-arrow::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: -45% !important;
+    z-index: 1 !important;
+    background: conic-gradient(from 90deg, transparent 0 28%, rgba(255,255,255,0.75) 36%, transparent 48% 100%) !important;
+    opacity: 0.72 !important;
+    animation: takecutRevealSweep 3s linear infinite !important;
+  }
+
+  button.mobile-reveal-arrow::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 4px !important;
+    z-index: 0 !important;
+    border-radius: inherit !important;
+    background: linear-gradient(180deg, #52ffd0 0%, #00FFB2 55%, #00d998 100%) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -10px 16px rgba(0,0,0,0.12) !important;
+  }
+
+  .mobile-collapsible-grid > .is-first-collapsible-card {
+    padding-right: 76px !important;
   }
 
   .mobile-collapsible-grid .is-first-collapsible-card > button.mobile-reveal-arrow {
@@ -4053,20 +4083,50 @@ body > footer {
   }
 
   button.mobile-reveal-arrow span {
+    position: relative !important;
+    z-index: 2 !important;
     display: block !important;
-    font-size: 28px !important;
-    line-height: 1 !important;
-    font-weight: 900 !important;
+    width: 15px !important;
+    height: 15px !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
     transform: translateY(-2px) !important;
   }
 
+  button.mobile-reveal-arrow span::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 11px !important;
+    height: 11px !important;
+    border-right: 3px solid #0B0B0C !important;
+    border-bottom: 3px solid #0B0B0C !important;
+    border-radius: 1px !important;
+    transform: translate(-50%, -62%) rotate(45deg) !important;
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,0.22)) !important;
+  }
+
   button.mobile-reveal-arrow:active {
-    transform: scale(0.94) !important;
-    box-shadow: 0 0 28px rgba(0,255,178,0.42) !important;
+    transform: scale(0.92) !important;
+    filter: brightness(1.08) !important;
+    box-shadow:
+      0 0 0 1px rgba(0,255,178,0.22),
+      0 0 34px rgba(0,255,178,0.58),
+      0 10px 24px rgba(0,0,0,0.35) !important;
   }
 
   .mobile-collapsible-grid.is-expanded button.mobile-reveal-arrow:active {
-    transform: rotate(180deg) scale(0.94) !important;
+    transform: rotate(180deg) scale(0.92) !important;
+  }
+
+  @keyframes takecutRevealPulse {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(0,255,178,0.18), 0 0 20px rgba(0,255,178,0.34), 0 12px 28px rgba(0,0,0,0.34); }
+    50% { box-shadow: 0 0 0 7px rgba(0,255,178,0.08), 0 0 34px rgba(0,255,178,0.58), 0 14px 34px rgba(0,0,0,0.38); }
+  }
+
+  @keyframes takecutRevealSweep {
+    to { transform: rotate(360deg); }
   }
 }
 
