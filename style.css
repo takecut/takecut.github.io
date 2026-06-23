@@ -4249,3 +4249,131 @@ body > footer {
     }
   }
 }
+
+/* =====================================================
+   HOTFIX TAKE CUT 20260623 — setas mobile v4 + Cases menor
+   - Volta a animação anterior da seta, porém na bolinha menor.
+   - Remove a bolinha externa/dupla.
+   - Mantém animação dos cards revelados.
+   - Diminui um pouco os vídeos de Cases e Resultados no mobile.
+   ===================================================== */
+@media (max-width: 768px) {
+  button.mobile-reveal-arrow {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: none !important;
+    align-items: center !important;
+    justify-content: center !important;
+    place-items: center !important;
+    border: 0 !important;
+    outline: 0 !important;
+    border-radius: 50% !important;
+    background: linear-gradient(145deg, #7dffd8 0%, #00FFB2 52%, #00b982 100%) !important;
+    color: #0B0B0C !important;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.34), 0 0 20px rgba(0,255,178,0.38) !important;
+    transform-origin: center !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    animation: takecutRevealPulseSmall 2.4s ease-in-out infinite !important;
+  }
+
+  /* Brilho girando dentro da bolinha menor: mesma pegada da animação anterior, sem criar outra bolinha. */
+  button.mobile-reveal-arrow::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: -45% !important;
+    z-index: 1 !important;
+    border-radius: 50% !important;
+    background: conic-gradient(from 90deg, transparent 0 28%, rgba(255,255,255,0.72) 36%, transparent 48% 100%) !important;
+    opacity: 0.72 !important;
+    transform-origin: center !important;
+    animation: takecutRevealSweep 3s linear infinite !important;
+    pointer-events: none !important;
+  }
+
+  /* Remove a bolinha interna/externa duplicada. */
+  button.mobile-reveal-arrow::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .mobile-collapsible-grid .is-first-collapsible-card > button.mobile-reveal-arrow {
+    display: grid !important;
+  }
+
+  button.mobile-reveal-arrow span {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    transform: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    pointer-events: none !important;
+  }
+
+  button.mobile-reveal-arrow span::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-right: 3px solid #0B0B0C !important;
+    border-bottom: 3px solid #0B0B0C !important;
+    border-radius: 1px !important;
+    transform: translate(-50%, -58%) rotate(45deg) !important;
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,0.22)) !important;
+  }
+
+  .mobile-collapsible-grid.is-expanded .is-first-collapsible-card > button.mobile-reveal-arrow {
+    transform: rotate(180deg) !important;
+  }
+
+  button.mobile-reveal-arrow:active {
+    transform: scale(0.92) !important;
+    filter: brightness(1.08) !important;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.38), 0 0 26px rgba(0,255,178,0.50) !important;
+  }
+
+  .mobile-collapsible-grid.is-expanded button.mobile-reveal-arrow:active {
+    transform: rotate(180deg) scale(0.92) !important;
+  }
+
+  .mobile-collapsible-grid.is-expanded > .mobile-collapse-card.is-collapsible-revealed {
+    animation: takecutCardReveal 0.58s cubic-bezier(.18,.9,.24,1) both !important;
+    animation-delay: calc(var(--mobile-reveal-order, 0) * 70ms) !important;
+  }
+
+  section.results.case-studies .results-grid.case-grid > .result-item.case-card.item1 .video-box,
+  section.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 .video-box {
+    width: 92% !important;
+    max-width: 312px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  @keyframes takecutRevealPulseSmall {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.34), 0 0 18px rgba(0,255,178,0.34);
+      filter: brightness(1);
+    }
+    50% {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.36), 0 0 30px rgba(0,255,178,0.58);
+      filter: brightness(1.06);
+    }
+  }
+}
+
