@@ -4651,3 +4651,12 @@ body > footer {
   }
 }
 
+/* =====================================================
+   TAKE CUT 20260623 — Hotfix IA desktop: remove card externo
+   ===================================================== */
+@media (min-width: 769px) {
+  #videos-ia::before {
+    content: none !important;
+    display: none !important;
+  }
+}
