@@ -3734,123 +3734,127 @@ a.back-btn:hover .arrow {
   }
 }
 
+
 /* =====================================================
-   HOTFIX TAKE CUT 20260622F — vídeo emocional + cases mobile
-   Ajusta somente os dois pontos solicitados.
+   HOTFIX TAKE CUT 20260622F — IA menor + carrossel responsivo
    ===================================================== */
 
-/* Desktop: o último card do Portfólio precisa renderizar o vídeo emocional, não ficar em preto. */
+/* 1) Vídeos com IA: primeiro vídeo menor e fontes mais discretas */
 @media (min-width: 769px) {
-  #carousel .portfolio-card:last-child .carousel-item {
-    display: block !important;
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-    aspect-ratio: 16 / 9 !important;
-    background: #080809 !important;
-    overflow: hidden !important;
+  #videos-ia .ia-main {
+    margin-top: 34px !important;
+    margin-bottom: 74px !important;
   }
 
-  #carousel .portfolio-card:last-child .carousel-item video,
-  #carousel video[data-portfolio-emotional="true"] {
-    display: block !important;
+  #videos-ia .ia-main .video-box.horizontal.destaque {
     width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    background: #080809 !important;
-    transform: translateZ(0) !important;
-    -webkit-transform: translateZ(0) !important;
+    max-width: min(760px, 72vw) !important;
+  }
+
+  #videos-ia .ia-main .result-info {
+    max-width: min(760px, 72vw) !important;
+    padding: 15px 18px !important;
+  }
+
+  #videos-ia .ia-card .result-info {
+    max-width: 480px !important;
+    padding: 15px 18px !important;
+  }
+
+  #videos-ia .ia-secondary {
+    gap: clamp(42px, 8vw, 150px) !important;
+  }
+
+  #videos-ia .result-info h3 {
+    font-size: 20px !important;
+    line-height: 1.28 !important;
+    margin-bottom: 7px !important;
+  }
+
+  #videos-ia .result-info p {
+    font-size: 14.5px !important;
+    line-height: 1.55 !important;
   }
 }
 
-/* Mobile: Cases e Resultados em tamanho padrão, sem fonte gigante e sem vídeo preso pequeno. */
 @media (max-width: 768px) {
-  .results.case-studies {
-    padding-left: 18px !important;
-    padding-right: 18px !important;
+  #videos-ia .ia-main {
+    margin-top: 26px !important;
+    margin-bottom: 34px !important;
   }
 
-  .results.case-studies .results-grid.case-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  #videos-ia .ia-main .video-box.horizontal.destaque {
     width: 100% !important;
-    max-width: 100% !important;
-    gap: 34px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    max-width: 345px !important;
   }
 
-  .results.case-studies .case-card.item1,
-  .results.case-studies .case-card.item2 {
-    transform: none !important;
-    width: 100% !important;
-    max-width: 360px !important;
-    padding: 18px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    border-radius: 24px !important;
-    overflow: hidden !important;
-    display: grid !important;
-    gap: 16px !important;
+  #videos-ia .ia-main .result-info,
+  #videos-ia .ia-card .result-info {
+    max-width: 345px !important;
+    padding: 14px 16px !important;
   }
 
-  .results.case-studies .case-card.item1 .video-box,
-  .results.case-studies .case-card.item2 .video-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    aspect-ratio: 9 / 16 !important;
-    margin: 0 auto !important;
-    border-radius: 20px !important;
-    overflow: hidden !important;
+  #videos-ia .result-info h3 {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 7px !important;
   }
 
-  .results.case-studies .case-card.item1 .video-box img,
-  .results.case-studies .case-card.item1 .video-box video,
-  .results.case-studies .case-card.item2 .video-box img,
-  .results.case-studies .case-card.item2 .video-box video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-  }
-
-  .results.case-studies .case-info {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: visible !important;
-  }
-
-  .results.case-studies .case-label {
-    font-size: 10.5px !important;
-    margin-bottom: 10px !important;
-  }
-
-  .results.case-studies .case-info h3 {
-    max-width: 100% !important;
-    font-size: clamp(28px, 8.3vw, 34px) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.03em !important;
-    overflow-wrap: normal !important;
-    word-break: normal !important;
-    text-wrap: balance;
-    margin-bottom: 14px !important;
-  }
-
-  .results.case-studies .case-points {
-    width: 100% !important;
-    gap: 10px !important;
-  }
-
-  .results.case-studies .case-points li {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 12px 13px !important;
-    font-size: 14px !important;
+  #videos-ia .result-info p {
+    font-size: 13.5px !important;
     line-height: 1.5 !important;
+  }
+}
+
+/* 2) Portfólio: quantidade de cards visíveis muda conforme largura do monitor */
+@media (min-width: 769px) {
+  #portfolioCarousel {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  #portfolioCarousel .carousel {
+    gap: 16px !important;
+    overflow: hidden !important;
+    align-items: stretch !important;
+    scroll-snap-type: x mandatory;
+  }
+
+  #portfolioCarousel .portfolio-card {
+    min-width: 0 !important;
+    max-width: none !important;
+    flex: 0 0 calc((100% - 32px) / 3) !important; /* 3 cards */
+    scroll-snap-align: start;
+  }
+
+  #portfolioCarousel .carousel-item {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  #portfolioCarousel .portfolio-caption {
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  #portfolioCarousel .portfolio-card {
+    flex-basis: calc((100% - 48px) / 4) !important; /* 4 cards */
+  }
+}
+
+@media (min-width: 1700px) {
+  #portfolioCarousel .portfolio-card {
+    flex-basis: calc((100% - 64px) / 5) !important; /* 5 cards */
+  }
+}
+
+@media (min-width: 2200px) {
+  #portfolioCarousel .carousel-container,
+  #portfolioCarousel .carousel {
+    max-width: none !important;
   }
 }
