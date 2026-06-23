@@ -3918,3 +3918,46 @@ body > footer {
 .modal {
   z-index: 99999 !important;
 }
+
+/* =====================================================
+   HOTFIX TAKE CUT — Cases e Resultados mobile: tamanho do card
+   Ajuste isolado: apenas tamanho/encaixe dos cards no mobile.
+   ===================================================== */
+@media (max-width: 768px) {
+  section.results.case-studies {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  section.results.case-studies .results-grid.case-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 34px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  section.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
+  section.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    transform: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 14px !important;
+  }
+
+  section.results.case-studies .results-grid.case-grid > .result-item.case-card.item1 .video-box,
+  section.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 .video-box {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    aspect-ratio: 9 / 16 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
