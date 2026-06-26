@@ -496,7 +496,8 @@ function createUniverse() {
   for (let i = 0; i < ufoCount; i++) {
     const ufo = document.createElement("div");
     const lane = ufoLanes[i % ufoLanes.length];
-    const duration = randomBetween(4, 20);
+    // Duração fixa para o disco voador cruzar a tela com velocidade real de 6s.
+    const duration = 6;
     const scale = randomBetween(0.78, 1.18).toFixed(2);
     const phaseDelay = isMobile
       ? -randomBetween(0, duration)
