@@ -490,17 +490,18 @@ function createUniverse() {
         { min: 46, max: 54, scaleMin: 0.88, scaleMax: 1.08 }
       ]
     : [
-        // Desktop: topo, meio e baixo. A ordem de aparição é aleatória no JS.
-        { min: 17, max: 24, scaleMin: 0.78, scaleMax: 0.96 }, // topo
+        // Desktop: topo, meio e baixo com distância visual maior entre eles.
+        { min: 16, max: 23, scaleMin: 0.78, scaleMax: 0.96 }, // topo
         { min: 46, max: 55, scaleMin: 0.96, scaleMax: 1.18 }, // meio
         { min: 74, max: 83, scaleMin: 0.82, scaleMax: 1.05 }  // baixo
       ];
 
-  function createUfoElement(lane, duration, animationDelay, repeatMode) {
+  function createUfoElement(lane, duration, animationDelay) {
     const ufo = document.createElement("div");
     const scale = randomBetween(lane.scaleMin, lane.scaleMax).toFixed(2);
 
-    const styles = [
+    ufo.className = "ufo";
+    ufo.style.cssText = [
       "left:0",
       "top:" + randomBetween(lane.min, lane.max).toFixed(1) + "%",
       "animation-delay:" + animationDelay.toFixed(1) + "s",
@@ -517,16 +518,8 @@ function createUniverse() {
       "--ufo-rotate-mid:" + randomBetween(-2, 4).toFixed(1) + "deg",
       "--ufo-rotate-late:" + randomBetween(-4, 3).toFixed(1) + "deg",
       "--ufo-rotate-end:" + randomBetween(3, 8).toFixed(1) + "deg"
-    ];
+    ].join(";");
 
-    // Desktop: anima uma vez e remove, para não parecer corrida com 3 discos ao mesmo tempo.
-    // Mobile: mantém o comportamento infinito anterior.
-    if (repeatMode === "once") {
-      styles.push("animation:ufoFly " + duration.toFixed(1) + "s linear 1 forwards");
-    }
-
-    ufo.className = "ufo";
-    ufo.style.cssText = styles.join(";");
     return ufo;
   }
 
@@ -535,8 +528,7 @@ function createUniverse() {
     const mobileUfo = createUfoElement(
       ufoLanes[0],
       mobileDuration,
-      -randomBetween(0, mobileDuration),
-      "infinite"
+      -randomBetween(0, mobileDuration)
     );
 
     fragment.appendChild(mobileUfo);
@@ -544,57 +536,20 @@ function createUniverse() {
     return true;
   }
 
-  // Desktop: aparece um disco por vez, em ordem aleatória, com pausa entre eles.
-  // Assim não ficam os três atravessando a tela juntos.
+  // Desktop: os 3 discos ficam ativos na mesma tela, mas entram em momentos diferentes.
+  // Ordem fixa: topo entra primeiro, meio entra 3s depois, baixo entra 3s depois do meio.
+  const desktopDuration = 15;
+  const desktopDelays = [0, 3, 6];
+
+  for (let i = 0; i < ufoLanes.length; i++) {
+    const ufo = createUfoElement(ufoLanes[i], desktopDuration, desktopDelays[i]);
+    fragment.appendChild(ufo);
+  }
+
   starsBg.appendChild(fragment);
-
-  const desktopDuration = 12;
-  const pauseMin = 3.5;
-  const pauseMax = 7.5;
-  let lastLaneIndex = -1;
-
-  function pickRandomLaneIndex() {
-    if (ufoLanes.length <= 1) return 0;
-
-    let nextIndex = Math.floor(Math.random() * ufoLanes.length);
-    while (nextIndex === lastLaneIndex) {
-      nextIndex = Math.floor(Math.random() * ufoLanes.length);
-    }
-
-    lastLaneIndex = nextIndex;
-    return nextIndex;
-  }
-
-  function scheduleNextUfo(waitSeconds) {
-    window.clearTimeout(window.takecutDesktopUfoTimer);
-    window.takecutDesktopUfoTimer = window.setTimeout(spawnDesktopUfo, waitSeconds * 1000);
-  }
-
-  function spawnDesktopUfo() {
-    if (!starsBg || !document.body.contains(starsBg)) return;
-
-    // Se o usuário redimensionar para mobile, não cria sequência desktop.
-    if (window.innerWidth <= 768) return;
-
-    // Se a aba estiver oculta, espera para não acumular animações invisíveis.
-    if (document.hidden) {
-      scheduleNextUfo(2);
-      return;
-    }
-
-    const lane = ufoLanes[pickRandomLaneIndex()];
-    const ufo = createUfoElement(lane, desktopDuration, 0, "once");
-    starsBg.appendChild(ufo);
-
-    ufo.addEventListener("animationend", function () {
-      ufo.remove();
-      scheduleNextUfo(randomBetween(pauseMin, pauseMax));
-    }, { once: true });
-  }
-
-  scheduleNextUfo(randomBetween(0.5, 2.2));
   return true;
 }
+
 function ensureUniverse() {
   if (createUniverse()) return;
   setTimeout(createUniverse, 250);
