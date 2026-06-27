@@ -4711,3 +4711,338 @@ body > footer {
     display: none !important;
   }
 }
+
+/* =====================================================
+   TAKE CUT 20260627 — Cards premium + portfólio maior
+   ===================================================== */
+:root {
+  --tc-icon-production: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%208h16v10.5A1.5%201.5%200%200%201%2018.5%2020h-13A1.5%201.5%200%200%201%204%2018.5V8Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M4%208%206.7%204h3L7%208M10%208l2.7-4h3L13%208M16%208l2.7-4H20v4%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M10%2012.2v3.6l3.4-1.8-3.4-1.8Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-editing: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%207h10M4%2017h10%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M18%205v14%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M15.5%208.5%2018%206l2.5%202.5M15.5%2015.5%2018%2018l2.5-2.5%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M7%2010.5v3l2.8-1.5L7%2010.5Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-growth: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%2018h16%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M6%2015l4-4%203%203%205-7%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M16%207h2.8v2.8%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M7%206.5%208%204l1%202.5L11.5%207%209%208%208%2010.5%207%208%204.5%207%207%206.5Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-mission: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M12%203c2.5%201.5%204%204%204%207.2%200%204.2-2.2%207.1-4%208.8-1.8-1.7-4-4.6-4-8.8C8%207%209.5%204.5%2012%203Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M12%2010.8a1.8%201.8%200%201%200%200-3.6%201.8%201.8%200%200%200%200%203.6Z%27%20fill%3D%27black%27%2F%3E%3Cpath%20d%3D%27M8.5%2015.5%205%2019M15.5%2015.5%2019%2019M12%2019v2%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-vision: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M12%205.5c5.2%200%208.5%206.5%208.5%206.5S17.2%2018.5%2012%2018.5%203.5%2012%203.5%2012%206.8%205.5%2012%205.5Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M12%2015a3%203%200%201%200%200-6%203%203%200%200%200%200%206Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-values: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M7%204h10l4%205-9%2011L3%209l4-5Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M3%209h18M9%204l-2%205%205%2011%205-11-2-5%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-whatsapp: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M5.1%2019.1%206%2015.8A7.6%207.6%200%201%201%208.2%2018l-3.1%201.1Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M9%208.7c.2-.5.4-.6.8-.6h.6c.2%200%20.5.1.6.5l.5%201.3c.1.3.1.5-.1.7l-.5.6c.6%201.1%201.5%202%202.7%202.6l.6-.5c.2-.2.5-.2.8-.1l1.3.6c.4.2.5.4.5.7v.5c0%20.5-.2.8-.7%201-1%20.3-2.8-.2-4.6-1.5-1.8-1.3-3.2-3.1-3.5-4.7-.1-.4.1-.8.5-1.1Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-form: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M7%203.5h8l3%203V20a1%201%200%200%201-1%201H7a1%201%200%200%201-1-1V4.5a1%201%200%200%201%201-1Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M14.5%203.5V7H18M9%2011h6M9%2015h6M9%2018h4%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-email: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%207.5A1.5%201.5%200%200%201%205.5%206h13A1.5%201.5%200%200%201%2020%207.5v9A1.5%201.5%200%200%201%2018.5%2018h-13A1.5%201.5%200%200%201%204%2016.5v-9Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27m5%208%207%205%207-5%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-instagram: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Crect%20x%3D%275%27%20y%3D%275%27%20width%3D%2714%27%20height%3D%2714%27%20rx%3D%274%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3Cpath%20d%3D%27M12%2015.2a3.2%203.2%200%201%200%200-6.4%203.2%203.2%200%200%200%200%206.4Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3Cpath%20d%3D%27M16.6%207.8h.01%27%20stroke%3D%27black%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+  --tc-icon-equipment: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%209a2%202%200%200%201%202-2h2.2l1.2-2h5.2l1.2%202H18a2%202%200%200%201%202%202v8a2%202%200%200%201-2%202H6a2%202%200%200%201-2-2V9Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M12%2016a3.2%203.2%200%201%200%200-6.4%203.2%203.2%200%200%200%200%206.4Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3Cpath%20d%3D%27M17.5%2010h.01%27%20stroke%3D%27black%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.tc-icon-production { --tc-card-icon-mask: var(--tc-icon-production); }
+.tc-icon-editing { --tc-card-icon-mask: var(--tc-icon-editing); }
+.tc-icon-growth { --tc-card-icon-mask: var(--tc-icon-growth); }
+.tc-icon-mission { --tc-card-icon-mask: var(--tc-icon-mission); }
+.tc-icon-vision { --tc-card-icon-mask: var(--tc-icon-vision); }
+.tc-icon-values { --tc-card-icon-mask: var(--tc-icon-values); }
+.tc-icon-whatsapp { --tc-card-icon-mask: var(--tc-icon-whatsapp); }
+.tc-icon-form { --tc-card-icon-mask: var(--tc-icon-form); }
+.tc-icon-email { --tc-card-icon-mask: var(--tc-icon-email); }
+.tc-icon-instagram { --tc-card-icon-mask: var(--tc-icon-instagram); }
+.tc-icon-equipment { --tc-card-icon-mask: var(--tc-icon-equipment); }
+
+.service-card,
+.about-card,
+.contact-card,
+.equipamentos-box {
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255,255,255,0.085) !important;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(0,255,178,0.135), transparent 31%),
+    linear-gradient(145deg, rgba(255,255,255,0.062), rgba(255,255,255,0.018)),
+    rgba(17,17,19,0.94) !important;
+  box-shadow: 0 22px 58px rgba(0,0,0,0.24), 0 0 34px rgba(0,255,178,0.055) !important;
+}
+
+.service-card::before,
+.about-card::before,
+.contact-card::before,
+.equipamentos-box::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, transparent, rgba(0,255,178,0.92), transparent);
+  opacity: 0.78;
+  pointer-events: none;
+}
+
+.service-card::after,
+.about-card::after,
+.contact-card::after,
+.equipamentos-box::after {
+  content: "";
+  position: absolute;
+  right: -74px;
+  top: -74px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(0,255,178,0.065);
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+.service-card,
+.about-card,
+.contact-card {
+  padding: 26px !important;
+  border-radius: 22px !important;
+  text-align: left !important;
+  transform: translateZ(0);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease !important;
+}
+
+.service-card:hover,
+.about-card:hover,
+.contact-card:hover,
+.equipamentos-box:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(0,255,178,0.32) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.32), 0 0 58px rgba(0,255,178,0.13) !important;
+}
+
+.tc-card-head,
+.equipamentos-card-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.tc-card-head {
+  margin-bottom: 16px;
+}
+
+.tc-card-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 1px solid rgba(0,255,178,0.26);
+  background:
+    radial-gradient(circle at 32% 18%, rgba(255,255,255,0.20), transparent 28%),
+    linear-gradient(145deg, rgba(0,255,178,0.16), rgba(0,255,178,0.045));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 12px 30px rgba(0,255,178,0.095);
+}
+
+.tc-card-icon::before {
+  content: "";
+  width: 28px;
+  height: 28px;
+  display: block;
+  background: #00FFB2;
+  -webkit-mask: var(--tc-card-icon-mask) center / contain no-repeat;
+  mask: var(--tc-card-icon-mask) center / contain no-repeat;
+  filter: drop-shadow(0 0 7px rgba(0,255,178,0.45));
+}
+
+.service-card h3,
+.about-card h3,
+.contact-card h3,
+.equipamentos-copy h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
+  color: #F5F5F5 !important;
+  font-size: 20px !important;
+  line-height: 1.18 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.035em;
+  text-shadow: 0 0 16px rgba(245,245,245,0.12) !important;
+}
+
+.service-card p,
+.about-card p,
+.contact-card p,
+.equipamentos-copy p {
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
+  color: rgba(245,245,245,0.76) !important;
+  opacity: 1 !important;
+  font-size: 15.5px !important;
+  line-height: 1.68 !important;
+}
+
+.contact-card:first-child {
+  border-color: rgba(0,255,178,0.34) !important;
+}
+
+.contact-card p {
+  overflow-wrap: anywhere;
+}
+
+/* Card Equipamentos Profissionais */
+.equipamentos-container {
+  max-width: 980px !important;
+}
+
+.equipamentos-box {
+  align-items: stretch !important;
+  border-radius: 28px !important;
+  padding: 34px !important;
+  text-align: left !important;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease !important;
+}
+
+.equipamentos-card-head {
+  align-items: flex-start;
+}
+
+.equipamentos-copy {
+  min-width: 0;
+}
+
+.equipamentos-copy h3 {
+  margin-bottom: 8px !important;
+}
+
+.equipamentos-list {
+  position: relative;
+  z-index: 1;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 26px 0 28px;
+  padding: 0;
+}
+
+.equipamentos-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 12px 14px;
+  border-radius: 15px;
+  border: 1px solid rgba(0,255,178,0.15);
+  background: rgba(0,0,0,0.20);
+  color: rgba(245,245,245,0.88);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.equipamentos-list li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  margin-right: 9px;
+  border-radius: 999px;
+  background: #00FFB2;
+  box-shadow: 0 0 12px rgba(0,255,178,0.6);
+}
+
+.btn-equipamentos {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  align-self: center;
+  border-radius: 15px !important;
+  padding: 15px 34px !important;
+}
+
+/* Portfólio Desktop: vídeos maiores no carrossel */
+@media (min-width: 769px) {
+  #portfolioCarousel .carousel-container {
+    padding: 0 clamp(28px, 4vw, 72px) !important;
+  }
+
+  #portfolioCarousel .carousel {
+    gap: 24px !important;
+  }
+
+  #portfolioCarousel .portfolio-card {
+    flex: 0 0 calc((100% - 24px) / 2) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  #portfolioCarousel .carousel-item {
+    border-radius: 20px !important;
+    box-shadow: 0 22px 64px rgba(0,0,0,0.32), 0 0 36px rgba(0,255,178,0.07) !important;
+  }
+
+  #portfolioCarousel .portfolio-caption {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  #portfolioCarousel .portfolio-card {
+    flex-basis: calc((100% - 48px) / 3) !important;
+  }
+}
+
+@media (min-width: 1700px) {
+  #portfolioCarousel .portfolio-card {
+    flex-basis: calc((100% - 72px) / 4) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-card,
+  .about-card,
+  .contact-card,
+  .equipamentos-box {
+    border-radius: 20px !important;
+    padding: 20px !important;
+  }
+
+  .tc-card-head,
+  .equipamentos-card-head {
+    gap: 13px;
+  }
+
+  .tc-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+  }
+
+  .tc-card-icon::before {
+    width: 25px;
+    height: 25px;
+  }
+
+  .service-card h3,
+  .about-card h3,
+  .contact-card h3,
+  .equipamentos-copy h3 {
+    font-size: 18px !important;
+  }
+
+  .service-card p,
+  .about-card p,
+  .contact-card p,
+  .equipamentos-copy p {
+    font-size: 14.5px !important;
+    line-height: 1.58 !important;
+  }
+
+  .equipamentos-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 22px 0 24px;
+  }
+
+  .equipamentos-list li {
+    justify-content: flex-start;
+    min-height: 44px;
+  }
+
+  .btn-equipamentos {
+    width: 100% !important;
+  }
+}
+
