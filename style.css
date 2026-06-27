@@ -684,9 +684,7 @@ p { margin-bottom: 10px; }
 .contact-card:first-child { border: 1px solid #00FFB2; }
 
 /* HOVER GERAL */
-.service-card:hover,
-.testimonial-card:hover,
-.about-card:hover,
+/* HOVER somente na seção "Pronto para melhorar seus vídeos?" */
 .contact-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 0 30px rgba(0,255,178,0.15);
@@ -4794,10 +4792,7 @@ body > footer {
   transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease !important;
 }
 
-.service-card:hover,
-.about-card:hover,
-.contact-card:hover,
-.equipamentos-box:hover {
+.contact-card:hover {
   transform: translateY(-8px) !important;
   border-color: rgba(0,255,178,0.32) !important;
   box-shadow: 0 30px 80px rgba(0,0,0,0.32), 0 0 58px rgba(0,255,178,0.13) !important;
