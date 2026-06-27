@@ -5041,3 +5041,93 @@ body > footer {
   }
 }
 
+
+/* =====================================================
+   TAKE CUT 20260627 — Alinhamento do card Equipamentos
+   ===================================================== */
+.equipamentos-box {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+}
+
+.equipamentos-card-head {
+  display: grid !important;
+  grid-template-columns: 64px minmax(0, 1fr) !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
+  width: 100% !important;
+}
+
+.equipamentos-card-head .tc-card-icon {
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 20px !important;
+  align-self: center !important;
+}
+
+.equipamentos-card-head .tc-card-icon::before {
+  width: 31px !important;
+  height: 31px !important;
+}
+
+.equipamentos-copy {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+.equipamentos-copy h3 {
+  width: 100% !important;
+  margin: 0 0 7px !important;
+  text-align: left !important;
+}
+
+.equipamentos-copy p {
+  width: 100% !important;
+  max-width: 640px !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.equipamentos-list {
+  align-self: stretch !important;
+}
+
+.btn-equipamentos {
+  align-self: center !important;
+}
+
+@media (max-width: 768px) {
+  .equipamentos-card-head {
+    grid-template-columns: 52px minmax(0, 1fr) !important;
+    gap: 14px !important;
+    align-items: center !important;
+  }
+
+  .equipamentos-card-head .tc-card-icon {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 17px !important;
+  }
+
+  .equipamentos-card-head .tc-card-icon::before {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .equipamentos-copy h3 {
+    margin-bottom: 6px !important;
+  }
+
+  .equipamentos-copy p {
+    max-width: none !important;
+    text-align: left !important;
+  }
+}
