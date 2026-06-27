@@ -467,7 +467,6 @@ function createUniverse() {
 
   const isMobile = window.innerWidth <= 768;
   const starCount = isMobile ? 45 : 80;
-  const ufoCount = isMobile ? 1 : 3;
 
   const fragment = document.createDocumentFragment();
 
@@ -488,35 +487,23 @@ function createUniverse() {
   const ufoLanes = isMobile
     ? [
         // Mobile continua com apenas 1 disco no centro para não poluir a tela pequena.
-        { min: 46, max: 54, delay: 0, scaleMin: 0.88, scaleMax: 1.08 }
+        { min: 46, max: 54, scaleMin: 0.88, scaleMax: 1.08 }
       ]
     : [
-        // Desktop: três faixas bem separadas para evitar discos "um em cima do outro".
-        { min: 18, max: 24, delay: 0,   scaleMin: 0.78, scaleMax: 0.96 }, // topo
-        { min: 46, max: 54, delay: 3.7, scaleMin: 0.96, scaleMax: 1.18 }, // meio
-        { min: 74, max: 82, delay: 7.4, scaleMin: 0.82, scaleMax: 1.05 }  // baixo
+        // Desktop: topo, meio e baixo. A ordem de aparição é aleatória no JS.
+        { min: 17, max: 24, scaleMin: 0.78, scaleMax: 0.96 }, // topo
+        { min: 46, max: 55, scaleMin: 0.96, scaleMax: 1.18 }, // meio
+        { min: 74, max: 83, scaleMin: 0.82, scaleMax: 1.05 }  // baixo
       ];
 
-  for (let i = 0; i < ufoCount; i++) {
+  function createUfoElement(lane, duration, animationDelay, repeatMode) {
     const ufo = document.createElement("div");
-    const lane = ufoLanes[i % ufoLanes.length];
-
-    // Desktop ficou mais lento: 11s para atravessar a tela.
-    // Mobile permanece em 6s.
-    const duration = isMobile ? 6 : 11;
     const scale = randomBetween(lane.scaleMin, lane.scaleMax).toFixed(2);
 
-    // Mobile começa em pontos diferentes do ciclo.
-    // Desktop começa escalonado para os discos não aparecerem/sumirem juntos.
-    const phaseDelay = isMobile
-      ? -randomBetween(0, duration)
-      : lane.delay;
-
-    ufo.className = "ufo";
-    ufo.style.cssText = [
+    const styles = [
       "left:0",
       "top:" + randomBetween(lane.min, lane.max).toFixed(1) + "%",
-      "animation-delay:" + phaseDelay.toFixed(1) + "s",
+      "animation-delay:" + animationDelay.toFixed(1) + "s",
       "--ufo-duration:" + duration.toFixed(1) + "s",
       "--ufo-scale:" + scale,
       "--ufo-start-x:" + randomBetween(-38, -24).toFixed(1) + "vw",
@@ -530,15 +517,84 @@ function createUniverse() {
       "--ufo-rotate-mid:" + randomBetween(-2, 4).toFixed(1) + "deg",
       "--ufo-rotate-late:" + randomBetween(-4, 3).toFixed(1) + "deg",
       "--ufo-rotate-end:" + randomBetween(3, 8).toFixed(1) + "deg"
-    ].join(";");
+    ];
 
-    fragment.appendChild(ufo);
+    // Desktop: anima uma vez e remove, para não parecer corrida com 3 discos ao mesmo tempo.
+    // Mobile: mantém o comportamento infinito anterior.
+    if (repeatMode === "once") {
+      styles.push("animation:ufoFly " + duration.toFixed(1) + "s linear 1 forwards");
+    }
+
+    ufo.className = "ufo";
+    ufo.style.cssText = styles.join(";");
+    return ufo;
   }
 
+  if (isMobile) {
+    const mobileDuration = 6;
+    const mobileUfo = createUfoElement(
+      ufoLanes[0],
+      mobileDuration,
+      -randomBetween(0, mobileDuration),
+      "infinite"
+    );
+
+    fragment.appendChild(mobileUfo);
+    starsBg.appendChild(fragment);
+    return true;
+  }
+
+  // Desktop: aparece um disco por vez, em ordem aleatória, com pausa entre eles.
+  // Assim não ficam os três atravessando a tela juntos.
   starsBg.appendChild(fragment);
+
+  const desktopDuration = 12;
+  const pauseMin = 3.5;
+  const pauseMax = 7.5;
+  let lastLaneIndex = -1;
+
+  function pickRandomLaneIndex() {
+    if (ufoLanes.length <= 1) return 0;
+
+    let nextIndex = Math.floor(Math.random() * ufoLanes.length);
+    while (nextIndex === lastLaneIndex) {
+      nextIndex = Math.floor(Math.random() * ufoLanes.length);
+    }
+
+    lastLaneIndex = nextIndex;
+    return nextIndex;
+  }
+
+  function scheduleNextUfo(waitSeconds) {
+    window.clearTimeout(window.takecutDesktopUfoTimer);
+    window.takecutDesktopUfoTimer = window.setTimeout(spawnDesktopUfo, waitSeconds * 1000);
+  }
+
+  function spawnDesktopUfo() {
+    if (!starsBg || !document.body.contains(starsBg)) return;
+
+    // Se o usuário redimensionar para mobile, não cria sequência desktop.
+    if (window.innerWidth <= 768) return;
+
+    // Se a aba estiver oculta, espera para não acumular animações invisíveis.
+    if (document.hidden) {
+      scheduleNextUfo(2);
+      return;
+    }
+
+    const lane = ufoLanes[pickRandomLaneIndex()];
+    const ufo = createUfoElement(lane, desktopDuration, 0, "once");
+    starsBg.appendChild(ufo);
+
+    ufo.addEventListener("animationend", function () {
+      ufo.remove();
+      scheduleNextUfo(randomBetween(pauseMin, pauseMax));
+    }, { once: true });
+  }
+
+  scheduleNextUfo(randomBetween(0.5, 2.2));
   return true;
 }
-
 function ensureUniverse() {
   if (createUniverse()) return;
   setTimeout(createUniverse, 250);
