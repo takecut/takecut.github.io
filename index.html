@@ -43,7 +43,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260626-mobile-menu-clientes-ufo">
+<link rel="stylesheet" href="style.css?v=20260627-cards-portfolio-equipamentos">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -407,16 +407,25 @@ font-src https://fonts.gstatic.com;
 <section id="services" class="services">
   <h2>Serviços</h2>
   <div class="services-grid services-grid-optimized">
-    <div class="service-card fade-in">
-      <h3>🎬 Produção e direção</h3>
+    <div class="service-card service-card-production fade-in">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-production" aria-hidden="true"></span>
+        <h3>Produção e direção</h3>
+      </div>
       <p>Planejamento, roteiro, captação e direção para criar vídeos com objetivo claro, seja para marca, produto, evento ou campanha.</p>
     </div>
-    <div class="service-card fade-in">
-      <h3>✂️ Edição e pós-produção</h3>
+    <div class="service-card service-card-editing fade-in">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-editing" aria-hidden="true"></span>
+        <h3>Edição e pós-produção</h3>
+      </div>
       <p>Cortes, legenda, trilha, som, ritmo, cor e acabamento para transformar gravações em conteúdo profissional e fácil de assistir.</p>
     </div>
-    <div class="service-card fade-in">
-      <h3>📈 Criativos, IA e variações</h3>
+    <div class="service-card service-card-growth fade-in">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-growth" aria-hidden="true"></span>
+        <h3>Criativos, IA e variações</h3>
+      </div>
       <p>Vídeos para redes sociais, anúncios e testes de campanha, com IA quando ela ajuda a gerar impacto, clareza ou novas possibilidades visuais.</p>
     </div>
   </div>
@@ -724,16 +733,25 @@ Take Cut salvou meu trampo! 🩵"</p>
   </div>
 
   <div class="about-grid">
-    <div class="about-card fade-in">
-      <h3>🚀 Missão</h3>
+    <div class="about-card about-card-mission fade-in">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-mission" aria-hidden="true"></span>
+        <h3>Missão</h3>
+      </div>
       <p>Ajudar marcas e pessoas a comunicarem valor com mais clareza, estratégia e impacto visual.</p>
     </div>
-    <div class="about-card fade-in">
-      <h3>🎯 Visão</h3>
+    <div class="about-card about-card-vision fade-in">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-vision" aria-hidden="true"></span>
+        <h3>Visão</h3>
+      </div>
       <p>Ser referência em vídeos comerciais, criativos para redes sociais e produção audiovisual com IA no Brasil.</p>
     </div>
-    <div class="about-card fade-in">
-      <h3>💎 Valores</h3>
+    <div class="about-card about-card-values fade-in">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-values" aria-hidden="true"></span>
+        <h3>Valores</h3>
+      </div>
       <p>Clareza, intenção, empatia, evolução constante, respeito ao cliente e compromisso com a entrega.</p>
     </div>
   </div>
@@ -784,7 +802,18 @@ Take Cut salvou meu trampo! 🩵"</p>
   <div class="equipamentos-container">
     <h2 class="equipamentos-title">Equipamentos Profissionais</h2>
     <div class="equipamentos-box">
-      <p>Conheça os equipamentos que recomendamos para produções. Câmeras, iluminação, áudio e acessórios profissionais.</p>
+      <div class="equipamentos-card-head">
+        <span class="tc-card-icon tc-icon-equipment" aria-hidden="true"></span>
+        <div class="equipamentos-copy">
+          <h3>Kit certo para gravar com mais qualidade</h3>
+          <p>Conheça os equipamentos que recomendamos para produções. Câmeras, iluminação, áudio e acessórios profissionais.</p>
+        </div>
+      </div>
+      <ul class="equipamentos-list" aria-label="Categorias de equipamentos profissionais">
+        <li>Câmeras</li>
+        <li>Iluminação</li>
+        <li>Áudio</li>
+      </ul>
       <a href="/produtos" class="btn-equipamentos">Ver Equipamentos</a>
     </div>
   </div>
@@ -793,20 +822,32 @@ Take Cut salvou meu trampo! 🩵"</p>
   <h2>Pronto para melhorar seus vídeos?</h2>
   <p class="contact-subtitle">Envie seu Instagram, um vídeo atual ou conte sua ideia. A resposta vai direto para o WhatsApp.</p>
   <div class="contact-grid">
-    <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener" class="contact-card">
-      <h3>💬 WhatsApp</h3>
+    <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener" class="contact-card contact-card-whatsapp">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-whatsapp" aria-hidden="true"></span>
+        <h3>WhatsApp</h3>
+      </div>
       <p>+55 11 5304-4748</p>
     </a>
-    <a href="https://forms.gle/TBiUyHQRnzV3hy9t5" target="_blank" rel="noopener" class="contact-card">
-      <h3>📋 Formulário</h3>
+    <a href="https://forms.gle/TBiUyHQRnzV3hy9t5" target="_blank" rel="noopener" class="contact-card contact-card-form">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-form" aria-hidden="true"></span>
+        <h3>Formulário</h3>
+      </div>
       <p>Solicitar orçamento completo</p>
     </a>
-    <a href="mailto:takecutedit@gmail.com" class="contact-card">
-      <h3>📧 Email</h3>
+    <a href="mailto:takecutedit@gmail.com" class="contact-card contact-card-email">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-email" aria-hidden="true"></span>
+        <h3>Email</h3>
+      </div>
       <p>takecutedit@gmail.com</p>
     </a>
-    <a href="https://www.instagram.com/takecutedit/" target="_blank" rel="noopener" class="contact-card">
-      <h3>📸 Instagram</h3>
+    <a href="https://www.instagram.com/takecutedit/" target="_blank" rel="noopener" class="contact-card contact-card-instagram">
+      <div class="tc-card-head">
+        <span class="tc-card-icon tc-icon-instagram" aria-hidden="true"></span>
+        <h3>Instagram</h3>
+      </div>
       <p>@takecutedit</p>
     </a>
   </div>
