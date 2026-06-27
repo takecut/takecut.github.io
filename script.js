@@ -486,22 +486,31 @@ function createUniverse() {
   }
 
   const ufoLanes = isMobile
-    ? [{ min: 46, max: 54 }]
+    ? [
+        // Mobile continua com apenas 1 disco no centro para não poluir a tela pequena.
+        { min: 46, max: 54, delay: 0, scaleMin: 0.88, scaleMax: 1.08 }
+      ]
     : [
-        { min: 34, max: 40 },
-        { min: 48, max: 56 },
-        { min: 62, max: 68 }
+        // Desktop: três faixas bem separadas para evitar discos "um em cima do outro".
+        { min: 18, max: 24, delay: 0,   scaleMin: 0.78, scaleMax: 0.96 }, // topo
+        { min: 46, max: 54, delay: 3.7, scaleMin: 0.96, scaleMax: 1.18 }, // meio
+        { min: 74, max: 82, delay: 7.4, scaleMin: 0.82, scaleMax: 1.05 }  // baixo
       ];
 
   for (let i = 0; i < ufoCount; i++) {
     const ufo = document.createElement("div");
     const lane = ufoLanes[i % ufoLanes.length];
-    // Duração fixa para o disco voador cruzar a tela com velocidade real de 6s.
-    const duration = 6;
-    const scale = randomBetween(0.78, 1.18).toFixed(2);
+
+    // Desktop ficou mais lento: 11s para atravessar a tela.
+    // Mobile permanece em 6s.
+    const duration = isMobile ? 6 : 11;
+    const scale = randomBetween(lane.scaleMin, lane.scaleMax).toFixed(2);
+
+    // Mobile começa em pontos diferentes do ciclo.
+    // Desktop começa escalonado para os discos não aparecerem/sumirem juntos.
     const phaseDelay = isMobile
       ? -randomBetween(0, duration)
-      : -((duration / ufoCount) * i + randomBetween(0, 1.8));
+      : lane.delay;
 
     ufo.className = "ufo";
     ufo.style.cssText = [
@@ -510,13 +519,13 @@ function createUniverse() {
       "animation-delay:" + phaseDelay.toFixed(1) + "s",
       "--ufo-duration:" + duration.toFixed(1) + "s",
       "--ufo-scale:" + scale,
-      "--ufo-start-x:" + randomBetween(-36, -22).toFixed(1) + "vw",
-      "--ufo-mid-x:" + randomBetween(30, 44).toFixed(1) + "vw",
-      "--ufo-mid-y:" + randomBetween(-6, 6).toFixed(1) + "vh",
-      "--ufo-late-x:" + randomBetween(68, 84).toFixed(1) + "vw",
-      "--ufo-late-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
-      "--ufo-end-x:" + randomBetween(114, 130).toFixed(1) + "vw",
-      "--ufo-end-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
+      "--ufo-start-x:" + randomBetween(-38, -24).toFixed(1) + "vw",
+      "--ufo-mid-x:" + randomBetween(32, 45).toFixed(1) + "vw",
+      "--ufo-mid-y:" + randomBetween(-3, 3).toFixed(1) + "vh",
+      "--ufo-late-x:" + randomBetween(72, 86).toFixed(1) + "vw",
+      "--ufo-late-y:" + randomBetween(-3, 3).toFixed(1) + "vh",
+      "--ufo-end-x:" + randomBetween(118, 134).toFixed(1) + "vw",
+      "--ufo-end-y:" + randomBetween(-3, 3).toFixed(1) + "vh",
       "--ufo-rotate-start:" + randomBetween(-8, -3).toFixed(1) + "deg",
       "--ufo-rotate-mid:" + randomBetween(-2, 4).toFixed(1) + "deg",
       "--ufo-rotate-late:" + randomBetween(-4, 3).toFixed(1) + "deg",
