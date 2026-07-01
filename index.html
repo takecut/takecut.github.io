@@ -43,7 +43,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260627-equipamentos-alinhado">
+<link rel="stylesheet" href="style.css?v=20260701-loading-premium">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -198,11 +198,21 @@ font-src https://fonts.gstatic.com;
 <body>
 
 <div id="loadingScreen">
-  <div class="loading-inner">
-    <img src="logo.png" alt="Take Cut" class="loading-logo">
-    <p class="loading-text">Renderizando</p>
-    <div class="loading-bar-bg">
+  <div class="loading-inner" aria-label="Carregando Take Cut">
+    <div class="loading-orbit" aria-hidden="true"></div>
+    <div class="loading-logo-wrap">
+      <span class="loading-logo-glow" aria-hidden="true"></span>
+      <img src="logo.png" alt="Take Cut" class="loading-logo">
+    </div>
+    <p class="loading-kicker">Take Cut Studio</p>
+    <p class="loading-text">Renderizando experiência</p>
+    <div class="loading-bar-bg" aria-hidden="true">
       <div class="loading-bar" id="loadingBar"></div>
+    </div>
+    <div class="loading-status" aria-hidden="true">
+      <span>Roteiro</span>
+      <span>Edição</span>
+      <span>Entrega</span>
     </div>
   </div>
 </div>
