@@ -5530,3 +5530,105 @@ a.back-btn:hover::after,
     letter-spacing: 0.12em !important;
   }
 }
+
+
+/* =====================================================
+   TAKE CUT — Loading Screen Mobile Fullscreen + preload real
+   Corrige barra inferior aparecendo, trava o site atrás e mantém o load até o hero estar pronto.
+   ===================================================== */
+html.takecut-loading-active,
+body.takecut-loading-active {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  background: #050607 !important;
+}
+
+body.takecut-loading-active {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  touch-action: none !important;
+}
+
+body.takecut-loading-active > :not(#loadingScreen) {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 768px) {
+  #loadingScreen.active {
+    display: grid !important;
+    place-items: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    height: 100dvh !important;
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+    margin: 0 !important;
+    padding: max(22px, env(safe-area-inset-top)) 22px max(22px, env(safe-area-inset-bottom)) !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    z-index: 2147483647 !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(0,255,178,0.18), transparent 32%),
+      radial-gradient(circle at 16% 18%, rgba(0,255,178,0.11), transparent 28%),
+      radial-gradient(circle at 85% 80%, rgba(255,255,255,0.055), transparent 28%),
+      linear-gradient(180deg, #030404 0%, #0B0B0C 50%, #020303 100%) !important;
+  }
+
+  #loadingScreen.active::before {
+    inset: -36% !important;
+    opacity: 0.50 !important;
+  }
+
+  #loadingScreen.active::after {
+    opacity: 0.46 !important;
+  }
+
+  #loadingScreen.done {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  #loadingScreen.active .loading-inner {
+    width: min(86vw, 400px) !important;
+    max-width: 400px !important;
+    min-height: 330px !important;
+    justify-content: center !important;
+    transform: translateY(-1.5vh) !important;
+  }
+
+  #loadingScreen.active .loading-logo-glow {
+    width: 215px !important;
+    height: 105px !important;
+    opacity: 0.92 !important;
+  }
+
+  #loadingScreen.active .loading-logo {
+    width: min(252px, 74vw) !important;
+    filter:
+      drop-shadow(0 0 12px rgba(0,255,178,0.50))
+      drop-shadow(0 0 36px rgba(0,255,178,0.23)) !important;
+  }
+
+  #loadingScreen.active .loading-bar-bg {
+    height: 14px !important;
+  }
+
+  #loadingScreen.active .loading-bar {
+    transition: width 0.22s cubic-bezier(.22,.8,.28,1) !important;
+  }
+}
