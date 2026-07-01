@@ -5632,3 +5632,21 @@ body.takecut-loading-active > :not(#loadingScreen) {
     transition: width 0.22s cubic-bezier(.22,.8,.28,1) !important;
   }
 }
+
+
+/* =====================================================
+   TAKE CUT — Ajuste loading: mais rápido e sem flash de estrelas/disco
+   ===================================================== */
+@media (max-width: 768px) {
+  #loadingScreen.active.done {
+    opacity: 0 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+  }
+
+  #loadingScreen.active {
+    min-height: 100vh !important;
+    min-height: 100svh !important;
+    min-height: 100dvh !important;
+  }
+}
