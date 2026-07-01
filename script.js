@@ -1,10 +1,13 @@
 // LOADING SCREEN
-// Aparece somente uma vez no mobile. Depois disso, o usuário pode voltar ao site sem ver a tela de renderização de novo.
+// Mobile: tela de renderização em tela cheia, com tempo mínimo e espera do vídeo de background.
 (function () {
   var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
-  var storageKey = "takecutLoadingScreenSeen";
+  var storageKey = "takecutLoadingScreenSeen_v20260701_fullscreen";
   var loadScreen = document.getElementById("loadingScreen");
   var loadBar = document.getElementById("loadingBar");
+  var root = document.documentElement;
+  var MIN_DISPLAY_TIME = 4800;
+  var MAX_DISPLAY_TIME = 11000;
 
   function storageGet(key) {
     try { return window.localStorage.getItem(key); }
@@ -16,69 +19,159 @@
     catch (e) { /* Se o navegador bloquear storage, o site continua funcionando. */ }
   }
 
+  function lockPageBehindLoading() {
+    root.classList.add("takecut-loading-active");
+    if (document.body) document.body.classList.add("takecut-loading-active");
+  }
+
+  function unlockPageBehindLoading() {
+    root.classList.remove("takecut-loading-active");
+    if (document.body) document.body.classList.remove("takecut-loading-active");
+  }
+
   function removeLoadingScreen() {
+    unlockPageBehindLoading();
     if (loadScreen) loadScreen.remove();
   }
 
-  // Desktop não usa loading screen. Mobile só usa na primeira visita.
+  // Desktop não usa loading screen. Mobile usa na primeira visita desta nova versão.
   if (!loadScreen || !loadBar || !isMobileDevice || storageGet(storageKey) === "true") {
     removeLoadingScreen();
     return;
   }
 
   storageSet(storageKey, "true");
+  lockPageBehindLoading();
   loadScreen.classList.add("active");
 
+  var startedAt = Date.now();
   var progress = 0;
   var finished = false;
+
+  // Progresso mais cinematográfico: não dispara até 100% antes do vídeo de fundo estar pronto.
   var interval = setInterval(function () {
-    var remaining = 100 - progress;
-    var step = Math.max(1, remaining * 0.06);
-    progress = Math.min(progress + step, 94);
-    loadBar.style.width = progress + "%";
-  }, 60);
+    var target = 88;
+    var remaining = target - progress;
+    var step = Math.max(0.22, remaining * 0.035);
+    progress = Math.min(progress + step, target);
+    loadBar.style.width = progress.toFixed(1) + "%";
+  }, 90);
 
-  // Não espera TODAS as imagens do site, porque isso fazia logos e imagens distantes segurarem o loader.
-  function waitForCriticalImages() {
-    var selectors = ["#loadingScreen img", ".navbar .logo img", ".showreel .thumb"];
-    var images = [];
+  function wait(ms) {
+    return new Promise(function (resolve) { setTimeout(resolve, ms); });
+  }
 
+  function waitForWindowLoad() {
+    if (document.readyState === "complete") return Promise.resolve();
+    return new Promise(function (resolve) {
+      window.addEventListener("load", resolve, { once: true });
+    });
+  }
+
+  function waitForImage(img) {
+    if (!img || img.complete) return Promise.resolve();
+    return new Promise(function (resolve) {
+      img.addEventListener("load", resolve, { once: true });
+      img.addEventListener("error", resolve, { once: true });
+    });
+  }
+
+  function getActiveHeroBackgroundVideoForLoading() {
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    return document.querySelector(isMobile ? ".bg-video-mobile" : ".bg-video-desktop") || document.querySelector(".js-hero-bg-video");
+  }
+
+  function waitForHeroBackgroundVideo() {
+    var video = getActiveHeroBackgroundVideoForLoading();
+    if (!video) return Promise.resolve();
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    if (video.readyState >= 3) return Promise.resolve();
+
+    return new Promise(function (resolve) {
+      var done = false;
+      var timeout = setTimeout(finish, 9000);
+
+      function finish() {
+        if (done) return;
+        done = true;
+        clearTimeout(timeout);
+        video.removeEventListener("canplaythrough", finish);
+        video.removeEventListener("canplay", finish);
+        video.removeEventListener("loadeddata", finish);
+        video.removeEventListener("error", finish);
+        resolve();
+      }
+
+      video.addEventListener("canplaythrough", finish, { once: true });
+      video.addEventListener("canplay", finish, { once: true });
+      video.addEventListener("loadeddata", finish, { once: true });
+      video.addEventListener("error", finish, { once: true });
+
+      try { video.load(); } catch (e) {}
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () { /* O toque do usuário libera depois, se o navegador bloquear. */ });
+      }
+    });
+  }
+
+  function waitForCriticalAssets() {
+    var selectors = [
+      "#loadingScreen img",
+      ".navbar .logo img",
+      ".showreel .thumb",
+      ".bg-video-mobile",
+      ".bg-video-desktop"
+    ];
+
+    var imagePromises = [];
     selectors.forEach(function (selector) {
-      document.querySelectorAll(selector).forEach(function (img) {
-        if (images.indexOf(img) === -1) images.push(img);
+      document.querySelectorAll(selector).forEach(function (el) {
+        if (el.tagName === "IMG") imagePromises.push(waitForImage(el));
       });
     });
 
-    var promises = images.map(function (img) {
-      if (img.complete) return Promise.resolve();
-      return new Promise(function (resolve) {
-        img.onload = resolve;
-        img.onerror = resolve;
-      });
-    });
-
-    return Promise.all(promises);
+    // Espera a página base, as imagens críticas e principalmente o vídeo de background do hero.
+    return Promise.all(imagePromises.concat([
+      waitForWindowLoad(),
+      waitForHeroBackgroundVideo()
+    ]));
   }
 
   function finishLoading() {
     if (finished) return;
     finished = true;
     clearInterval(interval);
-    loadBar.style.width = "100%";
 
-    setTimeout(function () {
-      loadScreen.style.opacity = "0";
-      loadScreen.style.transition = "opacity 0.5s ease";
-      setTimeout(removeLoadingScreen, 500);
-    }, 260);
+    var elapsed = Date.now() - startedAt;
+    var remainingMinimum = Math.max(0, MIN_DISPLAY_TIME - elapsed);
+
+    wait(remainingMinimum).then(function () {
+      loadBar.style.width = "100%";
+      setTimeout(function () {
+        loadScreen.classList.add("done");
+        loadScreen.style.opacity = "0";
+        loadScreen.style.visibility = "hidden";
+        loadScreen.style.transition = "opacity 0.65s ease, visibility 0.65s ease";
+        setTimeout(removeLoadingScreen, 700);
+      }, 520);
+    });
   }
 
-  window.addEventListener("load", function () {
-    waitForCriticalImages().then(finishLoading);
-  }, { once: true });
+  waitForCriticalAssets().then(finishLoading);
 
-  // Segurança: se algo travar, fecha mesmo assim.
-  setTimeout(finishLoading, 3500);
+  // Segurança: se a rede estiver ruim demais, não prende o usuário para sempre.
+  setTimeout(finishLoading, MAX_DISPLAY_TIME);
 })();
 
 // MENU
