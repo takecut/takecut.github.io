@@ -43,7 +43,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260701-loading-fast-noflash">
+<link rel="stylesheet" href="style.css?v=20260705-ipad-loading-fix">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -56,6 +56,28 @@ font-src https://fonts.gstatic.com;
 <link rel="preload" as="image" href="cliente4.png" fetchpriority="low">
 <link rel="preload" as="image" href="cliente5.png" fetchpriority="low">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+(function () {
+  var key = "takecutLoadingScreenSeen_v20260705_firstpaint_fix";
+  var isMobile = false;
+
+  try {
+    isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
+  } catch (e) {
+    isMobile = false;
+  }
+
+  if (!isMobile) return;
+
+  try {
+    if (window.localStorage && window.localStorage.getItem(key) === "true") return;
+  } catch (e) {
+    /* Se o navegador bloquear o storage, prioriza evitar o flash inicial no mobile. */
+  }
+
+  document.documentElement.classList.add("takecut-loading-active", "takecut-loading-boot");
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -888,7 +910,7 @@ Take Cut salvou meu trampo! 🩵"</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
 
-<script src="script.js?v=20260701-loading-fast-noflash" defer></script>
+<script src="script.js?v=20260705-ipad-loading-fix" defer></script>
 <script src="cookie-consent.js?v=20260622-mobilecases1" defer></script>
 </body>
 </html>
