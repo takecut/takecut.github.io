@@ -8,6 +8,52 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.takecut.com.br/">
 <meta name="theme-color" content="#0B0B0C">
+<style id="takecut-first-paint-hotfix">
+  html.takecut-loading-active,
+  html.takecut-loading-active body {
+    background: #050607 !important;
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
+  html.takecut-loading-active body > :not(#loadingScreen) {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  @media (max-width: 768px) {
+    html.takecut-loading-active #loadingScreen {
+      display: grid !important;
+      place-items: center !important;
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100svh !important;
+      height: 100dvh !important;
+      min-height: 100vh !important;
+      min-height: 100svh !important;
+      min-height: 100dvh !important;
+      margin: 0 !important;
+      z-index: 2147483647 !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      background: #050607 !important;
+    }
+  }
+</style>
+<script id="takecut-loading-boot-hotfix">
+(function () {
+  var isMobile = false;
+  try {
+    isMobile = /Android|iPhone|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
+  } catch (e) {
+    isMobile = false;
+  }
+  if (isMobile) {
+    document.documentElement.classList.add("takecut-loading-active", "takecut-loading-boot");
+  }
+})();
+</script>
+
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-takecut.png">
 <link rel="shortcut icon" type="image/png" href="/favicon-takecut.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-takecut.png">
@@ -43,7 +89,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260705-ipad-loading-fix">
+<link rel="stylesheet" href="style.css?v=20260706-final-cache-bust">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -56,28 +102,6 @@ font-src https://fonts.gstatic.com;
 <link rel="preload" as="image" href="cliente4.png" fetchpriority="low">
 <link rel="preload" as="image" href="cliente5.png" fetchpriority="low">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>
-(function () {
-  var key = "takecutLoadingScreenSeen_v20260705_firstpaint_fix";
-  var isMobile = false;
-
-  try {
-    isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
-  } catch (e) {
-    isMobile = false;
-  }
-
-  if (!isMobile) return;
-
-  try {
-    if (window.localStorage && window.localStorage.getItem(key) === "true") return;
-  } catch (e) {
-    /* Se o navegador bloquear o storage, prioriza evitar o flash inicial no mobile. */
-  }
-
-  document.documentElement.classList.add("takecut-loading-active", "takecut-loading-boot");
-})();
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -910,7 +934,7 @@ Take Cut salvou meu trampo! 🩵"</p>
   <p><a href="termos.html">Termos</a> • <a href="termos.html#cookies">Política de Cookies</a></p>
 </footer>
 
-<script src="script.js?v=20260705-ipad-loading-fix" defer></script>
+<script src="script.js?v=20260706-final-cache-bust" defer></script>
 <script src="cookie-consent.js?v=20260622-mobilecases1" defer></script>
 </body>
 </html>
