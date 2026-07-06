@@ -32,25 +32,77 @@
   }
 
   .portfolio-hero {
-    max-width: 820px;
-    margin: 0 auto 38px;
+    position: relative;
+    max-width: 930px;
+    margin: 0 auto 46px;
+    padding: 0 10px;
+  }
+
+  .portfolio-hero-card {
+    position: relative;
+    overflow: hidden;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: clamp(30px, 5vw, 58px) clamp(24px, 5vw, 70px);
+    border-radius: 34px;
+    border: 1px solid rgba(0,255,178,0.22);
+    background:
+      radial-gradient(circle at 50% -20%, rgba(0,255,178,0.18), transparent 44%),
+      linear-gradient(135deg, rgba(0,255,178,0.08), rgba(255,255,255,0.035) 42%, rgba(0,255,178,0.055)),
+      rgba(10,11,12,0.72);
+    box-shadow:
+      0 28px 90px rgba(0,0,0,0.38),
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 0 0 1px rgba(255,255,255,0.03);
+  }
+
+  .portfolio-hero-card,
+  .portfolio-hero-card * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .portfolio-hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 26px;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  .portfolio-hero-card::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: min(520px, 72%);
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(0,255,178,0.85), transparent);
+    pointer-events: none;
+  }
+
+  .portfolio-hero-card > * {
+    position: relative;
+    z-index: 1;
   }
 
   .portfolio-page h1 {
-    font-size: clamp(32px, 5vw, 56px);
+    font-size: clamp(36px, 5.2vw, 62px);
     font-weight: 800;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.05em;
     color: var(--tc-white);
-    margin-bottom: 12px;
-    text-shadow: 0 0 15px rgba(0,255,178,0.25);
+    margin-bottom: 16px;
+    text-shadow: 0 0 18px rgba(0,255,178,0.18);
   }
 
   .portfolio-page .subtitle {
     color: rgba(245,245,245,0.72);
-    font-size: 17px;
-    line-height: 1.7;
-    margin: 0 auto 22px;
-    max-width: 720px;
+    font-size: clamp(16px, 1.7vw, 18px);
+    line-height: 1.75;
+    margin: 0 auto;
+    max-width: 760px;
   }
 
 
@@ -619,8 +671,10 @@
   </a>
 
   <section class="portfolio-hero" aria-labelledby="portfolio-title">
-    <h1 id="portfolio-title">Portfólio Take Cut</h1>
-    <p class="subtitle">Aqui você vê exemplos reais de edição, ritmo, estética e narrativa visual. Cada projeto foi pensado para prender atenção, valorizar a marca e transformar vídeo em ferramenta de venda.</p>
+    <div class="portfolio-hero-card">
+      <h1 id="portfolio-title">Portfólio Take Cut</h1>
+      <p class="subtitle">Aqui você vê exemplos reais de edição, ritmo, estética e narrativa visual. Cada projeto foi pensado para prender atenção, valorizar a marca e transformar vídeo em ferramenta de venda.</p>
+    </div>
   </section>
 
   <div class="portfolio-filters" aria-label="Filtrar vídeos do portfólio">
@@ -839,6 +893,28 @@
       <div class="card-actions">
         <small>Objetivo: criar imagens marcantes sem depender de filmagem real.</small>
         <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20100%25%20IA%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
+      </div>
+    </div>
+  </article>
+
+
+  <article class="portfolio-page-card" data-category="ads ia camera3d">
+    <div class="portfolio-grid-item video-card">
+      <span class="video-badge">Horizontal / IA</span>
+      <video controls preload="metadata" poster="/thumbia1.jpg"><source src="/videoia3c.mp4" type="video/mp4"></video>
+    </div>
+    <div class="portfolio-page-caption">
+      <div class="eyebrow">Campanha visual com IA</div>
+      <h3>Cena com IA para marca</h3>
+      <p>Vídeo horizontal com estética de maquete, movimento de câmera e construção visual para transformar uma ideia comercial em uma cena chamativa e memorável.</p>
+      <div class="portfolio-tags">
+        <span>Vídeo com IA</span>
+        <span>Campanha visual</span>
+        <span>Produto e marca</span>
+      </div>
+      <div class="card-actions">
+        <small>Objetivo: gerar impacto visual e apresentar a marca de forma mais diferente.</small>
+        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20com%20IA%20para%20marca%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
       </div>
     </div>
   </article>
