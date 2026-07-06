@@ -5895,3 +5895,199 @@ body.takecut-loading-active > :not(#loadingScreen) {
   }
 }
 
+/* TAKE CUT — AJUSTE DEFINITIVO iPAD/TABLET 20260706
+   Escopo: somente 769px–1366px e tablets com toque.
+   Objetivo: corrigir Cases, carrossel do portfólio da home e evitar recorte de vídeos. */
+@media (min-width: 769px) and (max-width: 1366px),
+       (min-width: 769px) and (hover: none) and (pointer: coarse) {
+  section#cases.results.case-studies {
+    content-visibility: visible !important;
+    contain-intrinsic-size: auto !important;
+    padding: clamp(72px, 7vw, 104px) clamp(24px, 4vw, 54px) !important;
+    overflow: visible !important;
+  }
+
+  section#cases.results.case-studies h2 {
+    margin-bottom: clamp(28px, 4vw, 44px) !important;
+  }
+
+  section#cases.results.case-studies .results-grid.case-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: clamp(24px, 3.2vw, 34px) !important;
+    width: min(100%, 1120px) !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    justify-content: initial !important;
+    align-items: stretch !important;
+  }
+
+  section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
+  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
+  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 {
+    display: grid !important;
+    grid-template-columns: minmax(240px, 36%) minmax(0, 1fr) !important;
+    gap: clamp(22px, 3.5vw, 40px) !important;
+    align-items: center !important;
+    justify-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: clamp(20px, 3vw, 34px) !important;
+    transform: none !important;
+    border-radius: 30px !important;
+    overflow: hidden !important;
+    background:
+      radial-gradient(circle at 14% 12%, rgba(0,255,178,0.16), transparent 30%),
+      linear-gradient(180deg, rgba(255,255,255,0.065), rgba(255,255,255,0.025)),
+      rgba(20,20,22,0.96) !important;
+    border: 1px solid rgba(0,255,178,0.20) !important;
+    box-shadow: 0 26px 80px rgba(0,0,0,0.34), 0 0 34px rgba(0,255,178,0.055) !important;
+  }
+
+  section#cases.results.case-studies .case-card .video-box {
+    grid-column: 1 !important;
+    width: 100% !important;
+    max-width: min(330px, 100%) !important;
+    aspect-ratio: 9 / 16 !important;
+    height: auto !important;
+    margin: 0 !important;
+    justify-self: start !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    background: #080809 !important;
+    box-shadow: 0 18px 42px rgba(0,0,0,0.36), 0 0 24px rgba(0,255,178,0.10) !important;
+  }
+
+  section#cases.results.case-studies .case-card .video-box img,
+  section#cases.results.case-studies .case-card .video-box video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  section#cases.results.case-studies .case-info {
+    grid-column: 2 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  section#cases.results.case-studies .case-label {
+    margin-bottom: 14px !important;
+  }
+
+  section#cases.results.case-studies .case-info h3 {
+    font-size: clamp(32px, 4.8vw, 54px) !important;
+    line-height: 1 !important;
+    margin: 0 0 18px !important;
+    text-align: left !important;
+  }
+
+  section#cases.results.case-studies .case-points {
+    display: grid !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  section#cases.results.case-studies .case-points li {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 12px 14px !important;
+    border-radius: 15px !important;
+    background: rgba(255,255,255,0.045) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    font-size: clamp(13px, 1.35vw, 15px) !important;
+    line-height: 1.48 !important;
+  }
+
+  #portfolioCarousel {
+    overflow: visible !important;
+  }
+
+  #portfolioCarousel .carousel-container {
+    padding-left: clamp(24px, 4vw, 54px) !important;
+    padding-right: clamp(24px, 4vw, 54px) !important;
+    overflow: visible !important;
+  }
+
+  #portfolioCarousel .carousel {
+    gap: 22px !important;
+    align-items: stretch !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+
+  #portfolioCarousel .carousel::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  #portfolioCarousel .portfolio-card {
+    flex: 0 0 calc((100% - 22px) / 2) !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    scroll-snap-align: start !important;
+  }
+
+  #portfolioCarousel .carousel-item {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    border-radius: 16px !important;
+    background: #080809 !important;
+    overflow: hidden !important;
+    contain: layout paint !important;
+  }
+
+  #portfolioCarousel .carousel-item video {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #080809 !important;
+    display: block !important;
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
+  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
+  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 {
+    grid-template-columns: minmax(210px, 34%) minmax(0, 1fr) !important;
+    gap: 20px !important;
+    padding: 20px !important;
+  }
+
+  section#cases.results.case-studies .case-card .video-box {
+    max-width: 240px !important;
+  }
+
+  section#cases.results.case-studies .case-info h3 {
+    font-size: clamp(29px, 4.2vw, 38px) !important;
+  }
+
+  #portfolioCarousel .portfolio-card {
+    flex-basis: min(74vw, 520px) !important;
+  }
+}
+
