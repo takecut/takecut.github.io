@@ -2,7 +2,7 @@
 // Mobile: tela de renderização em tela cheia, sem ficar lenta demais e sem flash entre o loading e o site.
 (function () {
   var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
-  var storageKey = "takecutLoadingScreenSeen_v20260705_firstpaint_fix";
+  var storageKey = "takecutLoadingScreenSeen_20260706-final-cache-bust";
   var loadScreen = document.getElementById("loadingScreen");
   var loadBar = document.getElementById("loadingBar");
   var root = document.documentElement;
@@ -23,12 +23,12 @@
   }
 
   function lockPageBehindLoading() {
-    root.classList.add("takecut-loading-active", "takecut-loading-boot");
+    root.classList.add("takecut-loading-active");
     if (document.body) document.body.classList.add("takecut-loading-active");
   }
 
   function unlockPageBehindLoading() {
-    root.classList.remove("takecut-loading-active", "takecut-loading-boot");
+    root.classList.remove("takecut-loading-active");
     if (document.body) document.body.classList.remove("takecut-loading-active");
   }
 
@@ -36,16 +36,17 @@
     if (loadScreen) loadScreen.remove();
   }
 
-  // Desktop não usa loading screen. Mobile usa na primeira visita desta versão.
-  if (!loadScreen || !loadBar || !isMobileDevice || storageGet(storageKey) === "true") {
+  // Desktop não usa loading screen. Mobile sempre mostra o loading antes do site.
+  // Não usamos localStorage aqui, porque o bug vinha justamente do site aparecer em visitas seguintes.
+  if (!loadScreen || !loadBar || !isMobileDevice) {
     unlockPageBehindLoading();
     removeLoadingScreen();
     return;
   }
 
-  storageSet(storageKey, "true");
   lockPageBehindLoading();
   loadScreen.classList.add("active");
+  loadScreen.removeAttribute("hidden");
 
   var startedAt = Date.now();
   var progress = 0;
@@ -359,9 +360,7 @@ function setupSmartVideoLoading() {
 // PORTFÓLIO — garante que o card "Vídeo emocional" carregue no desktop.
 // Alguns navegadores deixam vídeos autoplay/preload none em espera dentro do carrossel.
 function setupPortfolioPriorityVideos() {
-  const isTabletPortfolio = window.matchMedia("(min-width: 740px) and (max-width: 1180px)").matches;
-  const selector = isTabletPortfolio ? "#portfolioCarousel video, .portfolio-mobile video" : "video[data-portfolio-priority='true']";
-  const priorityPortfolioVideos = document.querySelectorAll(selector);
+  const priorityPortfolioVideos = document.querySelectorAll("video[data-portfolio-priority='true']");
   if (!priorityPortfolioVideos.length) return;
 
   function prepare(video) {
