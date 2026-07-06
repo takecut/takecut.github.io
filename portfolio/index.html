@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Take Cut">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/logo1.png">
-<link rel="stylesheet" href="/style.css?v=20260705-ipad-loading-fix">
+<link rel="stylesheet" href="/style.css?v=20260706-final-cache-bust">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -388,12 +388,16 @@
     .card-cta { width: 100%; }
   }
 
-
-  /* TAKE CUT — Hotfix 20260705: iPad/tablet para vídeos verticais */
-  @media (min-width: 740px) and (max-width: 1180px) {
+  /* TAKE CUT — HOTFIX FINAL 20260706: iPad/tablet para vídeos verticais */
+  @media (min-width: 769px) and (max-width: 1180px) {
     .portfolio-page {
-      max-width: 1060px;
-      padding: 56px 28px 86px;
+      max-width: 1080px !important;
+      padding: 54px 28px 86px !important;
+    }
+
+    .portfolio-section-heading {
+      align-items: flex-start !important;
+      gap: 22px !important;
     }
 
     .portfolio-grid {
@@ -402,53 +406,71 @@
     }
 
     .portfolio-page-card.is-vertical {
-      grid-column: 1 / -1;
+      grid-column: 1 / -1 !important;
       display: grid !important;
-      grid-template-columns: minmax(280px, 36%) minmax(0, 1fr);
-      align-items: stretch;
+      grid-template-columns: minmax(270px, 34%) minmax(0, 1fr) !important;
+      align-items: stretch !important;
       max-width: 100% !important;
-      min-height: 440px;
-      margin: 0;
+      min-height: 430px !important;
+      margin: 0 !important;
+      overflow: hidden !important;
     }
 
     .portfolio-page-card.is-vertical .portfolio-grid-item {
       aspect-ratio: auto !important;
-      height: auto;
-      min-height: 100%;
-      border-radius: 0;
+      height: 100% !important;
+      min-height: 430px !important;
+      border-radius: 0 !important;
+      background:
+        radial-gradient(circle at center, rgba(0,255,178,0.13), transparent 46%),
+        #080809 !important;
     }
 
     .portfolio-page-card.is-vertical .portfolio-grid-item video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      background: #080809 !important;
+      display: block !important;
     }
 
     .portfolio-page-card.is-vertical .portfolio-page-caption {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(22px, 3vw, 30px);
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      padding: clamp(22px, 3vw, 32px) !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-tags {
+      margin-top: 16px !important;
+      margin-bottom: 20px !important;
     }
 
     .portfolio-page-card.is-vertical .card-actions {
-      margin-top: auto;
+      margin-top: auto !important;
     }
   }
 
-  @media (min-width: 740px) and (max-width: 900px) {
+  @media (min-width: 769px) and (max-width: 900px) {
     .portfolio-page-card.is-vertical {
-      grid-template-columns: minmax(260px, 42%) minmax(0, 1fr);
-      min-height: 420px;
+      grid-template-columns: minmax(230px, 36%) minmax(0, 1fr) !important;
+      min-height: 390px !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-grid-item {
+      min-height: 390px !important;
     }
 
     .portfolio-page-caption h3 {
-      font-size: 18px;
+      font-size: 18px !important;
     }
 
     .portfolio-page-caption p {
-      font-size: 13.5px;
+      font-size: 13.5px !important;
+    }
+
+    .portfolio-tags span {
+      font-size: 12.5px !important;
     }
   }
 
@@ -843,5 +865,30 @@ document.querySelectorAll(".portfolio-page-card video").forEach(function(video) 
 });
 </script>
 <script src="/cookie-consent.js" defer></script>
+<script id="takecut-portfolio-video-hotfix">
+(function () {
+  var isTablet = window.matchMedia && window.matchMedia("(min-width: 769px) and (max-width: 1180px)").matches;
+  if (!isTablet) return;
+
+  function prepareVideo(video) {
+    if (!video) return;
+    video.preload = "metadata";
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    try { video.load(); } catch (e) {}
+  }
+
+  function preparePortfolioVideos() {
+    document.querySelectorAll(".portfolio-page-card.is-vertical video, #portfolioCarousel video").forEach(prepareVideo);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", preparePortfolioVideos, { once: true });
+  } else {
+    preparePortfolioVideos();
+  }
+})();
+</script>
+
 </body>
 </html>
