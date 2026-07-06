@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Take Cut">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="/logo1.png">
-<link rel="stylesheet" href="/style.css?v=20260706-final-cache-bust">
+<link rel="stylesheet" href="/style.css?v=20260706-ipad-v2">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -389,7 +389,7 @@
   }
 
   /* TAKE CUT — HOTFIX FINAL 20260706: iPad/tablet para vídeos verticais */
-  @media (min-width: 769px) and (max-width: 1180px) {
+  @media (min-width: 769px) and (max-width: 1366px) {
     .portfolio-page {
       max-width: 1080px !important;
       padding: 54px 28px 86px !important;
@@ -474,6 +474,124 @@
     }
   }
 
+
+  /* TAKE CUT — AJUSTE DEFINITIVO iPAD/TABLET 20260706
+     Redesenho dos vídeos verticais no iPad sem alterar textos. */
+  @media (min-width: 769px) and (max-width: 1366px),
+         (min-width: 769px) and (hover: none) and (pointer: coarse) {
+    .portfolio-page {
+      max-width: 1180px !important;
+      padding: clamp(48px, 6vw, 70px) clamp(24px, 4vw, 46px) 88px !important;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 22px !important;
+      align-items: stretch !important;
+    }
+
+    .portfolio-page-card.is-vertical {
+      display: grid !important;
+      grid-template-columns: minmax(150px, 39%) minmax(0, 1fr) !important;
+      align-items: stretch !important;
+      max-width: none !important;
+      width: 100% !important;
+      min-height: 356px !important;
+      margin: 0 !important;
+      border-radius: 24px !important;
+      overflow: hidden !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-grid-item {
+      aspect-ratio: auto !important;
+      height: 100% !important;
+      min-height: 356px !important;
+      border-radius: 0 !important;
+      background:
+        radial-gradient(circle at center, rgba(0,255,178,0.14), transparent 48%),
+        #080809 !important;
+      overflow: hidden !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-grid-item video {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #080809 !important;
+      display: block !important;
+    }
+
+    .portfolio-page-card.is-vertical .video-badge {
+      top: 12px !important;
+      left: 12px !important;
+      max-width: calc(100% - 24px) !important;
+      font-size: 11px !important;
+      padding: 7px 9px !important;
+      white-space: normal !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-page-caption {
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      min-width: 0 !important;
+      padding: clamp(18px, 2.4vw, 26px) !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-page-caption h3 {
+      font-size: clamp(18px, 2.2vw, 22px) !important;
+      line-height: 1.22 !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-page-caption p {
+      font-size: clamp(13px, 1.5vw, 14.5px) !important;
+      line-height: 1.55 !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-tags {
+      gap: 7px !important;
+      margin: 12px 0 16px !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-tags span {
+      font-size: 12px !important;
+      padding: 6px 8px !important;
+    }
+
+    .portfolio-page-card.is-vertical .card-actions {
+      gap: 10px !important;
+      padding-top: 14px !important;
+      margin-top: auto !important;
+    }
+
+    .portfolio-page-card.is-vertical .card-actions small {
+      font-size: 11.5px !important;
+    }
+
+    .portfolio-page-card.is-vertical .card-cta {
+      padding: 9px 12px !important;
+      font-size: 12.5px !important;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 940px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .portfolio-page-card.is-vertical {
+      grid-template-columns: minmax(220px, 34%) minmax(0, 1fr) !important;
+      min-height: 380px !important;
+    }
+
+    .portfolio-page-card.is-vertical .portfolio-grid-item {
+      min-height: 380px !important;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -528,7 +646,7 @@
   <article class="portfolio-page-card is-vertical" data-category="institucional social vertical">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Vertical / Corporativo</span>
-      <video controls preload="none" poster="/thumbp6.jpg"><source src="/video6.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp6.jpg"><source src="/video6.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Conteúdo corporativo</div>
@@ -549,7 +667,7 @@
   <article class="portfolio-page-card is-vertical" data-category="social vertical">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Vertical / Social</span>
-      <video controls preload="none" poster="/thumb1.png"><source src="/videor.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumb1.png"><source src="/videor.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Conteúdo de retenção</div>
@@ -570,7 +688,7 @@
   <article class="portfolio-page-card is-vertical" data-category="institucional vertical">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Vertical / Institucional</span>
-      <video controls preload="none" poster="/thumb2.png"><source src="/videor2.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumb2.png"><source src="/videor2.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Autoridade de marca</div>
@@ -591,7 +709,7 @@
   <article class="portfolio-page-card is-vertical" data-category="ads social vertical">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Vertical / Hospedagem</span>
-      <video controls preload="none" poster="/thumbp8.jpg"><source src="/video8.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp8.jpg"><source src="/video8.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Tour comercial</div>
@@ -623,7 +741,7 @@
   <article class="portfolio-page-card" data-category="ads ia">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal / Ads</span>
-      <video controls preload="none" poster="/thumbp1.png"><source src="/video1.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp1.png"><source src="/video1.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Criativo comercial</div>
@@ -644,7 +762,7 @@
   <article class="portfolio-page-card" data-category="youtube ia camera3d">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal / Câmera 3D</span>
-      <video controls preload="none" poster="/thumbp4.png"><source src="/video4.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp4.png"><source src="/video4.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Narrativa e ritmo</div>
@@ -665,7 +783,7 @@
   <article class="portfolio-page-card" data-category="youtube camera3d">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal / Câmera 3D</span>
-      <video controls preload="none" poster="/thumbp9.jpg"><source src="/video9.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp9.jpg"><source src="/video9.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Animação com profundidade</div>
@@ -686,7 +804,7 @@
   <article class="portfolio-page-card" data-category="emocional ia">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal</span>
-      <video controls preload="none" poster="/thumbp5.png"><source src="/video5.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp5.png"><source src="/video5.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Memória afetiva</div>
@@ -707,7 +825,7 @@
   <article class="portfolio-page-card" data-category="ia ads">
     <div class="portfolio-grid-item video-card">
       <span class="video-badge">Horizontal / 100% IA</span>
-      <video controls preload="none" poster="/thumbp7.jpg"><source src="/video7.mp4" type="video/mp4"></video>
+      <video controls preload="metadata" poster="/thumbp7.jpg"><source src="/video7.mp4" type="video/mp4"></video>
     </div>
     <div class="portfolio-page-caption">
       <div class="eyebrow">Vídeo gerado com IA</div>
@@ -867,7 +985,7 @@ document.querySelectorAll(".portfolio-page-card video").forEach(function(video) 
 <script src="/cookie-consent.js" defer></script>
 <script id="takecut-portfolio-video-hotfix">
 (function () {
-  var isTablet = window.matchMedia && window.matchMedia("(min-width: 769px) and (max-width: 1180px)").matches;
+  var isTablet = window.matchMedia && window.matchMedia("(min-width: 769px) and (max-width: 1366px)").matches;
   if (!isTablet) return;
 
   function prepareVideo(video) {
