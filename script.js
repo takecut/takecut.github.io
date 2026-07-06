@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setupSmartVideoLoading();
   setupPortfolioPriorityVideos();
   setupAdaptivePortfolioCarousel();
+  setupTabletPortfolioVideoPreparation();
   setupPlayableVideoControlsGuard();
   setupMobileCardReveal();
 });
@@ -875,3 +876,27 @@ function setupMobileCardReveal() {
     }
   });
 })();
+
+// TAKE CUT — iPad portfolio video preparation 20260706
+// Prepara os vídeos do carrossel no tablet para evitar o flash/recorte antes do metadata carregar.
+function setupTabletPortfolioVideoPreparation() {
+  if (!window.matchMedia) return;
+
+  var isTablet = window.matchMedia("(min-width: 769px) and (max-width: 1366px)").matches ||
+                 window.matchMedia("(min-width: 769px) and (hover: none) and (pointer: coarse)").matches;
+  if (!isTablet) return;
+
+  var videos = document.querySelectorAll("#portfolioCarousel video, .portfolio-page-card.is-vertical video");
+  videos.forEach(function (video) {
+    video.muted = video.hasAttribute("muted") ? video.muted : video.muted;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.style.objectFit = "contain";
+    video.style.objectPosition = "center center";
+    video.style.backgroundColor = "#080809";
+    try { video.load(); } catch (e) {}
+  });
+}
+
