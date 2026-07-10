@@ -6272,3 +6272,25 @@ body.takecut-loading-active > :not(#loadingScreen) {
     background: transparent !important;
   }
 }
+
+
+/* =====================================================
+   TAKE CUT — HOTFIX DESKTOP 20260710 v3
+   Navbar fosca desde o primeiro frame, sem voltar ao fundo chapado
+   da seção Nosso trabalho. Mobile preservado.
+   ===================================================== */
+@media (min-width: 769px) {
+  .navbar {
+    background: rgba(11, 11, 12, 0.70) !important;
+    background-color: rgba(11, 11, 12, 0.70) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(130%) !important;
+    backdrop-filter: blur(10px) saturate(130%) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.30) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .showreel {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+}
