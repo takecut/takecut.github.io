@@ -209,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // HERO BACKGROUND: força autoplay mudo/inline em celulares mais chatos.
   setupHeroBackgroundVideo();
+  setupDesktopHeroVideoLoopHotfix();
 
   // LAZY LOAD DE VÍDEOS: carrega antes de entrar na tela para não atrasar ao tocar.
   setupSmartVideoLoading();
@@ -238,18 +239,47 @@ function getActiveHeroBackgroundVideo() {
 
 function prepareHeroBackgroundVideo(video) {
   if (!video) return;
+
+  var isDesktopHero = window.matchMedia && window.matchMedia("(min-width: 769px)").matches;
+
   video.muted = true;
   video.defaultMuted = true;
-  video.loop = true;
   video.autoplay = true;
   video.playsInline = true;
   video.controls = false;
+  video.disablePictureInPicture = true;
+  video.preload = "auto";
+
+  // Desktop: Opera costuma exibir overlay quando o loop nativo reinicia.
+  // Por isso, no desktop o loop fica manual; no mobile o loop nativo permanece.
+  video.loop = !isDesktopHero;
+  if (isDesktopHero) {
+    video.removeAttribute("loop");
+  } else {
+    video.setAttribute("loop", "");
+  }
+
   video.removeAttribute("controls");
   video.setAttribute("muted", "");
+  video.setAttribute("autoplay", "");
   video.setAttribute("playsinline", "");
   video.setAttribute("webkit-playsinline", "");
+  video.setAttribute("disablepictureinpicture", "");
+  video.setAttribute("disableremoteplayback", "");
   video.setAttribute("aria-hidden", "true");
-  video.preload = "auto";
+  video.setAttribute("tabindex", "-1");
+  video.setAttribute("controlslist", "nodownload noremoteplayback nofullscreen noplaybackrate");
+
+  if (video.controlsList && typeof video.controlsList.add === "function") {
+    try {
+      video.controlsList.add("nodownload");
+      video.controlsList.add("noremoteplayback");
+      video.controlsList.add("nofullscreen");
+      video.controlsList.add("noplaybackrate");
+    } catch (e) {}
+  }
+
+  video.style.pointerEvents = "none";
 }
 
 function tryPlayHeroBackgroundVideo(video, shouldLoad) {
@@ -899,4 +929,76 @@ function setupTabletPortfolioVideoPreparation() {
     try { video.load(); } catch (e) {}
   });
 }
+
+// TAKE CUT — HOTFIX DESKTOP 20260710 ATUALIZADO
+// Opera pode exibir um overlay nativo quando o vídeo de background reinicia.
+// Este loop manual reinicia antes do último frame e mantém o vídeo sem controles nativos.
+function setupDesktopHeroVideoLoopHotfix() {
+  if (!window.matchMedia || !window.matchMedia("(min-width: 769px)").matches) return;
+
+  function safePlay(video) {
+    if (!video) return;
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  }
+
+  function harden(video) {
+    if (!video) return;
+
+    prepareHeroBackgroundVideo(video);
+    video.loop = false;
+    video.removeAttribute("loop");
+
+    if (video.dataset.takecutDesktopLoopHotfix === "true") {
+      safePlay(video);
+      return;
+    }
+
+    video.dataset.takecutDesktopLoopHotfix = "true";
+
+    video.addEventListener("timeupdate", function () {
+      if (!window.matchMedia("(min-width: 769px)").matches) return;
+      if (!video.duration || !isFinite(video.duration)) return;
+
+      var remaining = video.duration - video.currentTime;
+      if (remaining > 0 && remaining < 0.14) {
+        try {
+          video.currentTime = 0.06;
+        } catch (e) {}
+        safePlay(video);
+      }
+    }, { passive: true });
+
+    video.addEventListener("ended", function () {
+      if (!window.matchMedia("(min-width: 769px)").matches) return;
+      try {
+        video.currentTime = 0.06;
+      } catch (e) {}
+      safePlay(video);
+    });
+
+    safePlay(video);
+  }
+
+  document.querySelectorAll(".js-hero-bg-video, .bg-video").forEach(harden);
+}
+
+// Reaplica após o DOMContentLoaded porque o setup original também prepara o hero.
+(function () {
+  function applyDesktopHeroVideoLoopHotfix() {
+    setupDesktopHeroVideoLoopHotfix();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(applyDesktopHeroVideoLoopHotfix, 0);
+    setTimeout(applyDesktopHeroVideoLoopHotfix, 350);
+  });
+
+  window.addEventListener("pageshow", applyDesktopHeroVideoLoopHotfix);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) applyDesktopHeroVideoLoopHotfix();
+  });
+})();
 
