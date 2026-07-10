@@ -80,6 +80,7 @@ connect-src 'self' https://www.google-analytics.com;
 img-src 'self' data: https://www.google-analytics.com;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src https://fonts.gstatic.com;
+frame-src https://www.youtube-nocookie.com https://www.youtube.com;
 ">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
@@ -89,7 +90,7 @@ font-src https://fonts.gstatic.com;
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="style.css?v=20260706-ipad-v2">
+<link rel="stylesheet" href="style.css?v=20260709-showreel-youtube-v1">
 <link rel="preload" as="video" href="bg-desktop.mp4" type="video/mp4" media="(min-width: 769px)">
 <link rel="preload" as="video" href="bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
 <link rel="preload" as="image" href="bg-poster-desktop.jpg" media="(min-width: 769px)">
@@ -301,12 +302,14 @@ font-src https://fonts.gstatic.com;
 <section class="showreel">
   <h2>Nosso trabalho</h2>
   <div class="result-item">
-    <div class="video-box horizontal destaque" onclick="playVideo(this, event)">
-      <img src="thumbshow.png" class="thumb" loading="lazy" alt="Showreel Take Cut">
-      <span class="play-btn"><span class="play-icon"></span></span>
-      <video class="video" controls preload="none">
-        <source src="videop.mp4" type="video/mp4">
-      </video>
+    <div class="showreel-video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/6UuCivqx5C0?rel=0"
+        title="Showreel Take Cut"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
     </div>
   </div>
   <p class="secure-text">🔒 Navegue tranquilo, nosso site é seguro</p>
