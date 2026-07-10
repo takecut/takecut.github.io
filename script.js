@@ -238,9 +238,12 @@ function getActiveHeroBackgroundVideo() {
 
 function prepareHeroBackgroundVideo(video) {
   if (!video) return;
+  const isDesktopBackground = video.classList.contains("bg-video-desktop");
   video.muted = true;
   video.defaultMuted = true;
-  video.loop = true;
+  video.loop = !isDesktopBackground;
+  if (isDesktopBackground) video.removeAttribute("loop");
+  else video.setAttribute("loop", "");
   video.autoplay = true;
   video.playsInline = true;
   video.controls = false;
@@ -250,6 +253,43 @@ function prepareHeroBackgroundVideo(video) {
   video.setAttribute("webkit-playsinline", "");
   video.setAttribute("aria-hidden", "true");
   video.preload = "auto";
+}
+
+// Opera/Chromium pode exibir o botão nativo quando um <video loop> chega ao fim.
+// No desktop, voltamos alguns frames antes do evento "ended", mantendo a reprodução contínua.
+function setupDesktopHeroSeamlessLoop(video) {
+  if (!video || video.dataset.desktopSeamlessLoop === "true") return;
+  video.dataset.desktopSeamlessLoop = "true";
+
+  function rewindBeforeNativeEnd() {
+    if (getHeroBgMode() !== "desktop") return;
+    if (!Number.isFinite(video.duration) || video.duration <= 0) return;
+
+    if (video.currentTime >= video.duration - 0.15) {
+      try { video.currentTime = 0.01; } catch (e) {}
+    }
+  }
+
+  video.addEventListener("timeupdate", rewindBeforeNativeEnd);
+
+  // Verifica a cada frame quando disponível, para não depender da frequência do timeupdate.
+  if (typeof video.requestVideoFrameCallback === "function") {
+    function monitorFrame() {
+      rewindBeforeNativeEnd();
+      video.requestVideoFrameCallback(monitorFrame);
+    }
+    video.requestVideoFrameCallback(monitorFrame);
+  }
+
+  // Fallback caso o navegador pule diretamente para o estado "ended".
+  video.addEventListener("ended", function () {
+    if (getHeroBgMode() !== "desktop") return;
+    try { video.currentTime = 0.01; } catch (e) {}
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(function () {});
+    }
+  });
 }
 
 function tryPlayHeroBackgroundVideo(video, shouldLoad) {
@@ -289,6 +329,12 @@ function syncHeroBackgroundVideo(forceLoad) {
 function setupHeroBackgroundVideo() {
   const videos = document.querySelectorAll(".js-hero-bg-video");
   if (!videos.length) return;
+
+  videos.forEach(function (video) {
+    if (video.classList.contains("bg-video-desktop")) {
+      setupDesktopHeroSeamlessLoop(video);
+    }
+  });
 
   syncHeroBackgroundVideo(true);
 

@@ -2952,8 +2952,11 @@ a.back-btn:hover .arrow {
 
 @media (min-width: 769px) {
   .showreel {
-    margin-top: var(--showreel-desktop-offset) !important;
+    margin-top: 0 !important;
     padding-top: 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+    background: #0B0B0C !important;
   }
 
   .case-grid {
@@ -2977,6 +2980,20 @@ a.back-btn:hover .arrow {
     object-fit: cover !important;
     opacity: 1 !important;
     visibility: visible !important;
+  }
+}
+
+/* Desktop/Opera: esconde qualquer controle nativo sobre o vídeo decorativo do Hero. */
+@media (min-width: 769px) {
+  .hero .bg-video-desktop::-webkit-media-controls,
+  .hero .bg-video-desktop::-webkit-media-controls-enclosure,
+  .hero .bg-video-desktop::-webkit-media-controls-overlay-play-button,
+  .hero .bg-video-desktop::-webkit-media-controls-start-playback-button,
+  .hero .bg-video-desktop::-webkit-media-controls-play-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 
