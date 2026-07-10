@@ -6113,3 +6113,88 @@ body.takecut-loading-active > :not(#loadingScreen) {
   }
 }
 
+/* =====================================================
+   TAKE CUT — HOTFIX DESKTOP 20260710 ATUALIZADO
+   Corrige a seção "Nosso trabalho" invadindo o vídeo de background
+   e reduz o overlay nativo do Opera no vídeo de fundo.
+   Mobile permanece usando os ajustes já existentes.
+   ===================================================== */
+@media (min-width: 769px) {
+  :root {
+    --showreel-desktop-offset: 0px !important;
+  }
+
+  body {
+    padding-top: 60px !important;
+  }
+
+  .navbar {
+    height: 60px !important;
+  }
+
+  .hero {
+    height: calc(100svh - 60px) !important;
+    min-height: 680px !important;
+    margin-top: 0 !important;
+    padding: clamp(28px, 3vw, 48px) !important;
+    overflow: hidden !important;
+    align-items: center !important;
+    isolation: isolate !important;
+    background: #0B0B0C !important;
+  }
+
+  .hero .bg-video,
+  .hero .bg-video-desktop {
+    position: absolute !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: translateZ(0) !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  .hero .bg-video-mobile {
+    display: none !important;
+  }
+
+  .hero::after {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background: linear-gradient(90deg, rgba(0,0,0,0.54) 0%, rgba(0,0,0,0.28) 44%, rgba(0,0,0,0.18) 100%) !important;
+    pointer-events: none !important;
+  }
+
+  .hero > div {
+    margin-top: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .showreel {
+    margin-top: 0 !important;
+    padding-top: clamp(72px, 7vw, 110px) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: #0B0B0C !important;
+  }
+
+  .bg-video::-webkit-media-controls,
+  .bg-video::-webkit-media-controls-panel,
+  .bg-video::-webkit-media-controls-play-button,
+  .bg-video::-webkit-media-controls-start-playback-button,
+  .bg-video::-webkit-media-controls-overlay-play-button,
+  .bg-video::-webkit-media-controls-enclosure {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
