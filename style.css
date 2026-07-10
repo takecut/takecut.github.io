@@ -6198,3 +6198,77 @@ body.takecut-loading-active > :not(#loadingScreen) {
   }
 }
 
+
+
+/* =====================================================
+   TAKE CUT — HOTFIX DESKTOP 20260710 v2
+   Corrige o fundo chapado da seção "Nosso trabalho" e
+   deixa a navbar transparente desde o primeiro frame.
+   Mantém o hero separado do showreel sem cobrir estrelas/OVNIs.
+   ===================================================== */
+@media (min-width: 769px) {
+  body {
+    padding-top: 0 !important;
+  }
+
+  .navbar {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-bottom: 0 !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .hero {
+    height: 100svh !important;
+    min-height: 680px !important;
+    margin-top: 0 !important;
+    padding: calc(60px + clamp(28px, 3vw, 48px)) clamp(28px, 3vw, 48px) clamp(28px, 3vw, 48px) !important;
+    overflow: hidden !important;
+    align-items: center !important;
+    isolation: isolate !important;
+    background: transparent !important;
+  }
+
+  .hero .bg-video,
+  .hero .bg-video-desktop {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: translateZ(0) !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .hero::after {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background: linear-gradient(90deg, rgba(0,0,0,0.56) 0%, rgba(0,0,0,0.30) 46%, rgba(0,0,0,0.18) 100%) !important;
+    pointer-events: none !important;
+  }
+
+  .hero > div {
+    margin-top: 0 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .showreel {
+    margin-top: 0 !important;
+    padding-top: clamp(72px, 7vw, 108px) !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  .showreel::before,
+  .showreel::after {
+    background: transparent !important;
+  }
+}
