@@ -6741,3 +6741,126 @@ body.takecut-loading-active > :not(#loadingScreen) {
 .equipamentos-copy h3 {
   text-shadow: none !important;
 }
+
+
+/* =====================================================
+   TAKE CUT — HOTFIX DESKTOP 20260714
+   Remove contorno verde e sombra pesada em títulos/cards.
+   Mobile preservado.
+   ===================================================== */
+@media (min-width: 769px) {
+  /* Títulos de seção: sem contorno/glow escuro no desktop */
+  h2,
+  .showreel h2,
+  #videos-ia h2,
+  .services h2,
+  .audiences h2,
+  .portfolio h2,
+  .results h2,
+  .testimonials h2,
+  .clients h2,
+  .about h2,
+  .faq h2,
+  .contact h2,
+  .equipamentos-title,
+  .conversion-section h2,
+  .result-info h3,
+  #videos-ia .ia-main .result-info h3,
+  #videos-ia .ia-card .result-info h3,
+  .service-card h3,
+  .about-card h3,
+  .contact-card h3,
+  .audience-card h3,
+  .equipamentos-copy h3,
+  .portfolio-caption h3 {
+    text-shadow: none !important;
+    -webkit-text-stroke: 0 !important;
+    filter: none !important;
+  }
+
+  /* Cards gerais: mantém o card escuro, remove borda verde/glow verde */
+  .service-card,
+  .about-card,
+  .contact-card,
+  .audience-card,
+  .equipamentos-box,
+  .plan-card,
+  .google-review-card,
+  .faq-card,
+  .case-card,
+  .diagnosis-card,
+  .market-signal article,
+  .steps-grid article,
+  .fit-grid article,
+  .process-preview,
+  .portfolio-card,
+  #videos-ia .ia-main,
+  #videos-ia .ia-card {
+    border-color: rgba(255,255,255,0.085) !important;
+    box-shadow: 0 22px 58px rgba(0,0,0,0.26) !important;
+  }
+
+  .service-card:hover,
+  .about-card:hover,
+  .contact-card:hover,
+  .audience-card:hover,
+  .equipamentos-box:hover,
+  .plan-card:hover,
+  .faq-card:hover,
+  .case-card:hover,
+  .market-signal article:hover,
+  .steps-grid article:hover,
+  .fit-grid article:hover,
+  #videos-ia .ia-main:hover,
+  #videos-ia .ia-card:hover {
+    border-color: rgba(255,255,255,0.13) !important;
+    box-shadow: 0 26px 68px rgba(0,0,0,0.32) !important;
+  }
+
+  /* Remove faixa/bolha verde decorativa que dava cara de contorno novo nos cards */
+  .service-card::before,
+  .service-card::after,
+  .about-card::before,
+  .about-card::after,
+  .contact-card::before,
+  .contact-card::after,
+  .audience-card::before,
+  .audience-card::after,
+  .equipamentos-box::before,
+  .equipamentos-box::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Ícones continuam verdes, mas sem halo/contorno exagerado */
+  .tc-card-icon {
+    border-color: rgba(255,255,255,0.10) !important;
+    box-shadow: none !important;
+    background: rgba(255,255,255,0.045) !important;
+  }
+
+  .tc-card-icon::before {
+    filter: none !important;
+  }
+
+  /* Vídeos com IA: tira a moldura verde dos cards e do player */
+  #videos-ia .ia-main,
+  #videos-ia .ia-card {
+    background:
+      linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.016)),
+      rgba(17,17,19,0.94) !important;
+  }
+
+  #videos-ia .ia-main .video-box.horizontal.destaque,
+  #videos-ia .ia-card .video-box,
+  .showreel-video,
+  .video-box {
+    box-shadow: 0 18px 46px rgba(0,0,0,0.34) !important;
+  }
+
+  #videos-ia .ia-main::after,
+  #videos-ia .ia-main .result-info::before,
+  #videos-ia .ia-main .result-info::after {
+    box-shadow: none !important;
+  }
+}
