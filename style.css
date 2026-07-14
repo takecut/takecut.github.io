@@ -6864,3 +6864,57 @@ body.takecut-loading-active > :not(#loadingScreen) {
     box-shadow: none !important;
   }
 }
+
+/* =====================================================
+   TAKE CUT — HOTFIX CIRÚRGICO 20260714: UFO + CASES
+   Escopo: somente desktop. Não mexe no mobile nem no popup.
+   ===================================================== */
+@media (min-width: 769px) {
+  /* Discos voadores: remove o contorno/halo duro sem apagar o elemento. */
+  .stars-bg .ufo {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 8px rgba(0,255,178,0.20) !important;
+    filter: none !important;
+  }
+
+  .stars-bg .ufo::before {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 6px rgba(0,255,178,0.16) !important;
+    filter: none !important;
+  }
+
+  .stars-bg .ufo::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Cases: remove a borda verde pesada e mantém um glow leve de card. */
+  section#cases.results.case-studies .case-info {
+    border: 1px solid rgba(255,255,255,0.075) !important;
+    outline: 0 !important;
+    box-shadow:
+      0 18px 46px rgba(0,0,0,0.30),
+      0 0 18px rgba(0,255,178,0.055) !important;
+  }
+
+  section#cases.results.case-studies .case-card .video-box {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow:
+      0 18px 48px rgba(0,0,0,0.34),
+      0 0 18px rgba(0,255,178,0.07) !important;
+  }
+
+  section#cases.results.case-studies .case-card,
+  section#cases.results.case-studies .case-card::before,
+  section#cases.results.case-studies .case-card::after {
+    outline: 0 !important;
+  }
+
+  section#cases.results.case-studies .case-points li {
+    border-color: rgba(255,255,255,0.075) !important;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.16) !important;
+  }
+}
