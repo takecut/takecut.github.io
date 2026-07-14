@@ -1002,3 +1002,164 @@ function setupDesktopHeroVideoLoopHotfix() {
   });
 })();
 
+// TAKE CUT — Promo após 3 minutos + dica de orientação mobile 20260714
+(function () {
+  var PROMO_DELAY_MS = 180000;
+  var PROMO_COOLDOWN_MS = 12 * 60 * 60 * 1000;
+  var promoKey = "takecutPromoOfferSeen_v20260714";
+  var orientKey = "takecutOrientationHintSeen_v20260714";
+
+  function now() {
+    return Date.now ? Date.now() : new Date().getTime();
+  }
+
+  function getStoredNumber(key) {
+    try {
+      var value = window.localStorage.getItem(key);
+      return value ? parseInt(value, 10) : 0;
+    } catch (e) {
+      return 0;
+    }
+  }
+
+  function setStoredNumber(key) {
+    try {
+      window.localStorage.setItem(key, String(now()));
+    } catch (e) {}
+  }
+
+  function sessionHas(key) {
+    try { return window.sessionStorage.getItem(key) === "true"; }
+    catch (e) { return false; }
+  }
+
+  function sessionSet(key) {
+    try { window.sessionStorage.setItem(key, "true"); }
+    catch (e) {}
+  }
+
+  function showElement(el) {
+    if (!el) return;
+    el.hidden = false;
+    requestAnimationFrame(function () {
+      el.classList.add("is-visible");
+    });
+  }
+
+  function hideElement(el) {
+    if (!el) return;
+    el.classList.remove("is-visible");
+    setTimeout(function () {
+      el.hidden = true;
+    }, 360);
+  }
+
+  function setupPromoOffer() {
+    var promo = document.getElementById("takecutPromoOffer");
+    if (!promo) return;
+
+    var lastSeen = getStoredNumber(promoKey);
+    if (lastSeen && now() - lastSeen < PROMO_COOLDOWN_MS) return;
+
+    promo.querySelectorAll("[data-tc-promo-close]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        setStoredNumber(promoKey);
+        hideElement(promo);
+      });
+    });
+
+    var cta = promo.querySelector(".tc-promo-cta");
+    if (cta) {
+      cta.addEventListener("click", function () {
+        setStoredNumber(promoKey);
+      });
+    }
+
+    setTimeout(function () {
+      if (document.hidden) return;
+      setStoredNumber(promoKey);
+      showElement(promo);
+    }, PROMO_DELAY_MS);
+
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) return;
+      if (promo.classList.contains("is-visible")) {
+        setStoredNumber(promoKey);
+      }
+    });
+  }
+
+  function isMobilePortrait() {
+    if (!window.matchMedia) return false;
+    return window.matchMedia("(max-width: 768px)").matches && window.matchMedia("(orientation: portrait)").matches;
+  }
+
+  function setupOrientationHint() {
+    var hint = document.getElementById("takecutOrientationHint");
+    if (!hint || !isMobilePortrait() || sessionHas(orientKey)) return;
+
+    function closeHint() {
+      sessionSet(orientKey);
+      hideElement(hint);
+    }
+
+    hint.querySelectorAll("[data-tc-orientation-close]").forEach(function (button) {
+      button.addEventListener("click", closeHint);
+    });
+
+    function showHintOnce() {
+      if (!isMobilePortrait() || sessionHas(orientKey)) return;
+      sessionSet(orientKey);
+      showElement(hint);
+      setTimeout(function () {
+        hideElement(hint);
+      }, 9000);
+    }
+
+    var targets = document.querySelectorAll(".showreel-video, #videos-ia .video-box.horizontal, #videos-ia .video-box.destaque");
+    if (!targets.length) return;
+
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+            setTimeout(showHintOnce, 550);
+            observer.disconnect();
+          }
+        });
+      }, { threshold: [0.35], rootMargin: "0px 0px -12% 0px" });
+
+      targets.forEach(function (target) {
+        observer.observe(target);
+      });
+    } else {
+      targets.forEach(function (target) {
+        target.addEventListener("click", showHintOnce, { once: true });
+      });
+    }
+
+    if (window.matchMedia) {
+      var orientationQuery = window.matchMedia("(orientation: landscape)");
+      var handleOrientationChange = function () {
+        if (orientationQuery.matches) hideElement(hint);
+      };
+      if (typeof orientationQuery.addEventListener === "function") {
+        orientationQuery.addEventListener("change", handleOrientationChange);
+      } else if (typeof orientationQuery.addListener === "function") {
+        orientationQuery.addListener(handleOrientationChange);
+      }
+    }
+  }
+
+  function initTakecutMessages() {
+    setupPromoOffer();
+    setupOrientationHint();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initTakecutMessages, { once: true });
+  } else {
+    initTakecutMessages();
+  }
+})();
+
