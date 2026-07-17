@@ -7010,7 +7010,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
     background: #00FFB2 !important;
     border-color: #00FFB2 !important;
     color: #0B0B0C !important;
-    box-shadow: 0 12px 28px rgba(0,255,178,0.24) !important;
+    box-shadow: 0 6px 18px rgba(0,255,178,0.14) !important;
     transform: translateY(-2px) !important;
   }
 
