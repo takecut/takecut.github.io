@@ -6546,6 +6546,16 @@ body.takecut-loading-active > :not(#loadingScreen) {
     box-shadow: none !important;
   }
 
+  /* Cases usam seletores próprios porque o layout de iPad é mais específico. */
+  html body section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
+  html body section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
+  html body section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2,
+  html body section#cases.results.case-studies .case-card .video-box,
+  html body section#cases.results.case-studies .case-points li {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
   /* Remove somente as decorações antigas conhecidas. */
   html body :is(
     .service-card,
