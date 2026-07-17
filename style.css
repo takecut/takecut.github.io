@@ -6894,9 +6894,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
   section#cases.results.case-studies .case-info {
     border: 0 !important;
     outline: 0 !important;
-    box-shadow:
-      0 18px 46px rgba(0,0,0,0.30),
-      0 0 18px rgba(0,255,178,0.055) !important;
+    box-shadow: none !important;
   }
 
   section#cases.results.case-studies .case-card .video-box {
@@ -6910,7 +6908,9 @@ body.takecut-loading-active > :not(#loadingScreen) {
   section#cases.results.case-studies .case-card,
   section#cases.results.case-studies .case-card::before,
   section#cases.results.case-studies .case-card::after {
+    border: 0 !important;
     outline: 0 !important;
+    box-shadow: none !important;
   }
 
   section#cases.results.case-studies .case-points li {
