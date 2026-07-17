@@ -6979,3 +6979,56 @@ body.takecut-loading-active > :not(#loadingScreen) {
     filter: none !important;
   }
 }
+
+/* =====================================================
+   TAKE CUT — DESTAQUES SELETIVOS NO DESKTOP
+   Replica o botão "Solicitar orçamento pessoal" e
+   reintroduz glow somente nos pontos solicitados.
+   ===================================================== */
+@media (min-width: 769px) {
+  html body #diagnostico .conversion-copy .btn-main,
+  html body .portfolio > .btn-ver-mais,
+  html body section#nichos .niche-actions .btn-secondary,
+  html body #bastidores .conversion-copy .btn-secondary,
+  html body .plans-grid .card-cta-plan {
+    background: transparent !important;
+    border: 2px solid #00FFB2 !important;
+    color: #00FFB2 !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    box-shadow: none !important;
+  }
+
+  html body #diagnostico .conversion-copy .btn-main:hover,
+  html body .portfolio > .btn-ver-mais:hover,
+  html body section#nichos .niche-actions .btn-secondary:hover,
+  html body #bastidores .conversion-copy .btn-secondary:hover,
+  html body .plans-grid .card-cta-plan:hover {
+    background: #00FFB2 !important;
+    border-color: #00FFB2 !important;
+    color: #0B0B0C !important;
+    box-shadow: 0 0 20px rgba(0,255,178,0.4) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  html body .showreel .showreel-video {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 16px rgba(0,255,178,0.10) !important;
+  }
+
+  html body section#nichos .niche-grid a:hover {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 18px rgba(0,255,178,0.12) !important;
+  }
+
+  html body section#contact .contact-grid .contact-card:hover {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 18px rgba(0,255,178,0.12) !important;
+  }
+}
