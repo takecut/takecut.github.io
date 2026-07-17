@@ -5782,140 +5782,6 @@ body.takecut-loading-active > :not(#loadingScreen) {
   }
 }
 
-/* iPad/tablet: Cases e Resultados com vídeo à esquerda e texto à direita no mesmo card. */
-@media (min-width: 769px) and (max-width: 1180px) {
-  section.results.case-studies {
-    padding-left: clamp(22px, 3.4vw, 42px) !important;
-    padding-right: clamp(22px, 3.4vw, 42px) !important;
-  }
-
-  section.results.case-studies .results-grid.case-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 28px !important;
-    width: 100% !important;
-    max-width: 980px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  section.results.case-studies .results-grid.case-grid > .result-item.case-card {
-    display: grid !important;
-    grid-template-columns: minmax(250px, 34%) minmax(0, 1fr) !important;
-    align-items: center !important;
-    gap: clamp(22px, 3.2vw, 36px) !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-    padding: clamp(20px, 2.8vw, 30px) !important;
-    transform: none !important;
-    border-radius: 28px !important;
-    overflow: hidden !important;
-    background:
-      radial-gradient(circle at top left, rgba(0,255,178,0.12), transparent 32%),
-      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)),
-      #141416 !important;
-    border: 1px solid rgba(0,255,178,0.18) !important;
-    box-shadow: 0 24px 70px rgba(0,0,0,0.28) !important;
-  }
-
-  section.results.case-studies .case-card .video-box {
-    width: 100% !important;
-    max-width: 310px !important;
-    aspect-ratio: 9 / 16 !important;
-    margin: 0 !important;
-    justify-self: start !important;
-    border-radius: 22px !important;
-  }
-
-  section.results.case-studies .case-info {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: left !important;
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-  }
-
-  section.results.case-studies .case-info h3 {
-    font-size: clamp(34px, 4.8vw, 48px) !important;
-    line-height: 1.02 !important;
-    margin-bottom: 16px !important;
-  }
-
-  section.results.case-studies .case-points {
-    width: 100% !important;
-    gap: 10px !important;
-  }
-
-  section.results.case-studies .case-points li {
-    width: 100% !important;
-    padding: 12px 14px !important;
-    border-radius: 14px !important;
-    background: rgba(255,255,255,0.045) !important;
-    border: 1px solid rgba(255,255,255,0.075) !important;
-    font-size: clamp(13px, 1.58vw, 15px) !important;
-    line-height: 1.5 !important;
-  }
-}
-
-/* iPad/tablet menor: mantém o mesmo layout, mas reduz o vídeo para não apertar texto. */
-@media (min-width: 769px) and (max-width: 900px) {
-  section.results.case-studies .results-grid.case-grid > .result-item.case-card {
-    grid-template-columns: minmax(220px, 32%) minmax(0, 1fr) !important;
-    gap: 20px !important;
-  }
-
-  section.results.case-studies .case-card .video-box {
-    max-width: 260px !important;
-  }
-
-  section.results.case-studies .case-info h3 {
-    font-size: clamp(30px, 4.3vw, 38px) !important;
-  }
-}
-
-/* Página principal — carrossel do Portfólio no iPad sem recorte enquanto o vídeo carrega. */
-@media (min-width: 769px) and (max-width: 1180px) {
-  #portfolioCarousel .carousel-container {
-    padding-left: clamp(24px, 4vw, 46px) !important;
-    padding-right: clamp(24px, 4vw, 46px) !important;
-  }
-
-  #portfolioCarousel .carousel {
-    gap: 22px !important;
-    align-items: stretch !important;
-  }
-
-  #portfolioCarousel .portfolio-card {
-    flex: 0 0 calc((100% - 22px) / 2) !important;
-    min-width: 0 !important;
-    max-width: none !important;
-  }
-
-  #portfolioCarousel .carousel-item {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    aspect-ratio: 16 / 9 !important;
-    background: #080809 !important;
-    border-radius: 16px !important;
-  }
-
-  #portfolioCarousel .carousel-item video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    background: #080809 !important;
-    display: block !important;
-    transform: translateZ(0) !important;
-  }
-}
 
 /* TAKE CUT — AJUSTE DEFINITIVO iPAD/TABLET 20260706
    Escopo: somente 769px–1366px e tablets com toque.
@@ -6114,10 +5980,9 @@ body.takecut-loading-active > :not(#loadingScreen) {
 }
 
 /* =====================================================
-   TAKE CUT — HOTFIX DESKTOP 20260710 ATUALIZADO
-   Corrige a seção "Nosso trabalho" invadindo o vídeo de background
-   e reduz o overlay nativo do Opera no vídeo de fundo.
-   Mobile permanece usando os ajustes já existentes.
+   TAKE CUT — BASE CONSOLIDADA DO HERO NO DESKTOP
+   Resultado final dos antigos hotfixes v1, v2 e v3.
+   Mobile permanece controlado pelos blocos até 768px.
    ===================================================== */
 @media (min-width: 769px) {
   :root {
@@ -6125,99 +5990,16 @@ body.takecut-loading-active > :not(#loadingScreen) {
   }
 
   body {
-    padding-top: 60px !important;
-  }
-
-  .navbar {
-    height: 60px !important;
-  }
-
-  .hero {
-    height: calc(100svh - 60px) !important;
-    min-height: 680px !important;
-    margin-top: 0 !important;
-    padding: clamp(28px, 3vw, 48px) !important;
-    overflow: hidden !important;
-    align-items: center !important;
-    isolation: isolate !important;
-    background: #0B0B0C !important;
-  }
-
-  .hero .bg-video,
-  .hero .bg-video-desktop {
-    position: absolute !important;
-    inset: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    transform: translateZ(0) !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-    z-index: 0 !important;
-    pointer-events: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-  }
-
-  .hero .bg-video-mobile {
-    display: none !important;
-  }
-
-  .hero::after {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-    background: linear-gradient(90deg, rgba(0,0,0,0.54) 0%, rgba(0,0,0,0.28) 44%, rgba(0,0,0,0.18) 100%) !important;
-    pointer-events: none !important;
-  }
-
-  .hero > div {
-    margin-top: 0 !important;
-    position: relative !important;
-    z-index: 2 !important;
-  }
-
-  .showreel {
-    margin-top: 0 !important;
-    padding-top: clamp(72px, 7vw, 110px) !important;
-    position: relative !important;
-    z-index: 2 !important;
-    background: #0B0B0C !important;
-  }
-
-  .bg-video::-webkit-media-controls,
-  .bg-video::-webkit-media-controls-panel,
-  .bg-video::-webkit-media-controls-play-button,
-  .bg-video::-webkit-media-controls-start-playback-button,
-  .bg-video::-webkit-media-controls-overlay-play-button,
-  .bg-video::-webkit-media-controls-enclosure {
-    display: none !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-  }
-}
-
-
-
-/* =====================================================
-   TAKE CUT — HOTFIX DESKTOP 20260710 v2
-   Corrige o fundo chapado da seção "Nosso trabalho" e
-   deixa a navbar transparente desde o primeiro frame.
-   Mantém o hero separado do showreel sem cobrir estrelas/OVNIs.
-   ===================================================== */
-@media (min-width: 769px) {
-  body {
     padding-top: 0 !important;
   }
 
   .navbar {
-    background: transparent !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border-bottom: 0 !important;
-    -webkit-backdrop-filter: none !important;
-    backdrop-filter: none !important;
+    height: 60px !important;
+    background: rgba(11, 11, 12, 0.70) !important;
+    -webkit-backdrop-filter: blur(10px) saturate(130%) !important;
+    backdrop-filter: blur(10px) saturate(130%) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.30) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
   }
 
   .hero {
@@ -6242,6 +6024,12 @@ body.takecut-loading-active > :not(#loadingScreen) {
     object-position: center center !important;
     z-index: 0 !important;
     pointer-events: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+  }
+
+  .hero .bg-video-mobile {
+    display: none !important;
   }
 
   .hero::after {
@@ -6264,34 +6052,22 @@ body.takecut-loading-active > :not(#loadingScreen) {
     position: relative !important;
     z-index: 2 !important;
     background: transparent !important;
-    background-color: transparent !important;
   }
 
   .showreel::before,
   .showreel::after {
     background: transparent !important;
   }
-}
 
-
-/* =====================================================
-   TAKE CUT — HOTFIX DESKTOP 20260710 v3
-   Navbar fosca desde o primeiro frame, sem voltar ao fundo chapado
-   da seção Nosso trabalho. Mobile preservado.
-   ===================================================== */
-@media (min-width: 769px) {
-  .navbar {
-    background: rgba(11, 11, 12, 0.70) !important;
-    background-color: rgba(11, 11, 12, 0.70) !important;
-    -webkit-backdrop-filter: blur(10px) saturate(130%) !important;
-    backdrop-filter: blur(10px) saturate(130%) !important;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.30) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
-  }
-
-  .showreel {
-    background: transparent !important;
-    background-color: transparent !important;
+  .bg-video::-webkit-media-controls,
+  .bg-video::-webkit-media-controls-panel,
+  .bg-video::-webkit-media-controls-play-button,
+  .bg-video::-webkit-media-controls-start-playback-button,
+  .bg-video::-webkit-media-controls-overlay-play-button,
+  .bg-video::-webkit-media-controls-enclosure {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 
@@ -6711,286 +6487,135 @@ body.takecut-loading-active > :not(#loadingScreen) {
 
 
 /* =====================================================
-   TAKE CUT — HOTFIX 20260714: remove contornos extras
-   Mantém o popup promocional e a dica de orientação intactos.
-   ===================================================== */
-.audiences .audience-card {
-  border-color: rgba(255,255,255,0.085) !important;
-  box-shadow: 0 18px 46px rgba(0,0,0,0.24) !important;
-}
-
-.audiences .audience-card:hover {
-  border-color: rgba(255,255,255,0.13) !important;
-  box-shadow: 0 22px 58px rgba(0,0,0,0.30) !important;
-}
-
-.audiences h2,
-.audiences .section-subtitle,
-.audiences .audience-card h3,
-.services h2,
-.about h2,
-.clients h2,
-.testimonials h2,
-.faq h2,
-.contact h2,
-.equipamentos-title,
-.conversion-section h2,
-.service-card h3,
-.about-card h3,
-.contact-card h3,
-.equipamentos-copy h3 {
-  text-shadow: none !important;
-}
-
-
-/* =====================================================
-   TAKE CUT — HOTFIX DESKTOP 20260714
-   Remove contorno verde e sombra pesada em títulos/cards.
-   Mobile preservado.
+   TAKE CUT — APARÊNCIA FINAL DO DESKTOP
+   Regras explícitas: não usa seletores genéricos como
+   [class*="card"] e não interfere no mobile.
    ===================================================== */
 @media (min-width: 769px) {
-  /* Títulos de seção: sem contorno/glow escuro no desktop */
-  h2,
-  .showreel h2,
-  #videos-ia h2,
-  .services h2,
-  .audiences h2,
-  .portfolio h2,
-  .results h2,
-  .testimonials h2,
-  .clients h2,
-  .about h2,
-  .faq h2,
-  .contact h2,
-  .equipamentos-title,
-  .conversion-section h2,
-  .result-info h3,
-  #videos-ia .ia-main .result-info h3,
-  #videos-ia .ia-card .result-info h3,
-  .service-card h3,
-  .about-card h3,
-  .contact-card h3,
-  .audience-card h3,
-  .equipamentos-copy h3,
-  .portfolio-caption h3 {
+  :root {
+    /* Ajuste manual dos glows em um único lugar. */
+    --tc-glow-button: 0 6px 18px rgba(0,255,178,0.14);
+    --tc-glow-card-static: 0 10px 24px rgba(0,255,178,0.10);
+    --tc-glow-card-hover: 0 10px 24px rgba(0,255,178,0.12);
+  }
+
+  /* Títulos sem contorno ou halo. */
+  html body h2,
+  html body :is(
+    .audiences .section-subtitle,
+    .result-info h3,
+    .service-card h3,
+    .about-card h3,
+    .contact-card h3,
+    .audience-card h3,
+    .equipamentos-copy h3,
+    .portfolio-caption h3
+  ) {
     text-shadow: none !important;
     -webkit-text-stroke: 0 !important;
     filter: none !important;
   }
 
-  /* Cards gerais: mantém o card escuro, remove borda verde/glow verde */
-  .service-card,
-  .about-card,
-  .contact-card,
-  .audience-card,
-  .equipamentos-box,
-  .plan-card,
-  .google-review-card,
-  .faq-card,
-  .case-card,
-  .diagnosis-card,
-  .market-signal article,
-  .steps-grid article,
-  .fit-grid article,
-  .process-preview,
-  .portfolio-card,
-  #videos-ia .ia-main,
-  #videos-ia .ia-card {
-    border-color: rgba(255,255,255,0.085) !important;
-    box-shadow: 0 22px 58px rgba(0,0,0,0.26) !important;
+  /* Cards que devem permanecer sem borda, outline ou sombra. */
+  html body :is(
+    .diagnosis-card,
+    .process-preview,
+    .portfolio-card,
+    .service-card,
+    .about-card,
+    .contact-card,
+    .audience-card,
+    .equipamentos-box,
+    .plan-card,
+    .google-review-card,
+    .faq-card,
+    .case-card,
+    .market-signal article,
+    .signal-grid article,
+    .steps-grid article,
+    .fit-grid article,
+    .case-points li,
+    .video-box,
+    .cookie-consent,
+    #nichos .niche-grid a,
+    #videos-ia .ia-main,
+    #videos-ia .ia-card
+  ) {
+    border: 0 !important;
+    outline: 0;
+    box-shadow: none !important;
   }
 
-  .service-card:hover,
-  .about-card:hover,
-  .contact-card:hover,
-  .audience-card:hover,
-  .equipamentos-box:hover,
-  .plan-card:hover,
-  .faq-card:hover,
-  .case-card:hover,
-  .market-signal article:hover,
-  .steps-grid article:hover,
-  .fit-grid article:hover,
-  #videos-ia .ia-main:hover,
-  #videos-ia .ia-card:hover {
-    border-color: rgba(255,255,255,0.13) !important;
-    box-shadow: 0 26px 68px rgba(0,0,0,0.32) !important;
-  }
-
-  /* Remove faixa/bolha verde decorativa que dava cara de contorno novo nos cards */
-  .service-card::before,
-  .service-card::after,
-  .about-card::before,
-  .about-card::after,
-  .contact-card::before,
-  .contact-card::after,
-  .audience-card::before,
-  .audience-card::after,
-  .equipamentos-box::before,
-  .equipamentos-box::after {
+  /* Remove somente as decorações antigas conhecidas. */
+  html body :is(
+    .service-card,
+    .about-card,
+    .contact-card,
+    .audience-card,
+    .equipamentos-box
+  )::before,
+  html body :is(
+    .service-card,
+    .about-card,
+    .contact-card,
+    .audience-card,
+    .equipamentos-box
+  )::after {
     content: none !important;
     display: none !important;
   }
 
-  /* Ícones continuam verdes, mas sem halo/contorno exagerado */
-  .tc-card-icon {
-    border-color: rgba(255,255,255,0.10) !important;
+  html body .tc-card-icon {
+    border: 0 !important;
     box-shadow: none !important;
     background: rgba(255,255,255,0.045) !important;
   }
 
-  .tc-card-icon::before {
+  html body .tc-card-icon::before {
     filter: none !important;
   }
 
-  /* Vídeos com IA: tira a moldura verde dos cards e do player */
-  #videos-ia .ia-main,
-  #videos-ia .ia-card {
+  /* Vídeos com IA preservam o preenchimento, sem moldura. */
+  html body #videos-ia :is(.ia-main, .ia-card) {
     background:
       linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.016)),
       rgba(17,17,19,0.94) !important;
   }
 
-  #videos-ia .ia-main .video-box.horizontal.destaque,
-  #videos-ia .ia-card .video-box,
-  .showreel-video,
-  .video-box {
-    box-shadow: 0 18px 46px rgba(0,0,0,0.34) !important;
-  }
-
-  #videos-ia .ia-main::after,
-  #videos-ia .ia-main .result-info::before,
-  #videos-ia .ia-main .result-info::after {
+  html body #videos-ia .ia-main::after,
+  html body #videos-ia .ia-main .result-info::before,
+  html body #videos-ia .ia-main .result-info::after {
     box-shadow: none !important;
   }
-}
 
-/* =====================================================
-   TAKE CUT — HOTFIX CIRÚRGICO 20260714: UFO + CASES
-   Escopo: somente desktop. Não mexe no mobile nem no popup.
-   ===================================================== */
-@media (min-width: 769px) {
-  /* Discos voadores: remove o contorno/halo duro sem apagar o elemento. */
-  .stars-bg .ufo {
+  /* Discos voadores sem halo duro. */
+  html body .stars-bg .ufo {
     border: 0 !important;
-    outline: 0 !important;
+    outline: 0;
     box-shadow: 0 0 8px rgba(0,255,178,0.20) !important;
     filter: none !important;
   }
 
-  .stars-bg .ufo::before {
+  html body .stars-bg .ufo::before {
     border: 0 !important;
-    outline: 0 !important;
+    outline: 0;
     box-shadow: 0 0 6px rgba(0,255,178,0.16) !important;
     filter: none !important;
   }
 
-  .stars-bg .ufo::after {
+  html body .stars-bg .ufo::after {
     content: none !important;
     display: none !important;
   }
 
-  /* Cases: remove a borda verde pesada e mantém um glow leve de card. */
-  section#cases.results.case-studies .case-info {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-  }
-
-  section#cases.results.case-studies .case-card .video-box {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow:
-      0 18px 48px rgba(0,0,0,0.34),
-      0 0 18px rgba(0,255,178,0.07) !important;
-  }
-
-  section#cases.results.case-studies .case-card,
-  section#cases.results.case-studies .case-card::before,
-  section#cases.results.case-studies .case-card::after {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-  }
-
-  section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
-  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
-  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-  }
-
-  section#cases.results.case-studies .case-points li {
-    border-color: rgba(255,255,255,0.075) !important;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.16) !important;
-  }
-}
-
-/* =====================================================
-   TAKE CUT — RESET VISUAL DOS CARDS NO DESKTOP
-   Sem borda, outline, sombra ou glow. Mobile intocado.
-   ===================================================== */
-@media (min-width: 769px) {
-  html body [class*="card"],
-  html body [class*="card"]:hover,
-  html body [class*="card"]:focus,
-  html body .video-box,
-  html body .video-box:hover,
-  html body .cookie-consent,
-  html body #nichos .niche-grid a,
-  html body #nichos .niche-grid a:hover,
-  html body #nichos .niche-actions .btn-secondary,
-  html body .diagnosis-card,
-  html body .process-preview,
-  html body .market-signal article,
-  html body .market-signal .signal-grid article,
-  html body .signal-grid article,
-  html body .steps-grid article,
-  html body .fit-grid article,
-  html body section#cases.results.case-studies .case-points li,
-  html body section#cases.results.case-studies .case-card .video-box,
-  html body section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
-  html body section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
-  html body section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2,
-  html body #videos-ia .ia-main,
-  html body #videos-ia .ia-card,
-  html body #videos-ia .ia-main .video-box,
-  html body #videos-ia .ia-main .video-box.horizontal.destaque,
-  html body #videos-ia .ia-card .video-box,
-  html body .audiences .audience-card,
-  html body .audiences .audience-card:hover {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-  }
-
-  html body [class*="card"]::before,
-  html body [class*="card"]::after,
-  html body .video-box::before,
-  html body .video-box::after,
-  html body .cookie-consent::before,
-  html body .cookie-consent::after,
-  html body #nichos .niche-grid a::before,
-  html body #nichos .niche-grid a::after {
-    border-color: transparent !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-    filter: none !important;
-  }
-}
-
-/* =====================================================
-   TAKE CUT — DESTAQUES SELETIVOS NO DESKTOP
-   Replica o botão "Solicitar orçamento pessoal" e
-   reintroduz glow somente nos pontos solicitados.
-   ===================================================== */
-@media (min-width: 769px) {
-  html body #diagnostico .conversion-copy .btn-main,
-  html body .portfolio > .btn-ver-mais,
-  html body section#nichos .niche-actions .btn-secondary,
-  html body #bastidores .conversion-copy .btn-secondary,
-  html body .plans-grid .card-cta-plan {
+  /* Botões solicitados com um único padrão visual. */
+  html body :is(
+    #diagnostico .conversion-copy .btn-main,
+    .portfolio > .btn-ver-mais,
+    #nichos .niche-actions .btn-secondary,
+    #bastidores .conversion-copy .btn-secondary,
+    .plans-grid .card-cta-plan
+  ) {
     background: transparent !important;
     border: 2px solid #00FFB2 !important;
     color: #00FFB2 !important;
@@ -7002,33 +6627,31 @@ body.takecut-loading-active > :not(#loadingScreen) {
     box-shadow: none !important;
   }
 
-  html body #diagnostico .conversion-copy .btn-main:hover,
-  html body .portfolio > .btn-ver-mais:hover,
-  html body section#nichos .niche-actions .btn-secondary:hover,
-  html body #bastidores .conversion-copy .btn-secondary:hover,
-  html body .plans-grid .card-cta-plan:hover {
+  html body :is(
+    #diagnostico .conversion-copy .btn-main,
+    .portfolio > .btn-ver-mais,
+    #nichos .niche-actions .btn-secondary,
+    #bastidores .conversion-copy .btn-secondary,
+    .plans-grid .card-cta-plan
+  ):hover {
     background: #00FFB2 !important;
     border-color: #00FFB2 !important;
     color: #0B0B0C !important;
-    box-shadow: 0 6px 18px rgba(0,255,178,0.14) !important;
+    box-shadow: var(--tc-glow-button) !important;
     transform: translateY(-2px) !important;
   }
 
+  /* Glows seletivos: estático no showreel e animado nos cards pedidos. */
   html body .showreel .showreel-video {
     border: 0 !important;
-    outline: 0 !important;
-    box-shadow: 0 10px 24px rgba(0,255,178,0.10) !important;
+    outline: 0;
+    box-shadow: var(--tc-glow-card-static) !important;
   }
 
-  html body section#nichos .niche-grid a:hover {
+  html body #nichos .niche-grid a:hover,
+  html body #contact .contact-grid .contact-card:hover {
     border: 0 !important;
-    outline: 0 !important;
-    box-shadow: 0 10px 24px rgba(0,255,178,0.12) !important;
-  }
-
-  html body section#contact .contact-grid .contact-card:hover {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: 0 10px 24px rgba(0,255,178,0.12) !important;
+    outline: 0;
+    box-shadow: var(--tc-glow-card-hover) !important;
   }
 }
