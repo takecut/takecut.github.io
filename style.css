@@ -6928,68 +6928,50 @@ body.takecut-loading-active > :not(#loadingScreen) {
 }
 
 /* =====================================================
-   TAKE CUT — NORMALIZAÇÃO DE CONTORNOS NO DESKTOP
-   Remove bordas duras sem alterar o mobile ou a estrutura.
+   TAKE CUT — RESET VISUAL DOS CARDS NO DESKTOP
+   Sem borda, outline, sombra ou glow. Mobile intocado.
    ===================================================== */
 @media (min-width: 769px) {
-  .service-card,
-  .about-card,
-  .contact-card,
-  .audience-card,
-  .equipamentos-box,
-  .plan-card,
-  .google-review-card,
-  .faq-card,
-  .diagnosis-card,
-  .market-signal article,
-  .signal-grid article,
-  .steps-grid article,
-  .fit-grid article,
-  .process-preview,
-  .portfolio-card,
-  #videos-ia .ia-main,
-  #videos-ia .ia-card,
-  #nichos .niche-grid a,
-  .cookie-consent {
+  html body [class*="card"],
+  html body [class*="card"]:hover,
+  html body [class*="card"]:focus,
+  html body .video-box,
+  html body .video-box:hover,
+  html body .cookie-consent,
+  html body #nichos .niche-grid a,
+  html body #nichos .niche-grid a:hover,
+  html body #nichos .niche-actions .btn-secondary,
+  html body .diagnosis-card,
+  html body .process-preview,
+  html body .market-signal article,
+  html body .signal-grid article,
+  html body .steps-grid article,
+  html body .fit-grid article,
+  html body section#cases.results.case-studies .case-points li,
+  html body section#cases.results.case-studies .case-card .video-box,
+  html body section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
+  html body section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
+  html body section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2,
+  html body #videos-ia .ia-main,
+  html body #videos-ia .ia-card,
+  html body #videos-ia .ia-main .video-box,
+  html body #videos-ia .ia-card .video-box {
     border: 0 !important;
     outline: 0 !important;
-    box-shadow:
-      0 20px 58px rgba(0,0,0,0.24),
-      0 0 30px rgba(0,255,178,0.055) !important;
+    box-shadow: none !important;
   }
 
-  .service-card:hover,
-  .about-card:hover,
-  .contact-card:hover,
-  .audience-card:hover,
-  .equipamentos-box:hover,
-  .plan-card:hover,
-  .faq-card:hover,
-  .market-signal article:hover,
-  .signal-grid article:hover,
-  .steps-grid article:hover,
-  .fit-grid article:hover,
-  #videos-ia .ia-main:hover,
-  #videos-ia .ia-card:hover,
-  #nichos .niche-grid a:hover {
-    border: 0 !important;
+  html body [class*="card"]::before,
+  html body [class*="card"]::after,
+  html body .video-box::before,
+  html body .video-box::after,
+  html body .cookie-consent::before,
+  html body .cookie-consent::after,
+  html body #nichos .niche-grid a::before,
+  html body #nichos .niche-grid a::after {
+    border-color: transparent !important;
     outline: 0 !important;
-    box-shadow:
-      0 22px 62px rgba(0,0,0,0.27),
-      0 0 34px rgba(0,255,178,0.075) !important;
-  }
-
-  section#cases.results.case-studies .case-card .video-box {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow:
-      0 18px 48px rgba(0,0,0,0.30),
-      0 0 32px rgba(0,255,178,0.06) !important;
-  }
-
-  #nichos .niche-actions .btn-secondary {
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: 0 0 26px rgba(0,255,178,0.075) !important;
+    box-shadow: none !important;
+    filter: none !important;
   }
 }
