@@ -6944,6 +6944,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
   html body .diagnosis-card,
   html body .process-preview,
   html body .market-signal article,
+  html body .market-signal .signal-grid article,
   html body .signal-grid article,
   html body .steps-grid article,
   html body .fit-grid article,
@@ -6955,7 +6956,10 @@ body.takecut-loading-active > :not(#loadingScreen) {
   html body #videos-ia .ia-main,
   html body #videos-ia .ia-card,
   html body #videos-ia .ia-main .video-box,
-  html body #videos-ia .ia-card .video-box {
+  html body #videos-ia .ia-main .video-box.horizontal.destaque,
+  html body #videos-ia .ia-card .video-box,
+  html body .audiences .audience-card,
+  html body .audiences .audience-card:hover {
     border: 0 !important;
     outline: 0 !important;
     box-shadow: none !important;
