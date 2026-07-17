@@ -7010,25 +7010,25 @@ body.takecut-loading-active > :not(#loadingScreen) {
     background: #00FFB2 !important;
     border-color: #00FFB2 !important;
     color: #0B0B0C !important;
-    box-shadow: 0 0 20px rgba(0,255,178,0.4) !important;
+    box-shadow: 0 12px 28px rgba(0,255,178,0.24) !important;
     transform: translateY(-2px) !important;
   }
 
   html body .showreel .showreel-video {
     border: 0 !important;
     outline: 0 !important;
-    box-shadow: 0 0 16px rgba(0,255,178,0.10) !important;
+    box-shadow: 0 10px 24px rgba(0,255,178,0.10) !important;
   }
 
   html body section#nichos .niche-grid a:hover {
     border: 0 !important;
     outline: 0 !important;
-    box-shadow: 0 0 18px rgba(0,255,178,0.12) !important;
+    box-shadow: 0 10px 24px rgba(0,255,178,0.12) !important;
   }
 
   html body section#contact .contact-grid .contact-card:hover {
     border: 0 !important;
     outline: 0 !important;
-    box-shadow: 0 0 18px rgba(0,255,178,0.12) !important;
+    box-shadow: 0 10px 24px rgba(0,255,178,0.12) !important;
   }
 }
