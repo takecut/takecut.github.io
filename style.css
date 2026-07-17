@@ -6913,6 +6913,14 @@ body.takecut-loading-active > :not(#loadingScreen) {
     box-shadow: none !important;
   }
 
+  section#cases.results.case-studies .results-grid.case-grid > article.result-item.case-card,
+  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item1,
+  section#cases.results.case-studies .results-grid.case-grid > .result-item.case-card.item2 {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+
   section#cases.results.case-studies .case-points li {
     border-color: rgba(255,255,255,0.075) !important;
     box-shadow: 0 8px 22px rgba(0,0,0,0.16) !important;
