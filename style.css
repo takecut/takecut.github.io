@@ -6698,30 +6698,38 @@ body.takecut-loading-active > :not(#loadingScreen) {
     opacity: 1;
   }
 
-  html body .showreel .secure-emoji {
-    display: inline-grid;
-    place-items: center;
-    width: 19px;
-    height: 21px;
-    flex: 0 0 auto;
-    clip-path: polygon(50% 0, 90% 16%, 86% 65%, 50% 100%, 14% 65%, 10% 16%);
-    background: rgba(0,255,178,0.13);
-    color: #00FFB2;
-    font-size: 0;
-    box-shadow: 0 3px 10px rgba(0,255,178,0.14);
-  }
-
-  html body .showreel .secure-emoji::before {
-    content: "✓";
-    font-size: 12px;
-    font-weight: 900;
-    line-height: 1;
-  }
-
   html body #nichos .niche-grid a:hover,
   html body #contact .contact-grid .contact-card:hover {
     border: 0 !important;
     outline: 0;
     box-shadow: var(--tc-glow-card-hover) !important;
   }
+}
+
+/* Selo de verificação responsivo: o mesmo desenho no desktop e no mobile. */
+.secure-text .secure-emoji {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(0, 255, 178, 0.46);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(0, 255, 178, 0.24), rgba(0, 255, 178, 0.07) 68%),
+    rgba(8, 18, 15, 0.72);
+  color: #00FFB2;
+  font-size: 0;
+  line-height: 1;
+  vertical-align: -4px;
+  box-shadow:
+    inset 0 0 0 2px rgba(0, 255, 178, 0.035),
+    0 2px 8px rgba(0, 255, 178, 0.13);
+}
+
+.secure-text .secure-emoji::before {
+  content: "✓";
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
 }
