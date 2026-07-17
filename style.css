@@ -6926,3 +6926,70 @@ body.takecut-loading-active > :not(#loadingScreen) {
     box-shadow: 0 8px 22px rgba(0,0,0,0.16) !important;
   }
 }
+
+/* =====================================================
+   TAKE CUT — NORMALIZAÇÃO DE CONTORNOS NO DESKTOP
+   Remove bordas duras sem alterar o mobile ou a estrutura.
+   ===================================================== */
+@media (min-width: 769px) {
+  .service-card,
+  .about-card,
+  .contact-card,
+  .audience-card,
+  .equipamentos-box,
+  .plan-card,
+  .google-review-card,
+  .faq-card,
+  .diagnosis-card,
+  .market-signal article,
+  .signal-grid article,
+  .steps-grid article,
+  .fit-grid article,
+  .process-preview,
+  .portfolio-card,
+  #videos-ia .ia-main,
+  #videos-ia .ia-card,
+  #nichos .niche-grid a,
+  .cookie-consent {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow:
+      0 20px 58px rgba(0,0,0,0.24),
+      0 0 30px rgba(0,255,178,0.055) !important;
+  }
+
+  .service-card:hover,
+  .about-card:hover,
+  .contact-card:hover,
+  .audience-card:hover,
+  .equipamentos-box:hover,
+  .plan-card:hover,
+  .faq-card:hover,
+  .market-signal article:hover,
+  .signal-grid article:hover,
+  .steps-grid article:hover,
+  .fit-grid article:hover,
+  #videos-ia .ia-main:hover,
+  #videos-ia .ia-card:hover,
+  #nichos .niche-grid a:hover {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow:
+      0 22px 62px rgba(0,0,0,0.27),
+      0 0 34px rgba(0,255,178,0.075) !important;
+  }
+
+  section#cases.results.case-studies .case-card .video-box {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow:
+      0 18px 48px rgba(0,0,0,0.30),
+      0 0 32px rgba(0,255,178,0.06) !important;
+  }
+
+  #nichos .niche-actions .btn-secondary {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 26px rgba(0,255,178,0.075) !important;
+  }
+}
