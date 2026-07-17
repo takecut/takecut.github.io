@@ -6494,9 +6494,9 @@ body.takecut-loading-active > :not(#loadingScreen) {
 @media (min-width: 769px) {
   :root {
     /* Ajuste manual dos glows em um único lugar. */
-    --tc-glow-button: 0 6px 18px rgba(0,255,178,0.14);
-    --tc-glow-card-static: 0 10px 24px rgba(0,255,178,0.10);
-    --tc-glow-card-hover: 0 10px 24px rgba(0,255,178,0.12);
+    --tc-glow-button: 0 3px 12px rgba(0,255,178,0.26);
+    --tc-glow-card-static: 0 4px 14px rgba(0,255,178,0.13);
+    --tc-glow-card-hover: 0 4px 14px rgba(0,255,178,0.18);
   }
 
   /* Títulos sem contorno ou halo. */
@@ -6592,6 +6592,30 @@ body.takecut-loading-active > :not(#loadingScreen) {
       rgba(17,17,19,0.94) !important;
   }
 
+  /* Cards de IA permanecem completamente estáticos e sem glow. */
+  html body #videos-ia .ia-main,
+  html body #videos-ia .ia-main:hover,
+  html body #videos-ia .ia-card,
+  html body #videos-ia .ia-card:hover {
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  html body #videos-ia .ia-main .video-box,
+  html body #videos-ia .ia-card .video-box {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* O carrossel não deve projetar halo atrás dos vídeos. */
+  html body #portfolioCarousel .carousel-item,
+  html body #portfolioCarousel .carousel-item:hover {
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
   html body #videos-ia .ia-main::after,
   html body #videos-ia .ia-main .result-info::before,
   html body #videos-ia .ia-main .result-info::after {
@@ -6645,7 +6669,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
     .plans-grid .card-cta-plan
   ):hover {
     background: #00FFB2 !important;
-    border-color: #00FFB2 !important;
+    border-color: transparent !important;
     color: #0B0B0C !important;
     box-shadow: var(--tc-glow-button) !important;
     transform: translateY(-2px) !important;
