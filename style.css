@@ -6495,7 +6495,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
   :root {
     /* Ajuste manual dos glows em um único lugar. */
     --tc-glow-button: 0 3px 12px rgba(0,255,178,0.26);
-    --tc-glow-card-static: 0 4px 14px rgba(0,255,178,0.13);
+    --tc-glow-card-static: 0 0 16px rgba(0,255,178,0.13);
     --tc-glow-card-hover: 0 4px 14px rgba(0,255,178,0.18);
   }
 
@@ -6690,7 +6690,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
     justify-content: center;
     gap: 8px;
     margin: 0;
-    padding: 24px 0 0;
+    padding: 32px 0 0;
     color: rgba(245,245,245,0.62);
     font-size: 14px;
     font-weight: 600;
@@ -6707,6 +6707,15 @@ body.takecut-loading-active > :not(#loadingScreen) {
 }
 
 /* Selo de verificação responsivo: o mesmo desenho no desktop e no mobile. */
+.secure-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 24px;
+  line-height: 1.25;
+}
+
 .secure-text .secure-emoji {
   display: inline-grid;
   place-items: center;
@@ -6732,4 +6741,16 @@ body.takecut-loading-active > :not(#loadingScreen) {
   font-size: 11px;
   font-weight: 900;
   line-height: 1;
+}
+
+.secure-text .secure-emoji::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 5px;
+  box-sizing: border-box;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-1px) rotate(-45deg);
+  transform-origin: center;
 }
