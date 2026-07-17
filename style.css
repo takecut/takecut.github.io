@@ -6604,6 +6604,7 @@ body.takecut-loading-active > :not(#loadingScreen) {
   }
 
   html body #videos-ia .ia-main .video-box,
+  html body #videos-ia .ia-main .video-box.horizontal.destaque,
   html body #videos-ia .ia-card .video-box {
     border: 0 !important;
     box-shadow: none !important;
