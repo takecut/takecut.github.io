@@ -6683,6 +6683,41 @@ body.takecut-loading-active > :not(#loadingScreen) {
     box-shadow: var(--tc-glow-card-static) !important;
   }
 
+  /* Selo discreto de segurança abaixo do showreel. */
+  html body .showreel .secure-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 24px 0 0;
+    color: rgba(245,245,245,0.62);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    opacity: 1;
+  }
+
+  html body .showreel .secure-emoji {
+    display: inline-grid;
+    place-items: center;
+    width: 19px;
+    height: 21px;
+    flex: 0 0 auto;
+    clip-path: polygon(50% 0, 90% 16%, 86% 65%, 50% 100%, 14% 65%, 10% 16%);
+    background: rgba(0,255,178,0.13);
+    color: #00FFB2;
+    font-size: 0;
+    box-shadow: 0 3px 10px rgba(0,255,178,0.14);
+  }
+
+  html body .showreel .secure-emoji::before {
+    content: "✓";
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
   html body #nichos .niche-grid a:hover,
   html body #contact .contact-grid .contact-card:hover {
     border: 0 !important;
