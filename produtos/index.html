@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="https://www.takecut.com.br/favicon-takecut.png">
 <title>Equipamentos Profissionais | Take Cut</title>
+<meta name="description" content="Equipamentos de câmera, iluminação, áudio e acessórios recomendados pela Take Cut para compra ou locação.">
+<link rel="canonical" href="https://www.takecut.com.br/produtos/">
 <link rel="icon" type="image/png" href="/favicon-takecut.png">
-<link rel="stylesheet" href="/style.css?v=20260622-uihotfix1">
+<link rel="stylesheet" href="/base.css?v=20260813-audit1">
+<link rel="stylesheet" href="/produtos/produtos.css?v=20260813-audit1">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
 
@@ -17,42 +20,6 @@
     margin: 0 auto;
     padding: 100px 20px 80px;
   }
-
-  /* TAREFA 11: botão voltar */
-  .back-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  width: fit-content;
-  margin: 0 auto 30px;
-
-  color: #0B0B0C;
-  background: #00FFB2;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 8px;
-
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-  .back-btn::after {
-    content: "";
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-    transition: 0.4s;
-  }
-  .back-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,255,178,0.4); }
-  .back-btn:hover::after { left: 100%; }
-  .back-btn:active { transform: scale(0.97); }
-  .back-btn .arrow { display: inline-block; transition: transform 0.3s ease; font-size: 18px; }
-  .back-btn:hover .arrow { transform: translateX(-4px); }
 
   /* TÍTULO DA PÁGINA */
   .produtos-page h1 {
@@ -195,6 +162,7 @@
   /* TAREFA 2: imagem grande no topo do card */
   .card-img-grande {
     width: 100%;
+    height: auto;
     aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
@@ -313,7 +281,7 @@
 <!-- TAREFA 4: navbar igual da página principal -->
 <header class="navbar">
   <a href="/" class="logo"><img src="/logo.png" alt="Take Cut Logo" width="120" height="40"></a>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">☰</button>
   <nav class="nav-links">
     <a href="/">Início</a>
     <a href="/#cases">Cases</a>
@@ -331,8 +299,8 @@
   <!-- TAREFA 10: busca com lupa funcional -->
   <div class="search-wrap">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar equipamentos..." oninput="filtrarTudo()">
-      <button class="search-btn" onclick="filtrarTudo()" title="Buscar">🔍</button>
+      <input type="text" id="searchInput" placeholder="Buscar equipamentos..." aria-label="Buscar equipamentos" oninput="filtrarTudo()">
+      <button class="search-btn" type="button" onclick="filtrarTudo()" title="Buscar" aria-label="Buscar equipamentos">🔍</button>
     </div>
   </div>
 
@@ -381,11 +349,11 @@
       <!-- PRODUTO 1: câmera -->
       <div class="card" data-categoria="cameras" data-nome="camera canon eos rebel">
         <!-- IMAGEM GRANDE — troque "camera.jpg" pelo seu arquivo -->
-        <img src="/camera1.jpg" alt="Câmera Canon EOS Rebel" class="card-img-grande">
+        <img src="/camera1.jpg" alt="Câmera Canon EOS Rebel" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
             <!-- IMAGEM PEQUENA — pode usar a mesma ou uma diferente -->
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Câmera Canon EOS Rebel</span>
           </div>
           <div class="card-rating">★★★★★</div>
@@ -394,18 +362,18 @@
           <div class="card-buttons">
             <!-- troque "#" pelo link de afiliado quando tiver -->
             <a href="https://amzn.to/4tUl3Wr" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/551153044748?text=Quero%20alugar%20a%20Canon%20EOS%20Rebel" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20a%20Canon%20EOS%20Rebel" target="_blank" rel="noopener" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
 
       <div class="card" data-categoria="cameras" data-nome="iphone 16e de 128 gb">
         <!-- IMAGEM GRANDE — troque "camera.jpg" pelo seu arquivo -->
-        <img src="/camera2.jpg" alt="iPhone 16e de 128 GB" class="card-img-grande">
+        <img src="/camera2.jpg" alt="iPhone 16e de 128 GB" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
             <!-- IMAGEM PEQUENA — pode usar a mesma ou uma diferente -->
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">iPhone 16e de 128 GB</span>
           </div>
           <div class="card-rating">★★★★★</div>
@@ -420,10 +388,10 @@
       
       <!-- PRODUTO 2: iluminação -->
       <div class="card" data-categoria="iluminacao" data-nome="kit softbox 50x70">
-        <img src="/light1.jpg" alt="Kit Softbox 50x70" class="card-img-grande">
+        <img src="/light1.jpg" alt="Kit Softbox 50x70" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Kit Softbox 50x70</span>
           </div>
           <div class="card-rating">★★★★☆</div>
@@ -431,17 +399,17 @@
           <div class="card-preco">R$ 109,90 ou R$ .../dia</div>
           <div class="card-buttons">
             <a href="https://amzn.to/4uGfew1" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20kit%20softbox" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20kit%20softbox" target="_blank" rel="noopener" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
 
 
             <div class="card" data-categoria="iluminacao" data-nome="kit duplo softbox 50x70">
-        <img src="/light2.jpg" alt="Kit Duplo Softbox 50x70" class="card-img-grande">
+        <img src="/light2.jpg" alt="Kit Duplo Softbox 50x70" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Kit Duplo Softbox 50x70</span>
           </div>
           <div class="card-rating">★★★★★</div>
@@ -449,17 +417,17 @@
           <div class="card-preco">R$ 189,99 ou R$ .../dia</div>
           <div class="card-buttons">
             <a href="https://amzn.to/4tGu1G9" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20kit%20duplo%20softbox" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20kit%20duplo%20softbox" target="_blank" rel="noopener" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
 
       <!-- PRODUTO 3: áudio -->
       <div class="card" data-categoria="audio" data-nome="Microfone de Lapela Duplo Sem Fio α’GOLD Premium">
-        <img src="/mic1.jpg" alt="Microfone de Lapela Duplo Sem Fio α’GOLD Premium" class="card-img-grande">
+        <img src="/mic1.jpg" alt="Microfone de Lapela Duplo Sem Fio α’GOLD Premium" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Microfone de Lapela Duplo Sem Fio α’GOLD Premium</span>
           </div>
           <div class="card-rating">★★★★☆</div>
@@ -473,10 +441,10 @@
 
 
             <div class="card" data-categoria="audio" data-nome="kit 2 microfones de lapela profissional, transmissão sem fio">
-        <img src="/mic2.jpg" alt="Kit 2 Microfones de Lapela Profissional, Transmissão Sem Fio" class="card-img-grande">
+        <img src="/mic2.jpg" alt="Kit 2 Microfones de Lapela Profissional, Transmissão Sem Fio" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Kit 2 Microfones de Lapela Profissional, Transmissão Sem Fio</span>
           </div>
           <div class="card-rating">★★★★★</div>
@@ -490,10 +458,10 @@
 
 
             <div class="card" data-categoria="audio" data-nome="microfone shotgun boom">
-        <img src="/mic3.jpg" alt="Microfone shotgun boom" class="card-img-grande">
+        <img src="/mic3.jpg" alt="Microfone shotgun boom" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Microfone shotgun boom</span>
           </div>
           <div class="card-rating">★★★★★</div>
@@ -501,17 +469,17 @@
           <div class="card-preco">R$ 242,00 ou R$ .../dia</div>
           <div class="card-buttons">
             <a href="https://amzn.to/4eAvDNB" class="btn-comprar">Comprar</a>
-            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20microfone%20shotgun" target="_blank" class="btn-alugar">Alugar</a>
+            <a href="https://wa.me/551153044748?text=Quero%20alugar%20o%20microfone%20shotgun" target="_blank" rel="noopener" class="btn-alugar">Alugar</a>
           </div>
         </div>
       </div>
 
         <!-- PRODUTO 1: acessórios -->
             <div class="card" data-categoria="acessorios" data-nome="estabilizador gimbal">
-        <img src="/ace1.jpg" alt="Estabilizador Gimbal" class="card-img-grande">
+        <img src="/ace1.jpg" alt="Estabilizador Gimbal" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Estabilizador Gimbal</span>
           </div>
           <div class="card-rating">★★★★★</div>
@@ -525,10 +493,10 @@
 
 
             <div class="card" data-categoria="acessorios" data-nome="kit de limpeza 3 em 1 para câmeras e lentes">
-        <img src="/ace2.jpg" alt="Kit de Limpeza 3 em 1 para Câmeras e Lentes" class="card-img-grande">
+        <img src="/ace2.jpg" alt="Kit de Limpeza 3 em 1 para Câmeras e Lentes" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Kit de Limpeza 3 em 1 para Câmeras e Lentes</span>
           </div>
           <div class="card-rating">★★★★☆</div>
@@ -542,10 +510,10 @@
 
 
             <div class="card" data-categoria="acessorios" data-nome="Mochila Fotográfica Impermeável">
-        <img src="/ace3.jpg" alt="Mochila Fotográfica Impermeável" class="card-img-grande">
+        <img src="/ace3.jpg" alt="Mochila Fotográfica Impermeável" class="card-img-grande" width="1920" height="1080" loading="lazy" decoding="async">
         <div class="card-body">
           <div class="card-header">
-            <img src="/amz.png" alt="" class="card-img-pequena">
+            <img src="/amz.png" alt="" class="card-img-pequena" width="512" height="512" loading="lazy" decoding="async">
             <span class="card-titulo">Mochila Fotográfica Impermeável</span>
           </div>
           <div class="card-rating">★★★★☆</div>
@@ -579,12 +547,16 @@
 <script>
 // ── MENU MOBILE ──
 function toggleMenu() {
-  document.querySelector(".nav-links").classList.toggle("active");
+  const nav = document.querySelector(".nav-links");
+  const toggle = document.querySelector(".menu-toggle");
+  const isOpen = nav.classList.toggle("active");
+  toggle.setAttribute("aria-expanded", String(isOpen));
 }
 document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll(".nav-links a").forEach(function(link) {
     link.addEventListener("click", function() {
       document.querySelector(".nav-links").classList.remove("active");
+      document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
     });
   });
 });
@@ -605,7 +577,7 @@ function filtrarTudo() {
 
   cards.forEach(function(card) {
     const categoria = card.getAttribute("data-categoria");
-    const nome = card.getAttribute("data-nome") || "";
+    const nome = (card.getAttribute("data-nome") || "").toLowerCase();
 
     // passa no filtro de categoria?
     const passaCategoria = categoriasMarcadas.length === 0 || categoriasMarcadas.includes(categoria);

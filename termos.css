@@ -1,0 +1,43 @@
+/* Complementos dos termos */
+
+h2 { font-size: 35px; text-align: center; margin-bottom: 30px; color: rgb(245, 245, 245); font-weight: 800; text-shadow: rgba(245, 245, 245, 0.25) 0px 0px 15px; }
+
+.stars { position: absolute; width: 2px; height: 2px; background: rgb(0, 255, 178); border-radius: 50%; animation: 5s ease-in-out 0s infinite normal none running twinkle; }
+
+.stars:nth-child(2n+1) { animation-delay: 0s; }
+
+.stars:nth-child(2n) { animation-delay: 1.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+.stars { opacity: 0.45; animation: auto ease 0s 1 normal none running none !important; }
+}
+
+.footer { text-align: center; padding: 30px 20px; background: rgb(11, 11, 12); border-top: 1px solid rgba(255, 255, 255, 0.1); }
+
+.footer p { margin-bottom: 6px; font-size: 14px; opacity: 0.7; }
+
+@media (max-width: 768px) {
+h2 { font-size: 28px !important; text-shadow: rgba(245, 245, 245, 0.15) 0px 0px 10px !important; }
+}
+
+@media (min-width: 769px) and (max-width: 1440px) {
+h2 { font-size: clamp(28px, 2.4vw, 32px); margin-bottom: 24px; }
+}
+
+@media (max-width: 768px) {
+.stars { width: 1.5px; height: 1.5px; }
+}
+
+.stars-bg .stars, .stars-bg .ufo { display: block !important; visibility: visible !important; }
+
+@media (max-width: 768px) {
+.nav-links a[href="#services"], .nav-links a[href="/#services"] { --menu-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%207h16M4%2012h16M4%2017h10%27%20stroke%3D%27%2300FFB2%27%20stroke-width%3D%272.2%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M17%2016l3%202-3%202v-4Z%27%20fill%3D%27%2300FFB2%27%2F%3E%3C%2Fsvg%3E") !important; }
+}
+
+@media (max-width: 768px) {
+.nav-links a[href="/portfolio"], .nav-links a[href="/portfolio/"], .nav-links a[href="#portfolio"], .nav-links a[href="/#portfolio"] { --menu-icon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Crect%20x%3D%273%27%20y%3D%274%27%20width%3D%277%27%20height%3D%277%27%20rx%3D%271.8%27%20stroke%3D%27%2300FFB2%27%20stroke-width%3D%272.1%27%2F%3E%3Crect%20x%3D%2714%27%20y%3D%274%27%20width%3D%277%27%20height%3D%277%27%20rx%3D%271.8%27%20stroke%3D%27%2300FFB2%27%20stroke-width%3D%272.1%27%2F%3E%3Crect%20x%3D%273%27%20y%3D%2715%27%20width%3D%277%27%20height%3D%275%27%20rx%3D%271.6%27%20stroke%3D%27%2300FFB2%27%20stroke-width%3D%272.1%27%2F%3E%3Crect%20x%3D%2714%27%20y%3D%2715%27%20width%3D%277%27%20height%3D%275%27%20rx%3D%271.6%27%20stroke%3D%27%2300FFB2%27%20stroke-width%3D%272.1%27%2F%3E%3C%2Fsvg%3E") !important; }
+}
+
+@media (min-width: 769px) {
+html body h2, html body :is(.audiences .section-subtitle, .result-info h3, .service-card h3, .about-card h3, .contact-card h3, .audience-card h3, .equipamentos-copy h3, .portfolio-caption h3) { text-shadow: none !important; -webkit-text-stroke: 0px !important; filter: none !important; }
+}
