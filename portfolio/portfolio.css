@@ -1,5 +1,122 @@
 /* Complementos do portfólio */
 
+html body .portfolio-section-heading--featured {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
+  align-items: center;
+  gap: clamp(34px, 5vw, 72px);
+  overflow: hidden;
+  margin: 0 0 30px;
+  padding: clamp(24px, 3vw, 34px) clamp(24px, 3.5vw, 42px);
+  border: 1px solid rgba(0, 255, 178, 0.2);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(0, 255, 178, 0.16), transparent 34%),
+    linear-gradient(120deg, rgba(0, 255, 178, 0.07), rgba(255, 255, 255, 0.035) 48%, rgba(0, 255, 178, 0.025)),
+    rgba(10, 12, 13, 0.82);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  text-align: left;
+}
+
+html body .portfolio-section-heading--featured::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(transparent 8%, #00ffb2 50%, transparent 92%);
+  box-shadow: 0 0 24px rgba(0, 255, 178, 0.75);
+}
+
+html body .portfolio-section-heading--featured::after {
+  content: "";
+  position: absolute;
+  right: -62px;
+  top: -86px;
+  width: 210px;
+  height: 210px;
+  border: 1px solid rgba(0, 255, 178, 0.11);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(0, 255, 178, 0.025), 0 0 0 58px rgba(0, 255, 178, 0.018);
+  pointer-events: none;
+}
+
+html body .portfolio-section-heading--featured h2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  color: #f5f5f5;
+  font-size: clamp(30px, 3.1vw, 42px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  text-align: left;
+}
+
+html body .portfolio-section-heading--featured h2::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0, 255, 178, 0.42);
+  border-radius: 14px;
+  background:
+    linear-gradient(90deg, transparent 45%, rgba(0, 255, 178, 0.95) 45% 55%, transparent 55%),
+    linear-gradient(transparent 18%, rgba(0, 255, 178, 0.2) 18% 32%, transparent 32% 44%, rgba(0, 255, 178, 0.36) 44% 58%, transparent 58% 70%, rgba(0, 255, 178, 0.18) 70% 82%, transparent 82%),
+    rgba(0, 255, 178, 0.08);
+  box-shadow: 0 0 24px rgba(0, 255, 178, 0.13);
+}
+
+html body .portfolio-section-heading--featured p {
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
+  margin: 0;
+  padding-left: 24px;
+  border-left: 1px solid rgba(0, 255, 178, 0.28);
+  color: rgba(245, 245, 245, 0.72);
+  font-size: clamp(14px, 1.25vw, 16px);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+  html body .portfolio-section-heading--featured {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding: 24px 20px 25px;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  html body .portfolio-section-heading--featured h2 {
+    justify-content: center;
+    font-size: clamp(27px, 8.5vw, 34px) !important;
+    text-align: center;
+    text-shadow: none !important;
+  }
+
+  html body .portfolio-section-heading--featured h2::before {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  html body .portfolio-section-heading--featured p {
+    max-width: 38ch;
+    margin: 0 auto;
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(0, 255, 178, 0.24);
+    font-size: 14px !important;
+    line-height: 1.65;
+    text-align: center;
+  }
+}
+
 .menu-toggle { display: none; font-size: 28px; cursor: pointer; color: rgb(0, 255, 178); border: 0px; background: transparent; font-family: inherit; }
 
 button { background: rgb(0, 255, 178); color: rgb(11, 11, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; }

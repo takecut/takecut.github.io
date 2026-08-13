@@ -120,6 +120,79 @@ body { position: relative !important; isolation: isolate !important; }
 
 body > header, body > section, body > footer { position: relative; z-index: 2 !important; }
 
+body > .portfolio-page, body > .produtos-page { position: relative; z-index: 2; }
+
+.stars-bg .stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgb(0, 255, 178);
+  box-shadow: 0 0 6px rgba(0, 255, 178, 0.72);
+  animation: twinkle 5s ease-in-out infinite;
+}
+
+.stars-bg .ufo {
+  --ufo-scale: 1;
+  --ufo-duration: 15s;
+  --ufo-start-x: -28vw;
+  --ufo-mid-x: 36vw;
+  --ufo-mid-y: 0vh;
+  --ufo-late-x: 74vw;
+  --ufo-late-y: 4vh;
+  --ufo-end-x: 122vw;
+  --ufo-end-y: 0vh;
+  --ufo-rotate-start: -6deg;
+  --ufo-rotate-mid: 2deg;
+  --ufo-rotate-late: -2deg;
+  --ufo-rotate-end: 6deg;
+  position: absolute;
+  width: 34px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 178, 0.35);
+  background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(0, 255, 178, 0.82) 55%, rgba(0, 120, 90, 0.9));
+  box-shadow: 0 0 10px rgba(0, 255, 178, 0.35), 0 0 26px rgba(0, 255, 178, 0.18);
+  animation: ufoFly var(--ufo-duration) linear infinite;
+  opacity: 0;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.stars-bg .ufo::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  width: 16px;
+  height: 10px;
+  transform: translateX(-50%);
+  border-radius: 14px 14px 6px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.95), rgba(170, 255, 230, 0.95) 28%, rgba(0, 255, 178, 0.45) 65%, rgba(0, 255, 178, 0.08));
+  box-shadow: 0 0 12px rgba(0, 255, 178, 0.22);
+}
+
+.stars-bg .ufo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 34px;
+  height: 26px;
+  transform: translateX(-50%);
+  background: radial-gradient(at center top, rgba(0, 255, 178, 0.24), rgba(0, 255, 178, 0.08) 38%, transparent 72%);
+  filter: blur(1.5px);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .stars-bg .stars { width: 1.5px; height: 1.5px; }
+  .stars-bg .ufo { width: 28px; height: 10px; }
+  .stars-bg .ufo::before { width: 14px; height: 9px; top: -7px; }
+  .stars-bg .ufo::after { width: 30px; height: 22px; }
+}
+
 .navbar, .whatsapp, .cookie-consent, #loadingScreen, .modal { z-index: 9999 !important; }
 
 :root { --tc-icon-production: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%208h16v10.5A1.5%201.5%200%200%201%2018.5%2020h-13A1.5%201.5%200%200%201%204%2018.5V8Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M4%208%206.7%204h3L7%208M10%208l2.7-4h3L13%208M16%208l2.7-4H20v4%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M10%2012.2v3.6l3.4-1.8-3.4-1.8Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-editing: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%207h10M4%2017h10%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M18%205v14%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M15.5%208.5%2018%206l2.5%202.5M15.5%2015.5%2018%2018l2.5-2.5%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M7%2010.5v3l2.8-1.5L7%2010.5Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-growth: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%2018h16%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M6%2015l4-4%203%203%205-7%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M16%207h2.8v2.8%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M7%206.5%208%204l1%202.5L11.5%207%209%208%208%2010.5%207%208%204.5%207%207%206.5Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-mission: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M12%203c2.5%201.5%204%204%204%207.2%200%204.2-2.2%207.1-4%208.8-1.8-1.7-4-4.6-4-8.8C8%207%209.5%204.5%2012%203Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M12%2010.8a1.8%201.8%200%201%200%200-3.6%201.8%201.8%200%200%200%200%203.6Z%27%20fill%3D%27black%27%2F%3E%3Cpath%20d%3D%27M8.5%2015.5%205%2019M15.5%2015.5%2019%2019M12%2019v2%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-vision: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M12%205.5c5.2%200%208.5%206.5%208.5%206.5S17.2%2018.5%2012%2018.5%203.5%2012%203.5%2012%206.8%205.5%2012%205.5Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M12%2015a3%203%200%201%200%200-6%203%203%200%200%200%200%206Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-values: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M7%204h10l4%205-9%2011L3%209l4-5Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M3%209h18M9%204l-2%205%205%2011%205-11-2-5%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-whatsapp: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M5.1%2019.1%206%2015.8A7.6%207.6%200%201%201%208.2%2018l-3.1%201.1Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M9%208.7c.2-.5.4-.6.8-.6h.6c.2%200%20.5.1.6.5l.5%201.3c.1.3.1.5-.1.7l-.5.6c.6%201.1%201.5%202%202.7%202.6l.6-.5c.2-.2.5-.2.8-.1l1.3.6c.4.2.5.4.5.7v.5c0%20.5-.2.8-.7%201-1%20.3-2.8-.2-4.6-1.5-1.8-1.3-3.2-3.1-3.5-4.7-.1-.4.1-.8.5-1.1Z%27%20fill%3D%27black%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-form: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M7%203.5h8l3%203V20a1%201%200%200%201-1%201H7a1%201%200%200%201-1-1V4.5a1%201%200%200%201%201-1Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M14.5%203.5V7H18M9%2011h6M9%2015h6M9%2018h4%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-email: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%207.5A1.5%201.5%200%200%201%205.5%206h13A1.5%201.5%200%200%201%2020%207.5v9A1.5%201.5%200%200%201%2018.5%2018h-13A1.5%201.5%200%200%201%204%2016.5v-9Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27m5%208%207%205%207-5%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-instagram: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Crect%20x%3D%275%27%20y%3D%275%27%20width%3D%2714%27%20height%3D%2714%27%20rx%3D%274%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3Cpath%20d%3D%27M12%2015.2a3.2%203.2%200%201%200%200-6.4%203.2%203.2%200%200%200%200%206.4Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3Cpath%20d%3D%27M16.6%207.8h.01%27%20stroke%3D%27black%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E"); --tc-icon-equipment: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M4%209a2%202%200%200%201%202-2h2.2l1.2-2h5.2l1.2%202H18a2%202%200%200%201%202%202v8a2%202%200%200%201-2%202H6a2%202%200%200%201-2-2V9Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M12%2016a3.2%203.2%200%201%200%200-6.4%203.2%203.2%200%200%200%200%206.4Z%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3Cpath%20d%3D%27M17.5%2010h.01%27%20stroke%3D%27black%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E"); }
