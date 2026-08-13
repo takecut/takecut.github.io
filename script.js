@@ -2,7 +2,6 @@
 // Mobile: tela de renderização em tela cheia, sem ficar lenta demais e sem flash entre o loading e o site.
 (function () {
   var isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.matchMedia("(max-width: 768px)").matches;
-  var storageKey = "takecutLoadingScreenSeen_20260706-final-cache-bust";
   var loadScreen = document.getElementById("loadingScreen");
   var loadBar = document.getElementById("loadingBar");
   var root = document.documentElement;
@@ -11,16 +10,6 @@
   var MIN_DISPLAY_TIME = 3000;
   var MAX_DISPLAY_TIME = 6500;
   var VIDEO_WAIT_LIMIT = 3800;
-
-  function storageGet(key) {
-    try { return window.localStorage.getItem(key); }
-    catch (e) { return null; }
-  }
-
-  function storageSet(key, value) {
-    try { window.localStorage.setItem(key, value); }
-    catch (e) { /* Se o navegador bloquear storage, o site continua funcionando. */ }
-  }
 
   function lockPageBehindLoading() {
     root.classList.add("takecut-loading-active");
@@ -196,7 +185,11 @@
 
 // MENU
 function toggleMenu() {
-  document.querySelector(".nav-links").classList.toggle("active");
+  const nav = document.querySelector(".nav-links");
+  const toggle = document.querySelector(".menu-toggle");
+  if (!nav || !toggle) return;
+  const isOpen = nav.classList.toggle("active");
+  toggle.setAttribute("aria-expanded", String(isOpen));
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -204,6 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".nav-links a").forEach(function (link) {
     link.addEventListener("click", function () {
       document.querySelector(".nav-links").classList.remove("active");
+      const toggle = document.querySelector(".menu-toggle");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
     });
   });
 
@@ -896,16 +891,6 @@ function setupMobileCardReveal() {
   window.addEventListener("pageshow", updateAllGroups);
 }
 
-
-// ANTI DEVTOOLS
-(function () {
-  document.addEventListener("keydown", function (e) {
-    if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
-      e.preventDefault();
-      return false;
-    }
-  });
-})();
 
 // TAKE CUT — iPad portfolio video preparation 20260706
 // Prepara os vídeos do carrossel no tablet para evitar o flash/recorte antes do metadata carregar.
