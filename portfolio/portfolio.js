@@ -115,7 +115,7 @@
       title: "Cena cinematográfica 100% IA",
       shortTitle: "Campanha conceitual",
       format: "ia",
-      niche: "automotivo",
+      niche: "criacao-ia",
       objective: "criar-impossivel",
       thumbnail: "/thumbp7.jpg",
       video: "/video7.mp4",
@@ -128,7 +128,7 @@
       title: "Cena com IA para marca",
       shortTitle: "Comercial cinematográfico + IA",
       format: "ia",
-      niche: "produto",
+      niche: "criacao-ia",
       objective: "criar-impossivel",
       thumbnail: "/thumbia1.jpg",
       video: "/videoia3c.mp4",
@@ -155,7 +155,8 @@
     comercio: "Comércio",
     corporativo: "Corporativo",
     produto: "Produto",
-    eventos: "Eventos"
+    eventos: "Eventos",
+    "criacao-ia": "Criação com IA"
   };
 
   const objectiveLabels = {
@@ -235,7 +236,7 @@
       '<article class="featured-card">',
       '  <button class="featured-media" type="button" data-open-project="' + project.id + '" aria-label="Assistir ' + project.title + '">',
       '    <img src="' + project.thumbnail + '" alt="Thumbnail do projeto ' + project.title + '" width="960" height="600" fetchpriority="high" decoding="async">',
-      '    <span class="featured-play"><span aria-hidden="true">▶</span> Assistir projeto</span>',
+      '    <span class="featured-play"><span class="featured-play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6.8v10.4L17.5 12 9 6.8Z"/></svg></span> Assistir projeto</span>',
       "  </button>",
       '  <div class="featured-copy">',
       '    <span class="featured-label">' + project.shortTitle + "</span>",
@@ -283,7 +284,7 @@
   }
 
   function renderMarkets() {
-    const existingNiches = Array.from(new Set(projects.map(function (project) { return project.niche; })));
+    const existingNiches = Array.from(new Set(projects.map(function (project) { return project.niche; }))).filter(function (niche) { return niche !== "criacao-ia"; });
     marketsList.innerHTML = existingNiches.map(function (niche) {
       const count = projects.filter(function (project) { return project.niche === niche; }).length;
       return '<button class="market-button" type="button" data-niche="' + niche + '">' + nicheLabels[niche] + " <small>" + count + "</small></button>";
@@ -310,7 +311,7 @@
   function renderFilters() {
     const map = state.filterMode === "niche" ? nicheLabels : formatLabels;
     const keys = Array.from(new Set(state.source.map(function (project) { return project[state.filterMode]; })));
-    const chips = [{ id: "all", label: "Todos" }].concat(keys.map(function (key) { return { id: key, label: labelFor(map, key) }; }));
+    const chips = [{ id: "all", label: "Todos" }].concat(keys.length > 1 ? keys.map(function (key) { return { id: key, label: labelFor(map, key) }; }) : []);
     filterStrip.innerHTML = chips.map(function (chip) {
       const active = chip.id === state.activeFilter;
       return '<button class="filter-chip' + (active ? " active" : "") + '" type="button" data-gallery-filter="' + chip.id + '" aria-pressed="' + active + '">' + chip.label + "</button>";
@@ -333,7 +334,7 @@
       '  <div class="project-thumb">',
       '    <img src="' + project.thumbnail + '" alt="Thumbnail de ' + project.title + '" width="560" height="350" loading="lazy" decoding="async">',
       '    <span class="project-indicator" aria-hidden="true"></span>',
-      '    <span class="project-play"><span>▶ Assistir</span></span>',
+      '    <span class="project-play"><span><svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.8v10.4L17.5 12 9 6.8Z"/></svg><span class="project-play-label">Assistir</span></span></span>',
       "  </div>",
       '  <div class="project-copy">',
       "    <small>" + project.shortTitle + "</small>",
