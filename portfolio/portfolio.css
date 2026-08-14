@@ -709,19 +709,20 @@ button { font: inherit; }
   .collection-card:hover .collection-thumb:nth-child(2) { transform: translate(9px, 5px) rotate(3deg) scale(.96); }
   .collection-card:hover .collection-thumb:nth-child(3) { transform: none; }
 
-  .gallery-shell { scroll-margin-top: 68px; margin-left: -4px; margin-right: -4px; padding: 28px 18px; border-radius: 24px; }
+  .gallery-shell { width: 100%; scroll-margin-top: 68px; margin-left: 0; margin-right: 0; padding: 28px 14px; border-radius: 24px; }
   .gallery-topline { display: block; }
   .gallery-topline h2 { font-size: 36px; }
   .gallery-close { margin-top: 18px; }
   .filter-strip { margin: 22px -18px; padding-left: 18px; padding-right: 18px; }
   .filter-chip { min-height: 42px; padding: 11px 15px; }
-  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+  .project-grid { width: 100%; min-width: 0; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .project-card { width: 100%; max-width: 100%; min-width: 0; }
   .project-card:hover { transform: none; }
   .project-card:hover .project-thumb img { filter: none; transform: none; }
-  .project-play { opacity: 1; align-items: end; justify-items: end; padding: 10px; }
-  .project-play > span { width: 38px; height: 38px; justify-content: center; padding: 0; border: 1px solid rgba(0,0,0,.12); background: var(--tc-green); color: #07100d; box-shadow: 0 8px 24px rgba(0,255,178,.25); }
+  .project-play { opacity: 1; align-items: end; justify-items: end; padding: 12px; }
+  .project-play > span { width: 46px; height: 46px; justify-content: center; padding: 0; border: 1px solid rgba(0,0,0,.12); background: var(--tc-green); color: #07100d; box-shadow: 0 8px 24px rgba(0,255,178,.25); }
   .project-play-label { display: none; }
-  .play-icon { width: 17px; height: 17px; transform: translateX(1px); }
+  .play-icon { width: 23px; height: 23px; transform: none; }
   .project-copy { padding: 13px; }
   .project-copy h3 { font-size: 15px; }
   .project-copy p { font-size: 11px !important; }
@@ -762,7 +763,6 @@ button { font: inherit; }
 }
 
 @media (max-width: 420px) {
-  .project-grid { grid-template-columns: 1fr; }
   .project-card.is-vertical .project-thumb { aspect-ratio: 4 / 4.6; }
   .project-copy h3 { font-size: 18px; }
   .project-copy p { font-size: 12px !important; }
