@@ -59,6 +59,19 @@
       techniques: ["Edição", "Captação", "Sound Design", "Legendas"]
     },
     {
+      id: "reels-esmalteria",
+      title: "Reels para esmalteria",
+      shortTitle: "Beleza em movimento",
+      format: "reels",
+      niche: "beleza",
+      objective: "vender",
+      thumbnail: "/thumb-portfolio-reels-esmalteria.jpg",
+      video: "/portfolio-reels-esmalteria.mp4",
+      vertical: true,
+      description: "Montagem vertical que valoriza cores, detalhes e resultados do atendimento para transformar o trabalho da esmalteria em uma vitrine atrativa nas redes sociais.",
+      techniques: ["Edição", "Captação", "Color Grading", "Sound Design"]
+    },
+    {
       id: "anuncio-produto",
       title: "Anúncio para produto",
       shortTitle: "Criativo comercial",
@@ -70,6 +83,19 @@
       vertical: false,
       description: "Vídeo curto com cortes objetivos, destaque visual para a oferta e ritmo pensado para segurar a atenção logo nos primeiros segundos.",
       techniques: ["Edição", "Sound Design", "Motion Graphics", "Color Grading"]
+    },
+    {
+      id: "criativo-trafego-pago-3d",
+      title: "Criativo para tráfego pago",
+      shortTitle: "Edição avançada + 3D",
+      format: "comerciais",
+      niche: "corporativo",
+      objective: "vender",
+      thumbnail: "/thumb-portfolio-trafego-3d.jpg",
+      video: "/portfolio-trafego-pago-3d.mp4",
+      vertical: true,
+      description: "Anúncio vertical criado para apresentar o serviço de edição com uma narrativa rápida, combinando composição, motion e cenas 3D para gerar impacto e conduzir ao contato.",
+      techniques: ["DaVinci Resolve", "Blender 3D", "Motion Graphics", "Sound Design"]
     },
     {
       id: "youtube-narrativo",
@@ -85,6 +111,19 @@
       techniques: ["Edição", "Sound Design", "Roteiro", "Color Grading"]
     },
     {
+      id: "gameplay-youtube",
+      title: "Vídeo de gameplay para YouTube",
+      shortTitle: "Narrativa para games",
+      format: "youtube",
+      niche: "games",
+      objective: "prender-atencao",
+      thumbnail: "/thumb-portfolio-gameplay.jpg",
+      video: "/portfolio-gameplay.mp4",
+      vertical: false,
+      description: "Conteúdo horizontal com apresentação, gameplay e cortes guiados para explicar a experiência do jogo, sustentar o ritmo e manter o público acompanhando.",
+      techniques: ["Edição", "Roteiro", "Sound Design", "Motion Graphics"]
+    },
+    {
       id: "conversa-3d",
       title: "Animação 3D de conversa",
       shortTitle: "Animação com profundidade",
@@ -96,6 +135,19 @@
       vertical: false,
       description: "Câmera 3D, movimento de profundidade e composição de mensagens transformam uma conversa simples em uma cena visualmente narrativa.",
       techniques: ["3D", "Motion Graphics", "Edição", "Sound Design"]
+    },
+    {
+      id: "tratamento-audiovisual",
+      title: "Antes e depois da pós-produção",
+      shortTitle: "Tratamento audiovisual",
+      format: "youtube",
+      niche: "corporativo",
+      objective: "contar-historia",
+      thumbnail: "/thumb-portfolio-tratamento.jpg",
+      video: "/portfolio-tratamento-audiovisual.mp4",
+      vertical: false,
+      description: "Comparativo técnico de imagem e áudio que mostra, na prática, como correção de cor, limpeza sonora e finalização elevam a qualidade do material original.",
+      techniques: ["Tratamento de Áudio", "Color Grading", "Edição", "Finalização"]
     },
     {
       id: "video-emocional",
@@ -135,6 +187,32 @@
       vertical: false,
       description: "Estética de maquete, movimento de câmera e construção visual transformam uma ideia comercial em uma cena chamativa e memorável.",
       techniques: ["IA", "Direção", "VFX", "Sound Design", "Color Grading"]
+    },
+    {
+      id: "produto-ia-chaveiros",
+      title: "Comercial de produto com IA",
+      shortTitle: "Produto em cena com IA",
+      format: "ia",
+      niche: "produto",
+      objective: "vender",
+      thumbnail: "/thumb-portfolio-ia-produto.jpg",
+      video: "/videoia2c.mp4",
+      vertical: true,
+      description: "Apresentação vertical de produto criada com inteligência artificial para colocar o item em uma cena comercial, destacar seus detalhes e gerar desejo de compra.",
+      techniques: ["IA", "Direção de Arte", "VFX", "Sound Design"]
+    },
+    {
+      id: "robotica-ia-produto",
+      title: "Animação robótica com IA",
+      shortTitle: "Tecnologia impossível em cena",
+      format: "ia",
+      niche: "produto",
+      objective: "criar-impossivel",
+      thumbnail: "/thumb-portfolio-ia-robotica.jpg",
+      video: "/videoia1c.mp4",
+      vertical: true,
+      description: "Cena conceitual que combina robótica e beleza para mostrar um processo impossível de captar de forma convencional, usando IA como ferramenta de criação visual.",
+      techniques: ["IA", "Direção de Arte", "VFX", "Animação"]
     }
   ];
 
@@ -153,6 +231,7 @@
     automotivo: "Automotivo",
     turismo: "Turismo",
     comercio: "Comércio",
+    beleza: "Beleza",
     corporativo: "Corporativo",
     produto: "Produto",
     eventos: "Eventos",
