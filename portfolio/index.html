@@ -1,1023 +1,162 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfólio | Take Cut</title>
-<meta name="description" content="Veja trabalhos da Take Cut em anúncios, Reels, vídeos institucionais, YouTube e vídeos emocionais. Edição profissional para marcas, empresas e pessoas.">
-<meta property="og:title" content="Portfólio | Take Cut">
-<meta property="og:description" content="Projetos de vídeo organizados por objetivo, formato e tipo de cliente.">
-<meta property="og:url" content="https://www.takecut.com.br/portfolio/">
-<meta property="og:image" content="https://www.takecut.com.br/favicon-takecut.png">
-<meta property="og:site_name" content="Take Cut">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://www.takecut.com.br/portfolio/">
-<link rel="icon" type="image/png" href="/favicon-takecut.png">
-<link rel="stylesheet" href="/base.css?v=20260813-universe1">
-<link rel="stylesheet" href="/portfolio/portfolio.css?v=20260813-phone1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --tc-green: #00FFB2;
-    --tc-black: #0B0B0C;
-    --tc-white: #F5F5F5;
-    --tc-card: #141416;
-    --tc-card-2: #1A1A1D;
-    --tc-line: rgba(0,255,178,0.14);
-  }
-
-  .portfolio-page {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 100px 40px 80px;
-    text-align: center;
-  }
-
-  .portfolio-hero {
-    position: relative;
-    max-width: 930px;
-    margin: 0 auto 46px;
-    padding: 0 10px;
-  }
-
-  .portfolio-hero-card {
-    position: relative;
-    overflow: hidden;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: clamp(30px, 5vw, 58px) clamp(24px, 5vw, 70px);
-    border-radius: 34px;
-    border: 1px solid rgba(0,255,178,0.22);
-    background:
-      radial-gradient(circle at 50% -20%, rgba(0,255,178,0.18), transparent 44%),
-      linear-gradient(135deg, rgba(0,255,178,0.08), rgba(255,255,255,0.035) 42%, rgba(0,255,178,0.055)),
-      rgba(10,11,12,0.72);
-    box-shadow:
-      0 28px 90px rgba(0,0,0,0.38),
-      inset 0 1px 0 rgba(255,255,255,0.08),
-      0 0 0 1px rgba(255,255,255,0.03);
-  }
-
-  .portfolio-hero-card,
-  .portfolio-hero-card * {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .portfolio-hero-card::before {
-    content: "";
-    position: absolute;
-    inset: 14px;
-    border-radius: 26px;
-    border: 1px solid rgba(255,255,255,0.06);
-    pointer-events: none;
-  }
-
-  .portfolio-hero-card::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: min(520px, 72%);
-    height: 1px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, transparent, rgba(0,255,178,0.85), transparent);
-    pointer-events: none;
-  }
-
-  .portfolio-hero-card > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .portfolio-page h1 {
-    font-size: clamp(36px, 5.2vw, 62px);
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    color: var(--tc-white);
-    margin-bottom: 16px;
-    text-shadow: 0 0 18px rgba(0,255,178,0.18);
-  }
-
-  .portfolio-page .subtitle {
-    color: rgba(245,245,245,0.72);
-    font-size: clamp(16px, 1.7vw, 18px);
-    line-height: 1.75;
-    margin: 0 auto;
-    max-width: 760px;
-  }
-
-
-  .portfolio-filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 34px auto 34px;
-  }
-
-  .filter-btn {
-    border: 1px solid rgba(0,255,178,0.18);
-    background: rgba(255,255,255,0.04);
-    color: rgba(245,245,245,0.82);
-    border-radius: 999px;
-    padding: 10px 16px;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform .25s ease, border-color .25s ease, background .25s ease, color .25s ease;
-  }
-
-  .filter-btn:hover,
-  .filter-btn.active {
-    transform: translateY(-2px);
-    border-color: rgba(0,255,178,0.65);
-    background: rgba(0,255,178,0.12);
-    color: var(--tc-green);
-  }
-
-  .portfolio-section {
-    margin-top: 34px;
-  }
-
-  .portfolio-section + .portfolio-section {
-    margin-top: 54px;
-  }
-
-  .portfolio-section.is-hidden {
-    display: none;
-  }
-
-  .portfolio-section-heading {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 18px;
-    margin-bottom: 18px;
-    text-align: left;
-  }
-
-  .portfolio-section-heading h2 {
-    color: var(--tc-white);
-    font-size: clamp(24px, 3vw, 34px);
-    letter-spacing: -0.03em;
-    margin: 0;
-  }
-
-  .portfolio-section-heading p {
-    max-width: 520px;
-    color: rgba(245,245,245,0.62);
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    align-items: start;
-  }
-
-  .portfolio-grid-item {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 16 / 9;
-    background:
-      radial-gradient(circle at top, rgba(0,255,178,0.12), transparent 34%),
-      #080809;
-  }
-
-  .portfolio-grid-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .portfolio-page-card {
-    position: relative;
-    background:
-      linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
-      var(--tc-card);
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid var(--tc-line);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-    transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
-  }
-
-  .portfolio-page-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(135deg, rgba(0,255,178,0.16), transparent 35%, transparent 70%, rgba(255,255,255,0.06));
-    opacity: 0;
-    transition: opacity .28s ease;
-  }
-
-  .portfolio-page-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(0,255,178,0.42);
-    box-shadow: 0 26px 80px rgba(0,255,178,0.10), 0 18px 45px rgba(0,0,0,0.35);
-  }
-
-  .portfolio-page-card:hover::before {
-    opacity: 1;
-  }
-
-  .portfolio-page-card .portfolio-grid-item {
-    border-radius: 0;
-  }
-
-  .portfolio-page-card.is-vertical {
-    max-width: 390px;
-    margin: 0 auto;
-  }
-
-  .portfolio-page-card.is-vertical .portfolio-grid-item {
-    aspect-ratio: 9 / 16;
-    background:
-      linear-gradient(90deg, rgba(0,255,178,0.16), transparent, rgba(0,255,178,0.08)),
-      #080809;
-  }
-
-  .portfolio-page-card.is-hidden {
-    display: none;
-  }
-
-  .video-card {
-    position: relative;
-  }
-
-  .video-card video {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-  }
-
-  .video-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 3;
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 11px;
-    border-radius: 999px;
-    background: rgba(11,11,12,0.78);
-    border: 1px solid rgba(0,255,178,0.28);
-    color: var(--tc-green);
-    font-size: 12px;
-    font-weight: 800;
-    backdrop-filter: blur(10px);
-  }
-
-  .video-badge::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--tc-green);
-    box-shadow: 0 0 12px rgba(0,255,178,0.8);
-  }
-
-  .portfolio-page-caption {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    text-align: left;
-  }
-
-  .portfolio-page-caption .eyebrow {
-    color: rgba(245,245,245,0.54);
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    font-size: 11px;
-    font-weight: 800;
-    margin-bottom: 10px;
-  }
-
-  .portfolio-page-caption h3 {
-    color: var(--tc-green);
-    font-size: 20px;
-    line-height: 1.25;
-    margin-bottom: 10px;
-  }
-
-  .portfolio-page-caption p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: rgba(245,245,245,0.82);
-    margin-bottom: 14px;
-  }
-
-  .portfolio-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 14px 0 18px;
-  }
-
-  .portfolio-tags span {
-    display: inline-flex;
-    width: fit-content;
-    border-radius: 999px;
-    padding: 7px 10px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: rgba(245,245,245,0.68);
-    font-size: 13px;
-  }
-
-  .card-actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 16px;
-  }
-
-  .card-actions small {
-    color: rgba(245,245,245,0.52);
-    font-size: 12px;
-    line-height: 1.35;
-  }
-
-  .card-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    text-decoration: none;
-    color: var(--tc-black);
-    background: var(--tc-green);
-    border-radius: 999px;
-    padding: 10px 14px;
-    font-size: 13px;
-    font-weight: 800;
-    transition: transform .24s ease, box-shadow .24s ease;
-  }
-
-  .card-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(0,255,178,0.25);
-  }
-
-  @media (max-width: 980px) {
-    .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-
-  @media (max-width: 768px) {
-    .portfolio-page { padding: 40px 16px; }
-    .portfolio-section-heading {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-page-card.is-vertical { max-width: 100%; }
-    .card-actions {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-    .card-cta { width: 100%; }
-  }
-
-  /* TAKE CUT — HOTFIX FINAL 20260706: iPad/tablet para vídeos verticais */
-  @media (min-width: 769px) and (max-width: 1366px) {
-    .portfolio-page {
-      max-width: 1080px !important;
-      padding: 54px 28px 86px !important;
-    }
-
-    .portfolio-section-heading {
-      align-items: flex-start !important;
-      gap: 22px !important;
-    }
-
-    .portfolio-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 22px !important;
-    }
-
-    .portfolio-page-card.is-vertical {
-      grid-column: 1 / -1 !important;
-      display: grid !important;
-      grid-template-columns: minmax(270px, 34%) minmax(0, 1fr) !important;
-      align-items: stretch !important;
-      max-width: 100% !important;
-      min-height: 430px !important;
-      margin: 0 !important;
-      overflow: hidden !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-grid-item {
-      aspect-ratio: auto !important;
-      height: 100% !important;
-      min-height: 430px !important;
-      border-radius: 0 !important;
-      background:
-        radial-gradient(circle at center, rgba(0,255,178,0.13), transparent 46%),
-        #080809 !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-grid-item video {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: contain !important;
-      background: #080809 !important;
-      display: block !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-page-caption {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      padding: clamp(22px, 3vw, 32px) !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-tags {
-      margin-top: 16px !important;
-      margin-bottom: 20px !important;
-    }
-
-    .portfolio-page-card.is-vertical .card-actions {
-      margin-top: auto !important;
-    }
-  }
-
-  @media (min-width: 769px) and (max-width: 900px) {
-    .portfolio-page-card.is-vertical {
-      grid-template-columns: minmax(230px, 36%) minmax(0, 1fr) !important;
-      min-height: 390px !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-grid-item {
-      min-height: 390px !important;
-    }
-
-    .portfolio-page-caption h3 {
-      font-size: 18px !important;
-    }
-
-    .portfolio-page-caption p {
-      font-size: 13.5px !important;
-    }
-
-    .portfolio-tags span {
-      font-size: 12.5px !important;
-    }
-  }
-
-
-  /* TAKE CUT — AJUSTE DEFINITIVO iPAD/TABLET 20260706
-     Redesenho dos vídeos verticais no iPad sem alterar textos. */
-  @media (min-width: 769px) and (max-width: 1366px),
-         (min-width: 769px) and (hover: none) and (pointer: coarse) {
-    .portfolio-page {
-      max-width: 1180px !important;
-      padding: 100px clamp(24px, 4vw, 46px) 88px !important;
-    }
-
-    .portfolio-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 22px !important;
-      align-items: stretch !important;
-    }
-
-    .portfolio-page-card.is-vertical {
-      display: grid !important;
-      grid-template-columns: minmax(150px, 39%) minmax(0, 1fr) !important;
-      align-items: stretch !important;
-      max-width: none !important;
-      width: 100% !important;
-      min-height: 356px !important;
-      margin: 0 !important;
-      border-radius: 24px !important;
-      overflow: hidden !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-grid-item {
-      aspect-ratio: auto !important;
-      height: 100% !important;
-      min-height: 356px !important;
-      border-radius: 0 !important;
-      background:
-        radial-gradient(circle at center, rgba(0,255,178,0.14), transparent 48%),
-        #080809 !important;
-      overflow: hidden !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-grid-item video {
-      width: 100% !important;
-      height: 100% !important;
-      max-width: 100% !important;
-      max-height: 100% !important;
-      object-fit: contain !important;
-      object-position: center center !important;
-      background: #080809 !important;
-      display: block !important;
-    }
-
-    .portfolio-page-card.is-vertical .video-badge {
-      top: 12px !important;
-      left: 12px !important;
-      max-width: calc(100% - 24px) !important;
-      font-size: 11px !important;
-      padding: 7px 9px !important;
-      white-space: normal !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-page-caption {
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      min-width: 0 !important;
-      padding: clamp(18px, 2.4vw, 26px) !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-page-caption h3 {
-      font-size: clamp(18px, 2.2vw, 22px) !important;
-      line-height: 1.22 !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-page-caption p {
-      font-size: clamp(13px, 1.5vw, 14.5px) !important;
-      line-height: 1.55 !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-tags {
-      gap: 7px !important;
-      margin: 12px 0 16px !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-tags span {
-      font-size: 12px !important;
-      padding: 6px 8px !important;
-    }
-
-    .portfolio-page-card.is-vertical .card-actions {
-      gap: 10px !important;
-      padding-top: 14px !important;
-      margin-top: auto !important;
-    }
-
-    .portfolio-page-card.is-vertical .card-actions small {
-      font-size: 11.5px !important;
-    }
-
-    .portfolio-page-card.is-vertical .card-cta {
-      padding: 9px 12px !important;
-      font-size: 12.5px !important;
-    }
-  }
-
-  @media (min-width: 769px) and (max-width: 940px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr !important;
-    }
-
-    .portfolio-page-card.is-vertical {
-      grid-template-columns: minmax(220px, 34%) minmax(0, 1fr) !important;
-      min-height: 380px !important;
-    }
-
-    .portfolio-page-card.is-vertical .portfolio-grid-item {
-      min-height: 380px !important;
-    }
-  }
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Take Cut</title>
+  <meta name="description" content="Explore produções, edições, campanhas e experiências audiovisuais da Take Cut por formato, objetivo e mercado.">
+  <meta property="og:title" content="Portfólio | Take Cut">
+  <meta property="og:description" content="Explore tudo o que a Take Cut consegue criar.">
+  <meta property="og:url" content="https://www.takecut.com.br/portfolio/">
+  <meta property="og:image" content="https://www.takecut.com.br/favicon-takecut.png">
+  <meta property="og:site_name" content="Take Cut">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.takecut.com.br/portfolio/">
+  <link rel="icon" type="image/png" href="/favicon-takecut.png">
+  <link rel="stylesheet" href="/base.css?v=20260813-universe1">
+  <link rel="stylesheet" href="/portfolio/portfolio.css?v=20260813-explorer1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-<div class="stars-bg" id="starsBg"></div>
+<body class="explorer-page">
+  <div class="stars-bg" id="starsBg" aria-hidden="true"></div>
 
-<header class="navbar">
-  <!-- TAREFA 8: logo leva para / sem index.html -->
-  <a href="/" class="logo"><img src="/logo.png" alt="Take Cut Logo" width="120" height="40"></a>
-  <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">☰</button>
-  <!-- TAREFA 9: links sem index.html + TAREFA 3: Equipamentos no menu -->
-  <nav class="nav-links">
-    <a href="/">Início</a>
-    <a href="/#cases">Cases</a>
-    <a href="/#services">Serviços</a>
-    <a href="/#how-it-works">Como funciona</a>
-    <a href="/#plans">Planos</a>
-    <a href="/#videos-ia">Vídeos com IA</a>
-    <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20enviar%20meu%20Instagram%20ou%20um%20v%C3%ADdeo%20atual%20para%20receber%20uma%20an%C3%A1lise%20r%C3%A1pida%20e%20entender%20como%20posso%20vender%20mais%20com%20v%C3%ADdeo." target="_blank" rel="noopener">Orçamento</a>
-  </nav>
-</header>
+  <header class="navbar">
+    <a href="/" class="logo"><img src="/logo.png" alt="Take Cut" width="120" height="40"></a>
+    <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="/">Início</a>
+      <a href="/#cases">Cases</a>
+      <a href="/#services">Serviços</a>
+      <a href="/#how-it-works">Como funciona</a>
+      <a href="/#plans">Planos</a>
+      <a href="/#videos-ia">Vídeos com IA</a>
+      <a href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Take%20Cut.%20Quero%20falar%20sobre%20um%20projeto%20de%20v%C3%ADdeo." target="_blank" rel="noopener">Orçamento</a>
+    </nav>
+  </header>
 
-<div class="portfolio-page">
-  <section class="portfolio-hero" aria-labelledby="portfolio-title">
-    <div class="portfolio-hero-card">
-      <h1 id="portfolio-title">Portfólio Take Cut</h1>
-      <p class="subtitle">Aqui você vê exemplos reais de edição, ritmo, estética e narrativa visual. Cada projeto foi pensado para prender atenção, valorizar a marca e transformar vídeo em ferramenta de venda.</p>
+  <main class="explorer-main">
+    <section class="explorer-hero" aria-labelledby="portfolio-title">
+      <span class="section-kicker">Portfólio Take Cut</span>
+      <h1 id="portfolio-title">Ideias diferentes pedem <span>vídeos diferentes.</span></h1>
+      <p>Explore produções, edições, campanhas e experiências criadas para diferentes formatos, mercados e objetivos.</p>
+      <a class="hero-scroll" href="#projeto-destaque">Começar a explorar <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section class="featured-section deferred-section" id="projeto-destaque" aria-labelledby="featured-title">
+      <div class="section-heading compact-heading">
+        <div>
+          <span class="section-kicker">Seleção atual</span>
+          <h2 id="featured-title">Projeto em destaque</h2>
+        </div>
+        <span class="section-index" aria-hidden="true">01</span>
+      </div>
+      <div id="featuredProject"></div>
+    </section>
+
+    <section class="objective-section deferred-section" aria-labelledby="objective-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Navegue pela intenção</span>
+          <h2 id="objective-title">O que você quer assistir?</h2>
+          <p>Escolha o efeito que o vídeo precisa provocar. Nós mostramos os trabalhos que seguem essa direção.</p>
+        </div>
+        <span class="section-index" aria-hidden="true">02</span>
+      </div>
+      <div class="objective-grid" id="objectiveGrid"></div>
+    </section>
+
+    <section class="collections-section deferred-section" id="collections" aria-labelledby="collections-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Collections</span>
+          <h2 id="collections-title">Explore por formato</h2>
+          <p>Cada coleção reúne projetos com linguagens e aplicações diferentes. Abra uma pasta para explorar.</p>
+        </div>
+        <span class="section-index" aria-hidden="true">03</span>
+      </div>
+      <div class="collections-grid" id="collectionGrid"></div>
+    </section>
+
+    <section class="gallery-shell deferred-section" id="projectGallery" aria-live="polite" hidden>
+      <div class="gallery-topline">
+        <div>
+          <span class="section-kicker" id="galleryKicker">Collection</span>
+          <h2 id="galleryTitle">Projetos</h2>
+          <p id="galleryDescription"></p>
+        </div>
+        <button class="gallery-close" type="button" id="closeGallery" aria-label="Fechar galeria">Fechar <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="filter-strip" id="galleryFilters" aria-label="Filtros da galeria"></div>
+      <div class="project-grid" id="projectGrid"></div>
+      <div class="gallery-actions">
+        <button class="load-more" type="button" id="loadMore">Mostrar mais</button>
+        <p id="galleryCount"></p>
+      </div>
+    </section>
+
+    <section class="markets-section deferred-section" aria-labelledby="markets-title">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">Navegue pelo mercado</span>
+          <h2 id="markets-title">Trabalhos para diferentes mercados</h2>
+          <p>Veja projetos relacionados ao seu segmento, independentemente do formato em que foram produzidos.</p>
+        </div>
+        <span class="section-index" aria-hidden="true">04</span>
+      </div>
+      <div class="markets-list" id="marketsList"></div>
+    </section>
+
+    <section class="portfolio-cta deferred-section" aria-labelledby="cta-title">
+      <div class="cta-orbit" aria-hidden="true"></div>
+      <span class="section-kicker">Seu projeto pode ser o próximo</span>
+      <h2 id="cta-title">Viu algo que combina com sua ideia?</h2>
+      <p>Podemos criar algo nessa direção ou desenvolver uma linguagem completamente nova para sua marca.</p>
+      <div class="cta-actions">
+        <a class="primary-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20explorei%20o%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20falar%20sobre%20meu%20projeto." target="_blank" rel="noopener">Falar sobre meu projeto</a>
+        <a class="secondary-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20quero%20enviar%20uma%20refer%C3%AAncia%20para%20um%20projeto%20de%20v%C3%ADdeo." target="_blank" rel="noopener">Enviar referência</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/">Início</a>
+      <a href="/#services">Serviços</a>
+      <a href="/#cases">Cases</a>
+      <a href="/produtos">Equipamentos</a>
+      <a href="/#contact">Contato</a>
     </div>
-  </section>
+    <p>© 2026 Take Cut. Todos os direitos reservados.</p>
+  </footer>
 
-  <div class="portfolio-filters" aria-label="Filtrar vídeos do portfólio">
-    <button class="filter-btn active" type="button" data-filter="all">Todos</button>
-    <button class="filter-btn" type="button" data-filter="ads">Anúncios</button>
-    <button class="filter-btn" type="button" data-filter="social">Redes sociais</button>
-    <button class="filter-btn" type="button" data-filter="institucional">Institucional</button>
-    <button class="filter-btn" type="button" data-filter="youtube">YouTube</button>
-    <button class="filter-btn" type="button" data-filter="camera3d">Câmera 3D</button>
-    <button class="filter-btn" type="button" data-filter="emocional">Emocional</button>
-    <button class="filter-btn" type="button" data-filter="vertical">Verticais</button>
-    <button class="filter-btn" type="button" data-filter="ia">IA</button>
+  <div class="project-viewer" id="projectViewer" hidden>
+    <div class="viewer-backdrop" data-close-viewer></div>
+    <div class="viewer-panel" role="dialog" aria-modal="true" aria-labelledby="viewerTitle">
+      <button class="viewer-close" type="button" data-close-viewer aria-label="Fechar projeto">×</button>
+      <div class="viewer-layout">
+        <div class="viewer-media" id="viewerMedia"></div>
+        <div class="viewer-details">
+          <p class="viewer-category" id="viewerCategory"></p>
+          <h2 id="viewerTitle"></h2>
+          <p class="viewer-description" id="viewerDescription"></p>
+          <div class="viewer-techniques">
+            <span>Técnicas</span>
+            <div id="viewerTechniques"></div>
+          </div>
+          <a class="viewer-cta" id="viewerCta" href="#" target="_blank" rel="noopener">Quero algo nessa direção</a>
+        </div>
+      </div>
+      <div class="viewer-navigation">
+        <button type="button" id="previousProject">← <span>Projeto anterior</span></button>
+        <p id="viewerPosition"></p>
+        <button type="button" id="nextProject"><span>Próximo projeto</span> →</button>
+      </div>
+    </div>
   </div>
 
-  <section class="portfolio-section">
-    <div class="portfolio-section-heading portfolio-section-heading--featured portfolio-section-heading--vertical">
-      <h2>Vídeos verticais</h2>
-      <p>Conteúdos pensados para Reels, TikTok, Shorts e anúncios mobile, com leitura rápida e ritmo de rede social.</p>
-    </div>
-
-<div class="portfolio-grid">
-
-  <article class="portfolio-page-card is-vertical" data-category="institucional social vertical">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Vertical / Corporativo</span>
-      <video controls preload="metadata" poster="/thumbp6.jpg"><source src="/video6.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Conteúdo corporativo</div>
-      <h3>Vídeo de entrevista para marca</h3>
-      <p>Edição vertical com legenda, identidade visual e ritmo de redes sociais para transformar uma entrevista em conteúdo claro, profissional e fácil de assistir.</p>
-      <div class="portfolio-tags">
-        <span>RH e empresas</span>
-        <span>Reels corporativo</span>
-        <span>Legenda dinâmica</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: humanizar a marca e comunicar valor com mais autoridade.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20corporativo%20vertical%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card is-vertical" data-category="social vertical">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Vertical / Social</span>
-      <video controls preload="metadata" poster="/thumb1.png"><source src="/videor.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Conteúdo de retenção</div>
-      <h3>Conteúdo para redes sociais</h3>
-      <p>Edição rápida, visual forte e mensagem fácil de entender para aumentar retenção em Reels, TikTok e campanhas de alcance.</p>
-      <div class="portfolio-tags">
-        <span>Reels e TikTok</span>
-        <span>Negócios locais</span>
-        <span>Criadores</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: fazer a pessoa parar de rolar e assistir.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20de%20conte%C3%BAdo%20para%20redes%20sociais%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card is-vertical" data-category="institucional vertical">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Vertical / Institucional</span>
-      <video controls preload="metadata" poster="/thumb2.png"><source src="/videor2.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Autoridade de marca</div>
-      <h3>Vídeo institucional</h3>
-      <p>Conteúdo profissional para apresentar a empresa com clareza, gerar confiança e deixar a marca com uma percepção mais forte.</p>
-      <div class="portfolio-tags">
-        <span>Empresas</span>
-        <span>Clínicas</span>
-        <span>Escritórios</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: explicar quem você é e passar credibilidade.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20institucional%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card is-vertical" data-category="ads social vertical">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Vertical / Hospedagem</span>
-      <video controls preload="metadata" poster="/thumbp8.jpg"><source src="/video8.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Tour comercial</div>
-      <h3>Reels para hospedagem temática</h3>
-      <p>Edição vertical com cortes guiados, legenda objetiva e ritmo de descoberta para apresentar o ambiente, valorizar a experiência e despertar vontade de reservar.</p>
-      <div class="portfolio-tags">
-        <span>Pousadas e hotéis</span>
-        <span>Tour vertical</span>
-        <span>Conteúdo para anúncio</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: transformar o espaço em desejo de visita.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20Reels%20de%20hospedagem%20tem%C3%A1tica%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-</div>
-  </section>
-
-  <section class="portfolio-section">
-    <div class="portfolio-section-heading portfolio-section-heading--featured portfolio-section-heading--horizontal">
-      <h2>Vídeos horizontais, IA e câmera 3D</h2>
-      <p>Projetos em formato amplo para YouTube, campanhas, vídeos institucionais, cenas com IA e movimentos de câmera 3D.</p>
-    </div>
-
-<div class="portfolio-grid">
-
-  <article class="portfolio-page-card" data-category="ads ia">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal / Ads</span>
-      <video controls preload="metadata" poster="/thumbp1.png"><source src="/video1.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Criativo comercial</div>
-      <h3>Anúncio para produto</h3>
-      <p>Vídeo curto com cortes objetivos, destaque visual para a oferta e ritmo pensado para segurar a atenção logo nos primeiros segundos.</p>
-      <div class="portfolio-tags">
-        <span>Ideal para lojas</span>
-        <span>Produto em destaque</span>
-        <span>Meta Ads</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: gerar desejo e facilitar a decisão de compra.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20de%20an%C3%BAncio%20para%20produto%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card" data-category="youtube ia camera3d">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal / Câmera 3D</span>
-      <video controls preload="metadata" poster="/thumbp4.png"><source src="/video4.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Narrativa e ritmo</div>
-      <h3>Vídeo para YouTube</h3>
-      <p>Cenas organizadas com ritmo, estética e narrativa para deixar a comunicação mais memorável e manter o público acompanhando até o fim.</p>
-      <div class="portfolio-tags">
-        <span>YouTube</span>
-        <span>Marcas</span>
-        <span>Criadores</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: transformar conteúdo longo em experiência envolvente.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20para%20YouTube%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card" data-category="youtube camera3d">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal / Câmera 3D</span>
-      <video controls preload="metadata" poster="/thumbp9.jpg"><source src="/video9.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Animação com profundidade</div>
-      <h3>Animação 3D de conversa</h3>
-      <p>Vídeo horizontal com câmera 3D, movimento de profundidade e composição de mensagens para transformar uma conversa simples em uma cena visualmente mais interessante e narrativa.</p>
-      <div class="portfolio-tags">
-        <span>Câmera 3D</span>
-        <span>Animação de texto</span>
-        <span>YouTube e campanhas</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: dar movimento, contexto e impacto para informações que seriam estáticas.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20a%20anima%C3%A7%C3%A3o%203D%20de%20conversa%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card" data-category="emocional ia">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal</span>
-      <video controls preload="metadata" poster="/thumbp5.png"><source src="/video5.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Memória afetiva</div>
-      <h3>Vídeo emocional</h3>
-      <p>Edição com trilha, cortes e narrativa para transformar momentos importantes em uma lembrança bonita, marcante e fácil de reassistir.</p>
-      <div class="portfolio-tags">
-        <span>Aniversários</span>
-        <span>Homenagens</span>
-        <span>Datas especiais</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: emocionar e guardar uma história com qualidade.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20emocional%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="portfolio-page-card" data-category="ia ads">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal / 100% IA</span>
-      <video controls preload="metadata" poster="/thumbp7.jpg"><source src="/video7.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Vídeo gerado com IA</div>
-      <h3>Cena cinematográfica 100% IA</h3>
-      <p>Vídeo criado com inteligência artificial para gerar impacto visual, construir atmosfera e apresentar uma ideia impossível ou cara de produzir com captação tradicional.</p>
-      <div class="portfolio-tags">
-        <span>100% IA</span>
-        <span>Cena conceitual</span>
-        <span>Campanha visual</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: criar imagens marcantes sem depender de filmagem real.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20100%25%20IA%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-
-  <article class="portfolio-page-card" data-category="ads ia camera3d">
-    <div class="portfolio-grid-item video-card">
-      <span class="video-badge">Horizontal / IA</span>
-      <video controls preload="metadata" poster="/thumbia1.jpg"><source src="/videoia3c.mp4" type="video/mp4"></video>
-    </div>
-    <div class="portfolio-page-caption">
-      <div class="eyebrow">Campanha visual com IA</div>
-      <h3>Cena com IA para marca</h3>
-      <p>Vídeo horizontal com estética de maquete, movimento de câmera e construção visual para transformar uma ideia comercial em uma cena chamativa e memorável.</p>
-      <div class="portfolio-tags">
-        <span>Vídeo com IA</span>
-        <span>Campanha visual</span>
-        <span>Produto e marca</span>
-      </div>
-      <div class="card-actions">
-        <small>Objetivo: gerar impacto visual e apresentar a marca de forma mais diferente.</small>
-        <a class="card-cta" href="https://wa.me/551153044748?text=Ol%C3%A1%2C%20vi%20o%20v%C3%ADdeo%20com%20IA%20para%20marca%20no%20portf%C3%B3lio%20da%20Take%20Cut%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Quero parecido</a>
-      </div>
-    </div>
-  </article>
-
-</div>
-  </section>
-</div>
-
-<footer class="footer">
-  <div class="footer-links">
-    <a href="/">Início</a>
-    <a href="/#services">Serviços</a>
-    <a href="/#cases">Cases</a>
-    <a href="/produtos">Equipamentos</a>
-    <a href="/#contact">Contato</a>
-  </div>
-  <p>© 2026 Take Cut. Todos os direitos reservados.</p>
-</footer>
-
-<script>
-// TAREFA 3: discos voadores minimalistas e estrelas no fundo
-function createUniverse() {
-  const starsBg = document.getElementById("starsBg");
-  const isMobile = window.innerWidth <= 768;
-  const fragment = document.createDocumentFragment();
-  for (let i = 0; i < (isMobile ? 40 : 80); i++) {
-    const star = document.createElement("div");
-    star.className = "stars";
-    star.style.cssText = "left:" + (Math.random()*100) + "%;top:" + (Math.random()*100) + "%;animation-delay:" + (Math.random()*3) + "s;animation-duration:" + (Math.random()*3+2) + "s";
-    fragment.appendChild(star);
-  }
-  const ufoCount = isMobile ? 1 : 3;
-
-  function randomBetween(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  const ufoLanes = isMobile
-    ? [{ min: 46, max: 54 }]
-    : [
-        { min: 34, max: 40 },
-        { min: 48, max: 56 },
-        { min: 62, max: 68 }
-      ];
-
-  for (let i = 0; i < ufoCount; i++) {
-    const ufo = document.createElement("div");
-    const lane = ufoLanes[i % ufoLanes.length];
-    const duration = randomBetween(18, 24);
-    const scale = randomBetween(0.78, 1.18).toFixed(2);
-    const phaseDelay = isMobile
-      ? -randomBetween(0, duration)
-      : -((duration / ufoCount) * i + randomBetween(0, 1.8));
-
-    ufo.className = "ufo";
-    ufo.style.cssText = [
-      "left:0",
-      "top:" + randomBetween(lane.min, lane.max).toFixed(1) + "%",
-      "animation-delay:" + phaseDelay.toFixed(1) + "s",
-      "--ufo-duration:" + duration.toFixed(1) + "s",
-      "--ufo-scale:" + scale,
-      "--ufo-start-x:" + randomBetween(-36, -22).toFixed(1) + "vw",
-      "--ufo-mid-x:" + randomBetween(30, 44).toFixed(1) + "vw",
-      "--ufo-mid-y:" + randomBetween(-6, 6).toFixed(1) + "vh",
-      "--ufo-late-x:" + randomBetween(68, 84).toFixed(1) + "vw",
-      "--ufo-late-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
-      "--ufo-end-x:" + randomBetween(114, 130).toFixed(1) + "vw",
-      "--ufo-end-y:" + randomBetween(-4, 5).toFixed(1) + "vh",
-      "--ufo-rotate-start:" + randomBetween(-8, -3).toFixed(1) + "deg",
-      "--ufo-rotate-mid:" + randomBetween(-2, 4).toFixed(1) + "deg",
-      "--ufo-rotate-late:" + randomBetween(-4, 3).toFixed(1) + "deg",
-      "--ufo-rotate-end:" + randomBetween(3, 8).toFixed(1) + "deg"
-    ].join(";");
-
-    fragment.appendChild(ufo);
-  }
-  starsBg.appendChild(fragment);
-}
-window.addEventListener("load", createUniverse);
-
-// Menu mobile
-function toggleMenu() {
-  const nav = document.querySelector(".nav-links");
-  const toggle = document.querySelector(".menu-toggle");
-  const isOpen = nav.classList.toggle("active");
-  toggle.setAttribute("aria-expanded", String(isOpen));
-}
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".nav-links a").forEach(function(link) {
-    link.addEventListener("click", function() {
-      document.querySelector(".nav-links").classList.remove("active");
-      document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
-    });
-  });
-});
-
-// Filtros do portfólio
-document.querySelectorAll(".filter-btn").forEach(function(button) {
-  button.addEventListener("click", function() {
-    const filter = button.dataset.filter;
-
-    document.querySelectorAll(".filter-btn").forEach(function(btn) {
-      btn.classList.remove("active");
-    });
-    button.classList.add("active");
-
-    document.querySelectorAll(".portfolio-page-card").forEach(function(card) {
-      const categories = (card.dataset.category || "").split(/\s+/).filter(Boolean);
-      const shouldShow = filter === "all" || categories.includes(filter);
-      card.classList.toggle("is-hidden", !shouldShow);
-
-      if (!shouldShow) {
-        const video = card.querySelector("video");
-        if (video) video.pause();
-      }
-    });
-
-    document.querySelectorAll(".portfolio-section").forEach(function(section) {
-      const visibleCards = section.querySelectorAll(".portfolio-page-card:not(.is-hidden)").length;
-      section.classList.toggle("is-hidden", visibleCards === 0);
-    });
-  });
-});
-
-// Quando um vídeo toca, pausa os outros. Evita bagunça de áudio na página.
-document.querySelectorAll(".portfolio-page-card video").forEach(function(video) {
-  video.addEventListener("play", function() {
-    document.querySelectorAll(".portfolio-page-card video").forEach(function(otherVideo) {
-      if (otherVideo !== video) otherVideo.pause();
-    });
-  });
-});
-</script>
-<script src="/cookie-consent.js" defer></script>
-<script id="takecut-portfolio-video-hotfix">
-(function () {
-  var isTablet = window.matchMedia && window.matchMedia("(min-width: 769px) and (max-width: 1366px)").matches;
-  if (!isTablet) return;
-
-  function prepareVideo(video) {
-    if (!video) return;
-    video.preload = "metadata";
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
-    try { video.load(); } catch (e) {}
-  }
-
-  function preparePortfolioVideos() {
-    document.querySelectorAll(".portfolio-page-card.is-vertical video").forEach(prepareVideo);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", preparePortfolioVideos, { once: true });
-  } else {
-    preparePortfolioVideos();
-  }
-})();
-</script>
-
+  <noscript><p class="noscript-message">Ative o JavaScript para explorar os projetos do portfólio.</p></noscript>
+  <script src="/subpages.js?v=20260813-audit1" defer></script>
+  <script src="/portfolio/portfolio.js?v=20260813-explorer1" defer></script>
+  <script src="/cookie-consent.js" defer></script>
 </body>
 </html>
