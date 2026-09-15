@@ -50,20 +50,11 @@ button { font: inherit; }
 .section-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--tc-green);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-
-.section-kicker::before {
-  content: "";
-  width: 22px;
-  height: 1px;
-  background: var(--tc-green);
-  box-shadow: 0 0 12px rgba(0, 255, 178, 0.7);
 }
 
 .section-heading {
@@ -160,6 +151,11 @@ button { font: inherit; }
 }
 
 .explorer-hero h1 span {
+  /* Preserve glyph edges when the gradient text wraps onto another line. */
+  padding-inline: 0.08em;
+  margin-inline: -0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   color: transparent;
   background: linear-gradient(90deg, var(--tc-green), #b4ffe5 72%);
   -webkit-background-clip: text;
