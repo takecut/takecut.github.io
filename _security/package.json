@@ -1,0 +1,8 @@
+{
+  "name": "takecut-security-checks",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "parse5": "8.0.1"
+  }
+}

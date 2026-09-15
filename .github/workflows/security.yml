@@ -19,5 +19,9 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
+      - name: Install locked validator dependencies without lifecycle scripts
+        run: npm ci --prefix _security --ignore-scripts
+      - name: Check validator dependencies for known vulnerabilities
+        run: npm audit --prefix _security --audit-level=high
       - name: Validate static-site protections
         run: node _security/check.cjs

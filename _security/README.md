@@ -4,7 +4,7 @@ Este repositório publica HTML, CSS, JavaScript e mídia no GitHub Pages. Não h
 
 ## Alterações futuras
 
-- Executar `node _security/check.cjs` antes de publicar.
+- Instalar as dependências de validação com `npm ci --prefix _security --ignore-scripts` e executar `node _security/check.cjs` antes de publicar. O parser HTML é usado somente na validação, nunca carregado pelos visitantes; versões e integridade estão fixadas no lockfile.
 - Se alterar um script inline legítimo, revisar o código e executar `node _security/check.cjs --write` para recalcular seus hashes CSP. Conferir o diff antes do commit. O CI apenas valida; não aprova hashes automaticamente.
 - Usar `addEventListener`, nunca atributos `onclick`, `onerror` ou `javascript:`.
 - Não adicionar origens externas à CSP sem revisar a necessidade e o fornecedor. Somente a home libera os serviços Google Ads existentes; demais páginas só executam scripts locais.
