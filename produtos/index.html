@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self' 'sha256-dVLnkds2TBZSqF+MzcWX2w+FmOApbr6gYfk+RiBaNGk='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; media-src 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:image" content="https://www.takecut.com.br/favicon-takecut.png">
 <title>Equipamentos Profissionais | Take Cut</title>
@@ -281,7 +283,7 @@
 <!-- TAREFA 4: navbar igual da página principal -->
 <header class="navbar">
   <a href="/" class="logo"><img src="/logo.png" alt="Take Cut Logo" width="120" height="40"></a>
-  <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
   <nav class="nav-links">
     <a href="/">Início</a>
     <a href="/#cases">Cases</a>
@@ -299,8 +301,8 @@
   <!-- TAREFA 10: busca com lupa funcional -->
   <div class="search-wrap">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Buscar equipamentos..." aria-label="Buscar equipamentos" oninput="filtrarTudo()">
-      <button class="search-btn" type="button" onclick="filtrarTudo()" title="Buscar" aria-label="Buscar equipamentos">🔍</button>
+      <input type="text" id="searchInput" placeholder="Buscar equipamentos..." aria-label="Buscar equipamentos">
+      <button class="search-btn" type="button" title="Buscar" aria-label="Buscar equipamentos">🔍</button>
     </div>
   </div>
 
@@ -310,16 +312,16 @@
     <div class="filtros">
       <h3>Filtros</h3>
       <label class="filtro-label">
-        <input type="checkbox" value="cameras" onchange="filtrarTudo()"> Câmeras
+        <input type="checkbox" value="cameras"> Câmeras
       </label>
       <label class="filtro-label">
-        <input type="checkbox" value="iluminacao" onchange="filtrarTudo()"> Iluminação
+        <input type="checkbox" value="iluminacao"> Iluminação
       </label>
       <label class="filtro-label">
-        <input type="checkbox" value="audio" onchange="filtrarTudo()"> Áudio
+        <input type="checkbox" value="audio"> Áudio
       </label>
       <label class="filtro-label">
-        <input type="checkbox" value="acessorios" onchange="filtrarTudo()"> Acessórios
+        <input type="checkbox" value="acessorios"> Acessórios
       </label>
     </div>
 
@@ -653,5 +655,6 @@ function createUniverse() {
 }
 window.addEventListener("load", createUniverse);
 </script>
+<script src="/security-events.js?v=20260915" defer></script>
 </body>
 </html>
