@@ -1,0 +1,8 @@
+# Never publish credentials or local tooling dependencies.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+node_modules/

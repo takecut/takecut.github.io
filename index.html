@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; script-src 'self' 'sha256-jJAYi2ylk7EytC6j5U2rJft+BTNB2/h+Ld7aFZOdl9Y=' 'sha256-OzSXqw7q6xBwngu+Re/jyE53GdvnDsW0prZsUsdqzo8=' 'sha256-GzQjN/fl4ht0+rJkwwn7PrlC7ZPpCVZkiSqeF5wuqlQ=' 'sha256-Oofp6SIdfTaG2+TILGGqRVHCAR2HZuNS7VVLnEixkf0=' https://www.googletagmanager.com/gtag/js https://www.googleadservices.com/pagead/ https://www.google.com/pagead/ https://googleads.g.doubleclick.net/pagead/ https://pagead2.googlesyndication.com/pagead/; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google-analytics.com https://google.com https://www.google.com.br; connect-src 'self' https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google-analytics.com https://ad.doubleclick.net https://google.com https://www.google.com.br; media-src 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://www.googletagmanager.com; worker-src 'none'; manifest-src 'self'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes">
 <title>Produtora de Vídeo em São Paulo | Take Cut</title>
 <meta name="description" content="Vídeos para anúncios, Reels, campanhas e redes sociais. Produção audiovisual, edição profissional e IA para marcas que precisam parar o scroll e vender com clareza.">
@@ -72,17 +74,6 @@
 <meta name="twitter:title" content="Take Cut | Vídeos que vendem sua marca">
 <meta name="twitter:description" content="Vídeos para anúncios, Reels, edição profissional e conteúdo com IA.">
 <meta name="twitter:image" content="https://www.takecut.com.br/favicon-takecut.png">
-
-<meta http-equiv="Content-Security-Policy" content="
-default-src 'self';
-script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
-connect-src 'self' https://www.google-analytics.com;
-img-src 'self' data: https://www.google-analytics.com;
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-font-src https://fonts.gstatic.com;
-frame-src https://www.youtube-nocookie.com https://www.youtube.com;
-">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -258,7 +249,7 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
 <header class="navbar">
   <!-- TAREFA 6: href="#home" para não recarregar a página -->
   <a href="#home" class="logo"><img src="logo.png" alt="Take Cut Logo" width="120" height="40"></a>
-  <button class="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
   <nav class="nav-links">
     <a href="#home">Início</a>
     <a href="#cases">Cases</a>
@@ -340,8 +331,8 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
   <p class="section-subtitle">Trabalhos separados por objetivo para você encontrar o estilo ideal para sua marca.</p>
 
   <div class="carousel-container" id="portfolioCarousel">
-    <button class="carousel-prev" onclick="scrollPortfolio(-1)">&#8249;</button>
-    <button class="carousel-next" onclick="scrollPortfolio(1)">&#8250;</button>
+    <button class="carousel-prev" data-carousel-direction="-1">&#8249;</button>
+    <button class="carousel-next" data-carousel-direction="1">&#8250;</button>
     <div class="carousel" id="carousel">
       <div class="portfolio-card">
         <div class="carousel-item"><video autoplay muted loop playsinline preload="metadata" data-portfolio-priority="true"><source src="video1c.mp4" type="video/mp4"></video></div>
@@ -378,7 +369,7 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
 <section id="videos-ia" class="ia">
   <h2>Vídeos com IA</h2>
   <div class="ia-main">
-    <div class="video-box horizontal destaque" role="button" tabindex="0" aria-label="Reproduzir vídeo IA Take Cut" onclick="playVideo(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playVideo(this,event)}">
+    <div class="video-box horizontal destaque" role="button" tabindex="0" aria-label="Reproduzir vídeo IA Take Cut" data-play-video>
       <img src="thumbia1.jpg" class="thumb" loading="lazy" alt="Vídeo IA Take Cut">
       <span class="play-btn"><span class="play-icon"></span></span>
       <video class="video" controls preload="none"><source src="videoia3c.mp4" type="video/mp4"></video>
@@ -390,7 +381,7 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
   </div>
   <div class="ia-secondary">
     <div class="ia-card">
-      <div class="video-box square" role="button" tabindex="0" aria-label="Reproduzir vídeo IA com efeitos sonoros" onclick="playVideo(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playVideo(this,event)}">
+      <div class="video-box square" role="button" tabindex="0" aria-label="Reproduzir vídeo IA com efeitos sonoros" data-play-video>
         <img src="thumb4.png" class="thumb" loading="lazy" alt="Vídeo IA efeitos sonoros">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video" controls preload="none"><source src="videoia1c.mp4" type="video/mp4"></video>
@@ -401,7 +392,7 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
       </div>
     </div>
     <div class="ia-card">
-      <div class="video-box reels" role="button" tabindex="0" aria-label="Reproduzir vídeo IA de modelo e produto" onclick="playVideo(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playVideo(this,event)}">
+      <div class="video-box reels" role="button" tabindex="0" aria-label="Reproduzir vídeo IA de modelo e produto" data-play-video>
         <img src="thumb5.png" class="thumb" loading="lazy" alt="Vídeo IA modelo produto">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video" controls preload="none"><source src="videoia2c.mp4" type="video/mp4"></video>
@@ -418,7 +409,7 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
   <h2>Cases e Resultados</h2>
   <div class="results-grid case-grid">
     <article class="result-item item1 case-card">
-      <div class="video-box" role="button" tabindex="0" aria-label="Reproduzir case com mais de 255 mil visualizações" onclick="playVideo(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playVideo(this,event)}">
+      <div class="video-box" role="button" tabindex="0" aria-label="Reproduzir case com mais de 255 mil visualizações" data-play-video>
         <img src="thumb1.png" class="thumb" loading="eager" decoding="async" fetchpriority="low" alt="Case Take Cut com mais de 255 mil visualizações em vídeo curto para tráfego pago">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video priority-video" controls playsinline webkit-playsinline preload="metadata" data-priority-video="true"><source src="videorc.mp4" type="video/mp4"></video>
@@ -435,7 +426,7 @@ frame-src https://www.youtube-nocookie.com https://www.youtube.com;
       </div>
     </article>
     <article class="result-item item2 case-card">
-      <div class="video-box" role="button" tabindex="0" aria-label="Reproduzir case com mais de 522 mil visualizações" onclick="playVideo(this, event)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();playVideo(this,event)}">
+      <div class="video-box" role="button" tabindex="0" aria-label="Reproduzir case com mais de 522 mil visualizações" data-play-video>
         <img src="thumb2.png" class="thumb" loading="eager" decoding="async" fetchpriority="low" alt="Case Take Cut com mais de 522 mil visualizações com edição para impacto e clareza da oferta">
         <span class="play-btn"><span class="play-icon"></span></span>
         <video class="video priority-video" controls playsinline webkit-playsinline preload="metadata" data-priority-video="true"><source src="videor2c.mp4" type="video/mp4"></video>
@@ -941,7 +932,7 @@ Take Cut salvou meu trampo! 🩵"</p>
 
 <div id="videoModal" class="modal">
   <div class="modal-content">
-    <button class="close" type="button" onclick="closeVideo()" aria-label="Fechar vídeo">×</button>
+    <button class="close" type="button" data-close-video aria-label="Fechar vídeo">×</button>
     <video id="modalVideo" controls preload="none"></video>
   </div>
 </div>
@@ -962,5 +953,6 @@ Take Cut salvou meu trampo! 🩵"</p>
 
 <script src="script.js?v=20260714-promo-orientacao-v1" defer></script>
 <script src="cookie-consent.js?v=20260622-mobilecases1" defer></script>
+<script src="/security-events.js?v=20260915" defer></script>
 </body>
 </html>
