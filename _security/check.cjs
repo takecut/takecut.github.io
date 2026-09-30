@@ -39,7 +39,7 @@ function policy(file, nodes) {
 async function main() {
   const { parse } = await import('parse5');
   const parseElements = html => elements(parse(html, { sourceCodeLocationInfo: true }));
-  const tracked = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean);
+  const tracked = [...new Set(execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean))].filter(file => fs.existsSync(path.join(root, file)));
   const pages = tracked.filter(file => file.endsWith('.html'));
   for (const file of pages) {
     const filename = path.join(root, file);
