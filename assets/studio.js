@@ -9,6 +9,10 @@
   let paused = reduced.matches || !!connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
   const viewer = $('#projectViewer');
   const menu = $('#mobileMenu');
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Tab') document.body.classList.add('keyboard-navigation');
+  });
+  document.addEventListener('pointerdown', () => document.body.classList.remove('keyboard-navigation'), {passive:true});
   // Keep keyboard navigation in the open overlay, including browsers whose
   // native video controls otherwise hand Tab focus back to browser chrome.
   [menu, viewer].filter(Boolean).forEach(dialog => dialog.addEventListener('keydown', event => {
@@ -177,11 +181,42 @@
   function stepProject(step) { const sequence = projectSequence(); const index = sequence.indexOf(currentProject); showProject(sequence[(index + step + sequence.length) % sequence.length]); }
   $('#previousProject')?.addEventListener('click', () => stepProject(-1));
   $('#nextProject')?.addEventListener('click', () => stepProject(1));
-  $$('.craft-item').forEach(item => item.addEventListener('toggle', () => {
-    if (!item.open) return;
-    $$('.craft-item').forEach(other => { if (other !== item) other.open = false; });
-    const image = $('.craft-visual img'); if (image) image.src = item.dataset.processImage;
+  const craftItems = $$('.craft-item');
+  const craftAnimations = new Map();
+  function finishCraft(item, expanded) {
+    const state = craftAnimations.get(item);
+    if (state) { state.animation.onfinish = null; state.animation.cancel(); }
+    craftAnimations.delete(item);
+    item.open = expanded;
+    item.classList.remove('is-animating');
+  }
+  function toggleCraft(item, expanded) {
+    const start = item.getBoundingClientRect().height;
+    finishCraft(item, true);
+    if (expanded) {
+      const image = $('.craft-visual img');
+      if (image) image.src = item.dataset.processImage;
+    }
+    if (reduced.matches || paused || !item.animate) { finishCraft(item, expanded); return; }
+    const end = expanded ? item.getBoundingClientRect().height : item.querySelector('summary').getBoundingClientRect().height + 1;
+    item.classList.add('is-animating');
+    const animation = item.animate([{height: start + 'px'}, {height: end + 'px'}], {
+      duration: 320, easing: 'cubic-bezier(.22,1,.36,1)'
+    });
+    craftAnimations.set(item, {animation, expanded});
+    animation.onfinish = () => finishCraft(item, expanded);
+  }
+  craftItems.forEach(item => item.querySelector('summary').addEventListener('click', event => {
+    event.preventDefault();
+    const expanded = !(craftAnimations.get(item)?.expanded ?? item.open);
+    if (expanded) craftItems.forEach(other => {
+      if (other !== item && (craftAnimations.get(other)?.expanded ?? other.open)) toggleCraft(other, false);
+    });
+    toggleCraft(item, expanded);
   }));
+  const finishCraftAnimations = () => [...craftAnimations].forEach(([item,state]) => finishCraft(item, state.expanded));
+  addEventListener('resize', finishCraftAnimations);
+  reduced.addEventListener('change', finishCraftAnimations);
   const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   function filterGear() {
     const query = normalize($('#searchInput')?.value || '');
