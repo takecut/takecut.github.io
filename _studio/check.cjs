@@ -33,6 +33,8 @@ async function main(){
   assert.ok(review.quote.trim()&&review.quote.trim().split(/\s+/).length<=25,'Short attributed excerpt');
  }
  assert.equal(pages.get('index.html').filter(n=>attr(n,'class')==='review-slide').length,reviews.items.length);
+ const displayedNames=pages.get('index.html').filter(n=>n.tagName==='strong'&&n.parentNode?.tagName==='figcaption').map(n=>n.childNodes.map(c=>c.value||'').join(''));
+ assert.deepEqual(displayedNames,reviews.items.map(r=>r.name.trim().split(/\s+/)[0]),'Only first names in testimonials');
  for(const [file,nodes]of pages){
   assert.equal(nodes.filter(n=>n.tagName==='h1').length,1,file+': one H1');
   const seen=new Set();for(const n of nodes){const id=attr(n,'id');if(id){assert.ok(!seen.has(id),file+': duplicate '+id);seen.add(id);}}
