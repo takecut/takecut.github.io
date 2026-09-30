@@ -67,7 +67,7 @@
     banner.setAttribute("aria-label", "Aviso de cookies");
 
     banner.innerHTML =
-      '<div class="cookie-icon" aria-hidden="true">✦</div>' +
+      '<div class="cookie-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/></svg></div>' +
       '<div class="cookie-copy">' +
         '<strong>Privacidade e cookies</strong>' +
         '<p>Usamos cookies essenciais e de análise para melhorar sua experiência e entender como o site é usado. Você pode aceitar ou recusar os cookies de análise. <a href="' + POLICY_URL + '">Ver política</a>.</p>' +
