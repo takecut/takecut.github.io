@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "desktopVideo": "/bg-desktop.mp4",
+    "mobileVideo": "/bg-mobile.mp4",
+    "desktopPoster": "/assets/images/bg-poster-desktop.webp",
+    "mobilePoster": "/assets/images/bg-poster-mobile.webp"
+  },
+  "featuredProjects": [
+    "ia-marca",
+    "produto-ia-chaveiros",
+    "reels-esmalteria",
+    "criativo-trafego-pago-3d",
+    "youtube-narrativo"
+  ],
+  "cutRoomProjects": [
+    "cinematografico-ia",
+    "anuncio-produto",
+    "conteudo-social",
+    "video-emocional",
+    "conversa-3d"
+  ]
+}

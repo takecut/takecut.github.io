@@ -8,7 +8,8 @@ Este repositório publica HTML, CSS, JavaScript e mídia no GitHub Pages. Não h
 - Se alterar um script inline legítimo, revisar o código e executar `node _security/check.cjs --write` para recalcular seus hashes CSP. Conferir o diff antes do commit. O CI apenas valida; não aprova hashes automaticamente.
 - Usar `addEventListener`, nunca atributos `onclick`, `onerror` ou `javascript:`.
 - Não adicionar origens externas à CSP sem revisar a necessidade e o fornecedor. Somente a home libera os serviços Google Ads existentes; demais páginas só executam scripts locais.
-- Conteúdo de visitantes não deve ser interpolado em `innerHTML`. O catálogo atual é fixo no código; novos dados remotos devem usar `textContent`/DOM seguro ou sanitização revisada.
+- Conteúdo de visitantes não deve ser interpolado em `innerHTML`. O catálogo é local (`assets/projects.json`); a interface usa `textContent` e criação de elementos. Novos dados remotos exigem validação de origem e revisão.
+- O redesign é gerado por `node _studio/build.cjs`, que reaplica a CSP. Executar também `node _studio/check.cjs` para validar catálogo, links, IDs, SEO e arquivos. O CI verifica se o HTML publicado corresponde às fontes.
 - Não armazenar senhas, tokens, dados pessoais ou chaves privadas no repositório público. `.gitignore` é prevenção de acidentes, não substitui secret scanning nem revogação de credenciais expostas.
 
 ## Limites importantes

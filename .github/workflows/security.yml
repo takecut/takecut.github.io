@@ -25,3 +25,9 @@ jobs:
         run: npm audit --prefix _security --audit-level=high
       - name: Validate static-site protections
         run: node _security/check.cjs
+      - name: Validate project catalog, routes and assets
+        run: node _studio/check.cjs
+      - name: Verify generated pages match their sources
+        run: |
+          node _studio/build.cjs
+          git diff --exit-code -- '*.html' sitemap.xml

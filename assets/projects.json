@@ -1,0 +1,537 @@
+[
+  {
+    "id": "entrevista-corporativa",
+    "title": "Vídeo de entrevista para marca",
+    "slug": "entrevista-corporativa",
+    "year": "",
+    "client": "",
+    "category": [
+      "Social"
+    ],
+    "objective": [
+      "explicar",
+      "impressionar"
+    ],
+    "format": "reels",
+    "thumbnail": "/assets/posters/entrevista-corporativa-960.webp",
+    "thumbnailSmall": "/assets/posters/entrevista-corporativa-480.webp",
+    "previewVideo": "/assets/previews/entrevista-corporativa.mp4",
+    "fullVideo": "/video6.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 43.52,
+    "featured": false,
+    "description": "Edição vertical com legenda, identidade visual e ritmo de redes sociais para transformar uma entrevista em conteúdo claro, profissional e fácil de assistir.",
+    "shortTitle": "Entrevista para marca",
+    "techniques": [
+      "Edição",
+      "Motion Graphics",
+      "Legendas",
+      "Color Grading"
+    ],
+    "order": 1
+  },
+  {
+    "id": "conteudo-social",
+    "title": "Conteúdo para redes sociais",
+    "slug": "conteudo-social",
+    "year": "",
+    "client": "",
+    "category": [
+      "Automotive",
+      "Social"
+    ],
+    "objective": [
+      "atencao",
+      "vender"
+    ],
+    "format": "reels",
+    "thumbnail": "/assets/posters/conteudo-social-960.webp",
+    "thumbnailSmall": "/assets/posters/conteudo-social-480.webp",
+    "previewVideo": "/assets/previews/conteudo-social.mp4",
+    "fullVideo": "/videorc.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 50.602667,
+    "featured": false,
+    "description": "Edição rápida, visual forte e mensagem fácil de entender para aumentar retenção em Reels, TikTok e campanhas de alcance.",
+    "shortTitle": "Conteúdo de retenção",
+    "techniques": [
+      "Edição",
+      "Sound Design",
+      "Motion Graphics",
+      "Legendas"
+    ],
+    "order": 2
+  },
+  {
+    "id": "institucional-vertical",
+    "title": "Vídeo institucional",
+    "slug": "institucional-vertical",
+    "year": "",
+    "client": "",
+    "category": [
+      "Institucional",
+      "Turismo"
+    ],
+    "objective": [
+      "explicar",
+      "impressionar"
+    ],
+    "format": "institucional",
+    "thumbnail": "/assets/posters/institucional-vertical-960.webp",
+    "thumbnailSmall": "/assets/posters/institucional-vertical-480.webp",
+    "previewVideo": "/assets/previews/institucional-vertical.mp4",
+    "fullVideo": "/videor2c.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 56.384,
+    "featured": false,
+    "description": "Conteúdo profissional para apresentar a empresa com clareza, gerar confiança e fortalecer a percepção da marca.",
+    "shortTitle": "Autoridade de marca",
+    "techniques": [
+      "Edição",
+      "Roteiro",
+      "Motion Graphics",
+      "Color Grading"
+    ],
+    "order": 3
+  },
+  {
+    "id": "hospedagem-tematica",
+    "title": "Reels para hospedagem temática",
+    "slug": "hospedagem-tematica",
+    "year": "",
+    "client": "",
+    "category": [
+      "Social",
+      "Turismo"
+    ],
+    "objective": [
+      "vender",
+      "atencao"
+    ],
+    "format": "reels",
+    "thumbnail": "/assets/posters/hospedagem-tematica-960.webp",
+    "thumbnailSmall": "/assets/posters/hospedagem-tematica-480.webp",
+    "previewVideo": "/assets/previews/hospedagem-tematica.mp4",
+    "fullVideo": "/video8.mp4",
+    "orientation": "vertical",
+    "width": 720,
+    "height": 1280,
+    "duration": 32.576,
+    "featured": false,
+    "description": "Tour vertical com cortes guiados e ritmo de descoberta para apresentar o ambiente, valorizar a experiência e despertar vontade de reservar.",
+    "shortTitle": "Tour para hospedagem",
+    "techniques": [
+      "Edição",
+      "Captação",
+      "Sound Design",
+      "Legendas"
+    ],
+    "order": 4
+  },
+  {
+    "id": "reels-esmalteria",
+    "title": "Reels para esmalteria",
+    "slug": "reels-esmalteria",
+    "year": "",
+    "client": "",
+    "category": [
+      "Social"
+    ],
+    "objective": [
+      "vender",
+      "atencao"
+    ],
+    "format": "reels",
+    "thumbnail": "/assets/posters/reels-esmalteria-960.webp",
+    "thumbnailSmall": "/assets/posters/reels-esmalteria-480.webp",
+    "previewVideo": "/assets/previews/reels-esmalteria.mp4",
+    "fullVideo": "/portfolio-reels-esmalteria.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 30.016,
+    "featured": true,
+    "description": "Montagem vertical que valoriza cores, detalhes e resultados do atendimento para transformar o trabalho da esmalteria em uma vitrine atrativa nas redes sociais.",
+    "shortTitle": "Beleza em movimento",
+    "techniques": [
+      "Edição",
+      "Captação",
+      "Color Grading",
+      "Sound Design"
+    ],
+    "order": 5
+  },
+  {
+    "id": "anuncio-produto",
+    "title": "Anúncio para produto",
+    "slug": "anuncio-produto",
+    "year": "",
+    "client": "",
+    "category": [
+      "Produto",
+      "Publicidade"
+    ],
+    "objective": [
+      "vender",
+      "atencao"
+    ],
+    "format": "comerciais",
+    "thumbnail": "/assets/posters/anuncio-produto-960.webp",
+    "thumbnailSmall": "/assets/posters/anuncio-produto-480.webp",
+    "previewVideo": "/assets/previews/anuncio-produto.mp4",
+    "fullVideo": "/video1c.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 21.013,
+    "featured": false,
+    "description": "Vídeo curto com cortes objetivos, destaque visual para a oferta e ritmo pensado para segurar a atenção logo nos primeiros segundos.",
+    "shortTitle": "Criativo comercial",
+    "techniques": [
+      "Edição",
+      "Sound Design",
+      "Motion Graphics",
+      "Color Grading"
+    ],
+    "order": 6
+  },
+  {
+    "id": "criativo-trafego-pago-3d",
+    "title": "Criativo para tráfego pago",
+    "slug": "criativo-trafego-pago-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "Publicidade"
+    ],
+    "objective": [
+      "vender",
+      "atencao"
+    ],
+    "format": "comerciais",
+    "thumbnail": "/assets/posters/criativo-trafego-pago-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/criativo-trafego-pago-3d-480.webp",
+    "previewVideo": "/assets/previews/criativo-trafego-pago-3d.mp4",
+    "fullVideo": "/portfolio-trafego-pago-3d.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 29.466667,
+    "featured": true,
+    "description": "Anúncio vertical criado para apresentar o serviço de edição com uma narrativa rápida, combinando composição, motion e cenas 3D para gerar impacto e conduzir ao contato.",
+    "shortTitle": "Edição avançada + 3D",
+    "techniques": [
+      "DaVinci Resolve",
+      "Blender 3D",
+      "Motion Graphics",
+      "Sound Design"
+    ],
+    "order": 7
+  },
+  {
+    "id": "youtube-narrativo",
+    "title": "Vídeo para YouTube",
+    "slug": "youtube-narrativo",
+    "year": "",
+    "client": "",
+    "category": [
+      "YouTube"
+    ],
+    "objective": [
+      "explicar",
+      "impressionar"
+    ],
+    "format": "youtube",
+    "thumbnail": "/assets/posters/youtube-narrativo-960.webp",
+    "thumbnailSmall": "/assets/posters/youtube-narrativo-480.webp",
+    "previewVideo": "/assets/previews/youtube-narrativo.mp4",
+    "fullVideo": "/video4c.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 20.309333,
+    "featured": true,
+    "description": "Cenas organizadas com ritmo, estética e narrativa para deixar a comunicação mais memorável e manter o público acompanhando até o fim.",
+    "shortTitle": "Narrativa e ritmo",
+    "techniques": [
+      "Edição",
+      "Sound Design",
+      "Roteiro",
+      "Color Grading"
+    ],
+    "order": 8
+  },
+  {
+    "id": "gameplay-youtube",
+    "title": "Vídeo de gameplay para YouTube",
+    "slug": "gameplay-youtube",
+    "year": "",
+    "client": "",
+    "category": [
+      "YouTube"
+    ],
+    "objective": [
+      "atencao"
+    ],
+    "format": "youtube",
+    "thumbnail": "/assets/posters/gameplay-youtube-960.webp",
+    "thumbnailSmall": "/assets/posters/gameplay-youtube-480.webp",
+    "previewVideo": "/assets/previews/gameplay-youtube.mp4",
+    "fullVideo": "/portfolio-gameplay.mp4",
+    "orientation": "horizontal",
+    "width": 1280,
+    "height": 720,
+    "duration": 51.136,
+    "featured": false,
+    "description": "Conteúdo horizontal com apresentação, gameplay e cortes guiados para explicar a experiência do jogo, sustentar o ritmo e manter o público acompanhando.",
+    "shortTitle": "Narrativa para games",
+    "techniques": [
+      "Edição",
+      "Roteiro",
+      "Sound Design",
+      "Motion Graphics"
+    ],
+    "order": 9
+  },
+  {
+    "id": "conversa-3d",
+    "title": "Animação 3D de conversa",
+    "slug": "conversa-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "YouTube"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "youtube",
+    "thumbnail": "/assets/posters/conversa-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/conversa-3d-480.webp",
+    "previewVideo": "/assets/previews/conversa-3d.mp4",
+    "fullVideo": "/video9.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 18.453333,
+    "featured": false,
+    "description": "Câmera 3D, movimento de profundidade e composição de mensagens transformam uma conversa simples em uma cena visualmente narrativa.",
+    "shortTitle": "Animação com profundidade",
+    "techniques": [
+      "3D",
+      "Motion Graphics",
+      "Edição",
+      "Sound Design"
+    ],
+    "order": 10
+  },
+  {
+    "id": "tratamento-audiovisual",
+    "title": "Antes e depois da pós-produção",
+    "slug": "tratamento-audiovisual",
+    "year": "",
+    "client": "",
+    "category": [
+      "YouTube"
+    ],
+    "objective": [
+      "explicar",
+      "impressionar"
+    ],
+    "format": "youtube",
+    "thumbnail": "/assets/posters/tratamento-audiovisual-960.webp",
+    "thumbnailSmall": "/assets/posters/tratamento-audiovisual-480.webp",
+    "previewVideo": "/assets/previews/tratamento-audiovisual.mp4",
+    "fullVideo": "/portfolio-tratamento-audiovisual.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 31.978667,
+    "featured": false,
+    "description": "Comparativo técnico de imagem e áudio que mostra, na prática, como correção de cor, limpeza sonora e finalização elevam a qualidade do material original.",
+    "shortTitle": "Tratamento audiovisual",
+    "techniques": [
+      "Tratamento de Áudio",
+      "Color Grading",
+      "Edição",
+      "Finalização"
+    ],
+    "order": 11
+  },
+  {
+    "id": "video-emocional",
+    "title": "Vídeo emocional",
+    "slug": "video-emocional",
+    "year": "",
+    "client": "",
+    "category": ["Filme"],
+    "objective": [
+      "emocionar"
+    ],
+    "format": "emocionais",
+    "thumbnail": "/assets/posters/video-emocional-960.webp",
+    "thumbnailSmall": "/assets/posters/video-emocional-480.webp",
+    "previewVideo": "/assets/previews/video-emocional.mp4",
+    "fullVideo": "/video5c.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 44.352,
+    "featured": false,
+    "description": "Edição com trilha, cortes e narrativa para transformar momentos importantes em uma lembrança bonita, marcante e fácil de reassistir.",
+    "shortTitle": "Memória afetiva",
+    "techniques": [
+      "Edição",
+      "Storytelling",
+      "Sound Design",
+      "Color Grading"
+    ],
+    "order": 12
+  },
+  {
+    "id": "cinematografico-ia",
+    "title": "Cena cinematográfica 100% IA",
+    "slug": "cinematografico-ia",
+    "year": "",
+    "client": "",
+    "category": [
+      "IA",
+      "Publicidade"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "ia",
+    "thumbnail": "/assets/posters/cinematografico-ia-960.webp",
+    "thumbnailSmall": "/assets/posters/cinematografico-ia-480.webp",
+    "previewVideo": "/assets/previews/cinematografico-ia.mp4",
+    "fullVideo": "/video7.mp4",
+    "orientation": "horizontal",
+    "width": 1280,
+    "height": 720,
+    "duration": 52.608,
+    "featured": false,
+    "description": "Projeto criado com inteligência artificial para construir atmosfera e apresentar uma ideia difícil ou cara de produzir com captação tradicional.",
+    "shortTitle": "Campanha conceitual",
+    "techniques": [
+      "IA",
+      "VFX",
+      "Sound Design",
+      "Color Grading"
+    ],
+    "order": 13
+  },
+  {
+    "id": "ia-marca",
+    "title": "Cena com IA para marca",
+    "slug": "ia-marca",
+    "year": "",
+    "client": "",
+    "category": [
+      "IA",
+      "Publicidade"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "ia",
+    "thumbnail": "/assets/posters/ia-marca-960.webp",
+    "thumbnailSmall": "/assets/posters/ia-marca-480.webp",
+    "previewVideo": "/assets/previews/ia-marca.mp4",
+    "fullVideo": "/videoia3c.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 21.973333,
+    "featured": true,
+    "description": "Estética de maquete, movimento de câmera e construção visual transformam uma ideia comercial em uma cena chamativa e memorável.",
+    "shortTitle": "Comercial cinematográfico + IA",
+    "techniques": [
+      "IA",
+      "Direção",
+      "VFX",
+      "Sound Design",
+      "Color Grading"
+    ],
+    "order": 14
+  },
+  {
+    "id": "produto-ia-chaveiros",
+    "title": "Comercial de produto com IA",
+    "slug": "produto-ia-chaveiros",
+    "year": "",
+    "client": "",
+    "category": [
+      "IA",
+      "Produto",
+      "Publicidade"
+    ],
+    "objective": [
+      "vender",
+      "atencao"
+    ],
+    "format": "ia",
+    "thumbnail": "/assets/posters/produto-ia-chaveiros-960.webp",
+    "thumbnailSmall": "/assets/posters/produto-ia-chaveiros-480.webp",
+    "previewVideo": "/assets/previews/produto-ia-chaveiros.mp4",
+    "fullVideo": "/videoia2c.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 20.181,
+    "featured": true,
+    "description": "Apresentação vertical de produto criada com inteligência artificial para colocar o item em uma cena comercial, destacar seus detalhes e gerar desejo de compra.",
+    "shortTitle": "Produto em cena com IA",
+    "techniques": [
+      "IA",
+      "Direção de Arte",
+      "VFX",
+      "Sound Design"
+    ],
+    "order": 15
+  },
+  {
+    "id": "robotica-ia-produto",
+    "title": "Animação robótica com IA",
+    "slug": "robotica-ia-produto",
+    "year": "",
+    "client": "",
+    "category": [
+      "IA",
+      "Produto",
+      "Publicidade"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "ia",
+    "thumbnail": "/assets/posters/robotica-ia-produto-960.webp",
+    "thumbnailSmall": "/assets/posters/robotica-ia-produto-480.webp",
+    "previewVideo": "/assets/previews/robotica-ia-produto.mp4",
+    "fullVideo": "/videoia1c.mp4",
+    "orientation": "square",
+    "width": 512,
+    "height": 512,
+    "duration": 15.168,
+    "featured": false,
+    "description": "Cena conceitual que combina robótica e beleza para mostrar um processo impossível de captar de forma convencional, usando IA como ferramenta de criação visual.",
+    "shortTitle": "Tecnologia impossível em cena",
+    "techniques": [
+      "IA",
+      "Direção de Arte",
+      "VFX",
+      "Animação"
+    ],
+    "order": 16
+  }
+]
