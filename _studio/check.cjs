@@ -5,6 +5,7 @@ const assert = require('node:assert/strict');
 const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname,'..');
 const projects = require('../assets/projects.json');
+const reviews = require('./reviews.json');
 const attr = (node,key) => node.attrs?.find(a=>a.name===key)?.value;
 const walk = node => [node,...(node.childNodes||[]).flatMap(walk)];
 async function main(){
@@ -24,12 +25,23 @@ async function main(){
   assert.ok(pages.has('portfolio/'+p.slug+'/index.html'),'Missing project page');
  });
  const problems=[];
+ const authors=new Set();
+ assert.equal(new URL(reviews.sourceUrl).protocol,'https:');
+ for(const review of reviews.items){
+  assert.ok(review.name && !authors.has(review.name),'Unique review author');authors.add(review.name);
+  assert.ok(Number.isInteger(review.rating)&&review.rating>=1&&review.rating<=5);
+  assert.ok(review.quote.trim()&&review.quote.trim().split(/\s+/).length<=25,'Short attributed excerpt');
+ }
+ assert.equal(pages.get('index.html').filter(n=>attr(n,'class')==='review-slide').length,reviews.items.length);
  for(const [file,nodes]of pages){
   assert.equal(nodes.filter(n=>n.tagName==='h1').length,1,file+': one H1');
   const seen=new Set();for(const n of nodes){const id=attr(n,'id');if(id){assert.ok(!seen.has(id),file+': duplicate '+id);seen.add(id);}}
   for(const kind of ['description'])assert.ok(nodes.some(n=>n.tagName==='meta'&&attr(n,'name')===kind&&attr(n,'content')));
   assert.ok(nodes.some(n=>n.tagName==='link'&&attr(n,'rel')==='canonical'));
   for(const n of nodes){
+   if(n.nodeName==='#text'&&!['script','style'].includes(n.parentNode?.tagName)){
+    assert.ok(!/[\p{Extended_Pictographic}★✦✳]/u.test(n.value.replaceAll('©','')),file+': use SVG icons instead of emoji');
+   }
    for(const key of ['src','href','poster']){
     const value=attr(n,key);if(!value||value.startsWith('data:'))continue;
     const url=new URL(value,'https://www.takecut.com.br/'+file.replace(/index\.html$/,''));
