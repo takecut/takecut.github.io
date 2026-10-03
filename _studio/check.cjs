@@ -6,6 +6,8 @@ const {execFileSync} = require('node:child_process');
 const root = path.resolve(__dirname,'..');
 const projects = require('../assets/projects.json');
 const reviews = require('./reviews.json');
+const collections = require('./collections.json');
+const site = require('./site.json');
 const attr = (node,key) => node.attrs?.find(a=>a.name===key)?.value;
 const walk = node => [node,...(node.childNodes||[]).flatMap(walk)];
 async function main(){
@@ -25,6 +27,22 @@ async function main(){
   assert.ok(pages.has('portfolio/'+p.slug+'/index.html'),'Missing project page');
  });
  const problems=[];
+ for(const id of [...site.featuredProjects,...site.cutRoomProjects])assert.ok(ids.has(id),'Unknown curated project '+id);
+ const collectionSlugs=new Set();
+ for(const collection of collections){
+  assert.match(collection.slug,/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+  assert.ok(!collectionSlugs.has(collection.slug),'Duplicate collection');collectionSlugs.add(collection.slug);
+  const items=projects.filter(p=>p.category.includes(collection.category));
+  assert.ok(items.length,'Empty collection '+collection.slug);
+  assert.ok(items.some(p=>p.id===collection.cover),'Cover must belong to collection');
+  const nodes=pages.get('portfolio/colecoes/'+collection.slug+'/index.html');
+  assert.ok(nodes,'Missing collection page');
+  assert.deepEqual(nodes.filter(n=>attr(n,'data-project-card')).map(n=>attr(n,'data-project-card')),items.map(p=>p.id),'Collection shows every matching project');
+ }
+ for(const file of pages.keys()){
+  const parts=file.split('/');
+  if(parts.length===3&&parts[0]==='portfolio'&&parts[2]==='index.html')assert.ok(slugs.has(parts[1]),'Retired project page still published: '+file);
+ }
  const authors=new Set();
  assert.equal(new URL(reviews.sourceUrl).protocol,'https:');
  for(const review of reviews.items){

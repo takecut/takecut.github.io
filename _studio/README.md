@@ -21,7 +21,11 @@ Objetivos disponíveis: `vender`, `impressionar`, `explicar`, `emocionar`, `aten
 
 Preparar duas imagens WebP, com até 480 e 960 pixels de largura, e um preview H.264/MP4 de aproximadamente seis segundos, sem áudio, 24 fps e `faststart`. O derivador `_studio/media.cjs` reproduz os arquivos originais desta migração usando `ffmpeg` e `sharp`, sem sobrescrever o catálogo editado. É opcional, não participa do build normal. Aceita `FFMPEG_PATH` e `SHARP_PATH` quando as dependências não estão no PATH.
 
-Os 16 previews desta versão somam aproximadamente 4,7 MB; nenhum carrega todos de uma vez. O arquivo completo só é solicitado ao abrir/assistir. O servidor precisa servir MP4 com tipo correto e suportar requisições parciais (GitHub Pages já o faz).
+Nenhum preview carrega todos os vídeos de uma vez. O arquivo completo só é solicitado ao abrir/assistir. O servidor precisa servir MP4 com tipo correto e suportar requisições parciais (GitHub Pages já o faz).
+
+Para novas entregas, criar um manifesto como `_studio/media-20261003.json` e executar `node _studio/import-media.cjs DIRETORIO_DOS_ORIGINAIS MANIFESTO_JSON` (aceita `FFMPEG_PATH`). O importador preserva áudio/imagem do vídeo completo sem recompressão, prepara faststart, capas e previews mudos. O catálogo continua editado explicitamente, com dimensões e duração verificadas. Não modifica os originais fornecidos.
+
+Coleções ficam em `_studio/collections.json`: título, slug, categoria, capa e textos. O build reúne automaticamente os projetos com a categoria correspondente, gera a página da coleção e seus acessos na Home/portfólio. Para incluir trabalhos futuros de Blender, adicionar a categoria `Blender / 3D` ao projeto. Diferenciar animação em Blender de IA integrada ao 3D nas descrições e técnicas.
 
 ## Hero provisório
 

@@ -371,7 +371,9 @@
     "slug": "video-emocional",
     "year": "",
     "client": "",
-    "category": ["Filme"],
+    "category": [
+      "Filme"
+    ],
     "objective": [
       "emocionar"
     ],
@@ -444,16 +446,16 @@
       "atencao"
     ],
     "format": "ia",
-    "thumbnail": "/assets/posters/ia-marca-960.webp",
-    "thumbnailSmall": "/assets/posters/ia-marca-480.webp",
-    "previewVideo": "/assets/previews/ia-marca.mp4",
-    "fullVideo": "/videoia3c.mp4",
+    "thumbnail": "/assets/posters/maquete-marca-960.webp",
+    "thumbnailSmall": "/assets/posters/maquete-marca-480.webp",
+    "previewVideo": "/assets/previews/maquete-marca.mp4",
+    "fullVideo": "/assets/videos/maquete-marca.mp4",
     "orientation": "horizontal",
     "width": 1920,
     "height": 1080,
-    "duration": 21.973333,
+    "duration": 25.429333,
     "featured": true,
-    "description": "Estética de maquete, movimento de câmera e construção visual transformam uma ideia comercial em uma cena chamativa e memorável.",
+    "description": "Um autódromo em miniatura ganha vida em uma cena com IA. Detalhes da maquete, carros e movimentos de câmera apresentam a marca com uma linguagem lúdica e cinematográfica.",
     "shortTitle": "Comercial cinematográfico + IA",
     "techniques": [
       "IA",
@@ -500,38 +502,205 @@
     "order": 15
   },
   {
-    "id": "robotica-ia-produto",
-    "title": "Animação robótica com IA",
-    "slug": "robotica-ia-produto",
+    "id": "possibilidades-com-ia",
+    "title": "Vídeos com IA: novas possibilidades",
+    "slug": "possibilidades-com-ia",
     "year": "",
     "client": "",
     "category": [
       "IA",
-      "Produto",
       "Publicidade"
+    ],
+    "objective": [
+      "explicar",
+      "impressionar"
+    ],
+    "format": "ia",
+    "thumbnail": "/assets/posters/possibilidades-com-ia-960.webp",
+    "thumbnailSmall": "/assets/posters/possibilidades-com-ia-480.webp",
+    "previewVideo": "/assets/previews/possibilidades-com-ia.mp4",
+    "fullVideo": "/assets/videos/possibilidades-com-ia.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 39.018,
+    "featured": false,
+    "description": "Da animação ao realismo, uma apresentação das possibilidades da IA na Take Cut. Esporte, automóveis e cenários aéreos se conectam para mostrar como diferentes ideias podem ganhar linguagem e movimento.",
+    "shortTitle": "Várias linguagens. Uma direção criativa.",
+    "techniques": [
+      "IA",
+      "Direção criativa",
+      "Edição"
+    ],
+    "order": 16
+  },
+  {
+    "id": "planeta-3d",
+    "title": "Planeta em movimento 3D",
+    "slug": "planeta-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "Blender / 3D"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "3d",
+    "thumbnail": "/assets/posters/planeta-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/planeta-3d-480.webp",
+    "previewVideo": "/assets/previews/planeta-3d.mp4",
+    "fullVideo": "/assets/videos/planeta-3d.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 8.341,
+    "featured": false,
+    "description": "Animação de um planeta com anéis criada no Blender. Órbitas, texturas e movimento de câmera constroem uma cena espacial para aberturas, vinhetas e narrativas visuais.",
+    "shortTitle": "Um universo criado em Blender.",
+    "techniques": [
+      "Blender 3D",
+      "Animação 3D",
+      "Iluminação",
+      "Câmera virtual"
+    ],
+    "order": 17
+  },
+  {
+    "id": "audi-rs6-3d",
+    "title": "Audi RS6 em animação 3D",
+    "slug": "audi-rs6-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "Blender / 3D",
+      "Automotive"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "3d",
+    "thumbnail": "/assets/posters/audi-rs6-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/audi-rs6-3d-480.webp",
+    "previewVideo": "/assets/previews/audi-rs6-3d.mp4",
+    "fullVideo": "/assets/videos/audi-rs6-3d.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 22.592,
+    "featured": false,
+    "description": "Estudo visual automotivo realizado no Blender: um Audi RS6 em um ambiente urbano noturno. Reflexos, iluminação e diferentes enquadramentos destacam as formas do carro em um filme vertical.",
+    "shortTitle": "Design automotivo em um cenário digital.",
+    "techniques": [
+      "Blender 3D",
+      "Animação 3D",
+      "Iluminação",
+      "Câmera virtual"
+    ],
+    "order": 18
+  },
+  {
+    "id": "visualizer-3d",
+    "title": "Visualizer em animação 3D",
+    "slug": "visualizer-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "Blender / 3D"
+    ],
+    "objective": [
+      "emocionar",
+      "atencao"
+    ],
+    "format": "3d",
+    "thumbnail": "/assets/posters/visualizer-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/visualizer-3d-480.webp",
+    "previewVideo": "/assets/previews/visualizer-3d.mp4",
+    "fullVideo": "/assets/videos/visualizer-3d.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 48,
+    "featured": false,
+    "description": "Ambiente, personagem e câmera se encontram em uma cena criada no Blender. Um visualizer com atmosfera própria, pensado como linguagem visual para música e conteúdo artístico.",
+    "shortTitle": "Atmosfera e movimento para acompanhar o som.",
+    "techniques": [
+      "Blender 3D",
+      "Animação 3D",
+      "Composição de cena",
+      "Iluminação"
+    ],
+    "order": 19
+  },
+  {
+    "id": "dodge-garagem-3d",
+    "title": "Dodge na garagem em 3D",
+    "slug": "dodge-garagem-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "Blender / 3D",
+      "Automotive"
+    ],
+    "objective": [
+      "impressionar",
+      "atencao"
+    ],
+    "format": "3d",
+    "thumbnail": "/assets/posters/dodge-garagem-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/dodge-garagem-3d-480.webp",
+    "previewVideo": "/assets/previews/dodge-garagem-3d.mp4",
+    "fullVideo": "/assets/videos/dodge-garagem-3d.mp4",
+    "orientation": "horizontal",
+    "width": 1920,
+    "height": 1080,
+    "duration": 12.970667,
+    "featured": false,
+    "description": "Animação automotiva em Blender com um Dodge em uma garagem de atmosfera cinematográfica. Luzes, reflexos no piso e movimentos de câmera revelam o veículo em um cenário digital.",
+    "shortTitle": "Luz, reflexos e presença automotiva.",
+    "techniques": [
+      "Blender 3D",
+      "Animação 3D",
+      "Iluminação",
+      "Câmera virtual"
+    ],
+    "order": 20
+  },
+  {
+    "id": "dodge-ia-3d",
+    "title": "Dodge na floresta: IA + 3D",
+    "slug": "dodge-ia-3d",
+    "year": "",
+    "client": "",
+    "category": [
+      "Blender / 3D",
+      "IA",
+      "Automotive"
     ],
     "objective": [
       "impressionar",
       "atencao"
     ],
     "format": "ia",
-    "thumbnail": "/assets/posters/robotica-ia-produto-960.webp",
-    "thumbnailSmall": "/assets/posters/robotica-ia-produto-480.webp",
-    "previewVideo": "/assets/previews/robotica-ia-produto.mp4",
-    "fullVideo": "/videoia1c.mp4",
-    "orientation": "square",
-    "width": 512,
-    "height": 512,
-    "duration": 15.168,
+    "thumbnail": "/assets/posters/dodge-ia-3d-960.webp",
+    "thumbnailSmall": "/assets/posters/dodge-ia-3d-480.webp",
+    "previewVideo": "/assets/previews/dodge-ia-3d.mp4",
+    "fullVideo": "/assets/videos/dodge-ia-3d.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 13.674667,
     "featured": false,
-    "description": "Cena conceitual que combina robótica e beleza para mostrar um processo impossível de captar de forma convencional, usando IA como ferramenta de criação visual.",
-    "shortTitle": "Tecnologia impossível em cena",
+    "description": "Vídeo gerado integralmente com inteligência artificial e integrado a softwares de animação 3D. Um Dodge percorre uma floresta em uma sequência que combina criação generativa e linguagem cinematográfica.",
+    "shortTitle": "Criação com IA integrada à animação 3D.",
     "techniques": [
-      "IA",
-      "Direção de Arte",
-      "VFX",
-      "Animação"
+      "IA generativa",
+      "Integração com Blender 3D",
+      "Animação 3D",
+      "Direção criativa"
     ],
-    "order": 16
+    "order": 21
   }
 ]
