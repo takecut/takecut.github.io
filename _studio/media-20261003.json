@@ -1,0 +1,44 @@
+[
+  {
+    "id": "maquete-marca",
+    "file": "MAQUETE SITE.mp4",
+    "posterAt": 12,
+    "previewAt": 7
+  },
+  {
+    "id": "possibilidades-com-ia",
+    "file": "VIDEO IA SITE.mp4",
+    "posterAt": 10,
+    "previewAt": 0
+  },
+  {
+    "id": "planeta-3d",
+    "file": "ANIMAÇÃO PLANETA SITE.mp4",
+    "posterAt": 5,
+    "previewAt": 1
+  },
+  {
+    "id": "audi-rs6-3d",
+    "file": "AUDI RS6 SITE.mp4",
+    "posterAt": 4,
+    "previewAt": 1
+  },
+  {
+    "id": "visualizer-3d",
+    "file": "VISUALIZER SITE.mp4",
+    "posterAt": 16,
+    "previewAt": 7
+  },
+  {
+    "id": "dodge-garagem-3d",
+    "file": "DODGE GARAGEM SITE.mp4",
+    "posterAt": 5,
+    "previewAt": 1
+  },
+  {
+    "id": "dodge-ia-3d",
+    "file": "DODGE PARA SITE.mp4",
+    "posterAt": 9,
+    "previewAt": 5
+  }
+]
