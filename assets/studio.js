@@ -5,6 +5,17 @@
   const $$ = selector => [...document.querySelectorAll(selector)];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
+  const mobile = matchMedia('(max-width:700px)');
+  const displayCopy = text => mobile.matches && window.TakeCutMobileCopy ? window.TakeCutMobileCopy(text) : text;
+  // Keep accessible names in the same language as their visible mobile labels.
+  const responsiveNames = $$('[aria-label],[alt]').flatMap(element =>
+    ['aria-label','alt'].flatMap(attribute => {
+      const original = element.getAttribute(attribute);
+      return original && window.TakeCutMobileCopy?.(original) !== original ? [{element,attribute,original}] : [];
+    }));
+  const updateAccessibleCopy = () => responsiveNames.forEach(({element,attribute,original}) => element.setAttribute(attribute,displayCopy(original)));
+  updateAccessibleCopy();
+  mobile.addEventListener('change',updateAccessibleCopy);
   const connection = navigator.connection;
   let paused = reduced.matches || !!connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType || '');
   const viewer = $('#projectViewer');
@@ -74,7 +85,7 @@
   const stars = $('#starsBg');
   if (stars) {
     const layer = document.createElement('div'); layer.className = 'near-stars';
-    const count = innerWidth < 700 ? 35 : 70;
+    const count = 70; // Mobile displays 55 via CSS; desktop retains its original 70.
     for (let i = 0; i < count; i++) {
       const star = document.createElement('i'); star.className = 'star';
       star.style.left = ((i * 61.803) % 100) + '%'; star.style.top = ((i * 37.91 + 11) % 100) + '%';
@@ -155,10 +166,8 @@
     const media = $('#viewerMedia'); media.querySelector('video')?.pause(); media.replaceChildren();
     const video = document.createElement('video');
     video.controls = true; video.playsInline = true; video.preload = 'metadata'; video.poster = project.thumbnail; video.src = project.fullVideo;
-    video.setAttribute('aria-label', project.title); media.append(video);
-    $('#viewerTitle').textContent = project.title; $('#viewerCategory').textContent = project.category.join(' / ');
-    $('#viewerDescription').textContent = project.description;
-    $('#viewerTechniques').replaceChildren(...project.techniques.map(text => { const span = document.createElement('span'); span.textContent = text; return span; }));
+    video.setAttribute('aria-label', displayCopy(project.title)); media.append(video);
+    updateViewerCopy(project);
     $('#viewerDetails').href = '/portfolio/' + project.slug + '/';
     $('#viewerCta').href = 'https://wa.me/551153044748?text=' + encodeURIComponent(`Olá, vi o projeto "${project.title}" no portfólio da Take Cut e quero conversar sobre um vídeo nesse estilo.`);
     const sequence = projectSequence(); const index = sequence.indexOf(id);
@@ -167,6 +176,17 @@
     if (!viewer.open) { viewer.showModal(); document.body.classList.add('dialog-open'); }
     viewer.scrollTop = 0; updateMotion(); safePlay(video); return true;
   }
+  function updateViewerCopy(project) {
+    $('#viewerTitle').textContent = displayCopy(project.title);
+    $('#viewerCategory').textContent = displayCopy(project.category.join(' / '));
+    $('#viewerDescription').textContent = displayCopy(project.description);
+    $('#viewerTechniques').replaceChildren(...project.techniques.map(text => { const span = document.createElement('span'); span.textContent = displayCopy(text); return span; }));
+    $('#viewerMedia video')?.setAttribute('aria-label',displayCopy(project.title));
+  }
+  mobile.addEventListener('change', () => {
+    const project = catalog.find(p=>p.id===currentProject);
+    if (viewer?.open && project) updateViewerCopy(project);
+  });
   $$('a[data-project]').forEach(link => link.addEventListener('click', event => {
     if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !catalog.length) return;
     returnFocus = link; if (showProject(link.dataset.project)) event.preventDefault();

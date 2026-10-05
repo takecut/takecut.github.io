@@ -4,6 +4,10 @@
     "title": "Animação 3D com Blender",
     "category": "Blender / 3D",
     "cover": "dodge-garagem-3d",
+    "mobileCover": "/assets/posters/blender-collection-mobile-960.webp",
+    "mobileCoverLarge": "/assets/posters/blender-collection-mobile-1440.webp",
+    "mobileSummary": "Ideias ganham forma, profundidade e movimento em animações 3D.",
+    "mobileDescription": "Da composição à iluminação, cada detalhe constrói uma nova experiência visual. Explore animações em Blender que combinam movimento de câmera, texturas e direção criativa, com possibilidades de integração entre IA e 3D.",
     "summary": "Universos, carros e atmosferas criados em movimento.",
     "description": "Planetas, cenas automotivas e visualizers em animação 3D. Uma seleção de trabalhos em Blender, incluindo a combinação de IA generativa e 3D no Dodge na floresta."
   }
