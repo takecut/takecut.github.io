@@ -567,6 +567,54 @@ input[type=checkbox] { accent-color: var(--color-accent); width: 15px; height: 1
   .collection-link img { grid-column: 1 / -1; width: 100%; height: 150px; }
   .collection-link h3 { font-size: 25px; }
 }
+/* Text variants are present without JavaScript; their wrappers add no layout or styling. */
+span.screen-copy.screen-copy { all: unset; display: contents; }
+span.screen-copy.copy-mobile { display: none; }
+.collection-link picture { display: block; width: 160px; height: 106px; }
+.footer-brand .footer-mobile-kicker { display: none; }
+@media (max-width:700px) {
+  span.screen-copy.copy-desktop { display: none; }
+  span.screen-copy.copy-mobile { display: contents; }
+  .scroll-cue { display: none; }
+  .hero-foot { justify-content: flex-end; }
+  /* Atmosphere belongs behind content, never over images, cards or controls. */
+  .stars-bg { z-index: 0; opacity: 1; }
+  .stars-bg .star { opacity: .8; background: #62ffd0; box-shadow: 0 0 5px #00ffb266; animation-name: mobileTwinkle; }
+  .stars-bg .star:nth-child(5n) { width: 3px; height: 3px; background: #b9ffe8; }
+  .stars-bg .star:nth-child(n+56) { display: none; }
+  .stars-bg .star:nth-child(3n) { animation-delay: -3s; }
+  .stars-bg .star:nth-child(3n+1) { animation-delay: -6s; }
+  .work-card,.gear-item,.plan-card,.niche-cards article,.niche-options-grid a,.client-logos a { background: var(--color-bg); }
+  .hero-actions .text-link { background: #0b0b0c; }
+  .cut-section { background: #131416; }
+  .service-list article { background: linear-gradient(145deg,#14231e,#141416); }
+  .collection-link { isolation: isolate; background: #101713; }
+  .collection-link picture { grid-column: 1 / -1; min-width: 0; width: 100%; height: auto; }
+  .collection-link img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+  .gear-page h1 .accent { display: block; font-size: clamp(24px,6.8vw,42px); line-height: 1.25; letter-spacing: -.045em; margin-top: 12px; }
+  .final-cta { padding-block: 76px; min-height: 0; }
+  .final-cta h2 { font-size: clamp(34px,9.3vw,58px); line-height: 1.12; letter-spacing: -.045em; }
+  .final-cta h2 > br { display: none; }
+  .final-cta h2 > span { display: block; margin-top: 18px; color: #68ffd0; font-size: 1.06em; line-height: 1.12; text-wrap: balance; }
+  .final-cta .eyebrow { color: #c3cdc9; letter-spacing: .1em; }
+  .final-cta .button { border-radius: 10px; min-height: 56px; }
+  .site-footer { padding: 32px 22px 24px; margin-bottom: 22px; border: 1px solid #ffffff24; border-radius: 22px; background: radial-gradient(ellipse at top left,#142b23,#101314 60%); }
+  .footer-top { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 26px 20px; }
+  .footer-brand { font-size: clamp(32px,9vw,44px); line-height: 1.05; padding-bottom: 26px; border-bottom: 1px solid #ffffff20; }
+  .footer-brand::before { content: ''; display: block; width: 36px; height: 3px; background: var(--color-accent); border-radius: 2px; margin-bottom: 18px; }
+  .footer-brand span { color: #c0cac6; font-size: 13px; margin-top: 12px; line-height: 1.6; }
+  .footer-brand .footer-mobile-kicker { display: block; color: #68ffd0; font: 9px/1.5 monospace; letter-spacing: .13em; margin: 0 0 18px; }
+  .footer-top .eyebrow { color: #68ffd0; letter-spacing: .11em; font-size: 9px; margin-bottom: 10px; }
+  .footer-top > div a { font-size: 12px; line-height: 1.5; min-height: 44px; padding-block: 12px; }
+  .footer-top > div:last-child { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; padding-top: 22px; border-top: 1px solid #ffffff20; }
+  .footer-top > div:last-child .eyebrow { grid-column: 1 / -1; margin-bottom: 4px; }
+  .footer-top > div:last-child a { display: grid; place-items: center; border: 1px solid #ffffff2e; border-radius: 10px; padding: 10px 4px; min-height: 44px; font-size: 11px; background: #171e1b; }
+  .footer-bottom { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px 12px; margin-top: 24px; padding-top: 24px; font-size: 9px; }
+  .footer-bottom > a { text-align: right; padding-block: 10px; }
+  .footer-bottom .motion-toggle { grid-column: 1 / -1; border: 1px solid #ffffff24; border-radius: 10px; min-height: 44px; padding: 12px; text-align: center; color: #d9e6e0; }
+  .footer-bottom > .mono { grid-column: 1 / -1; font-size: 8px; text-align: center; color: #a5b4ad; }
+}
+@keyframes mobileTwinkle { from { opacity: .55; } to { opacity: .95; } }
 /* Aligned desktop galleries; mobile keeps its swipe-based presentation. */
 @media (min-width:701px) {
   .cut-grid,.portfolio-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 48px 32px; align-items: start; }

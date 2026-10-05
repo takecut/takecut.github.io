@@ -35,6 +35,8 @@ async function main(){
   const items=projects.filter(p=>p.category.includes(collection.category));
   assert.ok(items.length,'Empty collection '+collection.slug);
   assert.ok(items.some(p=>p.id===collection.cover),'Cover must belong to collection');
+  for(const key of ['mobileCover','mobileCoverLarge'])if(collection[key])localAsset(collection[key]);
+  if(collection.mobileDescription)assert.ok(!/Dodge|planetas|carros/i.test(collection.mobileDescription),'Mobile collection describes the technique, not objects');
   const nodes=pages.get('portfolio/colecoes/'+collection.slug+'/index.html');
   assert.ok(nodes,'Missing collection page');
   assert.deepEqual(nodes.filter(n=>attr(n,'data-project-card')).map(n=>attr(n,'data-project-card')),items.map(p=>p.id),'Collection shows every matching project');
@@ -73,6 +75,22 @@ async function main(){
   }
  }
  assert.deepEqual(problems,[]);
+ const mobileCopy=require('../assets/mobile-copy.js');
+ assert.equal(mobileCopy('Selected work / Seleção Take Cut'),'Seleção Take Cut');
+ assert.equal(mobileCopy('CUT ROOM'),'SALA DE EDIÇÃO');
+ assert.equal(mobileCopy('seu setup.'),'seu conjunto de equipamentos.');
+ assert.equal(mobileCopy('Briefing, Blender, VFX e DaVinci Resolve'),'Briefing, Blender, VFX e DaVinci Resolve');
+ for(const file of ['index.html','produtos/index.html']){
+  const nodes=pages.get(file);
+  assert.ok(nodes.some(n=>n.tagName==='script'&&attr(n,'src')?.startsWith('/assets/mobile-copy.js?')),file+': responsive labels loaded');
+  for(const n of nodes.filter(n=>n.tagName==='br'&&n.parentNode?.tagName==='p')){
+   let parent=n.parentNode,flows=false;
+   while(parent){if((attr(parent,'class')||'').split(' ').some(c=>['hero-bottom','intro-bottom'].includes(c)))flows=true;parent=parent.parentNode;}
+   if(!flows)continue;
+   const siblings=n.parentNode.childNodes,previous=siblings[siblings.indexOf(n)-1];
+   if(previous?.nodeName==='#text')assert.match(previous.value,/\s$/,file+': keep word spacing when mobile hides a line break');
+  }
+ }
  console.log(`PASS: ${projects.length} projects; ${pages.size} pages; local links/assets, anchors, SEO, unique IDs and media orientation.`);
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
