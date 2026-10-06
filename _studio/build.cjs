@@ -15,7 +15,7 @@ const homeData=legacy.pages['index.html'];
 const byId=id=>projects.find(p=>p.id===id);
 const routes=[];
 const pageFiles=[];
-const version='20261005-mobile1';
+const version='20261006-mobile2';
 const schema=(type,props)=>({'@context':'https://schema.org','@type':type,...props});
 function page(file,body,{title,description,jsonld=[],active='',bodyClass='',image='/bg-poster-desktop.jpg',home=false}={}) {
   const old=legacy.pages[file];

@@ -78,6 +78,7 @@ async function main(){
  const mobileCopy=require('../assets/mobile-copy.js');
  assert.equal(mobileCopy('Selected work / Seleção Take Cut'),'Seleção Take Cut');
  assert.equal(mobileCopy('CUT ROOM'),'SALA DE EDIÇÃO');
+ assert.equal(mobileCopy('CUT'),'CUT','Brand transition remains CUT on mobile');
  assert.equal(mobileCopy('seu setup.'),'seu conjunto de equipamentos.');
  assert.equal(mobileCopy('Briefing, Blender, VFX e DaVinci Resolve'),'Briefing, Blender, VFX e DaVinci Resolve');
  for(const file of ['index.html','produtos/index.html']){

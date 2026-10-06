@@ -89,6 +89,14 @@
     for (let i = 0; i < count; i++) {
       const star = document.createElement('i'); star.className = 'star';
       star.style.left = ((i * 61.803) % 100) + '%'; star.style.top = ((i * 37.91 + 11) % 100) + '%';
+      // Jitter one mobile star inside each of 55 cells: full coverage without
+      // correlated coordinates, diagonal trails, overlaps or an obvious grid.
+      if (i < 55) {
+        star.style.setProperty('--mobile-x', ((i % 5 + .12 + Math.random() * .76) / 5 * 100) + '%');
+        star.style.setProperty('--mobile-y', ((Math.floor(i / 5) + .12 + Math.random() * .76) / 11 * 100) + '%');
+        star.style.setProperty('--mobile-size', Math.random() < .22 ? '3px' : '2px');
+        star.style.setProperty('--mobile-color', Math.random() < .25 ? '#b9ffe8' : '#62ffd0');
+      }
       star.style.setProperty('--duration', (5 + i % 7) + 's'); layer.append(star);
     }
     stars.append(layer);
