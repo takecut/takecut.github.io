@@ -9,7 +9,7 @@
     'Take Cut Gear': 'Equipamentos Take Cut',
     'GEAR.': 'EQUIPAMENTOS.',
     'IN': 'ENTRADA', 'OUT': 'SAÍDA', 'TAKE / CUT': 'TOMADA / CORTE',
-    'CUT': 'CORTE', 'PLAY': 'ASSISTIR',
+    'PLAY': 'ASSISTIR',
     '01 / AI': '01 / IA', '02 / COMMERCIAL': '02 / PUBLICIDADE',
     '03 / SOCIAL': '03 / REDES SOCIAIS', '04 / FILM': '04 / FILME',
     '05 / MOTION': '05 / ANIMAÇÃO', '04 / CASES': '04 / PROJETOS'

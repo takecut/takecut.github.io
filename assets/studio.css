@@ -579,8 +579,8 @@ span.screen-copy.copy-mobile { display: none; }
   .hero-foot { justify-content: flex-end; }
   /* Atmosphere belongs behind content, never over images, cards or controls. */
   .stars-bg { z-index: 0; opacity: 1; }
-  .stars-bg .star { opacity: .8; background: #62ffd0; box-shadow: 0 0 5px #00ffb266; animation-name: mobileTwinkle; }
-  .stars-bg .star:nth-child(5n) { width: 3px; height: 3px; background: #b9ffe8; }
+  .stars-bg .near-stars { inset: 0; transform: none; }
+  .stars-bg .star { left: var(--mobile-x) !important; top: var(--mobile-y) !important; width: var(--mobile-size,2px); height: var(--mobile-size,2px); opacity: .8; background: var(--mobile-color,#62ffd0); box-shadow: 0 0 4px #00ffb244; animation-name: mobileTwinkle; }
   .stars-bg .star:nth-child(n+56) { display: none; }
   .stars-bg .star:nth-child(3n) { animation-delay: -3s; }
   .stars-bg .star:nth-child(3n+1) { animation-delay: -6s; }
@@ -615,6 +615,50 @@ span.screen-copy.copy-mobile { display: none; }
   .footer-bottom > .mono { grid-column: 1 / -1; font-size: 8px; text-align: center; color: #a5b4ad; }
 }
 @keyframes mobileTwinkle { from { opacity: .55; } to { opacity: .95; } }
+/* Mobile chapters: separators mark subjects, never split a heading from its copy. */
+@media (max-width:700px) {
+  main .section-space,main .niche-section,main .niche-options-section,main .niche-cta,main .niche-options-cta,main .final-cta {
+    margin-block: 88px; padding-block: 40px 0; border: 0; border-top: 1px solid #ffffff30;
+  }
+  main .cut-section { background: transparent; border-color: transparent; position: relative; }
+  .cut-section::before { content: ''; position: absolute; top: -1px; left: var(--gutter); right: var(--gutter); height: 1px; background: #ffffff30; }
+  main .section-heading { display: block; margin-bottom: 28px; padding: 24px 20px; border-radius: 16px; background: linear-gradient(135deg,#12241e,#111516 75%); }
+  main .section-heading .eyebrow { color: #68ffd0; margin-bottom: 14px; font-size: 9px; letter-spacing: .09em; }
+  main .section-heading h2 { font-size: clamp(30px,8.5vw,48px); line-height: 1.12; letter-spacing: -.045em; }
+  main .section-heading .section-aside { display: block; margin-top: 18px; padding: 0; max-width: none; }
+  main .section-heading .section-aside p { color: #bac6c0; font-size: 13px; line-height: 1.65; }
+  main .section-heading .section-count { display: none; }
+  .hero-foot { border-top: 0; }
+  .selected-lead { background: #111516; border-radius: 16px; overflow: hidden; }
+  .selected-lead .work-card { background: transparent; }
+  .selected-lead .work-caption { margin-top: 0; padding: 20px 20px 12px; border: 0; }
+  .selected-lead .editorial-note { padding: 0 20px 24px; font-size: 13px; }
+  .all-work { border: 1px solid #ffffff30; border-radius: 10px; padding: 14px 18px; background: #111516; }
+  .cut-ruler { display: none; }
+  .craft-item,.craft-item:last-child { border: 1px solid #ffffff24; border-radius: 12px; background: #111516; margin-bottom: 12px; overflow: hidden; }
+  .craft-item summary { padding: 16px; min-height: 72px; gap: 14px; }
+  .craft-item summary h3 { font-size: clamp(22px,6vw,27px); }
+  .craft-answer { padding: 0 16px 20px; }
+  .craft-answer p { padding-left: 0; }
+  .craft-mobile-image { border-radius: 8px; }
+  .case-study { padding: 24px 18px; border: 1px solid #ffffff24; border-radius: 16px; background: #111516; }
+  .case-study:nth-child(2) { margin-top: 0; }
+  .case-number { font-size: clamp(80px,24vw,114px); }
+  .reviews-section > .eyebrow { color: #68ffd0; max-width: 260px; }
+  main .final-cta { padding-bottom: 0; }
+  .portfolio-section,.gear-section { padding-bottom: 0; margin-bottom: 88px; }
+  .portfolio-filters { padding: 18px; margin: 32px 0; border: 1px solid #ffffff24; border-radius: 14px; background: #111516; }
+  .objective-filters { margin-inline: 0; padding: 0 0 12px; border-bottom: 0; }
+  .category-filters { margin-bottom: 0; }
+  .gear-toolbar { border: 1px solid #ffffff24; border-radius: 14px; padding: 20px; background: #111516; }
+  .gear-search { min-width: 0; width: 100%; }
+  .plan-card { padding: 32px 22px 24px; border: 1px solid #ffffff24; border-radius: 16px; background: #111516; }
+  .plan-card .recommended-badge { right: 18px; }
+  .niche-cards article,.niche-options-grid a { padding: 24px 20px; border: 1px solid #ffffff24; border-radius: 14px; background: #111516; }
+  .niche-options-grid { gap: 18px; }
+  .niche-section > h2,.niche-options-section > h2 { padding: 24px 20px; border-radius: 16px; background: #12201b; margin-bottom: 28px; }
+  .techniques span { border: 0; border-radius: 6px; background: #17241f; padding: 8px 10px; margin-right: 0; }
+}
 /* Aligned desktop galleries; mobile keeps its swipe-based presentation. */
 @media (min-width:701px) {
   .cut-grid,.portfolio-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 48px 32px; align-items: start; }
