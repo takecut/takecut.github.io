@@ -9,6 +9,13 @@
     "mobileSummary": "Ideias ganham forma, profundidade e movimento em animações 3D.",
     "mobileDescription": "Da composição à iluminação, cada detalhe constrói uma nova experiência visual. Explore animações em Blender que combinam movimento de câmera, texturas e direção criativa, com possibilidades de integração entre IA e 3D.",
     "summary": "Universos, carros e atmosferas criados em movimento.",
-    "description": "Planetas, cenas automotivas e visualizers em animação 3D. Uma seleção de trabalhos em Blender, incluindo a combinação de IA generativa e 3D no Dodge na floresta."
+    "description": "Planetas, cenas automotivas e visualizers em animação 3D. Uma seleção de trabalhos em Blender, incluindo a combinação de IA generativa e 3D no Dodge na floresta.",
+    "mobileDescriptions": {
+      "planeta-3d": "Texturas, órbitas e movimentos de câmera criam uma abertura com profundidade e escala.",
+      "audi-rs6-3d": "Luz, reflexos e enquadramentos valorizam formas em um estudo visual criado no Blender.",
+      "visualizer-3d": "Composição e animação se encontram em uma experiência visual para música e conteúdo artístico.",
+      "dodge-garagem-3d": "Iluminação cinematográfica e movimentos de câmera revelam os detalhes de uma cena digital.",
+      "dodge-ia-3d": "Criação integral com IA, integrada à animação 3D para construir uma sequência cinematográfica."
+    }
   }
 ]
