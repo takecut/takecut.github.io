@@ -6,12 +6,12 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   const mobile = matchMedia('(max-width:700px)');
-  const displayCopy = text => mobile.matches && window.TakeCutMobileCopy ? window.TakeCutMobileCopy(text) : text;
+  const displayCopy = text => window.TakeCutMobileCopy ? (mobile.matches ? window.TakeCutMobileCopy(text) : window.TakeCutMobileCopy.desktop(text)) : text;
   // Keep accessible names in the same language as their visible mobile labels.
   const responsiveNames = $$('[aria-label],[alt]').flatMap(element =>
     ['aria-label','alt'].flatMap(attribute => {
       const original = element.getAttribute(attribute);
-      return original && window.TakeCutMobileCopy?.(original) !== original ? [{element,attribute,original}] : [];
+      return original && (window.TakeCutMobileCopy?.(original) !== original || window.TakeCutMobileCopy?.desktop(original) !== original) ? [{element,attribute,original}] : [];
     }));
   const updateAccessibleCopy = () => responsiveNames.forEach(({element,attribute,original}) => element.setAttribute(attribute,displayCopy(original)));
   updateAccessibleCopy();
@@ -88,7 +88,8 @@
     const count = 70; // Mobile displays 55 via CSS; desktop retains its original 70.
     for (let i = 0; i < count; i++) {
       const star = document.createElement('i'); star.className = 'star';
-      star.style.left = ((i * 61.803) % 100) + '%'; star.style.top = ((i * 37.91 + 11) % 100) + '%';
+      star.style.left = ((i % 10 + .1 + Math.random() * .8) / 10 * 100) + '%';
+      star.style.top = ((Math.floor(i / 10) + .1 + Math.random() * .8) / 7 * 100) + '%';
       // Jitter one mobile star inside each of 55 cells: full coverage without
       // correlated coordinates, diagonal trails, overlaps or an obvious grid.
       if (i < 55) {
@@ -170,10 +171,12 @@
   }
   function showProject(id) {
     const project = catalog.find(p => p.id === id); if (!project) return false;
+    const sourceLink = $$('[data-media-project]').find(link=>link.dataset.project===id);
+    const mediaProject = catalog.find(p=>p.id===sourceLink?.dataset.mediaProject)||project;
     currentProject = id;
     const media = $('#viewerMedia'); media.querySelector('video')?.pause(); media.replaceChildren();
     const video = document.createElement('video');
-    video.controls = true; video.playsInline = true; video.preload = 'metadata'; video.poster = project.thumbnail; video.src = project.fullVideo;
+    video.controls = true; video.playsInline = true; video.preload = 'metadata'; video.poster = mediaProject.thumbnail; video.src = mediaProject.fullVideo;
     video.setAttribute('aria-label', displayCopy(project.title)); media.append(video);
     updateViewerCopy(project);
     $('#viewerDetails').href = '/portfolio/' + project.slug + '/';

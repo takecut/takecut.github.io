@@ -712,3 +712,39 @@ span.screen-copy.copy-mobile { display: none; }
   .stars-bg .ufo { transform: scale(.55); }
   .stars-bg .near-stars { transform: none; }
 }
+
+/* Home refinement: solid reading surfaces and restrained review styling. */
+.service-list article { background: linear-gradient(145deg,#16221f,#141416); }
+.service-list .text-link { display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 100%; margin-top: auto; padding: 14px 18px; min-height: 50px; border: 1px solid #54776b; border-radius: 9px; background: #1b3028; color: #b9ffe8; font-weight: 600; transition: background .2s,border-color .2s; }
+.service-list .text-link:hover { background: #254738; border-color: #68ffd0; color: #fff; }
+.reviews-section { position: relative; }
+.reviews-stage { padding: clamp(24px,3vw,44px); background: #111715; border: 1px solid #ffffff24; border-left: 3px solid #68ffd0; border-radius: 4px 16px 16px 4px; }
+.review-slide blockquote { margin: 0 0 28px; font-size: clamp(25px,3vw,44px); line-height: 1.4; letter-spacing: -.035em; text-wrap: pretty; }
+.review-slide figcaption { gap: 12px; }
+.review-slide figcaption strong { font-size: 15px; }
+.review-slide small { line-height: 1.6; color: #a9b6b0; }
+.review-controls { margin-top: 18px; gap: 16px; }
+.review-controls .icon-button { background: #141c18; border-color: #ffffff38; }
+.review-controls .icon-button:hover { background: #21392c; border-color: #68ffd0; }
+@media (max-width:700px) {
+  .service-list { gap: 20px; }
+  .service-list article { padding: 26px 22px; border: 1px solid #ffffff2b; border-radius: 14px; background: #141d19; }
+  .service-list article + article { border-top: 1px solid #ffffff2b; }
+  .service-list article > .mono { color: #68ffd0; }
+  .service-list p { color: #c3ccc7; }
+  .selected-wide { background: #111516; border-radius: 16px; overflow: hidden; }
+  .selected-wide .work-card { background: transparent; }
+  .selected-wide .work-caption { margin-top: 0; padding: 20px; border: 0; }
+  .reviews-stage { padding: 24px 20px; }
+  .review-slide blockquote { font-size: 25px; margin-bottom: 24px; }
+}
+@media (min-width:701px) {
+  .stars-bg { z-index: 0; opacity: 1; }
+  .stars-bg .star { opacity: .8; background: #89ffdb; box-shadow: 0 0 4px #00ffb244; animation-name: mobileTwinkle; }
+  .stars-bg .star:nth-child(3n) { width: 3px; height: 3px; animation-delay: -3s; }
+  .work-card,.gear-item,.plan-card,.niche-cards article,.niche-options-grid a,.client-logos a,.case-study,.cut-cell { background: var(--color-bg); }
+  .collection-link { background: #101713; isolation: isolate; }
+  .hero-actions .text-link { background: #0b0b0c; }
+  .final-cta h2 span { color: #68ffd0; }
+}
+

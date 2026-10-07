@@ -27,6 +27,8 @@ jobs:
         run: node _security/check.cjs
       - name: Validate project catalog, routes and assets
         run: node _studio/check.cjs
+      - name: Validate home media overrides and search entities
+        run: node _studio/revision-check.cjs
       - name: Verify generated pages match their sources
         run: |
           node _studio/build.cjs

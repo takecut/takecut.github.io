@@ -14,15 +14,24 @@ async function main() {
     const edits = [];
     function visit(node, ancestors = []) {
       if (['head','script','style','noscript','svg','blockquote'].includes(node.tagName)) return;
-      if (node.attrs?.some(a=>a.name==='class' && a.value.split(' ').includes('screen-copy'))) return;
+      if (node.attrs?.some(a=>a.name==='class' && a.value.split(' ').includes('copy-mobile'))) return;
       if (node.nodeName === '#text' && node.sourceCodeLocation) {
         const siblings = node.parentNode.childNodes;
         const next = siblings[siblings.indexOf(node)+1];
         const flowsOnMobile = ancestors.some(a=>a.attrs?.some(x=>x.name==='class' && x.value.split(' ').some(c=>['hero-bottom','intro-bottom'].includes(c))));
         const space = node.parentNode.tagName==='p' && next?.tagName==='br' && flowsOnMobile && !/\s$/.test(node.value) ? ' ' : '';
-        const desktop = node.value + space;
-        const mobile = mobileCopy(desktop);
-        if (mobile !== desktop || space) {
+        const original = node.value + space;
+        const desktop = mobileCopy.desktop(original);
+        const mobile = mobileCopy(original);
+        const desktopVariant = ancestors.some(a=>a.attrs?.some(x=>x.name==='class'&&x.value.split(' ').includes('copy-desktop')));
+        if (desktopVariant) {
+          if(desktop!==original) {
+            const {startOffset:start,endOffset:end}=node.sourceCodeLocation;
+            edits.push({start,end,value:escape(desktop)});
+          }
+          return;
+        }
+        if (mobile !== desktop || desktop !== original || space) {
           const {startOffset:start,endOffset:end} = node.sourceCodeLocation;
           edits.push({start,end,value:mobile===desktop ? escape(desktop) : `<span class="screen-copy copy-desktop">${escape(desktop)}</span><span class="screen-copy copy-mobile">${escape(mobile)}</span>`});
         }
