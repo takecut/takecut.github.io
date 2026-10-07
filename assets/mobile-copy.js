@@ -30,9 +30,24 @@
     [/\bmotion\b/g, 'animação'],
     [/\bonline\b/g, 'a distância']
   ];
-  return function mobileCopy(text) {
+  function mobileCopy(text) {
     const trimmed = text.trim();
     if (Object.hasOwn(exact, trimmed)) return text.replace(trimmed, exact[trimmed]);
     return terms.reduce((value, [pattern, replacement]) => value.replace(pattern, replacement), text);
+  }
+  mobileCopy.desktop = function(text) {
+    // Brand names and the authored slogan remain unchanged.
+    if (['Faça valer o play.','play.','CUT'].includes(text.trim())) return text;
+    return mobileCopy(text)
+      .replace(/\bSCROLL PARA DESCOBRIR\b/g,'ROLE PARA DESCOBRIR')
+      .replace(/\bframes\b/g,'quadros').replace(/\bframe\b/g,'quadro')
+      .replace(/\bFrame\b/g,'Quadro')
+      .replace(/\bplay\b/g,'vídeo').replace(/DÊ O PLAY/g,'COMECE A ASSISTIR')
+      .replace(/\bSocial\b/g,'Redes sociais')
+      .replace(/\bAds\b/g,'Anúncios')
+      .replace(/\bVFX\b/g,'efeitos visuais')
+      .replace(/\bREC\b/g,'gravar')
+      .replace(/\bset\b/g,'ambiente de gravação');
   };
+  return mobileCopy;
 });
