@@ -744,7 +744,11 @@ span.screen-copy.copy-mobile { display: none; }
   .stars-bg .star:nth-child(3n) { width: 3px; height: 3px; animation-delay: -3s; }
   .work-card,.gear-item,.plan-card,.niche-cards article,.niche-options-grid a,.client-logos a,.case-study,.cut-cell { background: var(--color-bg); }
   .collection-link { background: #101713; isolation: isolate; }
-  .hero-actions .text-link { background: #0b0b0c; }
+  .hero .hero-actions .text-link { min-height: 56px; padding: 18px 26px; justify-content: center; border: 1px solid #78958a; border-radius: var(--radius-sm); background: #12251e; color: #f5fff9; font-size: 14px; font-weight: 600; line-height: 1.4; transition: background .2s,border-color .2s,color .2s; }
+  .hero .hero-actions .text-link:hover { background: #1e3b2f; border-color: #68ffd0; color: #fff; }
+  .cut-section { background: #131416; }
+  .cut-section .cut-cell,.cut-section .work-card { background: transparent; }
+  .cut-section .work-caption { background: transparent; border: 0; box-shadow: none; }
   .final-cta h2 span { color: #68ffd0; }
 }
 
