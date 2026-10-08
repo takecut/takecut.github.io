@@ -28,6 +28,10 @@ async function main(){
  });
  const problems=[];
  for(const id of [...site.featuredProjects,...site.cutRoomProjects])assert.ok(ids.has(id),'Unknown curated project '+id);
+ if(site.portfolioLeadProject) {
+  assert.ok(ids.has(site.portfolioLeadProject),'Unknown portfolio lead');
+  assert.equal(pages.get('portfolio/index.html').find(n=>attr(n,'data-project-card'))?.attrs.find(a=>a.name==='data-project-card')?.value,site.portfolioLeadProject,'New lead is first in portfolio');
+ }
  const collectionSlugs=new Set();
  for(const collection of collections){
   assert.match(collection.slug,/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
