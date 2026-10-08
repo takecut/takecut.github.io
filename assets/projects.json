@@ -156,7 +156,7 @@
     "width": 1080,
     "height": 1920,
     "duration": 30.016,
-    "featured": true,
+    "featured": false,
     "description": "Montagem vertical que valoriza cores, detalhes e resultados do atendimento para transformar o trabalho da esmalteria em uma vitrine atrativa nas redes sociais.",
     "shortTitle": "Beleza em movimento",
     "techniques": [
@@ -702,5 +702,40 @@
       "Direção criativa"
     ],
     "order": 21
+  },
+  {
+    "id": "do-sonho-a-conquista-ia",
+    "title": "Do sonho à conquista — filme com IA",
+    "slug": "do-sonho-a-conquista-ia",
+    "year": "",
+    "client": "",
+    "category": [
+      "IA",
+      "Narrativa"
+    ],
+    "objective": [
+      "emocionar",
+      "impressionar"
+    ],
+    "format": "ia",
+    "thumbnail": "/assets/posters/do-sonho-a-conquista-ia-960.webp",
+    "thumbnailSmall": "/assets/posters/do-sonho-a-conquista-ia-480.webp",
+    "previewVideo": "/assets/previews/do-sonho-a-conquista-ia.mp4",
+    "fullVideo": "/assets/videos/do-sonho-a-conquista-ia.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 80.597,
+    "featured": true,
+    "description": "Narrativa cinematográfica 100% gerada com inteligência artificial. Personagens, ambientes e movimentos de câmera se combinam com clonagem de voz, trilha sonora e efeitos sonoros para dar emoção e identidade à história.",
+    "shortTitle": "Uma história com emoção, voz e criação integral com IA.",
+    "techniques": [
+      "IA generativa",
+      "Clonagem de voz",
+      "Trilha sonora",
+      "Efeitos sonoros",
+      "Direção criativa"
+    ],
+    "order": 22
   }
 ]

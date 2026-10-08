@@ -10,14 +10,15 @@ const site=require('./site.json');
 const googleReviews=require('./reviews.json');
 const collections=require('./collections.json');
 const featured=site.featuredProjects.map(id=>projects.find(p=>p.id===id)).filter(Boolean);
-const sortedProjects=[...featured,...projects.filter(p=>!site.featuredProjects.includes(p.id)).sort((a,b)=>a.order-b.order)];
+const portfolioLead=projects.find(p=>p.id===site.portfolioLeadProject);
+const sortedProjects=[...(portfolioLead?[portfolioLead]:[]),...featured.filter(p=>p!==portfolioLead),...projects.filter(p=>p!==portfolioLead&&!site.featuredProjects.includes(p.id)).sort((a,b)=>a.order-b.order)];
 const homeData=legacy.pages['index.html'];
 const byId=id=>projects.find(p=>p.id===id);
 const homeMedia={'criativo-trafego-pago-3d':'hospedagem-tematica','youtube-narrativo':'gameplay-youtube'};
 const homeCard=(p,options={})=>card(p,{...options,mediaProject:homeMedia[p.id]?byId(homeMedia[p.id]):null});
 const routes=[];
 const pageFiles=[];
-const version='20261007-desktop2';
+const version='20261007-everton';
 const schema=(type,props)=>({'@context':'https://schema.org','@type':type,...props});
 function page(file,body,{title,description,jsonld=[],active='',bodyClass='',image='/bg-poster-desktop.jpg',home=false}={}) {
   const old=legacy.pages[file];
