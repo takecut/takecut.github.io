@@ -2,8 +2,8 @@
   "hero": {
     "desktopVideo": "/assets/videos/hero-desktop-20261014.mp4",
     "mobileVideo": "/assets/videos/hero-mobile-20261014.mp4",
-    "desktopPoster": "/assets/images/bg-poster-desktop.webp",
-    "mobilePoster": "/assets/images/bg-poster-mobile.webp"
+    "desktopPoster": "/assets/images/hero-desktop-20261014.webp",
+    "mobilePoster": "/assets/images/hero-mobile-20261014.webp"
   },
   "featuredProjects": [
     "ia-marca",
