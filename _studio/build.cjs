@@ -20,7 +20,7 @@ const routes=[];
 const pageFiles=[];
 const version='20261014-hero-fix';
 const schema=(type,props)=>({'@context':'https://schema.org','@type':type,...props});
-function page(file,body,{title,description,jsonld=[],active='',bodyClass='',image='/bg-poster-desktop.jpg',home=false}={}) {
+function page(file,body,{title,description,jsonld=[],active='',bodyClass='',image='/bg-poster-desktop.jpg',home=false,stylesheet='',breadcrumbParent=null}={}) {
   const old=legacy.pages[file];
   title=title||old?.title||'Take Cut | Faça valer o play.';
   description=description||old?.description||'Produção, edição e inteligência artificial para marcas que querem ser assistidas.';
@@ -30,7 +30,7 @@ function page(file,body,{title,description,jsonld=[],active='',bodyClass='',imag
   const canonical=old?.canonical||'https://www.takecut.com.br'+route;
   routes.push(canonical);pageFiles.push(file);
   if(!jsonld.length&&old)jsonld=old.jsonld;
-  jsonld=require('./search.cjs').enrich(jsonld,{canonical,title,description,route,home});
+  jsonld=require('./search.cjs').enrich(jsonld,{canonical,title,description,route,home,breadcrumbParent});
   const analytics=home?`<script src="/assets/analytics.js?v=${version}"></script><script async src="https://www.googletagmanager.com/gtag/js?id=AW-17039172373"></script>`:'';
   const html=`<!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="UTF-8">
@@ -40,7 +40,7 @@ function page(file,body,{title,description,jsonld=[],active='',bodyClass='',imag
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Take Cut"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(description)}"><meta property="og:url" content="${e(canonical)}"><meta property="og:image" content="https://www.takecut.com.br${image}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(title)}"><meta name="twitter:description" content="${e(description)}"><meta name="twitter:image" content="https://www.takecut.com.br${image}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/studio.css?v=${version}">${home?`<link rel="preload" as="image" href="${site.hero.desktopPoster}" media="(min-width: 701px)"><link rel="preload" as="image" href="${site.hero.mobilePoster}" media="(max-width: 700px)">`:''}
-${jsonld.map(data=>`<script type="application/ld+json">${JSON.stringify(data).replaceAll('<','\\u003c')}</script>`).join('\n')}${analytics}</head>
+${stylesheet?`<link rel="stylesheet" href="${e(stylesheet)}">`:''}${jsonld.map(data=>`<script type="application/ld+json">${JSON.stringify(data).replaceAll('<','\\u003c')}</script>`).join('\n')}${analytics}</head>
 <body class="${bodyClass}">${C.atmosphere()}${C.header(active)}<main id="main">${body}</main>${C.footer()}${C.viewer()}<script src="/assets/mobile-copy.js?v=${version}" defer></script><script src="/assets/studio.js?v=${version}" defer></script><script src="/cookie-consent.js?v=${version}" defer></script></body></html>\n`;
   fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true});fs.writeFileSync(path.join(root,file),html);
 }
@@ -89,8 +89,10 @@ const gearLabels={cameras:'Câmeras',iluminacao:'Iluminação',audio:'Áudio',ac
 const gear=`<section class="page-intro shell"><p class="eyebrow">O que entra em cena</p><h1>TAKE CUT<br><span class="accent">GEAR.</span></h1><div class="intro-bottom"><p>Uma seleção para montar o seu setup.<br>Câmeras, luz, áudio e os detalhes que fazem diferença.</p><span class="mono">CURADORIA / EQUIPAMENTOS</span></div></section><section class="gear-section shell"><div class="gear-toolbar"><label class="gear-search" for="searchInput"><span class="eyebrow">O que você procura?</span><input type="search" id="searchInput" placeholder="Buscar equipamento" autocomplete="off"></label><fieldset class="gear-filters"><legend class="eyebrow">Categoria</legend>${Object.entries(gearLabels).map(([id,label])=>`<label><input type="checkbox" value="${id}">${label}</label>`).join('')}</fieldset><span id="gearCount" class="mono" aria-live="polite">10 equipamentos</span></div><div class="gear-grid">${legacy.pages['produtos/index.html'].items.map((item,i)=>`<article class="gear-item" data-gear-category="${item.category}" data-gear-name="${e(item.search+' '+item.title)}"><div class="gear-image"><span class="mono">${String(i+1).padStart(2,'0')} / GEAR</span><img src="/assets/images/${path.parse(item.image).name}.webp" width="800" height="600" alt="${e(item.alt)}" loading="lazy"></div><div class="gear-info"><p class="eyebrow">${gearLabels[item.category]}</p><h2>${e(item.title)}</h2><p>${gearNotes[item.category]}</p><p class="gear-price">${e(item.price)}</p><div class="gear-actions">${external(item.buy,'Ver equipamento','text-link')}${item.rent?external(item.rent,'Consultar locação','text-link'):''}</div></div></article>`).join('')}</div><p class="empty-state" id="gearEmpty" hidden>Nenhum equipamento encontrado. Experimente outro termo ou categoria.</p><p class="fine-print">Os links de compra levam a lojas externas e podem ser links de afiliado. Confirme especificações, disponibilidade e preço no vendedor. Valores de locação a confirmar pelo WhatsApp.</p></section>`;
 page('produtos/index.html',gear,{bodyClass:'gear-page',title:'Take Cut Gear | Equipamentos para produção audiovisual',description:'Seleção de câmeras, iluminação, áudio e acessórios para produções. Explore equipamentos e consulte opções de locação.'});
 
+const niches=require('./niches.cjs');
+niches.build(page,projects);
 for(const [file,data] of Object.entries(legacy.pages)){
-  if(['index.html','portfolio/index.html','produtos/index.html'].includes(file))continue;
+  if(['index.html','portfolio/index.html','produtos/index.html','nichos/index.html',...niches.entries.map(n=>n.slug+'/index.html')].includes(file))continue;
   if(file==='termos.html'){page(file,`<section class="legal-page shell">${data.content}</section>`);continue;}
   const pick=file.includes('pousadas')?'hospedagem-tematica':file.includes('ia/')?'possibilidades-com-ia':file.includes('reels')?'reels-esmalteria':file.includes('trafego')?'criativo-trafego-pago-3d':'anuncio-produto';
   page(file,`<div class="niche-page shell">${data.content}<section class="niche-project section-space">${heading('Na prática',pick==='possibilidades-com-ia'?'Uma ideia.<br>Várias possibilidades.':'Veja a linguagem<br>em movimento.')}<div class="niche-feature">${card(byId(pick))}</div><a href="/portfolio/" class="text-link">Explorar outros trabalhos ${arrow}</a></section></div>`,{active:'services'});

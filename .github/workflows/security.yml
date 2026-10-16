@@ -29,6 +29,8 @@ jobs:
         run: node _studio/check.cjs
       - name: Validate home media overrides and search entities
         run: node _studio/revision-check.cjs
+      - name: Validate niche pages and service metadata
+        run: node _studio/niches-check.cjs
       - name: Verify generated pages match their sources
         run: |
           node _studio/build.cjs

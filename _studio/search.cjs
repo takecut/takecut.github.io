@@ -8,7 +8,7 @@ const services=[
   ['Vídeos com inteligência artificial', '/videos-com-ia/'],
   ['Animação 3D com Blender', '/portfolio/colecoes/blender-3d/']
 ];
-function enrich(data,{canonical,title,description,route,home}) {
+function enrich(data,{canonical,title,description,route,home,breadcrumbParent}) {
   const result=structuredClone(data||[]);
   if(home) {
     const business=result.flatMap(item=>item['@graph']||[]).find(item=>item['@id']===base+'/#business');
@@ -20,6 +20,7 @@ function enrich(data,{canonical,title,description,route,home}) {
   result.push({'@context':'https://schema.org','@type':'WebPage','@id':canonical+'#page',url:canonical,name:copy(title),description:copy(description),inLanguage:'pt-BR',isPartOf:{'@id':base+'/#website'},about:{'@id':base+'/#business'}});
   if(!home) {
     const crumbs=[{name:'Início',item:base+'/'}];
+    if(breadcrumbParent)crumbs.push(breadcrumbParent);
     if(route.startsWith('/portfolio/')&&route!=='/portfolio/')crumbs.push({name:'Trabalhos',item:base+'/portfolio/'});
     crumbs.push({name:copy(title.split(' | ')[0]),item:canonical});
     result.push({'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:crumbs.map((item,i)=>({'@type':'ListItem',position:i+1,...item}))});
