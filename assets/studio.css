@@ -75,8 +75,8 @@ button,a,input,summary { touch-action: manipulation; }
 .hero { min-height: 800px; height: 100svh; max-height: 1280px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; isolation: isolate; }
 .hero-film { position: absolute; inset: 0; z-index: -2; overflow: hidden; background: #071111; }
 .hero-film picture,.hero-film img,.hero-film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-film video { opacity: 1; filter: brightness(.72); }
-.hero-film::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#080d0c9c,transparent 85%),linear-gradient(0deg,var(--color-bg) 0%,#090c0b50 50%,#090c0b50); }
+.hero-film video { opacity: 1; filter: brightness(.9); }
+.hero-film::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#080d0c8c,transparent 85%),linear-gradient(0deg,var(--color-bg) 0%,#090c0b45 50%,#090c0b45); }
 .hero-content { padding-top: 160px; padding-bottom: clamp(60px,9vh,100px); }
 .hero-kicker { color: #d3d8d6; display: flex; align-items: center; gap: 12px; margin-bottom: 35px; font-size: 10px; }
 .hero h1 { font-size: clamp(82px,11.8vw,194px); letter-spacing: -.075em; line-height: 1.04; font-weight: 600; }
@@ -395,7 +395,7 @@ input[type=checkbox] { accent-color: var(--color-accent); width: 15px; height: 1
   :root { --gutter: 22px; --space-xl: 120px; --header-height: 72px; }
   .brand,.brand img { width: 139px; }
   .hero { min-height: 660px; height: 94svh; max-height: 1050px; }
-  .hero-film::after { background: linear-gradient(0deg,var(--color-bg),#0b0b0c85 55%,#0b0b0c45); }
+  .hero-film::after { background: linear-gradient(0deg,var(--color-bg),#0b0b0c75 55%,#0b0b0c3d); }
   .hero-content { padding-top: 135px; padding-bottom: 40px; }
   .hero-kicker { font-size: 8px; letter-spacing: .02em; gap: 8px; margin-bottom: 25px; }
   .hero h1 { font-size: clamp(64px,15.4vw,100px); line-height: .94; letter-spacing: -.075em; }

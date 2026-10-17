@@ -67,7 +67,11 @@
     if (!canAnimate()) stopPreview();
     if (hero) {
       if (canAnimate() && heroVisible && !activePreview) {
-        if (!hero.hasAttribute('src')) hero.src = matchMedia('(max-width:700px)').matches ? hero.dataset.mobile : hero.dataset.desktop;
+        if (!hero.hasAttribute('src')) {
+          // Fetch the short loop fully once motion is allowed, not on reduced-motion/data-saving visits.
+          hero.preload = 'auto';
+          hero.src = mobile.matches ? hero.dataset.mobile : hero.dataset.desktop;
+        }
         hero.muted = true; safePlay(hero);
       } else hero.pause();
     }

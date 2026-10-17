@@ -25,6 +25,23 @@ for(const link of overrides){
 }
 // Exercise the actual viewer function with a minimal DOM, without launching a browser.
 const source=read('assets/studio.js');
+const heroConfig=require('./site.json').hero;
+const heroNode=home.find(n=>attr(n,'id')==='heroVideo');
+assert.equal(attr(heroNode,'data-mobile'),heroConfig.mobileVideo);
+assert.equal(attr(heroNode,'data-desktop'),heroConfig.desktopVideo);
+for(const flag of ['muted','autoplay','loop','playsinline'])assert.notEqual(attr(heroNode,flag),undefined);
+assert.equal(attr(heroNode,'preload'),'none','Do not download the hero until motion is allowed');
+const motionFunction=source.slice(source.indexOf('  function updateMotion()'),source.indexOf("\n  $$('.motion-toggle').forEach"));
+for(const mobile of [true,false])for(const allowed of [true,false]){
+ let plays=0,pauses=0;
+ const hero={dataset:{mobile:heroConfig.mobileVideo,desktop:heroConfig.desktopVideo},hasAttribute(){return !!this.src;},pause(){pauses++;}};
+ const context={hero,mobile:{matches:mobile},paused:!allowed,heroVisible:true,activePreview:null,
+  document:{hidden:false,body:{classList:{toggle(){}}}},$$:()=>[],canAnimate:()=>allowed,stopPreview(){},safePlay(){plays++;}};
+ vm.runInNewContext(motionFunction+';updateMotion();',context);
+ assert.equal(plays,allowed?1:0);assert.equal(pauses,allowed?0:1);
+ assert.equal(hero.src,allowed?(mobile?heroConfig.mobileVideo:heroConfig.desktopVideo):undefined);
+ assert.equal(hero.preload,allowed?'auto':undefined,'Reduced motion never enables eager loading');
+}
 const start=source.indexOf('  function showProject(id)');
 const end=source.indexOf('  function updateViewerCopy',start);
 const fn=source.slice(start,end);
