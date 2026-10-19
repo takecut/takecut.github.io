@@ -18,7 +18,7 @@ const homeMedia={'criativo-trafego-pago-3d':'hospedagem-tematica','youtube-narra
 const homeCard=(p,options={})=>card(p,{...options,mediaProject:homeMedia[p.id]?byId(homeMedia[p.id]):null});
 const routes=[];
 const pageFiles=[];
-const version='20261019-desktop-footer';
+const version='20261019-cut-room';
 const schema=(type,props)=>({'@context':'https://schema.org','@type':type,...props});
 function page(file,body,{title,description,jsonld=[],active='',bodyClass='',image='/bg-poster-desktop.jpg',home=false,stylesheet='',breadcrumbParent=null}={}) {
   const old=legacy.pages[file];
