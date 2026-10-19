@@ -1,4 +1,11 @@
 {
+  "additionalClients": [
+    {
+      "asset": "love-brokers.png",
+      "alt": "Love Brokers Imóveis",
+      "url": "https://www.instagram.com/lovebrokersimoveis/"
+    }
+  ],
   "hero": {
     "desktopVideo": "/assets/videos/hero-desktop-20261014.mp4",
     "mobileVideo": "/assets/videos/hero-mobile-20261017.mp4",

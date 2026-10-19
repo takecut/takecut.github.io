@@ -598,21 +598,6 @@ span.screen-copy.copy-mobile { display: none; }
   .final-cta h2 > span { display: block; margin-top: 18px; color: #68ffd0; font-size: 1.06em; line-height: 1.12; text-wrap: balance; }
   .final-cta .eyebrow { color: #c3cdc9; letter-spacing: .1em; }
   .final-cta .button { border-radius: 10px; min-height: 56px; }
-  /* Quiet, full-width footer: navigation rather than a promotional card. */
-  .site-footer { width: 100%; max-width: none; padding: 36px var(--gutter) 24px; margin: 0; border: 0; border-top: 1px solid #ffffff24; border-radius: 0; background: #101112; }
-  .footer-top { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px 22px; }
-  .footer-brand { font-size: 22px; line-height: 1.2; letter-spacing: -.035em; padding: 0; }
-  .footer-brand span { font-size: 12px; color: #a7a7ac; margin-top: 8px; }
-  .footer-brand .footer-mobile-kicker { display: none; }
-  .footer-top .eyebrow { font: 600 12px/1.5 Inter,Arial,sans-serif; color: #e1e1e3; text-transform: none; letter-spacing: 0; margin-bottom: 8px; }
-  .footer-top > div a { font-size: 12px; color: #aaaeb1; line-height: 1.5; padding-block: 10px; min-height: 38px; }
-  .footer-top > div:last-child { display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px; border-top: 1px solid #ffffff1a; padding-top: 18px; }
-  .footer-top > div:last-child .eyebrow { width: 100%; margin-bottom: 2px; }
-  .footer-top > div:last-child a { font-size: 12px; }
-  .footer-bottom { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-start; gap: 10px 18px; margin-top: 22px; padding-top: 18px; font-size: 10px; }
-  .footer-bottom > span:first-child { width: 100%; color: #92979a; }
-  .footer-bottom > a,.footer-bottom .motion-toggle { font-size: 10px; min-height: 36px; padding: 8px 0; color: #b6b9bb; }
-  .footer-bottom > .mono { margin-top: 6px; font-size: 8px; color: #747a7e; letter-spacing: .04em; }
 
 }
 @keyframes mobileTwinkle { from { opacity: .55; } to { opacity: .95; } }
@@ -751,5 +736,29 @@ span.screen-copy.copy-mobile { display: none; }
   .cut-section .cut-cell,.cut-section .work-card { background: transparent; }
   .cut-section .work-caption { background: transparent; border: 0; box-shadow: none; }
   .final-cta h2 span { color: #68ffd0; }
+}
+
+/* Shared footer presentation for desktop and mobile. */
+/* Quiet, full-width footer: navigation rather than a promotional card. */
+.site-footer { width: 100%; max-width: none; padding: 36px var(--gutter) 24px; margin: 0; border: 0; border-top: 1px solid #ffffff24; border-radius: 0; background: #101112; }
+.footer-top { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px 22px; }
+.footer-brand { font-size: 22px; line-height: 1.2; letter-spacing: -.035em; padding: 0; }
+.footer-brand span { font-size: 12px; color: #a7a7ac; margin-top: 8px; }
+.footer-brand .footer-mobile-kicker { display: none; }
+.footer-top .eyebrow { font: 600 12px/1.5 Inter,Arial,sans-serif; color: #e1e1e3; text-transform: none; letter-spacing: 0; margin-bottom: 8px; }
+.footer-top > div a { font-size: 12px; color: #aaaeb1; line-height: 1.5; padding-block: 10px; min-height: 38px; }
+.footer-top > div:last-child { display: flex; align-items: center; flex-wrap: wrap; gap: 0 24px; border-top: 1px solid #ffffff1a; padding-top: 18px; }
+.footer-top > div:last-child .eyebrow { width: 100%; margin-bottom: 2px; }
+.footer-top > div:last-child a { font-size: 12px; }
+.footer-bottom { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-start; gap: 10px 18px; margin-top: 22px; padding-top: 18px; font-size: 10px; }
+.footer-bottom > span:first-child { width: 100%; color: #92979a; }
+.footer-bottom > a,.footer-bottom .motion-toggle { font-size: 10px; min-height: 36px; padding: 8px 0; color: #b6b9bb; }
+.footer-bottom > .mono { margin-top: 6px; font-size: 8px; color: #747a7e; letter-spacing: .04em; }
+.footer-brand,.footer-top > div:last-child { grid-column: 1 / -1; }
+.selected-section > .all-work { display: flex; width: fit-content; max-width: 100%; margin-inline: auto; }
+.cases-section > .fine-print { text-align: center; }
+.client-logos a:has(img[src$="love-brokers.png"]) img { filter: none; opacity: 1; }
+@media (max-width:700px) {
+  .client-logos a:last-child { grid-column: auto; }
 }
 

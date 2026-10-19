@@ -70,4 +70,8 @@ assert.equal(copy.desktop('Selected work / Seleção Take Cut'),'Seleção Take 
 assert.equal(copy.desktop('briefing'),'briefing');
 assert.equal(copy.desktop('CUT'),'CUT');
 assert.equal(copy.desktop('Faça valer o play.'),'Faça valer o play.');
+assert.equal(copy.desktop('Além do frame.'),'Além do frame.');
+assert.equal(copy.desktop('deram play com a gente.'),'deram play com a gente.');
+assert.ok(read('index.html').includes('href="https://www.instagram.com/lovebrokersimoveis/"'));
+assert.ok(read('index.html').includes('src="/assets/images/love-brokers.png"'));
 console.log('PASS: home-only media replacements, viewer playback and original descriptions, Portuguese labels and search entities.');
