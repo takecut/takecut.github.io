@@ -18,7 +18,7 @@ const homeMedia={'criativo-trafego-pago-3d':'hospedagem-tematica','youtube-narra
 const homeCard=(p,options={})=>card(p,{...options,mediaProject:homeMedia[p.id]?byId(homeMedia[p.id]):null});
 const routes=[];
 const pageFiles=[];
-const version='20261017-hero-loop';
+const version='20261019-clean-labels';
 const schema=(type,props)=>({'@context':'https://schema.org','@type':type,...props});
 function page(file,body,{title,description,jsonld=[],active='',bodyClass='',image='/bg-poster-desktop.jpg',home=false,stylesheet='',breadcrumbParent=null}={}) {
   const old=legacy.pages[file];
@@ -105,6 +105,7 @@ for(const p of projects){
 }
 fs.writeFileSync(path.join(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+routes.map(url=>'  <url><loc>'+e(url)+'</loc></url>').join('\n')+'\n</urlset>\n');
 // Add mobile-only editorial variants before the security hashes are refreshed.
+execFileSync(process.execPath,[path.join(root,'_studio/clean-labels.cjs'),...pageFiles],{cwd:root,stdio:'inherit'});
 execFileSync(process.execPath,[path.join(root,'_studio/mobile-html.cjs'),...pageFiles],{cwd:root,stdio:'inherit'});
 // Include generated, not-yet-staged pages when refreshing CSP, without weakening validation.
 execFileSync(process.execPath,[path.join(root,'_security/check.cjs'),'--write'],{cwd:root,stdio:'inherit'});
