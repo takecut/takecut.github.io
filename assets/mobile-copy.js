@@ -37,7 +37,7 @@
   }
   mobileCopy.desktop = function(text) {
     // Brand names and the authored slogan remain unchanged.
-    if (['Faça valer o play.','play.','CUT'].includes(text.trim())) return text;
+    if (['Faça valer o play.','play.','CUT','Além do frame.','deram play com a gente.'].includes(text.trim())) return text;
     return mobileCopy(text)
       .replace(/\bSCROLL PARA DESCOBRIR\b/g,'ROLE PARA DESCOBRIR')
       .replace(/\bframes\b/g,'quadros').replace(/\bframe\b/g,'quadro')
