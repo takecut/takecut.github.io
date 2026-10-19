@@ -85,7 +85,7 @@ button,a,input,summary { touch-action: manipulation; }
 .hero-bottom p { font-size: clamp(15px,1.35vw,20px); line-height: 1.6; color: #d4d7d6; }
 .hero-actions { display: flex; align-items: center; gap: 25px; }
 .hero-actions .text-link { font-size: 13px; }
-.hero-foot { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 23px 0; border-top: 1px solid var(--color-line); }
+.hero-foot { display: flex; align-items: center; justify-content: flex-end; gap: 25px; padding: 23px 0; border-top: 1px solid var(--color-line); }
 .hero-foot .mono { font-size: 9px; color: #b1b9b5; }
 .scroll-cue { display: flex; align-items: center; gap: 26px; }
 .scroll-cue span { font-size: 20px; color: var(--color-accent); }

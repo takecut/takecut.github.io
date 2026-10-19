@@ -96,6 +96,15 @@ async function main(){
    if(previous?.nodeName==='#text')assert.match(previous.value,/\s$/,file+': keep word spacing when mobile hides a line break');
   }
  }
- console.log(`PASS: ${projects.length} projects; ${pages.size} pages; local links/assets, anchors, SEO, unique IDs and media orientation.`);
+ for(const [file,nodes] of pages){
+  for(const node of nodes){
+   const cls=(attr(node,'class')||'').split(/\s+/);
+   assert.ok(!cls.some(c=>['section-aside','work-index','media-format','editorial-note','cut-ruler','hero-coordinate'].includes(c)),file+': decorative labels removed');
+  }
+ }
+ for(const name of ['Seu próximo filme começa aqui','Do outro lado da entrega','Boas companhias','Seleção Take Cut']){
+  assert.ok(!fs.readFileSync(path.join(root,'index.html'),'utf8').includes(name),'Removed decorative copy: '+name);
+ }
+ console.log(`PASS: ${projects.length} projects; ${pages.size} pages; local links/assets, anchors, SEO, unique IDs, media orientation and decorative-label cleanup.`);
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
