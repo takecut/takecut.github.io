@@ -757,8 +757,8 @@ span.screen-copy.copy-mobile { display: none; }
 .footer-brand,.footer-top > div:last-child { grid-column: 1 / -1; }
 .selected-section > .all-work { display: flex; width: fit-content; max-width: 100%; margin-inline: auto; }
 .cases-section > .fine-print { text-align: center; }
-.client-logos a:has(img[src$="love-brokers.png"]) img { filter: none; opacity: 1; }
 @media (max-width:700px) {
+  .client-logos a:has(img[src$="love-brokers.png"]) img { filter: none; opacity: 1; }
   .client-logos a:last-child { grid-column: auto; }
 }
 

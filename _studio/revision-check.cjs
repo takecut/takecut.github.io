@@ -9,6 +9,11 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const attr=(n,key)=>n.attrs?.find(a=>a.name===key)?.value;
 function nodes(html){const out=[];function walk(n){out.push(n);(n.childNodes||[]).forEach(walk)}walk(parse(html));return out;}
 const home=nodes(read('index.html'));
+const insideCutRoom=n=>{for(let p=n.parentNode;p;p=p.parentNode)if(attr(p,'id')==='cut-room')return true;return false;};
+assert.deepEqual(home.filter(n=>attr(n,'data-project-card')&&insideCutRoom(n)).map(n=>attr(n,'data-project-card')),[
+  'cinematografico-ia','anuncio-produto','possibilidades-com-ia','video-emocional','conversa-3d','visualizer-3d'
+]);
+assert.ok(home.some(n=>attr(n,'data-project-card')==='conteudo-social'&&!insideCutRoom(n)),'Keep social content in other home sections');
 const overrides=home.filter(n=>attr(n,'data-media-project')).map(n=>({dataset:{project:attr(n,'data-project'),mediaProject:attr(n,'data-media-project')}}));
 assert.deepEqual(overrides.map(n=>[n.dataset.project,n.dataset.mediaProject]),[
   ['criativo-trafego-pago-3d','hospedagem-tematica'],
