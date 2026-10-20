@@ -1,6 +1,6 @@
 /* Isolated pricing-page styles. Shared header, footer and other routes are unchanged. */
 .plans-page { --plans-accent:#00ffb2; --plans-muted:#a3a3a8; }
-.plans-page .plans-wrap { max-width:1408px; padding:0 64px; margin-inline:auto; }
+.plans-page .plans-wrap { max-width:1408px; padding:0 64px; margin-inline:auto; overflow-anchor:none; }
 .plans-page .plans-hero { padding:174px 0 76px; }
 .plans-page .plans-kicker { font:12px/1.6 monospace; letter-spacing:.12em; color:var(--plans-muted); margin:0 0 28px; }
 .plans-page .plans-hero h1 { font-size:clamp(52px,5.6vw,88px); line-height:1.08; letter-spacing:-.055em; font-weight:600; max-width:1120px; margin:0; }

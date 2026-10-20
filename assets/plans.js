@@ -10,6 +10,7 @@
   const hashPanel = panels.findIndex(panel => '#'+panel.id === location.hash);
   let active = hashPanel >= 0 ? hashPanel : 0;
   function select(index, animate = true) {
+    const scrollPosition = window.scrollY;
     active = index;
     tabs.forEach((tab,i) => {
       tab.setAttribute('aria-selected', String(i === index));
@@ -17,6 +18,7 @@
       tab.classList.toggle('is-active', i === index);
       panels[i].hidden = i !== index;
     });
+    if (animate) window.scrollTo({top:scrollPosition,behavior:'instant'});
     if (animate && motionAllowed()) {
       panels[index].animate([{opacity:0, transform:'translateY(8px)'},{opacity:1, transform:'translateY(0)'}], {duration:240,easing:'ease-out'});
     }
