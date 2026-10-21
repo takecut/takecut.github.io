@@ -467,14 +467,14 @@
     "order": 14
   },
   {
-    "id": "produto-ia-chaveiros",
-    "title": "Comercial de produto com IA",
-    "slug": "produto-ia-chaveiros",
+    "id": "apresentadora-virtual-ia",
+    "title": "Apresentadora virtual: um prompt, várias cenas",
+    "slug": "apresentadora-virtual-ia",
     "year": "",
     "client": "",
     "category": [
       "IA",
-      "Produto",
+      "Narrativa",
       "Publicidade"
     ],
     "objective": [
@@ -482,22 +482,21 @@
       "atencao"
     ],
     "format": "ia",
-    "thumbnail": "/assets/posters/produto-ia-chaveiros-960.webp",
-    "thumbnailSmall": "/assets/posters/produto-ia-chaveiros-480.webp",
-    "previewVideo": "/assets/previews/produto-ia-chaveiros.mp4",
-    "fullVideo": "/videoia2c.mp4",
+    "thumbnail": "/assets/posters/apresentadora-virtual-ia-960.webp",
+    "thumbnailSmall": "/assets/posters/apresentadora-virtual-ia-480.webp",
+    "previewVideo": "/assets/videos/apresentadora-virtual-ia.mp4",
+    "fullVideo": "/assets/videos/apresentadora-virtual-ia.mp4",
     "orientation": "vertical",
     "width": 1080,
     "height": 1920,
-    "duration": 20.181,
+    "duration": 42.048,
     "featured": true,
-    "description": "Apresentação vertical de produto criada com inteligência artificial para colocar o item em uma cena comercial, destacar seus detalhes e gerar desejo de compra.",
-    "shortTitle": "Produto em cena com IA",
+    "description": "Vídeo 100% gerado com inteligência artificial, criado apenas com um prompt. Uma apresentadora virtual conduz a narrativa por diferentes cenários cinematográficos, explorando as possibilidades da IA para dar voz e presença a uma marca.",
+    "shortTitle": "Um prompt. Uma apresentadora. Várias possibilidades.",
     "techniques": [
-      "IA",
-      "Direção de Arte",
-      "VFX",
-      "Sound Design"
+      "IA generativa",
+      "Criação com um único prompt",
+      "Apresentadora virtual"
     ],
     "order": 15
   },
@@ -536,7 +535,7 @@
   },
   {
     "id": "planeta-3d",
-    "title": "Planeta em movimento 3D",
+    "title": "Órbitas: abertura cinematográfica em 3D",
     "slug": "planeta-3d",
     "year": "",
     "client": "",
@@ -569,7 +568,7 @@
   },
   {
     "id": "audi-rs6-3d",
-    "title": "Audi RS6 em animação 3D",
+    "title": "Design em movimento: estudo automotivo em 3D",
     "slug": "audi-rs6-3d",
     "year": "",
     "client": "",
@@ -591,7 +590,7 @@
     "height": 1920,
     "duration": 22.592,
     "featured": false,
-    "description": "Estudo visual automotivo realizado no Blender: um Audi RS6 em um ambiente urbano noturno. Reflexos, iluminação e diferentes enquadramentos destacam as formas do carro em um filme vertical.",
+    "description": "Estudo visual automotivo realizado no Blender em um ambiente urbano noturno. Reflexos, iluminação e diferentes enquadramentos destacam formas e superfícies em um filme vertical.",
     "shortTitle": "Design automotivo em um cenário digital.",
     "techniques": [
       "Blender 3D",
@@ -603,7 +602,7 @@
   },
   {
     "id": "visualizer-3d",
-    "title": "Visualizer em animação 3D",
+    "title": "Atmosfera sonora: visual musical em 3D",
     "slug": "visualizer-3d",
     "year": "",
     "client": "",
@@ -636,7 +635,7 @@
   },
   {
     "id": "dodge-garagem-3d",
-    "title": "Dodge na garagem em 3D",
+    "title": "Luz e presença: filme automotivo em 3D",
     "slug": "dodge-garagem-3d",
     "year": "",
     "client": "",
@@ -658,7 +657,7 @@
     "height": 1080,
     "duration": 12.970667,
     "featured": false,
-    "description": "Animação automotiva em Blender com um Dodge em uma garagem de atmosfera cinematográfica. Luzes, reflexos no piso e movimentos de câmera revelam o veículo em um cenário digital.",
+    "description": "Animação automotiva em Blender em um cenário de atmosfera cinematográfica. Luzes, reflexos no piso e movimentos de câmera revelam os detalhes de uma composição inteiramente digital.",
     "shortTitle": "Luz, reflexos e presença automotiva.",
     "techniques": [
       "Blender 3D",
@@ -670,7 +669,7 @@
   },
   {
     "id": "dodge-ia-3d",
-    "title": "Dodge na floresta: IA + 3D",
+    "title": "Movimento imersivo: criação com IA e 3D",
     "slug": "dodge-ia-3d",
     "year": "",
     "client": "",
@@ -693,7 +692,7 @@
     "height": 1920,
     "duration": 13.674667,
     "featured": false,
-    "description": "Vídeo gerado integralmente com inteligência artificial e integrado a softwares de animação 3D. Um Dodge percorre uma floresta em uma sequência que combina criação generativa e linguagem cinematográfica.",
+    "description": "Vídeo gerado integralmente com inteligência artificial e integrado a softwares de animação 3D. Uma sequência em ambiente natural combina criação generativa, movimento e linguagem cinematográfica.",
     "shortTitle": "Criação com IA integrada à animação 3D.",
     "techniques": [
       "IA generativa",

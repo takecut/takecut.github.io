@@ -60,7 +60,7 @@ const normalize = value => value.replace(/\s+/g,' ').trim();
   assert.ok(html.includes('/assets/plans.css?v=20261020-plans'));
   assert.ok(html.includes('/assets/plans.js?v=20261020-plans'));
   const files = execFileSync('git',['ls-files','*.html'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/);
-  for(const file of files.filter(f=>f!=='planos/index.html')) {
+  for(const file of files.filter(f=>f!=='planos/index.html' && fs.existsSync(path.join(root,f)))) {
     assert.doesNotMatch(fs.readFileSync(path.join(root,file),'utf8'),/\/assets\/plans\.(?:css|js)/,file+': pricing assets must stay scoped');
   }
   console.log('PASS: 9 plans, exact prices/features, 4 contract summaries, WhatsApp, SEO and page-only assets.');
