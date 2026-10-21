@@ -1,0 +1,35 @@
+/* Native touch carousel, matching the featured vertical reel row. Desktop is unchanged. */
+@media (max-width:700px) {
+  .home-page .cut-grid {
+    display:flex;
+    gap:18px;
+    align-items:start;
+    margin-inline:calc(var(--gutter) * -1);
+    padding:0 var(--gutter) 15px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:var(--gutter);
+    scrollbar-width:thin;
+    scrollbar-color:#4b4e4d transparent;
+  }
+  .home-page .cut-grid .cut-cell {
+    flex:0 0 80%;
+    min-width:0;
+    margin:0;
+    padding:0;
+    border:0;
+    border-radius:var(--radius-sm);
+    scroll-snap-align:start;
+  }
+  .home-page .cut-cell .work-media {
+    height:auto;
+    aspect-ratio:9 / 16;
+    border-radius:var(--radius-sm);
+  }
+  .home-page .cut-cell .work-media > img,
+  .home-page .cut-cell .work-media > video { object-fit:cover; }
+  .home-page .cut-cell .work-caption { padding:16px 0; }
+  .home-page .cut-cell .work-caption h3 { font-size:21px; }
+  .home-page .cut-cell .play-label { width:48px; height:48px; left:13px; bottom:13px; }
+  .home-page .cut-cell .play-label svg { width:26px; height:26px; }
+}
