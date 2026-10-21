@@ -1,5 +1,6 @@
 /* Native touch carousel, matching the featured vertical reel row. Desktop is unchanged. */
 @media (max-width:700px) {
+  .home-page .client-logos img { filter:none; opacity:1; }
   .home-page .cut-grid {
     display:flex;
     gap:18px;
