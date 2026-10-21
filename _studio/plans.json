@@ -1,0 +1,288 @@
+{
+  "hero": {
+    "eyebrow": "TAKE CUT / PLANOS",
+    "heading": "Cada ideia tem seu tamanho. Seu próximo vídeo tem um plano.",
+    "description": "Da edição recorrente às produções cinematográficas com inteligência artificial e gravação presencial.",
+    "supporting_text": "Escolha a modalidade ideal para seu projeto.",
+    "desktop": {
+      "layout": "Editorial cinematic composition with a large heading and generous dark negative space.",
+      "alignment": "Left aligned within the existing content container.",
+      "height": "Approximately 55vh to 70vh, adapting to content.",
+      "decoration": "Preserve subtle stars and existing animated UFO elements.",
+      "animation": "Elegant masked text reveal with controlled upward motion."
+    },
+    "mobile": {
+      "layout": "Compact editorial introduction, optimized for one-handed navigation.",
+      "alignment": "Left aligned.",
+      "height": "Content-driven, without unnecessary empty screen space.",
+      "decoration": "Reduced star density and subtle background UFO animation.",
+      "animation": "Short and understated text reveal."
+    }
+  },
+  "selector": [
+    {
+      "id": "editing",
+      "label": "Edição de vídeo",
+      "short_label": "Edição"
+    },
+    {
+      "id": "ai",
+      "label": "Inteligência Artificial",
+      "short_label": "IA"
+    },
+    {
+      "id": "filming",
+      "label": "Captação Presencial",
+      "short_label": "Captação"
+    }
+  ],
+  "categories": {
+    "editing": {
+      "section_title": "Edição de vídeo",
+      "tagline": "Você grava. A Take Cut transforma.",
+      "billing_label": "Mensal",
+      "plans": [
+        {
+          "id": "cut-05",
+          "name": "CUT 05",
+          "price": 399.9,
+          "currency": "BRL",
+          "price_display": "R$ 399,90",
+          "billing": "/mês",
+          "delivery": "5 vídeos por mês",
+          "description": "Para começar a produzir conteúdo com consistência.",
+          "features": [
+            "5 vídeos verticais por mês",
+            "Até 45 segundos por vídeo",
+            "Até 15 minutos de material bruto organizado por vídeo",
+            "Cortes, ritmo e legendas",
+            "Ajustes básicos de imagem e áudio",
+            "Até 2 rodadas de ajustes por vídeo",
+            "Entrega Full HD, 9:16, MP4"
+          ],
+          "cta": "Escolher plano"
+        },
+        {
+          "id": "cut-10",
+          "name": "CUT 10",
+          "price": 699.9,
+          "currency": "BRL",
+          "price_display": "R$ 699,90",
+          "billing": "/mês",
+          "delivery": "10 vídeos por mês",
+          "description": "Para manter sua marca presente toda semana.",
+          "features": [
+            "10 vídeos verticais por mês",
+            "Até 45 segundos por vídeo",
+            "Até 15 minutos de material bruto organizado por vídeo",
+            "Cortes, ritmo e legendas",
+            "Ajustes básicos de imagem e áudio",
+            "Até 2 rodadas de ajustes por vídeo",
+            "Entrega Full HD, 9:16, MP4"
+          ],
+          "cta": "Escolher plano"
+        },
+        {
+          "id": "cut-20",
+          "name": "CUT 20",
+          "price": 999.9,
+          "currency": "BRL",
+          "price_display": "R$ 999,90",
+          "billing": "/mês",
+          "delivery": "20 vídeos por mês",
+          "description": "Para operações com maior volume de conteúdo.",
+          "features": [
+            "20 vídeos verticais por mês",
+            "Até 45 segundos por vídeo",
+            "Até 15 minutos de material bruto organizado por vídeo",
+            "Cortes, ritmo e legendas",
+            "Ajustes básicos de imagem e áudio",
+            "Até 2 rodadas de ajustes por vídeo",
+            "Entrega Full HD, 9:16, MP4"
+          ],
+          "cta": "Escolher plano"
+        }
+      ],
+      "disclaimer": "Não inclui captação, roteiro completo, cenas geradas por IA, animações complexas ou modelagem 3D."
+    },
+    "ai": {
+      "section_title": "Inteligência Artificial",
+      "tagline": "Sua imaginação não precisa de uma câmera.",
+      "plans": [
+        {
+          "id": "ia-start",
+          "name": "IA START",
+          "price": 349.99,
+          "currency": "BRL",
+          "price_display": "A partir de R$ 349,99",
+          "pricing_type": "starting_at",
+          "delivery": "Vídeo curto com inteligência artificial",
+          "description": "Para projetos com complexidade controlada.",
+          "features": [
+            "Vídeo de até 50 segundos",
+            "Ferramentas básicas de inteligência artificial",
+            "Edição básica",
+            "Projeto com complexidade controlada",
+            "Trilha sonora licenciada"
+          ],
+          "cta": "Solicitar orçamento com IA"
+        },
+        {
+          "id": "ia-pro",
+          "name": "IA PRO",
+          "price": 499.9,
+          "currency": "BRL",
+          "price_display": "A partir de R$ 499,90",
+          "pricing_type": "starting_at",
+          "delivery": "Publicidade cinematográfica com IA",
+          "description": "Para histórias e anúncios visualmente mais elaborados.",
+          "features": [
+            "Vídeo de até 50 segundos",
+            "Múltiplas cenas",
+            "Direção visual",
+            "Edição e ferramentas intermediárias",
+            "Roteiro completo",
+            "Trilha sonora licenciada"
+          ],
+          "cta": "Solicitar orçamento com IA"
+        },
+        {
+          "id": "ia-skyline",
+          "name": "IA SKYLINE",
+          "price": null,
+          "price_display": "Sob orçamento",
+          "pricing_type": "custom",
+          "delivery": "Campanha audiovisual personalizada",
+          "description": "Para projetos generativos com maior ambição criativa.",
+          "features": [
+            "Múltiplos vídeos ou versões",
+            "Roteiro e conceito criativo",
+            "Produção generativa",
+            "Finalização personalizada",
+            "Trilha sonora licenciada",
+            "Sound effects (SFX)",
+            "Ferramentas de IA topo de linha"
+          ],
+          "cta": "Solicitar orçamento com IA"
+        }
+      ],
+      "disclaimer": "Os valores definitivos dependem do roteiro, número de cenas, duração, consistência visual, personagens, referências e complexidade."
+    },
+    "filming": {
+      "section_title": "Captação Presencial",
+      "tagline": "Sua marca no centro da cena.",
+      "plans": [
+        {
+          "id": "filming-essential",
+          "name": "CAPTAÇÃO ESSENCIAL",
+          "price": 899.9,
+          "currency": "BRL",
+          "price_display": "A partir de R$ 899,90",
+          "pricing_type": "starting_at",
+          "delivery": "Gravação pontual",
+          "description": "Para conteúdos rápidos e produções objetivas.",
+          "features": [
+            "Até 2 horas de captação",
+            "Um local",
+            "Um profissional",
+            "Um vídeo editado de até 45 segundos"
+          ],
+          "cta": "Planejar minha gravação"
+        },
+        {
+          "id": "filming-half-day",
+          "name": "MEIO PERÍODO",
+          "price": 1899.9,
+          "currency": "BRL",
+          "price_display": "A partir de R$ 1.899,90",
+          "pricing_type": "starting_at",
+          "delivery": "Captação de até 4 horas",
+          "description": "Para produzir vários conteúdos em uma única gravação.",
+          "features": [
+            "Até 4 horas de captação",
+            "Um local",
+            "Um profissional",
+            "Até 3 vídeos curtos editados"
+          ],
+          "cta": "Planejar minha gravação"
+        },
+        {
+          "id": "filming-complete",
+          "name": "PRODUÇÃO COMPLETA",
+          "price": null,
+          "price_display": "Sob orçamento",
+          "pricing_type": "custom",
+          "delivery": "Produção audiovisual personalizada",
+          "description": "Para campanhas, institucionais e projetos especiais.",
+          "features": [
+            "Planejamento e roteiro",
+            "Captação e direção",
+            "Estrutura técnica conforme o projeto",
+            "Pós-produção"
+          ],
+          "cta": "Planejar minha gravação"
+        }
+      ],
+      "disclaimer": "Deslocamento, estacionamento, locação, elenco, equipe adicional, equipamentos especiais e outras despesas serão informados no orçamento quando aplicáveis."
+    }
+  },
+  "conditions": [
+    {
+      "id": "payment",
+      "title": "Pagamento",
+      "summary": "Pagamento antecipado ou parcelado por etapa, conforme o projeto.",
+      "content": "Planos mensais e serviços avulsos até R$ 1.000 são pagos antecipadamente. Projetos especiais acima desse valor seguem, como padrão, 70% na contratação e 30% antes da entrega final. PIX e boleto disponíveis. Cartão mediante consulta."
+    },
+    {
+      "id": "starting",
+      "title": "Início do projeto",
+      "summary": "Começamos após o alinhamento e a confirmação da contratação.",
+      "content": "O trabalho começa após aprovação do escopo, confirmação do pagamento inicial, recebimento dos materiais necessários e alinhamento do cronograma. O prazo específico será informado antes da contratação."
+    },
+    {
+      "id": "revisions",
+      "title": "Revisões",
+      "summary": "Até duas rodadas nos planos de edição. Revisão adicional simples: R$ 50,00.",
+      "content": "Os planos de edição incluem até duas rodadas de ajustes por vídeo. Revisão adicional simples: R$ 50,00, mediante aprovação prévia. Alterações que modifiquem o escopo serão orçadas separadamente. Erros da Take Cut serão corrigidos sem cobrança adicional."
+    },
+    {
+      "id": "cancellation",
+      "title": "Cancelamento",
+      "summary": "Planos mensais sem fidelidade para os próximos ciclos.",
+      "content": "Planos mensais sem fidelidade e sem multa para encerrar os próximos ciclos. Cancelamentos de ciclos iniciados e projetos avulsos seguem as condições contratadas e a legislação aplicável, incluindo o direito de arrependimento quando cabível."
+    }
+  ],
+  "closing": {
+    "title": "Não encontrou o plano ideal?",
+    "subtitle": "Algumas ideias merecem um orçamento só delas.",
+    "button": "Conversar com a Take Cut",
+    "design": {
+      "layout": "Large cinematic closing section with dramatic typography and generous negative space.",
+      "background": "#0B0B0C",
+      "accent": "#00FFB2",
+      "decoration": "Preserve subtle stars and one existing Take Cut UFO element.",
+      "button": "Large green CTA with a smooth arrow motion on hover.",
+      "mobile": "Stack heading, supporting text and CTA vertically with comfortable spacing."
+    }
+  },
+  "messages": {
+    "editing": "Olá! Conheci os planos da Take Cut pelo site e tenho interesse no plano {plan_name}, no valor anunciado de {price_display}. Gostaria de saber como contratar.",
+    "ai": "Olá! Conheci os planos de inteligência artificial da Take Cut e tenho interesse no {plan_name}. Gostaria de solicitar um orçamento.",
+    "filming": "Olá! Vi os planos de captação presencial da Take Cut e tenho interesse no {plan_name}. Gostaria de conversar sobre uma gravação.",
+    "general": "Olá! Visitei a página de planos da Take Cut e gostaria de conversar sobre um projeto personalizado."
+  },
+  "seo": {
+    "meta_title": "Planos de Edição, Vídeos com IA e Captação | Take Cut",
+    "meta_description": "Conheça os planos da Take Cut para edição de vídeos, produção com inteligência artificial e captação presencial. Escolha a solução ideal para sua marca.",
+    "canonical": "https://www.takecut.com.br/planos",
+    "requirements": [
+      "Use one main H1.",
+      "Preserve the existing canonical URL conventions.",
+      "Ensure pricing content is crawlable.",
+      "Use clear semantic labels for all service categories.",
+      "Do not create duplicate pricing pages.",
+      "Do not insert hidden keyword stuffing.",
+      "Use structured data only when accurate and appropriate."
+    ]
+  }
+}
