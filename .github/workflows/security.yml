@@ -20,9 +20,11 @@ jobs:
         with:
           persist-credentials: false
       - name: Install locked validator dependencies without lifecycle scripts
-        run: npm ci --prefix _security --ignore-scripts
+        # Vulnerability auditing remains mandatory in the next step.
+        # Bound network retries and expose download errors instead of timing out silently.
+        run: npm ci --prefix _security --ignore-scripts --no-audit --fetch-timeout=30000 --fetch-retries=1 --loglevel=verbose
       - name: Check validator dependencies for known vulnerabilities
-        run: npm audit --prefix _security --audit-level=high
+        run: npm audit --prefix _security --audit-level=high --fetch-timeout=30000 --fetch-retries=1
       - name: Validate static-site protections
         run: node _security/check.cjs
       - name: Validate project catalog, routes and assets
