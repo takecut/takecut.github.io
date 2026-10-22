@@ -61,7 +61,7 @@ for(const links of [overrides,[]])for(const id of ['criativo-trafego-pago-3d','y
   let video;
   const elements=new Map();
   const get=key=>{if(!elements.has(key))elements.set(key,{querySelector:()=>null,replaceChildren(){},append(v){video=v;}});return elements.get(key)};
-  const context={catalog:projects,currentProject:null,$:get,$$:()=>links,
+  const context={catalog:projects,currentProject:null,$:get,$$:()=>links,desktopThumbnails:{matches:false},
     document:{createElement:()=>({setAttribute(){}}),body:{classList:{add(){}}}},
     displayCopy:x=>x,updateViewerCopy(p){context.shown=p},projectSequence:()=>projects.map(p=>p.id),
     viewer:{open:true,scrollTop:0},updateMotion(){},safePlay(){}};

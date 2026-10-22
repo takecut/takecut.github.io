@@ -6,6 +6,14 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   const mobile = matchMedia('(max-width:700px)');
+  const desktopThumbnails = matchMedia('(min-width:901px)');
+  const staticPosters = $$('video[data-desktop-poster]').map(video=>({video,original:video.getAttribute('poster')}));
+  const updatePosters = () => staticPosters.forEach(({video,original}) => {
+    const next=desktopThumbnails.matches?video.dataset.desktopPoster:original;
+    if(video.getAttribute('poster')!==next)video.setAttribute('poster',next);
+  });
+  if(desktopThumbnails.matches)updatePosters();
+  desktopThumbnails.addEventListener('change',updatePosters);
   const displayCopy = text => window.TakeCutMobileCopy ? (mobile.matches ? window.TakeCutMobileCopy(text) : window.TakeCutMobileCopy.desktop(text)) : text;
   // Keep accessible names in the same language as their visible mobile labels.
   const responsiveNames = $$('[aria-label],[alt]').flatMap(element =>
@@ -181,6 +189,8 @@
     const media = $('#viewerMedia'); media.querySelector('video')?.pause(); media.replaceChildren();
     const video = document.createElement('video');
     video.controls = true; video.playsInline = true; video.preload = 'metadata'; video.poster = mediaProject.thumbnail; video.src = mediaProject.fullVideo;
+    const posterLink=sourceLink||$$('[data-project]').find(link=>link.dataset.project===id);
+    if(desktopThumbnails.matches&&posterLink?.dataset.desktopPoster)video.poster=posterLink.dataset.desktopPoster;
     video.setAttribute('aria-label', displayCopy(project.title)); media.append(video);
     updateViewerCopy(project);
     $('#viewerDetails').href = '/portfolio/' + project.slug + '/';
@@ -230,7 +240,11 @@
     finishCraft(item, true);
     if (expanded) {
       const image = $('.craft-visual img');
-      if (image) image.src = item.dataset.processImage;
+      if (image) {
+        const source=image.parentElement?.querySelector('source[media="(min-width:901px)"]');
+        if(source)source.srcset=item.dataset.processDesktopSrcset||'';
+        image.src = item.dataset.processImage;
+      }
     }
     if (reduced.matches || paused || !item.animate) { finishCraft(item, expanded); return; }
     const end = expanded ? item.getBoundingClientRect().height : item.querySelector('summary').getBoundingClientRect().height + 1;
