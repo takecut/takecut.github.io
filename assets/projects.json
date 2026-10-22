@@ -484,7 +484,7 @@
     "format": "ia",
     "thumbnail": "/assets/posters/apresentadora-virtual-ia-960.webp",
     "thumbnailSmall": "/assets/posters/apresentadora-virtual-ia-480.webp",
-    "previewVideo": "/assets/videos/apresentadora-virtual-ia.mp4",
+    "previewVideo": "/assets/previews/apresentadora-virtual-ia.mp4",
     "fullVideo": "/assets/videos/apresentadora-virtual-ia.mp4",
     "orientation": "vertical",
     "width": 1080,
@@ -736,5 +736,28 @@
       "Direção criativa"
     ],
     "order": 22
+  },
+  {
+    "id": "chaveiro-take-cut",
+    "title": "Chaveiro Take Cut: apresentação de produto",
+    "slug": "chaveiro-take-cut",
+    "year": "",
+    "client": "",
+    "category": ["Produto", "Publicidade"],
+    "objective": ["vender", "atencao"],
+    "format": "comerciais",
+    "thumbnail": "/assets/posters/chaveiro-take-cut-960.webp",
+    "thumbnailSmall": "/assets/posters/chaveiro-take-cut-480.webp",
+    "previewVideo": "/assets/previews/chaveiro-take-cut.mp4",
+    "fullVideo": "/assets/videos/chaveiro-take-cut.mp4",
+    "orientation": "vertical",
+    "width": 1080,
+    "height": 1920,
+    "duration": 25.301,
+    "featured": false,
+    "description": "Uma apresentação do chaveiro Take Cut que combina uma personagem, demonstração de uso e detalhes do produto. Enquadramentos próximos e uma identidade visual marcante colocam a personalidade da marca no centro da narrativa.",
+    "shortTitle": "A identidade da marca em cada detalhe.",
+    "techniques": ["Apresentação de produto", "Narrativa visual", "Composição"],
+    "order": 23
   }
 ]

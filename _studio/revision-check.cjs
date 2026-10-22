@@ -9,9 +9,16 @@ const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const attr=(n,key)=>n.attrs?.find(a=>a.name===key)?.value;
 function nodes(html){const out=[];function walk(n){out.push(n);(n.childNodes||[]).forEach(walk)}walk(parse(html));return out;}
 const home=nodes(read('index.html'));
+for (const label of ['Navegação principal','Navegação mobile']) {
+  const nav=home.find(n=>n.tagName==='nav'&&attr(n,'aria-label')===label);
+  assert.ok(nav?.childNodes.some(n=>n.tagName==='a'&&attr(n,'href')==='/planos/'),'Plans link in '+label);
+}
+assert.ok(projects.some(p=>p.id==='cinematografico-ia'),'Keep original film in portfolio');
+assert.equal(projects.find(p=>p.id==='apresentadora-virtual-ia').previewVideo,'/assets/previews/apresentadora-virtual-ia.mp4');
+assert.equal(projects.find(p=>p.id==='apresentadora-virtual-ia').fullVideo,'/assets/videos/apresentadora-virtual-ia.mp4');
 const insideCutRoom=n=>{for(let p=n.parentNode;p;p=p.parentNode)if(attr(p,'id')==='cut-room')return true;return false;};
 assert.deepEqual(home.filter(n=>attr(n,'data-project-card')&&insideCutRoom(n)).map(n=>attr(n,'data-project-card')),[
-  'cinematografico-ia','anuncio-produto','possibilidades-com-ia','video-emocional','conversa-3d','visualizer-3d'
+  'chaveiro-take-cut','anuncio-produto','possibilidades-com-ia','video-emocional','conversa-3d','visualizer-3d'
 ]);
 assert.ok(home.some(n=>attr(n,'data-project-card')==='conteudo-social'&&!insideCutRoom(n)),'Keep social content in other home sections');
 const overrides=home.filter(n=>attr(n,'data-media-project')).map(n=>({dataset:{project:attr(n,'data-project'),mediaProject:attr(n,'data-media-project')}}));
