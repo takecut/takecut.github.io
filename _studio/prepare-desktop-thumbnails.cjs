@@ -17,6 +17,11 @@ function rmse(a,b){let n=0;for(let i=0;i<a.length;i++)n+=(a[i]-b[i])**2;return M
   const records=[];
   for(const p of projects){
     const current=await info(p.thumbnail),small=await info(p.thumbnailSmall);
+    // A single shared source is an explicitly supplied original: never re-encode it.
+    if(p.thumbnail===p.thumbnailSmall){
+      records.push({id:p.id,title:p.title,current,small,original:current,variants:[],result:'original-upload',limitation:'User-supplied original used byte-for-byte at every viewport; no derivatives.'});
+      continue;
+    }
     // ia-marca was replaced by a different project; its legacy still is NOT the same image.
     const original=p.id==='ia-marca'?null:legacy.projects.find(x=>x.id===p.id)?.thumbnail;
     const record={id:p.id,title:p.title,current,small,original:original?await info(original):null,variants:[]};
