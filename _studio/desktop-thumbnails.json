@@ -1,0 +1,920 @@
+{
+  "breakpoint": 901,
+  "method": "Existing original stills, WebP quality 92, no enlargement, no sharpening, no generated details",
+  "records": [
+    {
+      "id": "entrevista-corporativa",
+      "title": "Vídeo de entrevista para marca",
+      "current": {
+        "path": "/assets/posters/entrevista-corporativa-960.webp",
+        "width": 607,
+        "height": 1079,
+        "format": "webp",
+        "bytes": 62214,
+        "sha256": "053179f14f3fc623879bc571d4dfb0f84f6d1c3d81c70e69cd312fc897b04c18"
+      },
+      "small": {
+        "path": "/assets/posters/entrevista-corporativa-480.webp",
+        "width": 480,
+        "height": 853,
+        "format": "webp",
+        "bytes": 43476,
+        "sha256": "8135ab5748a668b3ae6fe4c4d5b2608654f59a3b7fb4bde6287dac416040d084"
+      },
+      "original": {
+        "path": "/thumbp6.jpg",
+        "width": 607,
+        "height": 1079,
+        "format": "jpeg",
+        "bytes": 114188,
+        "sha256": "03c476e4e221c6e1a505d80db7a86a1a2367d6ae9f5ca47e99f7aaf64f8574b2"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/entrevista-corporativa.desktop-607.webp",
+          "width": 607,
+          "height": 1079,
+          "format": "webp",
+          "bytes": 100172,
+          "sha256": "090544ac885614f071fac4490a6f24bdf4e20237223e5077e4ce07e0a09795aa"
+        }
+      ],
+      "compositionRmse": 6.198,
+      "originalErrorBefore": 2.373,
+      "originalErrorAfter": 1.463,
+      "result": "less-lossy-from-original"
+    },
+    {
+      "id": "conteudo-social",
+      "title": "Conteúdo para redes sociais",
+      "current": {
+        "path": "/assets/posters/conteudo-social-960.webp",
+        "width": 822,
+        "height": 1600,
+        "format": "webp",
+        "bytes": 101858,
+        "sha256": "21150129dc9646f62a8b589e21777864a16c59a434098dcef53850f86eed57b8"
+      },
+      "small": {
+        "path": "/assets/posters/conteudo-social-480.webp",
+        "width": 480,
+        "height": 934,
+        "format": "webp",
+        "bytes": 55270,
+        "sha256": "f93b50d2f02cbbd7f09925bd461d1dc38a7a6313ac0ea7711261399983ba4dcd"
+      },
+      "original": {
+        "path": "/thumb1.png",
+        "width": 822,
+        "height": 1600,
+        "format": "png",
+        "bytes": 1172284,
+        "sha256": "969dc5b135ca60355f663251d93f04890963ef59b0b1e13ce904b045d5c15e9a"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/conteudo-social.desktop-640.webp",
+          "width": 640,
+          "height": 1246,
+          "format": "webp",
+          "bytes": 131480,
+          "sha256": "52912c3590cbb67c2ce37c9509c2ca5f76140b9d2377fc2984077cb0eef0b5fe"
+        },
+        {
+          "path": "/assets/posters/desktop/conteudo-social.desktop-822.webp",
+          "width": 822,
+          "height": 1600,
+          "format": "webp",
+          "bytes": 170700,
+          "sha256": "a5016f5f845d068dce054e95ff7c0fcd89e4191a85da7813c371817bca41a63c"
+        }
+      ],
+      "compositionRmse": 0.679,
+      "originalErrorBefore": 2.308,
+      "originalErrorAfter": 1.523,
+      "result": "less-lossy-from-original"
+    },
+    {
+      "id": "institucional-vertical",
+      "title": "Vídeo institucional",
+      "current": {
+        "path": "/assets/posters/institucional-vertical-960.webp",
+        "width": 465,
+        "height": 933,
+        "format": "webp",
+        "bytes": 92760,
+        "sha256": "120cd8ee6f609c315c26c85026720b633b613c52571a84229407cee38c672d56"
+      },
+      "small": {
+        "path": "/assets/posters/institucional-vertical-480.webp",
+        "width": 465,
+        "height": 933,
+        "format": "webp",
+        "bytes": 92760,
+        "sha256": "120cd8ee6f609c315c26c85026720b633b613c52571a84229407cee38c672d56"
+      },
+      "original": {
+        "path": "/thumb2.png",
+        "width": 465,
+        "height": 933,
+        "format": "png",
+        "bytes": 845893,
+        "sha256": "3dd89f4ea99b3cd64c249804f08e80bb318996815ce057bab13e372b8630c6cd"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/institucional-vertical.desktop-465.webp",
+          "width": 465,
+          "height": 933,
+          "format": "webp",
+          "bytes": 142572,
+          "sha256": "3240507a9fba033887ee6f72b8aa0039a74230a3f98a0d134fde810ef712f4fa"
+        }
+      ],
+      "compositionRmse": 0.944,
+      "originalErrorBefore": 3.626,
+      "originalErrorAfter": 2.195,
+      "result": "less-lossy-from-original"
+    },
+    {
+      "id": "hospedagem-tematica",
+      "title": "Reels para hospedagem temática",
+      "current": {
+        "path": "/assets/posters/hospedagem-tematica-960.webp",
+        "width": 720,
+        "height": 1280,
+        "format": "webp",
+        "bytes": 69076,
+        "sha256": "6d55650567b26adced244f4c78d22774402ad904df9bbae4fadcb3b884d9f1f8"
+      },
+      "small": {
+        "path": "/assets/posters/hospedagem-tematica-480.webp",
+        "width": 480,
+        "height": 853,
+        "format": "webp",
+        "bytes": 44338,
+        "sha256": "d3198a3b750f2fe0148a52ef0b161876534b10f2b2d9a5af7f81709e42139060"
+      },
+      "original": {
+        "path": "/thumbp8.jpg",
+        "width": 720,
+        "height": 1280,
+        "format": "jpeg",
+        "bytes": 88972,
+        "sha256": "ffdf3b54b47a6123da9e14bbdfe328e9657bcda6e58440b8e90d6bb969f859c7"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/hospedagem-tematica.desktop-720.webp",
+          "width": 720,
+          "height": 1280,
+          "format": "webp",
+          "bytes": 114122,
+          "sha256": "1d8a2840d3289faf8c7dbe69292fe759727ab710e8b6df5d2c0ca2842efa557f"
+        }
+      ],
+      "compositionRmse": 1.47,
+      "originalErrorBefore": 2.371,
+      "originalErrorAfter": 1.483,
+      "result": "less-lossy-from-original"
+    },
+    {
+      "id": "reels-esmalteria",
+      "title": "Reels para esmalteria",
+      "current": {
+        "path": "/assets/posters/reels-esmalteria-960.webp",
+        "width": 405,
+        "height": 720,
+        "format": "webp",
+        "bytes": 22086,
+        "sha256": "a2bcd6160570cdf557be384da25b2c342194114bea136c07620623e88efe10b1"
+      },
+      "small": {
+        "path": "/assets/posters/reels-esmalteria-480.webp",
+        "width": 405,
+        "height": 720,
+        "format": "webp",
+        "bytes": 22086,
+        "sha256": "a2bcd6160570cdf557be384da25b2c342194114bea136c07620623e88efe10b1"
+      },
+      "original": {
+        "path": "/thumb-portfolio-reels-esmalteria.jpg",
+        "width": 405,
+        "height": 720,
+        "format": "jpeg",
+        "bytes": 42077,
+        "sha256": "c7ff2fa2d53ec8583c8efb7ea6958f787643218225ad80cb1ae354d1309dddb3"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/reels-esmalteria.desktop-405.webp",
+          "width": 405,
+          "height": 720,
+          "format": "webp",
+          "bytes": 38702,
+          "sha256": "4753f4914b465abbfade91f649979433d1def7e586bd3157cf4481b89d51bdbc"
+        }
+      ],
+      "compositionRmse": 2.419,
+      "originalErrorBefore": 2.572,
+      "originalErrorAfter": 1.634,
+      "result": "less-lossy-from-original"
+    },
+    {
+      "id": "anuncio-produto",
+      "title": "Anúncio para produto",
+      "current": {
+        "path": "/assets/posters/anuncio-produto-960.webp",
+        "width": 960,
+        "height": 532,
+        "format": "webp",
+        "bytes": 87870,
+        "sha256": "24308637950d677c41f255681307cc671ce86f3d1959bcfc276eedcdb76a5b00"
+      },
+      "small": {
+        "path": "/assets/posters/anuncio-produto-480.webp",
+        "width": 480,
+        "height": 266,
+        "format": "webp",
+        "bytes": 30314,
+        "sha256": "836699b340d6913a9d4ecf2164037a01516049f98d1f4f6b38a73ca3a70dd2b8"
+      },
+      "original": {
+        "path": "/thumbp1.png",
+        "width": 1455,
+        "height": 807,
+        "format": "jpeg",
+        "bytes": 149396,
+        "sha256": "47b2d23f46526043d79eece5a40bc8738bb790fb7583afd02ff1a57485aafade"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/anuncio-produto.desktop-640.webp",
+          "width": 640,
+          "height": 355,
+          "format": "webp",
+          "bytes": 77664,
+          "sha256": "6b1c570659f0742edcf162f55d390083af4710f38a0e76c37ca40c7a09ce517d"
+        },
+        {
+          "path": "/assets/posters/desktop/anuncio-produto.desktop-960.webp",
+          "width": 960,
+          "height": 532,
+          "format": "webp",
+          "bytes": 139716,
+          "sha256": "131fb7e844f14611aeddc35822b85def3c5b442ea28403a65a0894b9938645e5"
+        },
+        {
+          "path": "/assets/posters/desktop/anuncio-produto.desktop-1455.webp",
+          "width": 1455,
+          "height": 807,
+          "format": "webp",
+          "bytes": 218230,
+          "sha256": "86496528d9b5583434eb4feac2d65c08d8126a1315aa29b15a92a16c71a8e3a9"
+        }
+      ],
+      "compositionRmse": 4.174,
+      "originalErrorBefore": 8.502,
+      "originalErrorAfter": 1.629,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "criativo-trafego-pago-3d",
+      "title": "Criativo para tráfego pago",
+      "current": {
+        "path": "/assets/posters/criativo-trafego-pago-3d-960.webp",
+        "width": 405,
+        "height": 720,
+        "format": "webp",
+        "bytes": 25482,
+        "sha256": "a2a059941ffb84af840bd04c0f2c5271bd1e83056190d90421bbe9e7119bee37"
+      },
+      "small": {
+        "path": "/assets/posters/criativo-trafego-pago-3d-480.webp",
+        "width": 405,
+        "height": 720,
+        "format": "webp",
+        "bytes": 25482,
+        "sha256": "a2a059941ffb84af840bd04c0f2c5271bd1e83056190d90421bbe9e7119bee37"
+      },
+      "original": {
+        "path": "/thumb-portfolio-trafego-3d.jpg",
+        "width": 405,
+        "height": 720,
+        "format": "jpeg",
+        "bytes": 44044,
+        "sha256": "22934f26e0c9702b300fb2c3fb87ee24d95234e8fc02d74a7399498f8cf908df"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/criativo-trafego-pago-3d.desktop-405.webp",
+          "width": 405,
+          "height": 720,
+          "format": "webp",
+          "bytes": 42804,
+          "sha256": "eb980cc727399ab7ce353db58b4d802ddb6dd7309a8c617939514bb400102af6"
+        }
+      ],
+      "compositionRmse": 2.398,
+      "originalErrorBefore": 3.15,
+      "originalErrorAfter": 1.726,
+      "result": "less-lossy-from-original"
+    },
+    {
+      "id": "youtube-narrativo",
+      "title": "Vídeo para YouTube",
+      "current": {
+        "path": "/assets/posters/youtube-narrativo-960.webp",
+        "width": 960,
+        "height": 530,
+        "format": "webp",
+        "bytes": 31190,
+        "sha256": "5e66994f4156b35e9ce8e9ffa912d807c3b4b4f7f4c78f93c25c91b819bbe590"
+      },
+      "small": {
+        "path": "/assets/posters/youtube-narrativo-480.webp",
+        "width": 480,
+        "height": 265,
+        "format": "webp",
+        "bytes": 13078,
+        "sha256": "6031477d574ac9120931908ef2155414ac561e8c9f6fb5c7707276472ba1c20c"
+      },
+      "original": {
+        "path": "/thumbp4.png",
+        "width": 1461,
+        "height": 806,
+        "format": "jpeg",
+        "bytes": 75109,
+        "sha256": "e4b54fd49a919399d73de019237536ec861a72bb011b8e0fd90fb0345cf7c228"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/youtube-narrativo.desktop-640.webp",
+          "width": 640,
+          "height": 353,
+          "format": "webp",
+          "bytes": 33968,
+          "sha256": "cd50a450f8f1279f7c246f54d1273694ec22581328e05108843e9237db645bbd"
+        },
+        {
+          "path": "/assets/posters/desktop/youtube-narrativo.desktop-960.webp",
+          "width": 960,
+          "height": 530,
+          "format": "webp",
+          "bytes": 53608,
+          "sha256": "af460ac11ed9abd4c8ac19f493f894e274c5d34bbd40932e19329030a6819838"
+        },
+        {
+          "path": "/assets/posters/desktop/youtube-narrativo.desktop-1461.webp",
+          "width": 1461,
+          "height": 806,
+          "format": "webp",
+          "bytes": 87426,
+          "sha256": "12108b0f69e97852bd6ace43f1f70e9567d26874f8e5432aef85ef5d719333a7"
+        }
+      ],
+      "compositionRmse": 2.075,
+      "originalErrorBefore": 4.49,
+      "originalErrorAfter": 1.279,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "gameplay-youtube",
+      "title": "Vídeo de gameplay para YouTube",
+      "current": {
+        "path": "/assets/posters/gameplay-youtube-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 15238,
+        "sha256": "7e5a3dfb1bc96601de6d3fe3e200670fc0242ada54417722c180e29b3beac237"
+      },
+      "small": {
+        "path": "/assets/posters/gameplay-youtube-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 6032,
+        "sha256": "f2d7e8ac3e01207bab218ca9519c8b2daa243b6b300f5668a24b43511d0daca0"
+      },
+      "original": {
+        "path": "/thumb-portfolio-gameplay.jpg",
+        "width": 1280,
+        "height": 720,
+        "format": "jpeg",
+        "bytes": 42148,
+        "sha256": "59e34d57a8c1636e27447dc66b0fba570482c9e2cd6fb2f11252aff333f15cf2"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/gameplay-youtube.desktop-640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp",
+          "bytes": 15860,
+          "sha256": "7d01668bbd684c3f006b5797d5f5356cb9598ab65da3bdfae1a02b1176f6578c"
+        },
+        {
+          "path": "/assets/posters/desktop/gameplay-youtube.desktop-960.webp",
+          "width": 960,
+          "height": 540,
+          "format": "webp",
+          "bytes": 27730,
+          "sha256": "ff7537d81d7f2d51489c51a55736c9014515f3a1fb38ea62711721b1a47f9d09"
+        },
+        {
+          "path": "/assets/posters/desktop/gameplay-youtube.desktop-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "format": "webp",
+          "bytes": 37036,
+          "sha256": "66283bfa21e4f026b35267c78a73d6a8f9f526e0ba01510978e14ae4470c5c2d"
+        }
+      ],
+      "compositionRmse": 1.12,
+      "originalErrorBefore": 6.149,
+      "originalErrorAfter": 1.003,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "conversa-3d",
+      "title": "Animação 3D de conversa",
+      "current": {
+        "path": "/assets/posters/conversa-3d-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 12618,
+        "sha256": "7730184736627320e171043a0f173d98014b130a5292ffb688548f4a9cade940"
+      },
+      "small": {
+        "path": "/assets/posters/conversa-3d-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 6614,
+        "sha256": "24a240324a7132c15e97d9349a3a28277ec8c05f2cc9f40f36439f7b1287f303"
+      },
+      "original": {
+        "path": "/thumbp9.jpg",
+        "width": 1920,
+        "height": 1080,
+        "format": "jpeg",
+        "bytes": 44896,
+        "sha256": "f320cf81ce984ec5b9bc61fe04fe1af1bb987a989e89a59c81ce292fda4b55c7"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/conversa-3d.desktop-640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp",
+          "bytes": 13334,
+          "sha256": "4364c0506f4b9ff0750dafb71af9151dd3b03fc648b924f5f05bcd06a8f22f3e"
+        },
+        {
+          "path": "/assets/posters/desktop/conversa-3d.desktop-960.webp",
+          "width": 960,
+          "height": 540,
+          "format": "webp",
+          "bytes": 18986,
+          "sha256": "c6902e9f9863781ebb9a4262d1e0e088c712f531e64243dd0cbd8bca7d114fc7"
+        },
+        {
+          "path": "/assets/posters/desktop/conversa-3d.desktop-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "format": "webp",
+          "bytes": 26104,
+          "sha256": "333adb40bd9af9ffbf75efa93d391d0b10beeb7c0d5ac35aad93d588c2c768db"
+        },
+        {
+          "path": "/assets/posters/desktop/conversa-3d.desktop-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "format": "webp",
+          "bytes": 40004,
+          "sha256": "8eb58c5c9d0e245c3e669381d0770f5424cda87b157f1d71f716aaa5f2c5f0bb"
+        }
+      ],
+      "compositionRmse": 0.872,
+      "originalErrorBefore": 2.833,
+      "originalErrorAfter": 0.691,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "tratamento-audiovisual",
+      "title": "Antes e depois da pós-produção",
+      "current": {
+        "path": "/assets/posters/tratamento-audiovisual-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 44934,
+        "sha256": "64eb6171c1a711cac19b153aef15f26d3dcaab5f896db6ea2e9581294a735e39"
+      },
+      "small": {
+        "path": "/assets/posters/tratamento-audiovisual-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 18520,
+        "sha256": "649e2c26aefcb51da969ee80dda3f71eee6a041886ade040eb0e70ad05eda236"
+      },
+      "original": {
+        "path": "/thumb-portfolio-tratamento.jpg",
+        "width": 1280,
+        "height": 720,
+        "format": "jpeg",
+        "bytes": 110151,
+        "sha256": "2581f85f16144b5fd264a9eb7d4153bcf11565b0c992bd4ffda70923fe3aa0f4"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/tratamento-audiovisual.desktop-640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp",
+          "bytes": 46550,
+          "sha256": "929feb2abd9b6d76c8616377e0af518697b7d660a9cbfc5ca33331f5dc73a347"
+        },
+        {
+          "path": "/assets/posters/desktop/tratamento-audiovisual.desktop-960.webp",
+          "width": 960,
+          "height": 540,
+          "format": "webp",
+          "bytes": 74774,
+          "sha256": "c6c806f6e5c1c1e5fcd91d1aa78d25c9fb6af77db866416d9509c657ad29c3ca"
+        },
+        {
+          "path": "/assets/posters/desktop/tratamento-audiovisual.desktop-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "format": "webp",
+          "bytes": 101736,
+          "sha256": "91a6a0f6c88117370d6bb829ca839f838f61a71d66b16613648d4f9515b3235c"
+        }
+      ],
+      "compositionRmse": 1.415,
+      "originalErrorBefore": 7.406,
+      "originalErrorAfter": 1.415,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "video-emocional",
+      "title": "Vídeo emocional",
+      "current": {
+        "path": "/assets/posters/video-emocional-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 55826,
+        "sha256": "c8ab84c392afad816b99e099ae255a6ac268e5d1d4876e7ca0d023f0761a0333"
+      },
+      "small": {
+        "path": "/assets/posters/video-emocional-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 25284,
+        "sha256": "22d27ebba401855397aafce8b0d051a185e725084f5f743ab406dc3d89f99590"
+      },
+      "original": {
+        "path": "/thumbp5.png",
+        "width": 1460,
+        "height": 821,
+        "format": "jpeg",
+        "bytes": 111375,
+        "sha256": "f6139461e7f1a3075103a1c46fe467f379130d96132e78ed9609f3465c02de5e"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/video-emocional.desktop-640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp",
+          "bytes": 57176,
+          "sha256": "f5a6207ba8f6e7993e898089c243a8010d614246000cfffbe29e5a6bfd42395d"
+        },
+        {
+          "path": "/assets/posters/desktop/video-emocional.desktop-960.webp",
+          "width": 960,
+          "height": 540,
+          "format": "webp",
+          "bytes": 93032,
+          "sha256": "f9ec830b675c89a11a984a7946532374382763fc9bcd0a619719d702011e3df6"
+        },
+        {
+          "path": "/assets/posters/desktop/video-emocional.desktop-1460.webp",
+          "width": 1460,
+          "height": 821,
+          "format": "webp",
+          "bytes": 142376,
+          "sha256": "742c0c8d3a022b8da3aa05e0e7e8567a719ba8c26138f6257386d9fda5edb0e4"
+        }
+      ],
+      "compositionRmse": 2.139,
+      "originalErrorBefore": 7.229,
+      "originalErrorAfter": 1.574,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "cinematografico-ia",
+      "title": "Cena cinematográfica 100% IA",
+      "current": {
+        "path": "/assets/posters/cinematografico-ia-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 29286,
+        "sha256": "8fa62cfc721730ad6e01a3caed31263d7d447c399ceb8707b7d039ba23e1eaae"
+      },
+      "small": {
+        "path": "/assets/posters/cinematografico-ia-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 13208,
+        "sha256": "d6fdf25814726546c6ce686d52899e3c6acac2c5b37eff234d24b931096d7e67"
+      },
+      "original": {
+        "path": "/thumbp7.jpg",
+        "width": 1280,
+        "height": 720,
+        "format": "jpeg",
+        "bytes": 52555,
+        "sha256": "15a49c670793904b581b85750ca65ab3b8a9f40746d903b2b89f321b5b85e53d"
+      },
+      "variants": [
+        {
+          "path": "/assets/posters/desktop/cinematografico-ia.desktop-640.webp",
+          "width": 640,
+          "height": 360,
+          "format": "webp",
+          "bytes": 32372,
+          "sha256": "bb440aaf8b49d2020170484409964ee9c61f44df181da446b7c54ab74cbc4789"
+        },
+        {
+          "path": "/assets/posters/desktop/cinematografico-ia.desktop-960.webp",
+          "width": 960,
+          "height": 540,
+          "format": "webp",
+          "bytes": 51876,
+          "sha256": "040b49e795775a6c565132d2818bbbfa060784fc82746ec2ecede1fffbcf849e"
+        },
+        {
+          "path": "/assets/posters/desktop/cinematografico-ia.desktop-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "format": "webp",
+          "bytes": 66212,
+          "sha256": "925d3140f24322e5c5a1f66857144aef3d971cd227677c56d876bc2e4f973b78"
+        }
+      ],
+      "compositionRmse": 1.058,
+      "originalErrorBefore": 4.095,
+      "originalErrorAfter": 1.318,
+      "result": "native-resolution-restored"
+    },
+    {
+      "id": "ia-marca",
+      "title": "Cena com IA para marca",
+      "current": {
+        "path": "/assets/posters/maquete-marca-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 16756,
+        "sha256": "fada8401bdc786fb7fb82af406e5f2f7b05a01a3e5fd36455bab90b5a679b1fd"
+      },
+      "small": {
+        "path": "/assets/posters/maquete-marca-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 5146,
+        "sha256": "d5270024a54ae01f9833fa4880c32da07869a0454265665a9c99e4e0c0a6999f"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "apresentadora-virtual-ia",
+      "title": "Apresentadora virtual: um prompt, várias cenas",
+      "current": {
+        "path": "/assets/posters/apresentadora-virtual-ia-960.webp",
+        "width": 960,
+        "height": 1707,
+        "format": "webp",
+        "bytes": 13100,
+        "sha256": "95e405b69819dc40e7ef2fa0cc30375b5650d3800648d4cca27b68e50dd96820"
+      },
+      "small": {
+        "path": "/assets/posters/apresentadora-virtual-ia-480.webp",
+        "width": 480,
+        "height": 853,
+        "format": "webp",
+        "bytes": 4830,
+        "sha256": "54381b6148ea5ba821e100a07d56c3d245c85db381f166030b28e42847f0022e"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "possibilidades-com-ia",
+      "title": "Vídeos com IA: novas possibilidades",
+      "current": {
+        "path": "/assets/posters/possibilidades-com-ia-960.webp",
+        "width": 960,
+        "height": 1706,
+        "format": "webp",
+        "bytes": 11928,
+        "sha256": "063f907f4e56b23b5d19a849c830dcabe7e7861bc5a01725cc7683a204dd1f06"
+      },
+      "small": {
+        "path": "/assets/posters/possibilidades-com-ia-480.webp",
+        "width": 480,
+        "height": 854,
+        "format": "webp",
+        "bytes": 4816,
+        "sha256": "54df809f1ea729e767eaa2ad61fb36d254936d3a825737bcc0e474594ec6a353"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "planeta-3d",
+      "title": "Órbitas: abertura cinematográfica em 3D",
+      "current": {
+        "path": "/assets/posters/planeta-3d-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 3974,
+        "sha256": "c3953bb7408504ff581a1264ee7abdbedf9aaef7a999b179c50dc6463a57127f"
+      },
+      "small": {
+        "path": "/assets/posters/planeta-3d-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 1362,
+        "sha256": "d87e933b3a418a88491206bc0981648d823f8d4cefc4f06cd61443c16ece1dd7"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "audi-rs6-3d",
+      "title": "Design em movimento: estudo automotivo em 3D",
+      "current": {
+        "path": "/assets/posters/audi-rs6-3d-960.webp",
+        "width": 960,
+        "height": 1706,
+        "format": "webp",
+        "bytes": 4840,
+        "sha256": "f5bb787aba3d4bd62a1af6a93f19b34a0eedf3f6a52fdbc49b9857cd5f5292a0"
+      },
+      "small": {
+        "path": "/assets/posters/audi-rs6-3d-480.webp",
+        "width": 480,
+        "height": 854,
+        "format": "webp",
+        "bytes": 1430,
+        "sha256": "fbf4ae537d7bda3e0faadcefbf1a6e00bba5559f47844f56fcdea2f7c24f6909"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "visualizer-3d",
+      "title": "Atmosfera sonora: visual musical em 3D",
+      "current": {
+        "path": "/assets/posters/visualizer-3d-960.webp",
+        "width": 960,
+        "height": 1706,
+        "format": "webp",
+        "bytes": 9900,
+        "sha256": "940e159f6bbfc343e18536cb8357540e6dcef10506a4fbb0d5ed431c133c5e08"
+      },
+      "small": {
+        "path": "/assets/posters/visualizer-3d-480.webp",
+        "width": 480,
+        "height": 854,
+        "format": "webp",
+        "bytes": 3000,
+        "sha256": "62e45d8b80fe3d418f1abf01fb1c0eb30da7685735ec0ab8f0580425d1c6d030"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "dodge-garagem-3d",
+      "title": "Luz e presença: filme automotivo em 3D",
+      "current": {
+        "path": "/assets/posters/dodge-garagem-3d-960.webp",
+        "width": 960,
+        "height": 540,
+        "format": "webp",
+        "bytes": 6002,
+        "sha256": "9c60a19362a660aa0216b7a1071a25616b94fe775827bb3d35b7323562d1432e"
+      },
+      "small": {
+        "path": "/assets/posters/dodge-garagem-3d-480.webp",
+        "width": 480,
+        "height": 270,
+        "format": "webp",
+        "bytes": 2070,
+        "sha256": "29615c031b15a141791a7866c53e10ab088e27939edf8ec7ef4109285956de2e"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "dodge-ia-3d",
+      "title": "Movimento imersivo: criação com IA e 3D",
+      "current": {
+        "path": "/assets/posters/dodge-ia-3d-960.webp",
+        "width": 960,
+        "height": 1706,
+        "format": "webp",
+        "bytes": 28168,
+        "sha256": "18f5637c1ecadde364ca9c2309fd17f99d3a963e0505372625b94e397334eacb"
+      },
+      "small": {
+        "path": "/assets/posters/dodge-ia-3d-480.webp",
+        "width": 480,
+        "height": 854,
+        "format": "webp",
+        "bytes": 8116,
+        "sha256": "610d511d1fcdc34577705c8e0273bfe07ab13febb604f41892f80812bffbc1f1"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "do-sonho-a-conquista-ia",
+      "title": "Do sonho à conquista — filme com IA",
+      "current": {
+        "path": "/assets/posters/do-sonho-a-conquista-ia-960.webp",
+        "width": 960,
+        "height": 1706,
+        "format": "webp",
+        "bytes": 10620,
+        "sha256": "19111b5149efae9ab8f07348a07257cb193dddc17c07251d3acbeb355cf97f54"
+      },
+      "small": {
+        "path": "/assets/posters/do-sonho-a-conquista-ia-480.webp",
+        "width": 480,
+        "height": 854,
+        "format": "webp",
+        "bytes": 3934,
+        "sha256": "8ddc3d78851d60b76154c2eec6ab12a3dd448f02f85b7309c39a04bda525c010"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    },
+    {
+      "id": "chaveiro-take-cut",
+      "title": "Chaveiro Take Cut: apresentação de produto",
+      "current": {
+        "path": "/assets/posters/chaveiro-take-cut-960.webp",
+        "width": 960,
+        "height": 1706,
+        "format": "webp",
+        "bytes": 13456,
+        "sha256": "0db6a3fe4ec00dc563e902abef1325f99f186ff0c98c97884d640190f51fa319"
+      },
+      "small": {
+        "path": "/assets/posters/chaveiro-take-cut-480.webp",
+        "width": 480,
+        "height": 854,
+        "format": "webp",
+        "bytes": 5160,
+        "sha256": "f5b9f0d3a429132ae7333c3b3c4d641bb2949c593f9a7d9e818f39563262e551"
+      },
+      "original": null,
+      "variants": [],
+      "result": "source-limited",
+      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+    }
+  ]
+}

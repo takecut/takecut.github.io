@@ -35,6 +35,8 @@ jobs:
         run: node _studio/niches-check.cjs
       - name: Validate pricing page, public terms and plan inquiries
         run: node _studio/plans-check.cjs
+      - name: Validate desktop thumbnail sources and original asset integrity
+        run: node _studio/desktop-thumbnails-check.cjs
       - name: Verify generated pages match their sources
         run: |
           node _studio/build.cjs
