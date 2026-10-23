@@ -14,6 +14,12 @@ for(const r of manifest.records){
   for(const original of [r.current,r.small,r.original].filter(Boolean))assert.equal(hash(original.path),original.sha256,'Original image changed: '+original.path);
   for(const v of r.variants){assert.equal(hash(v.path),v.sha256);assert.ok(v.width<=r.original.width,'No artificial enlargement');}
   if(r.variants.length)assert.ok(r.originalErrorAfter<r.originalErrorBefore);
+  if(r.result==='original-upload'){
+    const project=require('../assets/projects.json').find(p=>p.id===r.id);
+    assert.equal(project.thumbnail,r.original.path);
+    assert.equal(project.thumbnailSmall,r.original.path);
+    assert.equal(r.variants.length,0,'Uploaded originals must not have compressed variants');
+  }
 }
 const files=execFileSync('git',['ls-files','*.html'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/);
 for(const file of files){

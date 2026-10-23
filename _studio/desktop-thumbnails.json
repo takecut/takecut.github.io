@@ -680,49 +680,63 @@
       "id": "ia-marca",
       "title": "Cena com IA para marca",
       "current": {
-        "path": "/assets/posters/maquete-marca-960.webp",
-        "width": 960,
-        "height": 540,
-        "format": "webp",
-        "bytes": 16756,
-        "sha256": "fada8401bdc786fb7fb82af406e5f2f7b05a01a3e5fd36455bab90b5a679b1fd"
+        "path": "/assets/posters/ia-marca-original-20261023.png",
+        "width": 1663,
+        "height": 951,
+        "format": "png",
+        "bytes": 1567388,
+        "sha256": "a4aec182403800a22ebd5f18d403316b6926d919e4be6c12875ddcc0dd031786"
       },
       "small": {
-        "path": "/assets/posters/maquete-marca-480.webp",
-        "width": 480,
-        "height": 270,
-        "format": "webp",
-        "bytes": 5146,
-        "sha256": "d5270024a54ae01f9833fa4880c32da07869a0454265665a9c99e4e0c0a6999f"
+        "path": "/assets/posters/ia-marca-original-20261023.png",
+        "width": 1663,
+        "height": 951,
+        "format": "png",
+        "bytes": 1567388,
+        "sha256": "a4aec182403800a22ebd5f18d403316b6926d919e4be6c12875ddcc0dd031786"
       },
-      "original": null,
+      "original": {
+        "path": "/assets/posters/ia-marca-original-20261023.png",
+        "width": 1663,
+        "height": 951,
+        "format": "png",
+        "bytes": 1567388,
+        "sha256": "a4aec182403800a22ebd5f18d403316b6926d919e4be6c12875ddcc0dd031786"
+      },
       "variants": [],
-      "result": "source-limited",
-      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+      "result": "original-upload",
+      "limitation": "User-supplied original used byte-for-byte at every viewport; no derivatives."
     },
     {
       "id": "apresentadora-virtual-ia",
       "title": "Apresentadora virtual: um prompt, várias cenas",
       "current": {
-        "path": "/assets/posters/apresentadora-virtual-ia-960.webp",
-        "width": 960,
-        "height": 1707,
-        "format": "webp",
-        "bytes": 13100,
-        "sha256": "95e405b69819dc40e7ef2fa0cc30375b5650d3800648d4cca27b68e50dd96820"
+        "path": "/assets/posters/apresentadora-virtual-original-20261023.png",
+        "width": 530,
+        "height": 952,
+        "format": "png",
+        "bytes": 576638,
+        "sha256": "ca69c148d12ba219878c31c64e5abef20bad79167861a7ec3c6ead3ba39fe348"
       },
       "small": {
-        "path": "/assets/posters/apresentadora-virtual-ia-480.webp",
-        "width": 480,
-        "height": 853,
-        "format": "webp",
-        "bytes": 4830,
-        "sha256": "54381b6148ea5ba821e100a07d56c3d245c85db381f166030b28e42847f0022e"
+        "path": "/assets/posters/apresentadora-virtual-original-20261023.png",
+        "width": 530,
+        "height": 952,
+        "format": "png",
+        "bytes": 576638,
+        "sha256": "ca69c148d12ba219878c31c64e5abef20bad79167861a7ec3c6ead3ba39fe348"
       },
-      "original": null,
+      "original": {
+        "path": "/assets/posters/apresentadora-virtual-original-20261023.png",
+        "width": 530,
+        "height": 952,
+        "format": "png",
+        "bytes": 576638,
+        "sha256": "ca69c148d12ba219878c31c64e5abef20bad79167861a7ec3c6ead3ba39fe348"
+      },
       "variants": [],
-      "result": "source-limited",
-      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+      "result": "original-upload",
+      "limitation": "User-supplied original used byte-for-byte at every viewport; no derivatives."
     },
     {
       "id": "possibilidades-com-ia",
@@ -872,25 +886,32 @@
       "id": "do-sonho-a-conquista-ia",
       "title": "Do sonho à conquista — filme com IA",
       "current": {
-        "path": "/assets/posters/do-sonho-a-conquista-ia-960.webp",
-        "width": 960,
-        "height": 1706,
-        "format": "webp",
-        "bytes": 10620,
-        "sha256": "19111b5149efae9ab8f07348a07257cb193dddc17c07251d3acbeb355cf97f54"
+        "path": "/assets/posters/do-sonho-a-conquista-original-20261023.png",
+        "width": 531,
+        "height": 951,
+        "format": "png",
+        "bytes": 628907,
+        "sha256": "6a41c6dfbc189f9b4a1d0aa3217f5c37258b9c0da2fe0ed19f0aad695b064b20"
       },
       "small": {
-        "path": "/assets/posters/do-sonho-a-conquista-ia-480.webp",
-        "width": 480,
-        "height": 854,
-        "format": "webp",
-        "bytes": 3934,
-        "sha256": "8ddc3d78851d60b76154c2eec6ab12a3dd448f02f85b7309c39a04bda525c010"
+        "path": "/assets/posters/do-sonho-a-conquista-original-20261023.png",
+        "width": 531,
+        "height": 951,
+        "format": "png",
+        "bytes": 628907,
+        "sha256": "6a41c6dfbc189f9b4a1d0aa3217f5c37258b9c0da2fe0ed19f0aad695b064b20"
       },
-      "original": null,
+      "original": {
+        "path": "/assets/posters/do-sonho-a-conquista-original-20261023.png",
+        "width": 531,
+        "height": 951,
+        "format": "png",
+        "bytes": 628907,
+        "sha256": "6a41c6dfbc189f9b4a1d0aa3217f5c37258b9c0da2fe0ed19f0aad695b064b20"
+      },
       "variants": [],
-      "result": "source-limited",
-      "limitation": "Only existing WebP stills are available. No installed faithful super-resolution model. No enlargement or replacement frame was created."
+      "result": "original-upload",
+      "limitation": "User-supplied original used byte-for-byte at every viewport; no derivatives."
     },
     {
       "id": "chaveiro-take-cut",
